@@ -1,0 +1,952 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>dooboostore - Integrated Development Platform</title>
+    <meta name="description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta name="keywords" content="TypeScript, JavaScript, library, framework, Simple Boot, DI, AOP, open source, web development">
+    <meta name="author" content="dooboostore">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dooboostore-develop.github.io/">
+    <meta property="og:title" content="dooboostore - Integrated Development Platform">
+    <meta property="og:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="og:image" content="assets/images/dooboostore.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dooboostore-develop.github.io/">
+    <meta property="twitter:title" content="dooboostore - Integrated Development Platform">
+    <meta property="twitter:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="twitter:image" content="assets/images/dooboostore.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- StackBlitz SDK -->
+    <script src="https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.umd.js"></script>
+<!--    <script src="https://unpkg.com/@stackblitz/sdk/bundles/sdk.umd.js"> </script>-->
+
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({startOnLoad: true});
+        window.Mermaid = mermaid;
+    </script>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "dooboostore",
+            "description": "A powerful and flexible Integrated Development Platform collection for modern web application development",
+            "url": "https://dooboostore-develop.github.io/",
+            "author": {
+                "@type": "Organization",
+                "name": "dooboostore"
+            },
+            "programmingLanguage": "TypeScript",
+            "operatingSystem": "Cross-platform",
+            "applicationCategory": "DeveloperApplication"
+        }
+    </script>
+<script defer src="bundle.js"></script></head>
+<body>
+
+<div id="app"><meta id="MBXNSsotfUKaohvAZvFNhMSLcabnrMvgRJfeQytI-start"><style id="MBXNSsotfUKaohvAZvFNhMSLcabnrMvgRJfeQytI-style"></style><meta id="zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start"><style id="zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-style">/* Header */
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).header, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).header-container, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).header-left, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .header-left {
+  display: flex;
+  align-items: center;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).logo, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).logo-img, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).logo-text, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).header-nav, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 32px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).nav-link, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .nav-link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).nav-link:hover, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .nav-link:hover {
+  color: white;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).nav-link:active, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(102, 126, 234, 0.2);
+  background-color: rgba(102, 126, 234, 0.15);
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).header-right, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* Language Toggle */
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-toggle, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-toggle {
+  position: relative;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-checkbox, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-checkbox {
+  display: none;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-label, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  width: 50px;
+  /* 더 작은 고정 너비 */
+  min-width: 50px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-label:hover, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-text, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-text {
+  transition: opacity 0.2s ease;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-text.english, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-text.english {
+  display: none;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-checkbox:checked + .language-label .language-text.korean, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-checkbox:checked + .language-label .language-text.korean {
+  display: none;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).language-checkbox:checked + .language-label .language-text.english, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .language-checkbox:checked + .language-label .language-text.english {
+  display: inline;
+}
+/* Language Content Toggle */
+/* .content.en { */
+/* display: block; */
+/* } */
+/* .content.ko { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.en { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.ko { */
+/* display: block; */
+/* } */
+/* Main Content */
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) main, #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ main:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *) {
+  min-height: 100vh;
+}
+/* Footer */
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer {
+  background: #000;
+  color: white;
+  padding: 20px 0 0;
+  /* margin-top: 120px; */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-container, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-simple, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-logo, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-logo .logo-img, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-logo .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-logo .logo-text, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-logo .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-links, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-link, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-link:hover, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-link:hover {
+  color: white;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-link i, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-link i {
+  font-size: 16px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-copyright, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-logo-small, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-logo-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).footer-copyright p, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .footer-copyright p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).content.ko, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).content.en, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .content.en {
+  display: block;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) header:has(#language-toggle:checked) ~ * .content.ko, #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ header:has(#language-toggle:checked) ~ * .content.ko:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *), :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) header:has(#language-toggle:checked) .content.ko, #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ header:has(#language-toggle:checked) .content.ko:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *) {
+  display: block;
+}
+:is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) header:has(#language-toggle:checked) ~ * .content.en, #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ header:has(#language-toggle:checked) ~ * .content.en:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *), :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) header:has(#language-toggle:checked) .content.en, #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ header:has(#language-toggle:checked) .content.en:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *) {
+  display: none;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).logo-text, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .logo-text {
+    display: none !important;
+  }
+  :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).header-nav, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .header-nav {
+    display: flex;
+    /* Show nav on mobile now */
+    margin-left: 16px;
+    /* Smaller margin on mobile */
+    gap: 16px;
+    /* Smaller gap on mobile */
+  }
+  :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).nav-link, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .nav-link {
+    font-size: 13px;
+    /* Slightly smaller font on mobile */
+  }
+  :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)).header-container, :is(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ *:not(#zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-start ~ #zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end ~ *)) .header-container {
+    padding: 0 16px;
+  }
+  /* .footer-links { */
+  /* flex-direction: column; */
+  /* gap: 16px; */
+  /* } */
+}</style><!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <meta id="XEojglSQKURZvyfsKarXdurDADbMkcZJjRyOXAsN-start"><style id="XEojglSQKURZvyfsKarXdurDADbMkcZJjRyOXAsN-style"></style><a href="/" target="null" style="null" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text content en">dooboostore</span>
+                <span class="logo-text content ko">두부가게</span>
+            </a><meta id="XEojglSQKURZvyfsKarXdurDADbMkcZJjRyOXAsN-end">
+
+            <nav class="header-nav">
+                <meta id="WGMiBTuinIVJxGkcerqaaYABXYLppaYdbeXsooUz-start"><style id="WGMiBTuinIVJxGkcerqaaYABXYLppaYdbeXsooUz-style"></style><a href="/@dooboostore" target="null" style="null" class="nav-link content en">📦 Packages</a><meta id="WGMiBTuinIVJxGkcerqaaYABXYLppaYdbeXsooUz-end">
+                <meta id="QrhNZVmIzuWcwwNXnokMHzbDUnkBWigcjsDZHHkV-start"><style id="QrhNZVmIzuWcwwNXnokMHzbDUnkBWigcjsDZHHkV-style"></style><a href="/@dooboostore" target="null" style="null" class="nav-link content ko">📦 패키지</a><meta id="QrhNZVmIzuWcwwNXnokMHzbDUnkBWigcjsDZHHkV-end">
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <meta id="oAoVtDppJosEwJKixkyhcCTcaYtrwiNhAfKuCWPS-start"><style id="oAoVtDppJosEwJKixkyhcCTcaYtrwiNhAfKuCWPS-style"></style><meta id="BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start"><style id="BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-style">:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) *, #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).packages-container, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .packages-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #e5e5e5;
+  min-height: 100vh;
+  position: relative;
+}
+/* Mobile Menu Toggle */
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).mobile-menu-toggle, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .mobile-menu-toggle {
+  /* display: none; */
+  position: fixed;
+  bottom: 24px;
+  left: 14px;
+  z-index: 1000;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).menu-toggle-btn, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .menu-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).menu-toggle-btn:hover, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).menu-toggle-btn span, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .menu-toggle-btn span {
+  display: none;
+}
+/* Sidebar */
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar {
+  width: 280px;
+  background: #000;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 50;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-content, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-content {
+  padding: 24px 0;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-section, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-section {
+  margin-bottom: 8px;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-category, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-category:hover, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-category:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).category-arrow, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .category-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).category-arrow.rotated, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .category-arrow.rotated {
+  transform: rotate(180deg);
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-items, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-items.open, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-items.open {
+  max-height: 500px;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-item, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-item {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 8px 24px 8px 40px;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-item:hover, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar-item.active, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar-item.active {
+  color: #0070f3;
+  background: rgba(0, 112, 243, 0.1);
+  border-left-color: #0070f3;
+}
+/* Main Content */
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).main-content, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .main-content {
+  margin-left: 280px;
+  padding: 0;
+  min-height: 100vh;
+}
+/* Language Content Toggle */
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).content.ko, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).content.en, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .content.en {
+  display: block;
+}
+/* Desktop - 사이드바 토글 가능 */
+@media (min-width: 769px) {
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).mobile-menu-toggle, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    top: auto;
+    z-index: 1001;
+    transition: left 0.3s ease;
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).menu-toggle-btn, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .menu-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).menu-toggle-btn:hover, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .menu-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar.closed, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  /* 사이드바가 닫혔을 때 토글 버튼 위치는 그대로 유지 */
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar.closed ~ .mobile-menu-toggle, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar.closed ~ .mobile-menu-toggle {
+    left: 20px;
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).main-content, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).main-content.expanded, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .main-content.expanded {
+    margin-left: 0;
+  }
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).packages-container, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .packages-container {
+    display: block;
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).mobile-menu-toggle, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .mobile-menu-toggle {
+    display: block;
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar.open, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar.open {
+    transform: translateX(0);
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).main-content, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .main-content {
+    margin-left: 0;
+  }
+  /* Mobile overlay */
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar.open::before, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).sidebar, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .sidebar {
+    width: 240px;
+  }
+  :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)).main-content, :is(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ *:not(#BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-start ~ #BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end ~ *)) .main-content {
+    margin-left: 240px;
+  }
+}</style><div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="framework-items">
+                    <meta id="evgAqkpbJQnXJEHCDpDSeBHYaSiLUPrmWhwtpJZx-start"><meta id="NsZAQmJyMUcyrHONcsAnuWNPMkByBcLnTMRhSWVD-start"><style id="NsZAQmJyMUcyrHONcsAnuWNPMkByBcLnTMRhSWVD-style"></style><a href="/@dooboostore/simple-boot" target="null" style="null" class="sidebar-item"><!--start text xwSxHIKcxjTVyPuapGJVvXTciyXGoLEMsuohDHmX_DomRenderRootObject-->simple-boot<!--end text xwSxHIKcxjTVyPuapGJVvXTciyXGoLEMsuohDHmX_DomRenderRootObject--></a><meta id="NsZAQmJyMUcyrHONcsAnuWNPMkByBcLnTMRhSWVD-end"><meta id="cJKDEvnNWVVgoWXkYLNhXIxebXFEVCJMLqpjdVoT-start"><style id="cJKDEvnNWVVgoWXkYLNhXIxebXFEVCJMLqpjdVoT-style"></style><a href="/@dooboostore/simple-boot-front" target="null" style="null" class="sidebar-item"><!--start text afhAzdcGNdRAbEiEFVdahuSWtQkYkEjbGJiNVuSq_DomRenderRootObject-->simple-boot-front<!--end text afhAzdcGNdRAbEiEFVdahuSWtQkYkEjbGJiNVuSq_DomRenderRootObject--></a><meta id="cJKDEvnNWVVgoWXkYLNhXIxebXFEVCJMLqpjdVoT-end"><meta id="NjJKDiFVeAQgPNOBFetzuIgcysQsXeDfshLiobxN-start"><style id="NjJKDiFVeAQgPNOBFetzuIgcysQsXeDfshLiobxN-style"></style><a href="/@dooboostore/simple-boot-http-server" target="null" style="null" class="sidebar-item"><!--start text guqWOZJPxgkphUuuyvrzhQlOCgWtmoOVbRUImTFu_DomRenderRootObject-->simple-boot-http-server<!--end text guqWOZJPxgkphUuuyvrzhQlOCgWtmoOVbRUImTFu_DomRenderRootObject--></a><meta id="NjJKDiFVeAQgPNOBFetzuIgcysQsXeDfshLiobxN-end"><meta id="zQUpljLleKCWmdtacGRMfIirvUwihXkxYzHFoTkA-start"><style id="zQUpljLleKCWmdtacGRMfIirvUwihXkxYzHFoTkA-style"></style><a href="/@dooboostore/simple-boot-http-server-ssr" target="null" style="null" class="sidebar-item"><!--start text ebJriotnjATuORRXaZCjeQvhebTuYpHFKOsGRrbT_DomRenderRootObject-->simple-boot-http-server-ssr<!--end text ebJriotnjATuORRXaZCjeQvhebTuYpHFKOsGRrbT_DomRenderRootObject--></a><meta id="zQUpljLleKCWmdtacGRMfIirvUwihXkxYzHFoTkA-end"><meta id="evgAqkpbJQnXJEHCDpDSeBHYaSiLUPrmWhwtpJZx-end">
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="library-items">
+                    <meta id="PdSxjHGizptXDiinoxGCyXUSSrAtrrAxxxZrKTOv-start"><meta id="nEVUTIqJhiaCDypIvOTxjEZKuSkKLWcIsYogTFxj-start"><style id="nEVUTIqJhiaCDypIvOTxjEZKuSkKLWcIsYogTFxj-style"></style><a href="/@dooboostore/dom-render" target="null" style="null" class="sidebar-item"><!--start text rIwtgMfqzBCdKBIvArzmfdHYGaPdzFcglxUTQBuB_DomRenderRootObject-->dom-render<!--end text rIwtgMfqzBCdKBIvArzmfdHYGaPdzFcglxUTQBuB_DomRenderRootObject--></a><meta id="nEVUTIqJhiaCDypIvOTxjEZKuSkKLWcIsYogTFxj-end"><meta id="UrLnLalkJbLkorfHyuKXEMEHBzcgXiRcxzYDXOrl-start"><style id="UrLnLalkJbLkorfHyuKXEMEHBzcgXiRcxzYDXOrl-style"></style><a href="/@dooboostore/swt" target="null" style="null" class="sidebar-item"><!--start text EHSxKudqnSKoMKYuwbkTsKBkRygWhAWjYXPWeOhy_DomRenderRootObject-->swt<!--end text EHSxKudqnSKoMKYuwbkTsKBkRygWhAWjYXPWeOhy_DomRenderRootObject--></a><meta id="UrLnLalkJbLkorfHyuKXEMEHBzcgXiRcxzYDXOrl-end"><meta id="PdSxjHGizptXDiinoxGCyXUSSrAtrrAxxxZrKTOv-end">
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="core-items">
+                    <meta id="MocVOUuLxukdhrrXZdpUZyRYdQOJwJeZRkyQDJlR-start"><meta id="CkYiAhVrigMsHAsPIzgYmWKMheCbAMmgYbBQSDCV-start"><style id="CkYiAhVrigMsHAsPIzgYmWKMheCbAMmgYbBQSDCV-style"></style><a href="/@dooboostore/core" target="null" style="null" class="sidebar-item"><!--start text nWGNmSnzZGOTNTnholkjviBNyBTcJOemftOShsxj_DomRenderRootObject-->core<!--end text nWGNmSnzZGOTNTnholkjviBNyBTcJOemftOShsxj_DomRenderRootObject--></a><meta id="CkYiAhVrigMsHAsPIzgYmWKMheCbAMmgYbBQSDCV-end"><meta id="ilvgjTBIhzovpNlsVgsCcqvAvkpSeefqydXlDUyt-start"><style id="ilvgjTBIhzovpNlsVgsCcqvAvkpSeefqydXlDUyt-style"></style><a href="/@dooboostore/core-node" target="null" style="null" class="sidebar-item"><!--start text NYdmprILcQHGynVHwfSyGtmHRoJWosWuGeGIsaUU_DomRenderRootObject-->core-node<!--end text NYdmprILcQHGynVHwfSyGtmHRoJWosWuGeGIsaUU_DomRenderRootObject--></a><meta id="ilvgjTBIhzovpNlsVgsCcqvAvkpSeefqydXlDUyt-end"><meta id="aUJSgLbhJqkliVBAjwaMDwBbXQkpAXvgvBElEGqt-start"><style id="aUJSgLbhJqkliVBAjwaMDwBbXQkpAXvgvBElEGqt-style"></style><a href="/@dooboostore/core-web" target="null" style="null" class="sidebar-item"><!--start text qfhMgTaVpnKmhcJgCZtvZNVcnkxzJHtELFhGhVGq_DomRenderRootObject-->core-web<!--end text qfhMgTaVpnKmhcJgCZtvZNVcnkxzJHtELFhGhVGq_DomRenderRootObject--></a><meta id="aUJSgLbhJqkliVBAjwaMDwBbXQkpAXvgvBElEGqt-end"><meta id="MocVOUuLxukdhrrXZdpUZyRYdQOJwJeZRkyQDJlR-end">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <meta id="yvYjfzENwfxneaqwChqNhIXqftrorDrbpTwuYZYJ-start"><style id="yvYjfzENwfxneaqwChqNhIXqftrorDrbpTwuYZYJ-style"></style><meta id="ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start"><style id="ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-style">:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-header, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-header {
+  padding: 48px 48px 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-header h1, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-subtitle, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+/* Content */
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-content, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-content {
+  padding: 48px;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-grid, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+/* Package Category */
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-category h2, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-category h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-list, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* Package Item */
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-item, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-item:hover, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-item:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.05);
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-info, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-info {
+  flex: 1;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-info h3, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-info p, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-info p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-tags, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).tag, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-arrow, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-arrow {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: 16px;
+  transition: all 0.2s ease;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-item:hover .package-arrow, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-item:hover .package-arrow {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+/* Language Content Toggle */
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).content.ko, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).content.en, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .content.en {
+  display: block;
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-header, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-header {
+    padding: 32px 24px 24px;
+  }
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-header h1, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-header h1 {
+    font-size: 2rem;
+  }
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-subtitle, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-subtitle {
+    font-size: 1rem;
+  }
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-content, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-content {
+    padding: 32px 24px;
+  }
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-grid, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-grid {
+    gap: 32px;
+  }
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-item, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-item {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).package-arrow, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .package-arrow {
+    align-self: flex-end;
+    margin-left: 0;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-header, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-header {
+    padding: 40px 32px 28px;
+  }
+  :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)).packages-content, :is(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ *:not(#ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-start ~ #ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end ~ *)) .packages-content {
+    padding: 40px 32px;
+  }
+}</style><div class="packages-header">
+    <h1 class="content en">Packages</h1>
+    <h1 class="content ko">패키지</h1>
+    <p class="packages-subtitle content en">Explore all packages in the dooboostore ecosystem</p>
+    <p class="packages-subtitle content ko">dooboostore 생태계의 모든 패키지를 둘러보세요</p>
+</div>
+
+<div class="packages-content">
+    <div class="packages-grid">
+        <!-- Framework -->
+        <div class="package-category" data-section="simple-boot">
+            <h2 class="content en">Framework</h2>
+            <h2 class="content ko">프레임워크</h2>
+            <div class="package-list">
+                <meta id="VHRgSpyiCqewIaprVRWlqJmvunIrGmKZdmfHkefN-start"><style id="VHRgSpyiCqewIaprVRWlqJmvunIrGmKZdmfHkefN-style"></style><a href="/@dooboostore/simple-boot" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/simple-boot</h3>
+                        <p class="content en">Lightweight framework with DI and AOP support</p>
+                        <p class="content ko">DI, AOP를 지원하는 경량 프레임워크</p>
+                        <div class="package-tags">
+                            <span class="tag">DI</span>
+                            <span class="tag">AOP</span>
+                            <span class="tag">Framework</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="VHRgSpyiCqewIaprVRWlqJmvunIrGmKZdmfHkefN-end">
+
+                <meta id="TmNDhvMGmrqmAnRRKmRSmtFABZvEniTKqaTXaUhg-start"><style id="TmNDhvMGmrqmAnRRKmRSmtFABZvEniTKqaTXaUhg-style"></style><a href="/@dooboostore/simple-boot-front" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/simple-boot-front</h3>
+                        <p class="content en">Simple Boot extension for frontend development</p>
+                        <p class="content ko">프론트엔드 개발을 위한 Simple Boot 확장</p>
+                        <div class="package-tags">
+                            <span class="tag">Frontend</span>
+                            <span class="tag">Component</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="TmNDhvMGmrqmAnRRKmRSmtFABZvEniTKqaTXaUhg-end">
+
+                <meta id="uPoUMOqSpuaqSdXscTARWHlxcxidngImxbGAgkmC-start"><style id="uPoUMOqSpuaqSdXscTARWHlxcxidngImxbGAgkmC-style"></style><a href="/@dooboostore/simple-boot-http-server" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/simple-boot-http-server</h3>
+                        <p class="content en">Simple Boot extension for HTTP server development</p>
+                        <p class="content ko">HTTP 서버 개발을 위한 Simple Boot 확장</p>
+                        <div class="package-tags">
+                            <span class="tag">HTTP Server</span>
+                            <span class="tag">API</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="uPoUMOqSpuaqSdXscTARWHlxcxidngImxbGAgkmC-end">
+
+                <meta id="mJeVdJAsqOwwvElAanVaojnDJeZbcEijtDHlgyoo-start"><style id="mJeVdJAsqOwwvElAanVaojnDJeZbcEijtDHlgyoo-style"></style><a href="/@dooboostore/simple-boot-http-server-ssr" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/simple-boot-http-server-ssr</h3>
+                        <p class="content en">HTTP server with server-side rendering support</p>
+                        <p class="content ko">서버 사이드 렌더링을 지원하는 HTTP 서버</p>
+                        <div class="package-tags">
+                            <span class="tag">SSR</span>
+                            <span class="tag">HTTP Server</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="mJeVdJAsqOwwvElAanVaojnDJeZbcEijtDHlgyoo-end">
+            </div>
+        </div>
+
+        <!-- Library -->
+        <div class="package-category" data-section="dom-render">
+            <h2 class="content en">Library</h2>
+            <h2 class="content ko">라이브러리</h2>
+            <div class="package-list">
+                <meta id="WZEIGpttRUEbgSkAixzjdIXGdXLRcHhdcjmCNidJ-start"><style id="WZEIGpttRUEbgSkAixzjdIXGdXLRcHhdcjmCNidJ-style"></style><a href="/@dooboostore/dom-render" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/dom-render</h3>
+                        <p class="content en">Lightweight DOM rendering engine</p>
+                        <p class="content ko">가벼운 DOM 렌더링 엔진</p>
+                        <div class="package-tags">
+                            <span class="tag">DOM</span>
+                            <span class="tag">Render</span>
+                            <span class="tag">Component</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="WZEIGpttRUEbgSkAixzjdIXGdXLRcHhdcjmCNidJ-end">
+
+                <meta id="QRGIrAAUWXwNhWUNxbaOYOKtpxFRFumRbyfqekxL-start"><style id="QRGIrAAUWXwNhWUNxbaOYOKtpxFRFumRbyfqekxL-style"></style><a href="/@dooboostore/swt" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/swt</h3>
+                        <p class="content en">Lightweight library for tracking user interactions and events.</p>
+                        <p class="content ko">사용자 상호작용 및 이벤트 추적을 위한 경량 라이브러리입니다.</p>
+                        <div class="package-tags">
+                            <span class="tag">Tracking</span>
+                            <span class="tag">Analytics</span>
+                            <span class="tag">UX</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="QRGIrAAUWXwNhWUNxbaOYOKtpxFRFumRbyfqekxL-end">
+            </div>
+        </div>
+
+        <!-- Core -->
+        <div class="package-category" data-section="core">
+            <h2 class="content en">Core</h2>
+            <h2 class="content ko">코어</h2>
+            <div class="package-list">
+                <meta id="nHXOiAxthQSQvIRPQOeTcTTACisUbYnPoMaQDNUV-start"><style id="nHXOiAxthQSQvIRPQOeTcTTACisUbYnPoMaQDNUV-style"></style><a href="/@dooboostore/core" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/core</h3>
+                        <p class="content en">Essential utilities, messaging, HTTP client and core functionality</p>
+                        <p class="content ko">유틸리티, 메시징, HTTP 클라이언트 등 핵심 기능을 제공하는 기본 패키지</p>
+                        <div class="package-tags">
+                            <span class="tag">Utils</span>
+                            <span class="tag">HTTP</span>
+                            <span class="tag">Observable</span>
+                            <span class="tag">Rendering</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="nHXOiAxthQSQvIRPQOeTcTTACisUbYnPoMaQDNUV-end">
+
+                <meta id="ntvEXhvLSUgFBvOELGyihRFTDmZgPVDrfVgxqURN-start"><style id="ntvEXhvLSUgFBvOELGyihRFTDmZgPVDrfVgxqURN-style"></style><a href="/@dooboostore/core-node" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/core-node</h3>
+                        <p class="content en">Node.js specific utilities and functionality</p>
+                        <p class="content ko">Node.js 환경을 위한 전용 유틸리티와 기능</p>
+                        <div class="package-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Server</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="ntvEXhvLSUgFBvOELGyihRFTDmZgPVDrfVgxqURN-end">
+
+                <meta id="mcWgdxSJzHifGMmOushAxkdjwezpdgaVnboiiVNg-start"><style id="mcWgdxSJzHifGMmOushAxkdjwezpdgaVnboiiVNg-style"></style><a href="/@dooboostore/core-web" target="null" style="null" class="package-item">
+                    <div class="package-info">
+                        <h3>@dooboostore/core-web</h3>
+                        <p class="content en">Web browser specific utilities and functionality</p>
+                        <p class="content ko">웹 브라우저 환경을 위한 전용 유틸리티와 기능</p>
+                        <div class="package-tags">
+                            <span class="tag">Browser</span>
+                            <span class="tag">Web</span>
+                        </div>
+                    </div>
+                    <div class="package-arrow">→</div>
+                </a><meta id="mcWgdxSJzHifGMmOushAxkdjwezpdgaVnboiiVNg-end">
+            </div>
+        </div>
+    </div>
+</div><meta id="ntThjcIYCEekvtNQgdHgdBJRFtOOxqcrPkiYdWmD-end"><meta id="yvYjfzENwfxneaqwChqNhIXqftrorDrbpTwuYZYJ-end">
+<!--        <dr-this value=""></dr-this>-->
+    </main>
+</div><meta id="BwNgNPNrprvzrpDsKEgmrhmsEDrbkcHsQDiiFwmn-end"><meta id="oAoVtDppJosEwJKixkyhcCTcaYtrwiNhAfKuCWPS-end">
+<!--    <dr-this value=""></dr-this>-->
+</main>
+
+
+<!--<iframe-->
+<!--        src="https://stackblitz.com/edit/stackblitz-starters-1idcahki?embed=1&file=src/index.ts&hideNavigation=1&hidePreview=1&view=editor&env=MODE=vvvvvtest"-->
+<!--        style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"-->
+<!--&gt;-->
+<!--</iframe>-->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+<!--                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">-->
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<meta id="zaPvsyVlOdHLbVnEsnIRWAoRrlATjtuHkuZhfOCr-end"><meta id="MBXNSsotfUKaohvAZvFNhMSLcabnrMvgRJfeQytI-end"></div>
+</body>
+</html>

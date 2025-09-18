@@ -1,0 +1,750 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-front</h1>
+            <p class="content en">A component-based framework for building fast and modern Single Page Applications</p>
+            <p class="content ko">빠르고 모던한 단일 페이지 애플리케이션을 구축하기 위한 컴포넌트 기반 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot-front" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-front" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package with your preferred package manager</p>
+                <p class="content ko">선호하는 패키지 매니저로 패키지를 설치하세요</p>
+                <code-snippet-container>
+                    <code-snippet name="📦 quick start">
+                        <code-snippet-code type="bash">npm init @dooboostore/simple-boot-front projectname</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="npm">
+                        <code-snippet-code type="bash">npm install @dooboostore/simple-boot-front reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="pnpm">
+                        <code-snippet-code type="bash">pnpm add @dooboostore/simple-boot-front reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+            <section class="section">
+                <h2 id="demo">Demo example</h2>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                        <p class="content en">DEMO EXAMPLE</p>
+                        <p class="content ko">데모 예제</p>
+                    </summary>
+                    <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+            <!-- Architecture Overview -->
+            <section class="section">
+                <h2 id="architecture">Architecture Overview</h2>
+                <p class="content en">Understanding simple-boot-front's component-based SPA architecture</p>
+                <p class="content ko">simple-boot-front의 컴포넌트 기반 SPA 아키텍처 이해하기</p>
+
+                <div class="example-item">
+                    <h3 id="core-architecture">Core Architecture</h3>
+                    <p class="example-description content en">Built on top of simple-boot and dom-render for enterprise-grade SPAs</p>
+                    <p class="example-description content ko">엔터프라이즈급 SPA를 위해 simple-boot와 dom-render 위에 구축</p>
+                    
+                    <mermaid-diagram>
+graph TB
+    A[SimpleBootFront] -->|Extends| B[SimpleApplication]
+    A -->|Uses| C[DomRender]
+    A -->|Manages| D[Router]
+    
+    B -->|DI Container| E[SimstanceManager]
+    C -->|Reactivity| F[Proxy System]
+    D -->|Navigation| G[PathRouter/HashRouter]
+    
+    H[Component] -->|Decorated with| I[Component Decorator]
+    H -->|Extends| J[ComponentBase]
+    J -->|Implements| K[Lifecycle Hooks]
+    
+    L[RouterComponent] -->|Extends| M[ComponentRouterBase]
+    M -->|Route Config| N[Router Decorator]
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e6
+    style C fill:#f3e8ff
+    style D fill:#dcfce7
+    style H fill:#fef3c7
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="component-lifecycle">Component Lifecycle</h3>
+                    <p class="example-description content en">How components are created, rendered, and destroyed</p>
+                    <p class="example-description content ko">컴포넌트가 생성, 렌더링, 파괴되는 방식</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant App as SimpleBootFront
+    participant DI as DI Container
+    participant Comp as Component
+    participant DOM as DomRender
+    participant UI as Browser DOM
+
+    App->>DI: run()
+    DI->>Comp: Create instance
+    Comp->>Comp: constructor()
+    Comp->>Comp: onInitRender()
+    Comp->>DOM: Render template
+    DOM->>DOM: Parse template
+    DOM->>DOM: Apply reactivity
+    DOM->>UI: Mount to DOM
+    Comp->>Comp: onCreateRendered()
+    
+    Note over Comp,UI: Component Active
+    
+    App->>Comp: Route change
+    Comp->>Comp: onDestroyRender()
+    Comp->>DOM: Cleanup
+    DOM->>UI: Remove from DOM
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="routing-architecture">SPA Routing</h3>
+                    <p class="example-description content en">Client-side routing with component-based navigation</p>
+                    <p class="example-description content ko">컴포넌트 기반 내비게이션을 통한 클라이언트 사이드 라우팅</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant User
+    participant Router
+    participant RM as RouterManager
+    participant RC as RouterComponent
+    participant Page as PageComponent
+
+    User->>Router: Navigate to /users
+    Router->>RM: Match route pattern
+    RM->>RC: Find route config
+    RC->>Page: Load UserPageComponent
+    Page->>Page: onInitRender()
+    Page->>User: Render page
+    
+    User->>Router: Navigate to /users/123
+    Router->>RM: Extract params (:id)
+    RM->>Page: Load with params
+    Page->>Page: onRouting(params)
+    Page->>User: Render with data
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="component-tree">Component Tree</h3>
+                    <p class="example-description content en">Hierarchical component structure and composition</p>
+                    <p class="example-description content ko">계층적 컴포넌트 구조 및 구성</p>
+                    
+                    <mermaid-diagram>
+graph TD
+    A[RouterComponent] --> B[HomePageComponent]
+    A --> C[UserPageComponent]
+    A --> D[AboutPageComponent]
+    
+    B --> E[HeaderComponent]
+    B --> F[ItemComponent]
+    B --> G[FooterComponent]
+    
+    C --> E
+    C --> H[UserListComponent]
+    C --> I[ProfileComponent]
+    
+    H --> J[UserCardComponent]
+    H --> J
+    H --> J
+    
+    style A fill:#e1f5ff
+    style B fill:#dcfce7
+    style C fill:#dcfce7
+    style D fill:#dcfce7
+    style F fill:#fef3c7
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+            </section>
+
+            <!-- Getting Started -->
+            <section class="section">
+                <h2 id="getting-started">Getting Started</h2>
+                <p class="content en">Quick start with basic application setup</p>
+                <p class="content ko">기본 애플리케이션 설정으로 빠르게 시작하기</p>
+
+                <div class="example-item">
+                    <h3 id="basic-app">Basic Application Setup</h3>
+                    <p class="example-description content en">Create a minimal SPA with router</p>
+                    <p class="example-description content ko">라우터를 사용한 최소 SPA 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import 'reflect-metadata';
+import &#123; SimpleBootFront &#125; from '&#64;dooboostore/simple-boot-front/SimpleBootFront';
+import &#123; SimFrontOption, UrlType &#125; from '&#64;dooboostore/simple-boot-front/option/SimFrontOption';
+import &#123; IndexRouterComponent &#125; from './pages/index.router.component';
+
+// Configure application
+const config = new SimFrontOption(
+  &#123; window, urlType: UrlType.path &#125;,
+  &#123; rootRouter: IndexRouterComponent &#125;
+);
+
+// Create and run application
+const app = new SimpleBootFront(config);
+app.run();
+
+// Application is now running!
+// Router will handle all navigation automatically</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Router Component -->
+            <section class="section">
+                <h2 id="router-component">Router Component</h2>
+                <p class="content en">Define routes and map paths to components</p>
+                <p class="content ko">라우트를 정의하고 경로를 컴포넌트에 매핑</p>
+
+                <div class="example-item">
+                    <h3 id="router-setup">Router Configuration</h3>
+                    <p class="example-description content en">Create root router with route definitions</p>
+                    <p class="example-description content ko">라우트 정의로 루트 라우터 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Router &#125; from '&#64;dooboostore/simple-boot/decorators/route/Router';
+import &#123; Router as DomRenderRouter &#125; from '&#64;dooboostore/dom-render/routers/Router';
+import &#123; Component &#125; from '&#64;dooboostore/simple-boot-front/decorators/Component';
+import &#123; ComponentRouterBase &#125; from '&#64;dooboostore/simple-boot-front/component/ComponentRouterBase';
+import template from './index.router.component.html';
+import style from './index.router.component.css';
+import &#123; HomeRouteComponent &#125; from './home/home.route.component';
+import &#123; UserRouteComponent &#125; from './user/user.route.component';
+import &#123; AboutRouteComponent &#125; from './about/about.route.component';
+
+&#64;Sim(&#123;
+  using: [/* shared components */]
+&#125;)
+&#64;Router(&#123;
+  path: '',
+  route: &#123;
+    '/': HomeRouteComponent,
+    '/user': UserRouteComponent,
+    '/user/:id': UserDetailComponent,
+    '/about': AboutRouteComponent
+  &#125;
+&#125;)
+&#64;Component(&#123;
+  template,
+  styles: [style]
+&#125;)
+export class IndexRouterComponent extends ComponentRouterBase &#123;
+  constructor(private router: DomRenderRouter) &#123;
+    super();
+    console.log('✅ Router Initialized', router);
+  &#125;
+
+  async onInitRender(param: any, rawSet: RawSet) &#123;
+    await super.onInitRender(param, rawSet);
+    console.log('🎨 Router onInitRender', param);
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="router-template">Router Template</h3>
+                    <p class="example-description content en">Template with navigation and route outlet</p>
+                    <p class="example-description content ko">내비게이션과 라우트 아웃렛이 있는 템플릿</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="HTML Template">
+                                <code-snippet-code type="html">&lt;div class="app"&gt;
+  &lt;!-- Navigation --&gt;
+  &lt;nav class="navbar"&gt;
+    &lt;a href="/" dr-route-match="/"&gt;Home&lt;/a&gt;
+    &lt;a href="/user" dr-route-match="/user"&gt;Users&lt;/a&gt;
+    &lt;a href="/about" dr-route-match="/about"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- Route Outlet - Pages render here --&gt;
+  &lt;main class="content"&gt;
+    &lt;!-- Routes automatically render matched component --&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &copy; 2025 My SPA
+  &lt;/footer&gt;
+&lt;/div&gt;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page Components -->
+            <section class="section">
+                <h2 id="page-components">Page Components</h2>
+                <p class="content en">Create page components for each route</p>
+                <p class="content ko">각 라우트에 대한 페이지 컴포넌트 생성</p>
+
+                <div class="example-item">
+                    <h3 id="home-page">Home Page Component</h3>
+                    <p class="example-description content en">Simple page with lifecycle hooks and reactive data</p>
+                    <p class="example-description content ko">생명주기 훅과 반응형 데이터가 있는 간단한 페이지</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Component &#125; from '&#64;dooboostore/simple-boot-front/decorators/Component';
+import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; OnInitRender &#125; from '&#64;dooboostore/dom-render/lifecycle/OnInitRender';
+import &#123; OnDestroyRender &#125; from '&#64;dooboostore/dom-render/lifecycle/OnDestroyRender';
+import &#123; ComponentBase &#125; from '&#64;dooboostore/simple-boot-front/component/ComponentBase';
+import &#123; RawSet &#125; from '&#64;dooboostore/dom-render/rawsets/RawSet';
+import template from './home.route.component.html';
+import style from './home.route.component.css';
+
+&#64;Sim
+&#64;Component(&#123;
+  template,
+  styles: [style]
+&#125;)
+export class HomeRouteComponent extends ComponentBase 
+  implements OnInitRender, OnDestroyRender &#123;
+  
+  public currentTime = new Date().toLocaleString();
+  private intervalId?: number;
+
+  async onInitRender(param: any, rawSet: RawSet) &#123;
+    await super.onInitRender(param, rawSet);
+    console.log('🏠 Home onInitRender', param);
+    
+    // Update time every second
+    this.intervalId = window.setInterval(() => &#123;
+      this.currentTime = new Date().toLocaleString();
+    &#125;, 1000);
+  &#125;
+
+  onDestroyRender() &#123;
+    console.log('🏠 Home onDestroyRender');
+    
+    // Cleanup interval
+    if (this.intervalId) &#123;
+      clearInterval(this.intervalId);
+    &#125;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="HTML Template">
+                                <code-snippet-code type="html">&lt;div class="home-page"&gt;
+  &lt;h1&gt;🏠 Welcome Home!&lt;/h1&gt;
+  &lt;p&gt;Current Time: &lt;strong&gt;&#36;&#123;&commat;this&commat;.currentTime&#125;&#36;&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;This time updates every second using reactive data binding.&lt;/p&gt;
+&lt;/div&gt;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="user-page">User Page with Router Params</h3>
+                    <p class="example-description content en">Access route parameters in page component</p>
+                    <p class="example-description content ko">페이지 컴포넌트에서 라우트 매개변수 접근</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Component &#125; from '&#64;dooboostore/simple-boot-front/decorators/Component';
+import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; ComponentBase &#125; from '&#64;dooboostore/simple-boot-front/component/ComponentBase';
+import &#123; RouterAction &#125; from '&#64;dooboostore/simple-boot/route/RouterAction';
+import &#123; RoutingDataSet &#125; from '&#64;dooboostore/simple-boot/route/RouterManager';
+import template from './user.route.component.html';
+import style from './user.route.component.css';
+
+&#64;Sim
+&#64;Component(&#123;
+  template,
+  styles: [style]
+&#125;)
+export class UserRouteComponent extends ComponentBase &#123;
+  public userId: string = '';
+  public userData: any = null;
+
+  async onRouting(r: RoutingDataSet): Promise&lt;void&gt; &#123;
+    console.log('👤 User page routing', r);
+    
+    // Extract route parameters
+    this.userId = r.params?.id || 'all';
+    
+    // Fetch user data based on ID
+    if (this.userId !== 'all') &#123;
+      this.userData = await this.fetchUserData(this.userId);
+    &#125;
+  &#125;
+
+  private async fetchUserData(id: string) &#123;
+    // Simulate API call
+    return &#123;
+      id,
+      name: `User &#36;&#123;id&#125;`,
+      email: `user&#36;&#123;id&#125;&#64;example.com`,
+      role: 'Developer'
+    &#125;;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="HTML Template">
+                                <code-snippet-code type="html">&lt;div class="user-page"&gt;
+  &lt;h1&gt;👤 User Page&lt;/h1&gt;
+  
+  &lt;div dr-if="&commat;this&commat;.userId === 'all'"&gt;
+    &lt;h2&gt;All Users&lt;/h2&gt;
+    &lt;!-- User list --&gt;
+  &lt;/div&gt;
+  
+  &lt;div dr-if="&commat;this&commat;.userId !== 'all' && &commat;this&commat;.userData"&gt;
+    &lt;h2&gt;User Details&lt;/h2&gt;
+    &lt;p&gt;ID: &#36;&#123;&commat;this&commat;.userData.id&#125;&#36;&lt;/p&gt;
+    &lt;p&gt;Name: &#36;&#123;&commat;this&commat;.userData.name&#125;&#36;&lt;/p&gt;
+    &lt;p&gt;Email: &#36;&#123;&commat;this&commat;.userData.email&#125;&#36;&lt;/p&gt;
+    &lt;p&gt;Role: &#36;&#123;&commat;this&commat;.userData.role&#125;&#36;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reusable Components -->
+            <section class="section">
+                <h2 id="reusable-components">Reusable Components</h2>
+                <p class="content en">Create custom reusable components with selectors</p>
+                <p class="content ko">셀렉터로 재사용 가능한 커스텀 컴포넌트 생성</p>
+
+                <div class="example-item">
+                    <h3 id="item-component">Item Component</h3>
+                    <p class="example-description content en">Reusable component with custom selector</p>
+                    <p class="example-description content ko">커스텀 셀렉터가 있는 재사용 가능 컴포넌트</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="TypeScript">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Component &#125; from '&#64;dooboostore/simple-boot-front/decorators/Component';
+import template from './item.component.html';
+import style from './item.component.css';
+
+&#64;Sim
+&#64;Component(&#123;
+  selector: 'item',
+  template,
+  styles: [style]
+&#125;)
+export class ItemComponent &#123;
+  name = 'Sample Item';
+  age = 0;
+  status = 'Active';
+
+  constructor() &#123;
+    console.log('📦 ItemComponent created');
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="HTML Template">
+                                <code-snippet-code type="html">&lt;div class="item"&gt;
+  &lt;div class="name"&gt;📦 &#36;&#123;&commat;this&commat;.name&#125;&#36;&lt;/div&gt;
+  &lt;div class="details"&gt;
+    &lt;p&gt;Age: &#36;&#123;&commat;this&commat;.age&#125;&#36;&lt;/p&gt;
+    &lt;p&gt;Status: &#36;&#123;&commat;this&commat;.status&#125;&#36;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Usage">
+                                <code-snippet-code type="html">&lt;!-- Use in any template --&gt;
+&lt;item&gt;&lt;/item&gt;
+
+&lt;!-- Or with multiple instances --&gt;
+&lt;div class="items-container"&gt;
+  &lt;item&gt;&lt;/item&gt;
+  &lt;item&gt;&lt;/item&gt;
+  &lt;item&gt;&lt;/item&gt;
+&lt;/div&gt;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="profile-component">Profile Component</h3>
+                    <p class="example-description content en">Component with props and events</p>
+                    <p class="example-description content ko">속성과 이벤트가 있는 컴포넌트</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Component &#125; from '&#64;dooboostore/simple-boot-front/decorators/Component';
+import template from './profile.component.html';
+import style from './profile.component.css';
+
+&#64;Sim
+&#64;Component(&#123;
+  selector: 'profile',
+  template,
+  styles: [style]
+&#125;)
+export class ProfileComponent &#123;
+  username = 'Guest';
+  email = 'guest&#64;example.com';
+  avatar = '/default-avatar.png';
+  isOnline = false;
+
+  constructor() &#123;
+    console.log('👤 ProfileComponent created');
+  &#125;
+
+  toggleOnlineStatus() &#123;
+    this.isOnline = !this.isOnline;
+  &#125;
+
+  updateProfile(data: any) &#123;
+    this.username = data.username || this.username;
+    this.email = data.email || this.email;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="HTML Template">
+                                <code-snippet-code type="html">&lt;div class="profile"&gt;
+  &lt;img class="avatar" src="&#36;&#123;&commat;this&commat;.avatar&#125;&#36;" alt="Avatar" /&gt;
+  
+  &lt;div class="info"&gt;
+    &lt;h3&gt;&#36;&#123;&commat;this&commat;.username&#125;&#36;&lt;/h3&gt;
+    &lt;p&gt;&#36;&#123;&commat;this&commat;.email&#125;&#36;&lt;/p&gt;
+    
+    &lt;span class="status" dr-class="online:&#36;&#123;&commat;this&commat;.isOnline&#125;&#36;"&gt;
+      &#36;&#123;&commat;this&commat;.isOnline ? 'Online' : 'Offline'&#125;&#36;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  
+  &lt;button dr-event-click="&commat;this&commat;.toggleOnlineStatus()"&gt;
+    Toggle Status
+  &lt;/button&gt;
+&lt;/div&gt;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Component Registration -->
+            <section class="section">
+                <h2 id="component-registration">Component Registration</h2>
+                <p class="content en">Register and share components across the application</p>
+                <p class="content ko">애플리케이션 전체에서 컴포넌트 등록 및 공유</p>
+
+                <div class="example-item">
+                    <h3 id="using-components">Using Components in Router</h3>
+                    <p class="example-description content en">Register components for use in templates</p>
+                    <p class="example-description content ko">템플릿에서 사용할 컴포넌트 등록</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Router &#125; from '&#64;dooboostore/simple-boot/decorators/route/Router';
+import &#123; Component &#125; from '&#64;dooboostore/simple-boot-front/decorators/Component';
+import &#123; ComponentRouterBase &#125; from '&#64;dooboostore/simple-boot-front/component/ComponentRouterBase';
+import &#123; ItemComponent &#125; from '../components/item/item.component';
+import &#123; ProfileComponent &#125; from '../components/profile/profile.component';
+import &#123; drComponent &#125; from '&#64;dooboostore/dom-render/components/index';
+
+// Register components to be available in all templates
+&#64;Sim(&#123;
+  using: [
+    ItemComponent,      // Custom item component
+    ProfileComponent,   // Custom profile component
+    drComponent        // Dom-render built-in components
+  ]
+&#125;)
+&#64;Router(&#123;
+  path: '',
+  route: &#123;
+    '/': HomeRouteComponent,
+    '/user': UserRouteComponent
+  &#125;
+&#125;)
+&#64;Component(&#123;
+  template: `
+    &lt;nav&gt;...&lt;/nav&gt;
+    &lt;main&gt;
+      &lt;!-- Components are now available --&gt;
+      &lt;item&gt;&lt;/item&gt;
+      &lt;profile&gt;&lt;/profile&gt;
+    &lt;/main&gt;
+  `,
+  styles: []
+&#125;)
+export class IndexRouterComponent extends ComponentRouterBase &#123;&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services -->
+            <section class="section">
+                <h2 id="services">Services</h2>
+                <p class="content en">Injectable services for business logic and state management</p>
+                <p class="content ko">비즈니스 로직과 상태 관리를 위한 주입 가능한 서비스</p>
+
+                <div class="example-item">
+                    <h3 id="user-service">User Service Example</h3>
+                    <p class="example-description content en">Create and inject services in components</p>
+                    <p class="example-description content ko">컴포넌트에서 서비스 생성 및 주입</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Service Definition">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+
+&#64;Sim
+export class UserService &#123;
+  private users: Map&lt;string, any&gt; = new Map();
+
+  constructor() &#123;
+    console.log('👥 UserService initialized');
+    this.loadUsers();
+  &#125;
+
+  private loadUsers() &#123;
+    // Load initial users
+    this.users.set('1', &#123; id: '1', name: 'Alice', email: 'alice&#64;example.com' &#125;);
+    this.users.set('2', &#123; id: '2', name: 'Bob', email: 'bob&#64;example.com' &#125;);
+  &#125;
+
+  getUser(id: string) &#123;
+    return this.users.get(id);
+  &#125;
+
+  getAllUsers() &#123;
+    return Array.from(this.users.values());
+  &#125;
+
+  addUser(user: any) &#123;
+    this.users.set(user.id, user);
+  &#125;
+
+  deleteUser(id: string) &#123;
+    return this.users.delete(id);
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Usage in Component">
+                                <code-snippet-code type="typescript">import &#123; Component &#125; from '&#64;dooboostore/simple-boot-front/decorators/Component';
+import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; ComponentBase &#125; from '&#64;dooboostore/simple-boot-front/component/ComponentBase';
+import &#123; UserService &#125; from '../services/UserService';
+
+&#64;Sim
+&#64;Component(&#123;
+  template: `
+    &lt;div class="user-list"&gt;
+      &lt;h2&gt;Users&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li dr-for-of="&commat;this&commat;.users" dr-option-item-variable-name="user"&gt;
+          &#36;&#123;&num;user&num;.name&#125;&#36; - &#36;&#123;&num;user&num;.email&#125;&#36;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  `,
+  styles: []
+&#125;)
+export class UserListComponent extends ComponentBase &#123;
+  public users: any[] = [];
+
+  // Service automatically injected via constructor
+  constructor(private userService: UserService) &#123;
+    super();
+  &#125;
+
+  async onInitRender(param: any, rawSet: RawSet) &#123;
+    await super.onInitRender(param, rawSet);
+    
+    // Load users from service
+    this.users = this.userService.getAllUsers();
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- URL Types -->
+            <section class="section">
+                <h2 id="url-types">URL Types</h2>
+                <p class="content en">Choose between hash-based and path-based routing</p>
+                <p class="content ko">해시 기반 및 경로 기반 라우팅 중 선택</p>
+
+                <div class="example-item">
+                    <h3 id="url-configuration">Hash vs Path Routing</h3>
+                    <p class="example-description content en">Configure URL strategy for your application</p>
+                    <p class="example-description content ko">애플리케이션의 URL 전략 구성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Hash Router">
+                                <code-snippet-code type="typescript">import &#123; SimFrontOption, UrlType &#125; from '&#64;dooboostore/simple-boot-front/option/SimFrontOption';
+
+// Hash-based routing (#/home, #/user)
+const config = new SimFrontOption(
+  &#123; window, urlType: UrlType.hash &#125;,
+  &#123; rootRouter: IndexRouterComponent &#125;
+);
+
+// URLs will look like:
+// http://example.com/#/
+// http://example.com/#/user
+// http://example.com/#/user/123
+
+// Advantages:
+// ✅ Works without server configuration
+// ✅ Compatible with all browsers
+// ✅ Easy to deploy</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Path Router">
+                                <code-snippet-code type="typescript">import &#123; SimFrontOption, UrlType &#125; from '&#64;dooboostore/simple-boot-front/option/SimFrontOption';
+
+// Path-based routing (clean URLs)
+const config = new SimFrontOption(
+  &#123; window, urlType: UrlType.path &#125;,
+  &#123; rootRouter: IndexRouterComponent &#125;
+);
+
+// URLs will look like:
+// http://example.com/
+// http://example.com/user
+// http://example.com/user/123
+
+// Advantages:
+// ✅ Clean, SEO-friendly URLs
+// ✅ Better user experience
+// ⚠️  Requires server configuration (rewrite rules)</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

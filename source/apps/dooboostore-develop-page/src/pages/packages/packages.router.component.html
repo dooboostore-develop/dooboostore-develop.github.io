@@ -1,0 +1,53 @@
+<div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category" dr-event-click="@this@.toggleCategory('framework')">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="framework-items">
+                    <dr-a dr-for-of="@this@.frameworksPackages" href="${'/@dooboostore/'+#it#.name}$" class="sidebar-item">${#it#.name}$</dr-a>
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category" dr-event-click="@this@.toggleCategory('library')">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="library-items">
+                    <dr-a dr-for-of="@this@.libraryPackages" href="${'/@dooboostore/'+#it#.name}$" class="sidebar-item">${#it#.name}$</dr-a>
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category" dr-event-click="@this@.toggleCategory('core')">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="core-items">
+                    <dr-a dr-for-of="@this@.corePackages" href="${'/@dooboostore/'+#it#.name}$" class="sidebar-item">${#it#.name}$</dr-a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn" dr-event-click="@this@.toggleSidebar()">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <dr-router-outlet></dr-router-outlet>
+<!--        <dr-this value="${@this@.child}$"></dr-this>-->
+    </main>
+</div>

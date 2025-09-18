@@ -1,0 +1,2216 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>dooboostore - Integrated Development Platform</title>
+    <meta name="description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta name="keywords" content="TypeScript, JavaScript, library, framework, Simple Boot, DI, AOP, open source, web development">
+    <meta name="author" content="dooboostore">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dooboostore-develop.github.io/">
+    <meta property="og:title" content="dooboostore - Integrated Development Platform">
+    <meta property="og:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="og:image" content="assets/images/dooboostore.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dooboostore-develop.github.io/">
+    <meta property="twitter:title" content="dooboostore - Integrated Development Platform">
+    <meta property="twitter:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="twitter:image" content="assets/images/dooboostore.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- StackBlitz SDK -->
+    <script src="https://unpkg.com/@stackblitz/sdk@1/bundles/sdk.umd.js"></script>
+<!--    <script src="https://unpkg.com/@stackblitz/sdk/bundles/sdk.umd.js"> </script>-->
+
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({startOnLoad: true});
+        window.Mermaid = mermaid;
+    </script>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "dooboostore",
+            "description": "A powerful and flexible Integrated Development Platform collection for modern web application development",
+            "url": "https://dooboostore-develop.github.io/",
+            "author": {
+                "@type": "Organization",
+                "name": "dooboostore"
+            },
+            "programmingLanguage": "TypeScript",
+            "operatingSystem": "Cross-platform",
+            "applicationCategory": "DeveloperApplication"
+        }
+    </script>
+<script defer src="bundle.js"></script></head>
+<body>
+
+<div id="app"><meta id="BWQHZoPjVXvSgtirFTssWuxxUOyONwIhdCXmuobA-start"><style id="BWQHZoPjVXvSgtirFTssWuxxUOyONwIhdCXmuobA-style"></style><meta id="mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start"><style id="mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-style">/* Header */
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).header, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).header-container, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).header-left, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .header-left {
+  display: flex;
+  align-items: center;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).logo, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).logo-img, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).logo-text, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).header-nav, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 32px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).nav-link, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .nav-link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).nav-link:hover, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .nav-link:hover {
+  color: white;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).nav-link:active, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(102, 126, 234, 0.2);
+  background-color: rgba(102, 126, 234, 0.15);
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).header-right, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* Language Toggle */
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-toggle, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-toggle {
+  position: relative;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-checkbox, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-checkbox {
+  display: none;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-label, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  width: 50px;
+  /* 더 작은 고정 너비 */
+  min-width: 50px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-label:hover, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-text, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-text {
+  transition: opacity 0.2s ease;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-text.english, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-text.english {
+  display: none;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-checkbox:checked + .language-label .language-text.korean, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-checkbox:checked + .language-label .language-text.korean {
+  display: none;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).language-checkbox:checked + .language-label .language-text.english, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .language-checkbox:checked + .language-label .language-text.english {
+  display: inline;
+}
+/* Language Content Toggle */
+/* .content.en { */
+/* display: block; */
+/* } */
+/* .content.ko { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.en { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.ko { */
+/* display: block; */
+/* } */
+/* Main Content */
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) main, #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ main:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *) {
+  min-height: 100vh;
+}
+/* Footer */
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer {
+  background: #000;
+  color: white;
+  padding: 20px 0 0;
+  /* margin-top: 120px; */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-container, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-simple, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-logo, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-logo .logo-img, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-logo .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-logo .logo-text, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-logo .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-links, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-link, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-link:hover, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-link:hover {
+  color: white;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-link i, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-link i {
+  font-size: 16px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-copyright, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-logo-small, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-logo-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).footer-copyright p, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .footer-copyright p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).content.ko, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).content.en, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .content.en {
+  display: block;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) header:has(#language-toggle:checked) ~ * .content.ko, #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ header:has(#language-toggle:checked) ~ * .content.ko:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *), :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) header:has(#language-toggle:checked) .content.ko, #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ header:has(#language-toggle:checked) .content.ko:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *) {
+  display: block;
+}
+:is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) header:has(#language-toggle:checked) ~ * .content.en, #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ header:has(#language-toggle:checked) ~ * .content.en:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *), :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) header:has(#language-toggle:checked) .content.en, #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ header:has(#language-toggle:checked) .content.en:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *) {
+  display: none;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).logo-text, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .logo-text {
+    display: none !important;
+  }
+  :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).header-nav, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .header-nav {
+    display: flex;
+    /* Show nav on mobile now */
+    margin-left: 16px;
+    /* Smaller margin on mobile */
+    gap: 16px;
+    /* Smaller gap on mobile */
+  }
+  :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).nav-link, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .nav-link {
+    font-size: 13px;
+    /* Slightly smaller font on mobile */
+  }
+  :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)).header-container, :is(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ *:not(#mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-start ~ #mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end ~ *)) .header-container {
+    padding: 0 16px;
+  }
+  /* .footer-links { */
+  /* flex-direction: column; */
+  /* gap: 16px; */
+  /* } */
+}</style><!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <meta id="CxvlvNVszhAxrrTIBpyqtmMSrsHBJlhVqTqdkSrr-start"><style id="CxvlvNVszhAxrrTIBpyqtmMSrsHBJlhVqTqdkSrr-style"></style><a href="/" target="null" style="null" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text content en">dooboostore</span>
+                <span class="logo-text content ko">두부가게</span>
+            </a><meta id="CxvlvNVszhAxrrTIBpyqtmMSrsHBJlhVqTqdkSrr-end">
+
+            <nav class="header-nav">
+                <meta id="VXYKKUdkfkkSsOaSHLOFhNrgpjyylcfrpNKvsXQd-start"><style id="VXYKKUdkfkkSsOaSHLOFhNrgpjyylcfrpNKvsXQd-style"></style><a href="/@dooboostore" target="null" style="null" class="nav-link content en">📦 Packages</a><meta id="VXYKKUdkfkkSsOaSHLOFhNrgpjyylcfrpNKvsXQd-end">
+                <meta id="NXfAocaZsiISoGqDPWdOccpmqykvOmSTXavTGufq-start"><style id="NXfAocaZsiISoGqDPWdOccpmqykvOmSTXavTGufq-style"></style><a href="/@dooboostore" target="null" style="null" class="nav-link content ko">📦 패키지</a><meta id="NXfAocaZsiISoGqDPWdOccpmqykvOmSTXavTGufq-end">
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <meta id="MMAfxqfsWsvkFxEJeBmexpOGMysTobwAwZWTgvpU-start"><style id="MMAfxqfsWsvkFxEJeBmexpOGMysTobwAwZWTgvpU-style"></style><meta id="HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start"><style id="HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-style">:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) *, #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).packages-container, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .packages-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #e5e5e5;
+  min-height: 100vh;
+  position: relative;
+}
+/* Mobile Menu Toggle */
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).mobile-menu-toggle, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .mobile-menu-toggle {
+  /* display: none; */
+  position: fixed;
+  bottom: 24px;
+  left: 14px;
+  z-index: 1000;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).menu-toggle-btn, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .menu-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).menu-toggle-btn:hover, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).menu-toggle-btn span, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .menu-toggle-btn span {
+  display: none;
+}
+/* Sidebar */
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar {
+  width: 280px;
+  background: #000;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 50;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-content, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-content {
+  padding: 24px 0;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-section, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-section {
+  margin-bottom: 8px;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-category, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-category:hover, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-category:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).category-arrow, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .category-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).category-arrow.rotated, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .category-arrow.rotated {
+  transform: rotate(180deg);
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-items, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-items.open, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-items.open {
+  max-height: 500px;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-item, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-item {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 8px 24px 8px 40px;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-item:hover, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar-item.active, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar-item.active {
+  color: #0070f3;
+  background: rgba(0, 112, 243, 0.1);
+  border-left-color: #0070f3;
+}
+/* Main Content */
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).main-content, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .main-content {
+  margin-left: 280px;
+  padding: 0;
+  min-height: 100vh;
+}
+/* Language Content Toggle */
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).content.ko, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).content.en, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .content.en {
+  display: block;
+}
+/* Desktop - 사이드바 토글 가능 */
+@media (min-width: 769px) {
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).mobile-menu-toggle, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    top: auto;
+    z-index: 1001;
+    transition: left 0.3s ease;
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).menu-toggle-btn, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .menu-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).menu-toggle-btn:hover, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .menu-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar.closed, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  /* 사이드바가 닫혔을 때 토글 버튼 위치는 그대로 유지 */
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar.closed ~ .mobile-menu-toggle, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar.closed ~ .mobile-menu-toggle {
+    left: 20px;
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).main-content, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).main-content.expanded, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .main-content.expanded {
+    margin-left: 0;
+  }
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).packages-container, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .packages-container {
+    display: block;
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).mobile-menu-toggle, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .mobile-menu-toggle {
+    display: block;
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar.open, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar.open {
+    transform: translateX(0);
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).main-content, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .main-content {
+    margin-left: 0;
+  }
+  /* Mobile overlay */
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar.open::before, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).sidebar, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .sidebar {
+    width: 240px;
+  }
+  :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)).main-content, :is(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ *:not(#HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-start ~ #HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end ~ *)) .main-content {
+    margin-left: 240px;
+  }
+}</style><div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="framework-items">
+                    <meta id="edOSiQybTFRAtgOPcfmxYAfNTXJwdXqIKpQEIMku-start"><meta id="ammUugQiHYUFVqwKJnFvzBEycXWTHMabmuoMHoeS-start"><style id="ammUugQiHYUFVqwKJnFvzBEycXWTHMabmuoMHoeS-style"></style><a href="/@dooboostore/simple-boot" target="null" style="null" class="sidebar-item"><!--start text IKDarkFvYWBJBhDmqSThXKDfOmlBjMhNuHTiXQSh_DomRenderRootObject-->simple-boot<!--end text IKDarkFvYWBJBhDmqSThXKDfOmlBjMhNuHTiXQSh_DomRenderRootObject--></a><meta id="ammUugQiHYUFVqwKJnFvzBEycXWTHMabmuoMHoeS-end"><meta id="uhHGVODcGTpGHNnNtXsXKIblXGlskkvMtKDkPayg-start"><style id="uhHGVODcGTpGHNnNtXsXKIblXGlskkvMtKDkPayg-style"></style><a href="/@dooboostore/simple-boot-front" target="null" style="null" class="sidebar-item active"><!--start text iQIRdZqgaguMKSfrNPubMSbTSTpVwopxqpgYZJzW_DomRenderRootObject-->simple-boot-front<!--end text iQIRdZqgaguMKSfrNPubMSbTSTpVwopxqpgYZJzW_DomRenderRootObject--></a><meta id="uhHGVODcGTpGHNnNtXsXKIblXGlskkvMtKDkPayg-end"><meta id="gIKavoqfzqYWsRHBIOYMLcDmEzUoXXCdwEvSlqBg-start"><style id="gIKavoqfzqYWsRHBIOYMLcDmEzUoXXCdwEvSlqBg-style"></style><a href="/@dooboostore/simple-boot-http-server" target="null" style="null" class="sidebar-item"><!--start text AlAvnpQdJFbDCfxxhpayPdRxowtWcUPqIDdyGxdf_DomRenderRootObject-->simple-boot-http-server<!--end text AlAvnpQdJFbDCfxxhpayPdRxowtWcUPqIDdyGxdf_DomRenderRootObject--></a><meta id="gIKavoqfzqYWsRHBIOYMLcDmEzUoXXCdwEvSlqBg-end"><meta id="seMCNarcuEEsqjwWPmbiDFtYwYOTrULiPQEijXUo-start"><style id="seMCNarcuEEsqjwWPmbiDFtYwYOTrULiPQEijXUo-style"></style><a href="/@dooboostore/simple-boot-http-server-ssr" target="null" style="null" class="sidebar-item"><!--start text rYOZcGFDDSUWshuZUZaqknQQMEcwSyscoqcWJLLg_DomRenderRootObject-->simple-boot-http-server-ssr<!--end text rYOZcGFDDSUWshuZUZaqknQQMEcwSyscoqcWJLLg_DomRenderRootObject--></a><meta id="seMCNarcuEEsqjwWPmbiDFtYwYOTrULiPQEijXUo-end"><meta id="edOSiQybTFRAtgOPcfmxYAfNTXJwdXqIKpQEIMku-end">
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="library-items">
+                    <meta id="ZvWAKEEJdGWoOjrFiaLIKkywGYfrAFrVeozYgiOl-start"><meta id="jKeetFufqfaebSgGMWocELLYvOZoIiWEljdhZUYJ-start"><style id="jKeetFufqfaebSgGMWocELLYvOZoIiWEljdhZUYJ-style"></style><a href="/@dooboostore/dom-render" target="null" style="null" class="sidebar-item"><!--start text eZJjYxSERTDwycPVcydXPSjVCyXdDGOGdrWeRWSn_DomRenderRootObject-->dom-render<!--end text eZJjYxSERTDwycPVcydXPSjVCyXdDGOGdrWeRWSn_DomRenderRootObject--></a><meta id="jKeetFufqfaebSgGMWocELLYvOZoIiWEljdhZUYJ-end"><meta id="gwWuZoYZaMJanJjBrGsELVugMjayucAJScnxfwUs-start"><style id="gwWuZoYZaMJanJjBrGsELVugMjayucAJScnxfwUs-style"></style><a href="/@dooboostore/swt" target="null" style="null" class="sidebar-item"><!--start text HfkuphsvAeCxLxcwolJGQPkUoWEjvAxcFOvRDooe_DomRenderRootObject-->swt<!--end text HfkuphsvAeCxLxcwolJGQPkUoWEjvAxcFOvRDooe_DomRenderRootObject--></a><meta id="gwWuZoYZaMJanJjBrGsELVugMjayucAJScnxfwUs-end"><meta id="ZvWAKEEJdGWoOjrFiaLIKkywGYfrAFrVeozYgiOl-end">
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="core-items">
+                    <meta id="ilobyqQEvDFVYoetRSahLPafuEiCatuGokcPsPFA-start"><meta id="IBPUjpPjXqdTwOrcrqMAKabUAIVhvsOPnAwWVoJh-start"><style id="IBPUjpPjXqdTwOrcrqMAKabUAIVhvsOPnAwWVoJh-style"></style><a href="/@dooboostore/core" target="null" style="null" class="sidebar-item"><!--start text bNkUQbeuIhvNiJomulnkDdcXiEuWbxjPvHznolRz_DomRenderRootObject-->core<!--end text bNkUQbeuIhvNiJomulnkDdcXiEuWbxjPvHznolRz_DomRenderRootObject--></a><meta id="IBPUjpPjXqdTwOrcrqMAKabUAIVhvsOPnAwWVoJh-end"><meta id="IjUHiXYbyUHDwElVkjCaZwkqDOVNulwYxzkVRMuv-start"><style id="IjUHiXYbyUHDwElVkjCaZwkqDOVNulwYxzkVRMuv-style"></style><a href="/@dooboostore/core-node" target="null" style="null" class="sidebar-item"><!--start text SnJhAWzvncPZpySpGDqWFZRadxxkGFabBKjxzaLG_DomRenderRootObject-->core-node<!--end text SnJhAWzvncPZpySpGDqWFZRadxxkGFabBKjxzaLG_DomRenderRootObject--></a><meta id="IjUHiXYbyUHDwElVkjCaZwkqDOVNulwYxzkVRMuv-end"><meta id="roMwSTyBLIwWkSunFFxaYkJOkxeBQoLRjaoJnwYO-start"><style id="roMwSTyBLIwWkSunFFxaYkJOkxeBQoLRjaoJnwYO-style"></style><a href="/@dooboostore/core-web" target="null" style="null" class="sidebar-item"><!--start text qcXKyfQklbWhLYwqBHwBXMTXPmPjZjBBJnWVxICj_DomRenderRootObject-->core-web<!--end text qcXKyfQklbWhLYwqBHwBXMTXPmPjZjBBJnWVxICj_DomRenderRootObject--></a><meta id="roMwSTyBLIwWkSunFFxaYkJOkxeBQoLRjaoJnwYO-end"><meta id="ilobyqQEvDFVYoetRSahLPafuEiCatuGokcPsPFA-end">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <meta id="DqZwNvKUTfZJhXjpwjUmKkvcRDVOZXDXpCtACBWS-start"><style id="DqZwNvKUTfZJhXjpwjUmKkvcRDVOZXDXpCtACBWS-style"></style><meta id="FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start"><style id="FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-style">:is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).sub-navigation, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .sub-navigation {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 48px;
+  position: sticky;
+  height: 53px;
+  top: 64px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+:is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).breadcrumb, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+:is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).breadcrumb-item, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .breadcrumb-item {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).breadcrumb-item:hover, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .breadcrumb-item:hover {
+  color: white;
+}
+:is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).breadcrumb-separator, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+:is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).breadcrumb-current, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .breadcrumb-current {
+  color: white;
+  font-weight: 500;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).sub-navigation, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .sub-navigation {
+    padding: 12px 16px;
+  }
+  :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)).breadcrumb, :is(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ *:not(#FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-start ~ #FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}</style><div class="sub-navigation">
+    <meta id="hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start"><style id="hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-style">:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-item, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-item {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-item:hover, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-item:hover {
+  color: #ffffff;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-current, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-current {
+  color: #e5e5e5;
+  font-weight: 500;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-separator, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #606060;
+  user-select: none;
+}
+/* Dropdown styles */
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-dropdown, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-select, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-select {
+  position: relative;
+  display: inline-block;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-select-summary, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-select-summary {
+  cursor: pointer;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-select-body, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-select-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 150px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-select-option, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-select-option {
+  cursor: pointer;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-option-content, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-option-content {
+  padding: 0.5rem 1rem;
+  color: #e5e5e5;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-option-content:hover, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-option-content:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-option-content.selected, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-option-content.selected {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+:is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-option-content.selected:hover, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-option-content.selected:hover {
+  background-color: #f0f0f0;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb {
+    font-size: 0.8rem;
+  }
+  :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)).breadcrumb-separator, :is(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ *:not(#hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-start ~ #hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end ~ *)) .breadcrumb-separator {
+    margin: 0 0.25rem;
+  }
+}</style><div class="breadcrumb">
+  <meta id="yVhNEdErcPmRQykwjFecFrKcTODLqfgJitwtNZSo-start"><span>
+    <!-- Single item case -->
+    <meta id="MpQEkkbSKmgdzCTQPXClGnSXJMNLOqxpwHRDUhwa-start"><meta id="MpQEkkbSKmgdzCTQPXClGnSXJMNLOqxpwHRDUhwa-end">
+
+    <!-- Dropdown case -->
+    <meta id="TAtlVmekFpyyGdfcpTvZrfGpyOCyGDEkKXAWZqeP-start"><span>
+      <meta id="XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start"><style id="XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-style">:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-container {
+  position: relative;
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-options-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-options-container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-container.is-open .dr-select-options-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-container.is-open .dr-select-options-container {
+  display: block;
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) summary, #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ summary:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)::-webkit-details-marker {
+  display: none;
+}
+/* Floating styles for dr-select-body */
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-body-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-body-container {
+  position: absolute;
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-body-bottom-left-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-body-bottom-left-container {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-body-bottom-right-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-body-bottom-right-container {
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-body-top-left-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-body-top-left-container {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-body-top-right-container, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-body-top-right-container {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+}
+/* Reset default details/summary styles */
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-container details, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-container details {
+  display: block;
+  /* Ensure it behaves like a block element */
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-container summary, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-container summary {
+  display: block;
+  /* Ensure it behaves like a block element */
+  list-style: none;
+  /* Remove default marker */
+  cursor: pointer;
+  /* Indicate it's clickable */
+}
+:is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-container summary::-webkit-details-marker, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-container summary::-webkit-details-marker, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)).dr-select-container summary::marker, :is(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ *:not(#XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-start ~ #XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end ~ *)) .dr-select-container summary::marker {
+  display: none;
+  /* Hide marker for Webkit and standard */
+}</style><details class="dr-select-container breadcrumb-select">
+
+    
+        <meta id="hmTuEMnHjIMFsBfyGbOyArpVsmBjFyieOlxGApnh-start"><style id="hmTuEMnHjIMFsBfyGbOyArpVsmBjFyieOlxGApnh-style"></style><summary class="breadcrumb-select-summary">
+
+          <meta id="PSOJaWaKHSuOclISiULptSsNAYaXIBvENxqFYeWh-start"><style id="PSOJaWaKHSuOclISiULptSsNAYaXIBvENxqFYeWh-style"></style><meta id="sKjFVbpvgeaFCThRJesedlPOBhLstpkVgOjnKNqs-start">
+            <span class="breadcrumb-current breadcrumb-dropdown">
+              <!--start text ReBIYxrIVEWOzJHgcNDciHKbQqOxtrREeTwyvLvk_DomRenderRootObject--><!--end text ReBIYxrIVEWOzJHgcNDciHKbQqOxtrREeTwyvLvk_DomRenderRootObject--> ▼
+            </span>
+          <meta id="sKjFVbpvgeaFCThRJesedlPOBhLstpkVgOjnKNqs-end">
+<meta id="PSOJaWaKHSuOclISiULptSsNAYaXIBvENxqFYeWh-end">
+          <meta id="dfMRNbdpAQmfWeofPqGUKjBRsMbeRMEDyojVyUdu-start"><style id="dfMRNbdpAQmfWeofPqGUKjBRsMbeRMEDyojVyUdu-style"></style><meta id="JduWpnmjXkZTbNKXSjeHIqcMKjIdsFJVRlNvBvSb-start"><meta id="JduWpnmjXkZTbNKXSjeHIqcMKjIdsFJVRlNvBvSb-end">
+<meta id="dfMRNbdpAQmfWeofPqGUKjBRsMbeRMEDyojVyUdu-end">
+        
+</summary><meta id="hmTuEMnHjIMFsBfyGbOyArpVsmBjFyieOlxGApnh-end">
+
+        <meta id="HIvRFfpccIxiJSQoaOAtYPlqtEuREnqeHkdHVqaA-start"><style id="HIvRFfpccIxiJSQoaOAtYPlqtEuREnqeHkdHVqaA-style"></style><div class="breadcrumb-select-body dr-select-body-container dr-select-body-bottom-left-container">
+          <meta id="rKtleznaKwYknQFuKLBtIGmbeRekzwzrBZWTxKiq-start"><meta id="rKtleznaKwYknQFuKLBtIGmbeRekzwzrBZWTxKiq-end">
+        </div><meta id="HIvRFfpccIxiJSQoaOAtYPlqtEuREnqeHkdHVqaA-end">
+      
+</details>
+<select hidden="hidden" name="null" disabled="null" style="width: 1500px; height:500px" multiple>
+    <meta id="ZTGWaNwhlhDUIfonzpjTQfIjCcqCxjfqAaiYHWca-start"><meta id="ZTGWaNwhlhDUIfonzpjTQfIjCcqCxjfqAaiYHWca-end">
+</select><meta id="XeJCcjHIwphLaiEeOlGAZDXfOSwzWimNOTOjOeqy-end">
+    </span><meta id="TAtlVmekFpyyGdfcpTvZrfGpyOCyGDEkKXAWZqeP-end">
+
+    <!-- Separator -->
+    <meta id="RcnZSABsmcbuuCjvPsxzMtZsYVlqAuyvRLfTKahN-start"><meta id="RcnZSABsmcbuuCjvPsxzMtZsYVlqAuyvRLfTKahN-end">
+  </span><meta id="yVhNEdErcPmRQykwjFecFrKcTODLqfgJitwtNZSo-end">
+</div><meta id="hItGAtBUBitsocgCqqRpEcQkbpEuATVPvGDvTQTZ-end">
+</div>
+
+<meta id="DvHwIwPPpPLYtRuKHHOtTMLBASCbEZcuQghuakiY-start"><style id="DvHwIwPPpPLYtRuKHHOtTMLBASCbEZcuQghuakiY-style"></style><meta id="zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start"><style id="zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-style">:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) *, #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-container, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).container, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+/* Header */
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-header, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-header {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 3rem 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).breadcrumb, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  color: #a0a0a0;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).breadcrumb a, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .breadcrumb a {
+  color: #e5e5e5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).breadcrumb a:hover, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .breadcrumb a:hover {
+  color: #ffffff;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).breadcrumb span, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .breadcrumb span {
+  margin: 0 0.5rem;
+  color: #606060;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-header h1, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-subtitle, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-subtitle {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-actions, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-link, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-link:hover, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-link:hover {
+  color: white;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-link i, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-link i {
+  font-size: 16px;
+}
+/* Content */
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).package-content, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .package-content {
+  padding: 4rem 0;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).section, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .section {
+  margin-bottom: 4rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).section h2, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .section h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 100px;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  border-top: 1px solid transparent;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).section h3, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .section h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 2rem 0 1rem 0;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).section h4, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .section h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).section p, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .section p {
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).section ul, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .section ul {
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).section li, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .section li {
+  margin-bottom: 0.5rem;
+}
+/* Inline code style (not for code-snippet component) */
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).inline-code, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .inline-code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+  color: #9a9a9a;
+  background: #1e1e1e;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+}
+/* Features Grid */
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).features-grid, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).feature-item, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .feature-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).feature-item h3, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .feature-item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).feature-item p, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .feature-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Configuration Options Grid */
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-options-grid, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-card, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-card:hover, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-card:hover {
+  border-color: #3a3a3a;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-header, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-name, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-name {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.95rem;
+  color: #6a9fdf;
+  background: #1e1e1e;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 500;
+  display: inline-block;
+  word-break: break-all;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-type, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-type {
+  font-size: 0.75rem;
+  color: #8a8a8a;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #1e1e1e;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-card p, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-card p {
+  color: #b0b0b0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-card p:last-of-type, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-card p:last-of-type {
+  margin-bottom: 0;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-example, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-example {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #1e1e1e;
+  border-left: 2px solid #3a3a3a;
+  border-radius: 4px;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-example strong, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-example strong {
+  color: #e5e5e5;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).config-option-example code, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .config-option-example code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.85rem;
+  color: #9a9a9a;
+  background: #252525;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+}
+/* Methods Grid */
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).methods-grid, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-card, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.25rem;
+  transition: border-color 0.2s ease;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-card:hover, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-card:hover {
+  border-color: #3a3a3a;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-header, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-name, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-name {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  color: #6a9fdf;
+  background: #1e1e1e;
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  font-weight: 500;
+  flex: 1;
+  word-break: break-word;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-badge, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-badge {
+  font-size: 0.7rem;
+  color: #9a9a9a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  background: #1e1e1e;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-card p, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-card p {
+  color: #b0b0b0;
+  line-height: 1.6;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-card p:last-of-type:not(:only-of-type), :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-card p:last-of-type:not(:only-of-type) {
+  margin-bottom: 0;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-signature, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-signature {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #1e1e1e;
+  border-left: 2px solid #3a3a3a;
+  border-radius: 4px;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-signature strong, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-signature strong {
+  color: #e5e5e5;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+:is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)).method-signature code, :is(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ *:not(#zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-start ~ #zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end ~ *)) .method-signature code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.82rem;
+  color: #9a9a9a;
+  background: transparent;
+  padding: 0;
+  display: block;
+  line-height: 1.5;
+  word-break: break-word;
+}</style><div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <p align="center"><img src="https://raw.githubusercontent.com/dooboostore-develop/swt/HEAD/document/assets/logo.png" alt="SWT Logo" width="150" style="background-color: rgba(255, 255, 255, 1); padding: 10px; border-radius: 8px;"></p>
+            <h1>swt</h1>
+            <p class="package-subtitle content en">SWT (Simple Web Tracker) is a lightweight JavaScript library for tracking user interactions and events on web pages.</p>
+            <p class="package-subtitle content ko">웹 페이지의 사용자 상호작용 및 이벤트를 추적하기 위한 경량 자바스크립트 라이브러리입니다.</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/swt" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub">
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/swt" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">To use SWT, include the script in your HTML file from the CDN.</p>
+                <p class="content ko">SWT를 사용하려면 CDN을 통해 HTML 파일에 스크립트를 포함시키세요.</p>
+                <meta id="stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start"><style id="stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Snippet Container - 기존 code-example 스타일 기반 */
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-snippet-container, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-snippet-container {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  /* margin-bottom: 1.5rem; */
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-header, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-copy-btn, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin: 0.3rem;
+  flex-shrink: 0;
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-copy-btn:active, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-copy-btn.copied, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+/* 탭 스타일 - 헤더 안에 배치 */
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-tabs, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-tabs {
+  display: flex;
+  background: transparent;
+  overflow-x: auto;
+  flex: 1;
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).tab-btn, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .tab-btn {
+  background: #2a2a2a;
+  color: #9ca3af;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border-right: 1px solid #222;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).tab-btn:hover, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .tab-btn:hover {
+  background: #3a3a3a;
+  color: #e5e5e5;
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).tab-btn.active, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .tab-btn.active {
+  background: #1a1a1a;
+  color: #e5e5e5;
+  border-bottom-color: #0366d6;
+  font-weight: 500;
+}
+:is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-content, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-content {
+  position: relative;
+  background: #1a1a1a;
+}
+@media (max-width: 768px) {
+  :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).code-tabs, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .code-tabs {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)).tab-btn, :is(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ *:not(#stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-start ~ #stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end ~ *)) .tab-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-snippet-container">
+    <div class="code-header">
+        <div class="code-tabs">
+            <meta id="RBEVSMmuFKvuEPaiAQrgAEfvviuVkEvMUhWQcarm-start"><meta id="RBEVSMmuFKvuEPaiAQrgAEfvviuVkEvMUhWQcarm-end">
+        </div>
+
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <div class="code-content">
+        
+                    <meta id="oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start"><style id="oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+/* 언어 표시 floating 요소 */
+:is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)).language-type-indicator, :is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)) .language-type-indicator {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+:is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)).language-type-indicator:hover, :is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)) .language-type-indicator:hover {
+  opacity: 1;
+}
+:is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)).language-result-indicator, :is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)) .language-result-indicator {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+:is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)).language-result-indicator:hover, :is(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ *:not(#oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-start ~ #oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end ~ *)) .language-result-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px);</style><div style="display: none;" class="code-snippet">
+                        <meta id="IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start"><style id="IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+:is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)) :host, #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ :host:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *) {
+  display: block;
+}
+:is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)).code-snippet-pre, :is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)) .code-snippet-pre {
+  padding: 1rem;
+  margin: 0;
+  overflow-x: auto;
+  background: #1a1a1a;
+  position: relative;
+}
+:is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)) code, #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ code:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *) {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)).language-indicator:hover, :is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)) .language-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  :is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)).code-snippet-pre, :is(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ *:not(#IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-start ~ #IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end ~ *)) .code-snippet-pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><pre class="code-snippet-pre"><code class="language-bash"><p>npm i @dooboostore/swt</p></code></pre><meta id="IkTXGuOxpIDbMeffgfXhIlgMDnKOSDSAUTBojisR-end">
+                    </div>
+<meta id="WnMcQKSlAklffVNcXXKGzWCbaCxNjXRvWgmGHoBS-start"><meta id="WnMcQKSlAklffVNcXXKGzWCbaCxNjXRvWgmGHoBS-end">
+<div style="display: none" class="language-type-indicator"><!--start text omlbKFnSicmreBwSMiWTrYxvVjTKPEEPWMdbRzGV_DomRenderRootObject-->text<!--end text omlbKFnSicmreBwSMiWTrYxvVjTKPEEPWMdbRzGV_DomRenderRootObject--></div><meta id="oaYvHfGOBoTTaTxWbWKkcboMtABdpJAhsTsQqxTq-end">
+                
+    </div>
+</div><meta id="stLdxfHtDqCuMYkvvNHIueaaWnrzszSjREeCoNZP-end">
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Event Tracking</h3>
+                        <p class="content en">Monitors clicks, mouse movements, scrolls, page loads, and URL changes.</p>
+                        <p class="content ko">클릭, 마우스 움직임, 스크롤, 페이지 로드, URL 변경을 모니터링합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Management</h3>
+                        <p class="content en">Automatically handles user sessions, including creation and retrieval.</p>
+                        <p class="content ko">세션 생성 및 조회를 포함하여 사용자 세션을 자동으로 관리합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Built-in Dashboard</h3>
+                        <p class="content en">Provides a dashboard to visualize data with path flows, heatmaps, and session replays.</p>
+                        <p class="content ko">경로 흐름, 히트맵, 세션 리플레이 등으로 데이터를 시각화하는 대시보드를 제공합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Easy Configuration</h3>
+                        <p class="content en">Configure tracking behavior easily using `data-swt-*` attributes in the script tag.</p>
+                        <p class="content ko">스크립트 태그의 `data-swt-*` 속성을 사용하여 추적 동작을 쉽게 구성합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Replay</h3>
+                        <p class="content en">Visually replay user sessions to understand their journey and identify issues.</p>
+                        <p class="content ko">사용자 여정을 이해하고 문제를 식별하기 위해 사용자 세션을 시각적으로 재현합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Data Export</h3>
+                        <p class="content en">Allows exporting collected session data to a CSV file for further analysis.</p>
+                        <p class="content ko">수집된 세션 데이터를 추가 분석을 위해 CSV 파일로 내보낼 수 있습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                <p class="content en">Add the script tag to your HTML. The tracker will start automatically.</p>
+                <p class="content ko">HTML에 스크립트 태그를 추가하세요. 트래커가 자동으로 시작됩니다.</p>
+                <meta id="tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start"><style id="tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Snippet Container - 기존 code-example 스타일 기반 */
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-snippet-container, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-snippet-container {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  /* margin-bottom: 1.5rem; */
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-header, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-copy-btn, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin: 0.3rem;
+  flex-shrink: 0;
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-copy-btn:active, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-copy-btn.copied, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+/* 탭 스타일 - 헤더 안에 배치 */
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-tabs, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-tabs {
+  display: flex;
+  background: transparent;
+  overflow-x: auto;
+  flex: 1;
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).tab-btn, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .tab-btn {
+  background: #2a2a2a;
+  color: #9ca3af;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border-right: 1px solid #222;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).tab-btn:hover, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .tab-btn:hover {
+  background: #3a3a3a;
+  color: #e5e5e5;
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).tab-btn.active, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .tab-btn.active {
+  background: #1a1a1a;
+  color: #e5e5e5;
+  border-bottom-color: #0366d6;
+  font-weight: 500;
+}
+:is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-content, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-content {
+  position: relative;
+  background: #1a1a1a;
+}
+@media (max-width: 768px) {
+  :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).code-tabs, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .code-tabs {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)).tab-btn, :is(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ *:not(#tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-start ~ #tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end ~ *)) .tab-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-snippet-container">
+    <div class="code-header">
+        <div class="code-tabs">
+            <meta id="wYwevLTFnIzasRRIFXCMskjfJKgYPnSXiXxCXINE-start"><meta id="wYwevLTFnIzasRRIFXCMskjfJKgYPnSXiXxCXINE-end">
+        </div>
+
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <div class="code-content">
+        
+                    <meta id="oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start"><style id="oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+/* 언어 표시 floating 요소 */
+:is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)).language-type-indicator, :is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)) .language-type-indicator {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+:is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)).language-type-indicator:hover, :is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)) .language-type-indicator:hover {
+  opacity: 1;
+}
+:is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)).language-result-indicator, :is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)) .language-result-indicator {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+:is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)).language-result-indicator:hover, :is(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ *:not(#oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-start ~ #oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end ~ *)) .language-result-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px);</style><div style="display: none;" class="code-snippet">
+                        <meta id="KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start"><style id="KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+:is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)) :host, #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ :host:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *) {
+  display: block;
+}
+:is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)).code-snippet-pre, :is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)) .code-snippet-pre {
+  padding: 1rem;
+  margin: 0;
+  overflow-x: auto;
+  background: #1a1a1a;
+  position: relative;
+}
+:is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)) code, #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ code:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *) {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)).language-indicator:hover, :is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)) .language-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  :is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)).code-snippet-pre, :is(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ *:not(#KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-start ~ #KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end ~ *)) .code-snippet-pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><pre class="code-snippet-pre"><code class="language-html"><p>&amp;lt;!-- Add this to the &amp;lt;head&amp;gt; or &amp;lt;body&amp;gt; of your HTML --&amp;gt;
+&amp;lt;script
+    id="swt"
+    data-swt-post-url="/api/track"
+    data-swt-project-name="My Awesome Project"
+    type="module" 
+    src="https://cdn.jsdelivr.net/npm/@dooboostore/swt/dist/index.min.js"
+&amp;gt;&amp;lt;/script&amp;gt;</p></code></pre><meta id="KCDpJqnpVwmaStKvkpkDVupzJHoVDrATpdmtWqhB-end">
+                    </div>
+<meta id="VWzbgVXUzlmFfWptnRGvNKxVbeKVXOrivikoUoDk-start"><meta id="VWzbgVXUzlmFfWptnRGvNKxVbeKVXOrivikoUoDk-end">
+<div style="display: none" class="language-type-indicator"><!--start text UkQsVMLiwgEJKBWQoSFmxFneCPDNFJlIakLwlvOv_DomRenderRootObject-->text<!--end text UkQsVMLiwgEJKBWQoSFmxFneCPDNFJlIakLwlvOv_DomRenderRootObject--></div><meta id="oPiOKdcLyHjJzeZTUXPzVyRTpZEbCmvuxlgqBWxI-end">
+                
+    </div>
+</div><meta id="tNbjruyrUeKheXtRzqkmtnZLgwUIBTRVVNUxHFbh-end">
+            </section>
+
+            <!-- Dynamic Script Insertion -->
+            <section class="section">
+                <h2 id="dynamic-script-insertion">Dynamic Script Insertion (for CDN usage)</h2>
+                <p class="content en">You can also dynamically insert the SWT script from a CDN into your page. This is useful for external sites or when you prefer not to host the script directly.</p>
+                <p class="content ko">CDN을 통해 SWT 스크립트를 페이지에 동적으로 삽입할 수도 있습니다. 이는 외부 사이트나 스크립트를 직접 호스팅하지 않으려는 경우에 유용합니다.</p>
+                <meta id="NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start"><style id="NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Snippet Container - 기존 code-example 스타일 기반 */
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-snippet-container, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-snippet-container {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  /* margin-bottom: 1.5rem; */
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-header, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-copy-btn, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin: 0.3rem;
+  flex-shrink: 0;
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-copy-btn:active, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-copy-btn.copied, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+/* 탭 스타일 - 헤더 안에 배치 */
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-tabs, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-tabs {
+  display: flex;
+  background: transparent;
+  overflow-x: auto;
+  flex: 1;
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).tab-btn, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .tab-btn {
+  background: #2a2a2a;
+  color: #9ca3af;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border-right: 1px solid #222;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).tab-btn:hover, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .tab-btn:hover {
+  background: #3a3a3a;
+  color: #e5e5e5;
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).tab-btn.active, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .tab-btn.active {
+  background: #1a1a1a;
+  color: #e5e5e5;
+  border-bottom-color: #0366d6;
+  font-weight: 500;
+}
+:is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-content, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-content {
+  position: relative;
+  background: #1a1a1a;
+}
+@media (max-width: 768px) {
+  :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).code-tabs, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .code-tabs {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)).tab-btn, :is(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ *:not(#NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-start ~ #NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end ~ *)) .tab-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-snippet-container">
+    <div class="code-header">
+        <div class="code-tabs">
+            <meta id="csrlOMiauuZwaHKKdmkjkMjJeKRgGtDFYxyLMYPY-start"><meta id="csrlOMiauuZwaHKKdmkjkMjJeKRgGtDFYxyLMYPY-end">
+        </div>
+
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <div class="code-content">
+        
+                    <meta id="uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start"><style id="uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+/* 언어 표시 floating 요소 */
+:is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)).language-type-indicator, :is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)) .language-type-indicator {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+:is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)).language-type-indicator:hover, :is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)) .language-type-indicator:hover {
+  opacity: 1;
+}
+:is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)).language-result-indicator, :is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)) .language-result-indicator {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+:is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)).language-result-indicator:hover, :is(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ *:not(#uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-start ~ #uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end ~ *)) .language-result-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px);</style><div style="display: none;" class="code-snippet">
+                        <meta id="CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start"><style id="CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+:is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)) :host, #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ :host:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *) {
+  display: block;
+}
+:is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)).code-snippet-pre, :is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)) .code-snippet-pre {
+  padding: 1rem;
+  margin: 0;
+  overflow-x: auto;
+  background: #1a1a1a;
+  position: relative;
+}
+:is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)) code, #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ code:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *) {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)).language-indicator:hover, :is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)) .language-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  :is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)).code-snippet-pre, :is(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ *:not(#CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-start ~ #CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end ~ *)) .code-snippet-pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><pre class="code-snippet-pre"><code class="language-javascript"><p>const script = document.createElement('script');
+script.id = 'swt';
+script.type = 'module';
+script.setAttribute('data-swt-target-query-selector', '#portal, #scriptHolder, #home_banner, #viewport-box');
+script.src = 'https://cdn.jsdelivr.net/npm/@dooboostore/swt/dist/index.min.js';
+document.head.appendChild(script);</p></code></pre><meta id="CnPDiVMcYBNpjluotOVmOYyfhXnLfALaGHMYbnDR-end">
+                    </div>
+<meta id="QpyePudFwvvvrzflKUESkzPdWZVJnCRzmdiTkfXI-start"><meta id="QpyePudFwvvvrzflKUESkzPdWZVJnCRzmdiTkfXI-end">
+<div style="display: none" class="language-type-indicator"><!--start text OJwoFCidDLilfLyAofXphIWPOBYwGbXgkWioMkpJ_DomRenderRootObject-->text<!--end text OJwoFCidDLilfLyAofXphIWPOBYwGbXgkWioMkpJ_DomRenderRootObject--></div><meta id="uNedkeiNIBSOdmEJZAxPsgfodwHZbTHhLulqvmDW-end">
+                
+    </div>
+</div><meta id="NVrmnoaCWTNeXMxxnPoqtuMFjLEIdJpbYkJrOdlM-end">
+            </section>
+
+            <!-- Configuration Options -->
+            <section class="section">
+                <h2 id="configuration-options">Configuration Options</h2>
+                <p class="content en">These options are set as <code class="inline-code">data-swt-*</code> attributes on the <code class="inline-code">&lt;script id="swt"&gt;</code> tag:</p>
+                <p class="content ko">이 옵션들은 <code class="inline-code">&lt;script id="swt"&gt;</code> 태그의 <code class="inline-code">data-swt-*</code> 속성으로 설정됩니다:</p>
+                <div class="config-options-grid">
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-target-query-selector</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">A comma-separated list of CSS selectors for elements you want to specifically track clicks, visibility, and binding events on.</p>
+                        <p class="content ko">클릭, 가시성 및 바인딩 이벤트를 특별히 추적하려는 요소에 대한 쉼표로 구분된 CSS 선택기 목록입니다.</p>
+                        <div class="config-option-example">
+                            <strong>Example:</strong> <code class="inline-code">"a, img, .trackable-div"</code>
+                        </div>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-post-url</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">The URL where collected log data will be sent via POST requests. If not provided, data will only be stored in sessionStorage.</p>
+                        <p class="content ko">수집된 로그 데이터가 POST 요청을 통해 전송될 URL입니다. 제공되지 않으면 데이터는 sessionStorage에만 저장됩니다.</p>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-post-buffer-time</code>
+                            <span class="config-option-type">Optional, number</span>
+                        </div>
+                        <p class="content en">The time in milliseconds to buffer collected events before sending them to the post-url.</p>
+                        <p class="content ko">수집된 이벤트를 post-url로 보내기 전에 버퍼링할 시간(밀리초)입니다.</p>
+                        <div class="config-option-example">
+                            <strong>Default:</strong> <code class="inline-code">0</code> (no buffering)
+                        </div>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-token</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">An authentication token to be included in the Authorization header when sending data to the post-url.</p>
+                        <p class="content ko">post-url로 데이터를 보낼 때 Authorization 헤더에 포함될 인증 토큰입니다.</p>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-open-dashboard-delay</code>
+                            <span class="config-option-type">Optional, number</span>
+                        </div>
+                        <p class="content en">Delay in milliseconds before the dashboard script is loaded when swt.openDashboard() is called.</p>
+                        <p class="content ko">swt.openDashboard()가 호출될 때 대시보드 스크립트가 로드되기 전 지연 시간(밀리초)입니다.</p>
+                        <div class="config-option-example">
+                            <strong>Default:</strong> <code class="inline-code">0</code>
+                        </div>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-disabled-auto-start</code>
+                            <span class="config-option-type">Optional, boolean</span>
+                        </div>
+                        <p class="content en">If present, SWT will not automatically start tracking on DOMContentLoaded. You will need to manually call <code class="inline-code">window.swt.run()</code>.</p>
+                        <p class="content ko">이 속성이 있으면 SWT는 DOMContentLoaded 시 자동으로 추적을 시작하지 않습니다. <code class="inline-code">window.swt.run()</code>을 수동으로 호출해야 합니다.</p>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-mode</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">Set to "dashboard" when the script is loaded within the SWT dashboard window. This changes the script's behavior to run the dashboard application instead of the tracker.</p>
+                        <p class="content ko">스크립트가 SWT 대시보드 창 내에서 로드될 때 "dashboard"로 설정됩니다. 이는 스크립트의 동작을 트래커 대신 대시보드 애플리케이션을 실행하도록 변경합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage -->
+            <section class="section">
+                <h2 id="usage">Usage</h2>
+                <p class="content en">Once the script is included, the <code class="inline-code">swt</code> instance will be available globally on the <code class="inline-code">window</code> object (i.e., <code class="inline-code">window.swt</code>).</p>
+                <p class="content ko">스크립트가 포함되면 <code class="inline-code">swt</code> 인스턴스는 <code class="inline-code">window</code> 객체(예: <code class="inline-code">window.swt</code>)에서 전역적으로 사용할 수 있습니다.</p>
+
+                <h3 id="available-methods">Available Methods</h3>
+                <p class="content en">You can interact with the <code class="inline-code">swt</code> instance directly from your browser's developer console or your JavaScript code.</p>
+                <p class="content ko">브라우저의 개발자 콘솔이나 자바스크립트 코드에서 직접 <code class="inline-code">swt</code> 인스턴스와 상호작용할 수 있습니다.</p>
+                
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.run()</code>
+                            <span class="method-badge">Initialize</span>
+                        </div>
+                        <p class="content en">Initializes the tracker. This is automatically called on DOMContentLoaded unless <code class="inline-code">data-swt-disabled-auto-start</code> is set.</p>
+                        <p class="content ko">트래커를 초기화합니다. <code class="inline-code">data-swt-disabled-auto-start</code>가 설정되지 않은 경우 DOMContentLoaded 시 자동으로 호출됩니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.help()</code>
+                            <span class="method-badge">Info</span>
+                        </div>
+                        <p class="content en">Displays a help message in the console with available methods.</p>
+                        <p class="content ko">사용 가능한 메서드와 함께 콘솔에 도움말 메시지를 표시합니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.status()</code>
+                            <span class="method-badge">Query</span>
+                        </div>
+                        <p class="content en">Returns the current session status and a list of past sessions.</p>
+                        <p class="content ko">현재 세션 상태와 과거 세션 목록을 반환합니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.showSession()</code>
+                            <span class="method-badge">Query</span>
+                        </div>
+                        <p class="content en">Displays the ID of the current active session in the console.</p>
+                        <p class="content ko">콘솔에 현재 활성 세션의 ID를 표시합니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.newSession()</code>
+                            <span class="method-badge">Action</span>
+                        </div>
+                        <p class="content en">Creates a new session. You can optionally provide a sessionId and additional data for the session. If id is not provided, a random UUID is generated.</p>
+                        <p class="content ko">새 세션을 생성합니다. 선택적으로 sessionId와 세션에 대한 추가 데이터를 제공할 수 있습니다. id가 제공되지 않으면 임의의 UUID가 생성됩니다.</p>
+                        <div class="method-signature">
+                            <strong>Signature:</strong> <code class="inline-code">newSession(options?: { id?: string, data?: object })</code>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.openDashboard()</code>
+                            <span class="method-badge">Action</span>
+                        </div>
+                        <p class="content en">Opens a new browser window displaying the SWT Dashboard, which visualizes the collected session data.</p>
+                        <p class="content ko">수집된 세션 데이터를 시각화하는 SWT 대시보드를 표시하는 새 브라우저 창을 엽니다.</p>
+                    </div>
+                </div>
+
+                <h3 id="example">Example</h3>
+                <meta id="BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start"><style id="BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Snippet Container - 기존 code-example 스타일 기반 */
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-snippet-container, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-snippet-container {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  /* margin-bottom: 1.5rem; */
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-header, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-copy-btn, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin: 0.3rem;
+  flex-shrink: 0;
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-copy-btn:active, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-copy-btn.copied, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+/* 탭 스타일 - 헤더 안에 배치 */
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-tabs, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-tabs {
+  display: flex;
+  background: transparent;
+  overflow-x: auto;
+  flex: 1;
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).tab-btn, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .tab-btn {
+  background: #2a2a2a;
+  color: #9ca3af;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border-right: 1px solid #222;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).tab-btn:hover, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .tab-btn:hover {
+  background: #3a3a3a;
+  color: #e5e5e5;
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).tab-btn.active, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .tab-btn.active {
+  background: #1a1a1a;
+  color: #e5e5e5;
+  border-bottom-color: #0366d6;
+  font-weight: 500;
+}
+:is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-content, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-content {
+  position: relative;
+  background: #1a1a1a;
+}
+@media (max-width: 768px) {
+  :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).code-tabs, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .code-tabs {
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)).tab-btn, :is(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ *:not(#BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-start ~ #BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end ~ *)) .tab-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-snippet-container">
+    <div class="code-header">
+        <div class="code-tabs">
+            <meta id="VNzAsXNSTwSHOwgrZBLpdMiVZJMwRQgIXuFPVpEU-start"><meta id="VNzAsXNSTwSHOwgrZBLpdMiVZJMwRQgIXuFPVpEU-end">
+        </div>
+
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <div class="code-content">
+        
+                    <meta id="WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start"><style id="WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+/* 언어 표시 floating 요소 */
+:is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)).language-type-indicator, :is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)) .language-type-indicator {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+:is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)).language-type-indicator:hover, :is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)) .language-type-indicator:hover {
+  opacity: 1;
+}
+:is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)).language-result-indicator, :is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)) .language-result-indicator {
+  position: absolute;
+  bottom: 0rem;
+  right: 0.1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #9ca3af;
+  padding: 0rem 0.2rem;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+:is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)).language-result-indicator:hover, :is(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ *:not(#WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-start ~ #WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end ~ *)) .language-result-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px);</style><div style="display: none;" class="code-snippet">
+                        <meta id="RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start"><style id="RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-style">/* Code Snippet - 기존 code-example 스타일과 일치 */
+:is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)) :host, #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ :host:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *) {
+  display: block;
+}
+:is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)).code-snippet-pre, :is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)) .code-snippet-pre {
+  padding: 1rem;
+  margin: 0;
+  overflow-x: auto;
+  background: #1a1a1a;
+  position: relative;
+}
+:is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)) code, #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ code:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *) {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)).language-indicator:hover, :is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)) .language-indicator:hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  :is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)).code-snippet-pre, :is(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ *:not(#RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-start ~ #RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end ~ *)) .code-snippet-pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><pre class="code-snippet-pre"><code class="language-javascript"><p>// Check the current status
+console.log(window.swt.status());
+
+// Create a new session with custom data
+window.swt.newSession({ data: { user: 'john.doe', campaign: 'summer_sale' } });
+
+// Open the dashboard
+window.swt.openDashboard();</p></code></pre><meta id="RPSiAifTzMyGVgYVrTTzORFSKqaYVOKWQDjIYgJT-end">
+                    </div>
+<meta id="CUNvVHokdfzlnNiDRHJtgjjmWpHwOtKDejmFizRO-start"><meta id="CUNvVHokdfzlnNiDRHJtgjjmWpHwOtKDejmFizRO-end">
+<div style="display: none" class="language-type-indicator"><!--start text WvpBFzOquVbnJLdNIgXkSqbwtaqgbCShDmqaBazu_DomRenderRootObject-->text<!--end text WvpBFzOquVbnJLdNIgXkSqbwtaqgbCShDmqaBazu_DomRenderRootObject--></div><meta id="WjXauEFYeApgJDYSsVrZuSTLlPfrJFYyWVRmBwfV-end">
+                
+    </div>
+</div><meta id="BDnHUlEMTaGULXHxjtpDZiCkmlZWkrFOyoasmIZX-end">
+            </section>
+
+            <!-- Demonstration -->
+            <section class="section">
+                <h2 id="demonstration">Demonstration</h2>
+                <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/use.gif" alt="SWT Demonstration" style="width: 100%; border-radius: 8px; border: 1px solid #2a2a2a;">
+            </section>
+            <!-- Dashboard -->
+            <section class="section">
+                <h2 id="dashboard">Dashboard Features</h2>
+                <p class="content en">The SWT Dashboard provides a visual interface to analyze the collected tracking data. It can be opened by calling <code class="language-javascript">window.swt.openDashboard()</code> from the tracked page.</p>
+                <p class="content ko">SWT 대시보드는 수집된 추적 데이터를 분석하기 위한 시각적 인터페이스를 제공합니다. 추적 중인 페이지에서 <code class="language-javascript">window.swt.openDashboard()</code>를 호출하여 열 수 있습니다.</p>
+                <p class="content en">The dashboard includes:</p>
+                <p class="content ko">대시보드에는 다음이 포함됩니다:</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Path Flow</h3>
+                        <p class="content en">Visualizes user navigation paths between pages.</p>
+                        <p class="content ko">페이지 간 사용자 이동 경로를 시각화합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/path-flow.png" alt="Path Flow Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Timeline</h3>
+                        <p class="content en">Shows events over time for each session.</p>
+                        <p class="content ko">각 세션의 시간 경과에 따른 이벤트를 보여줍니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/time-line.png" alt="Time Line Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Event Distribution</h3>
+                        <p class="content en">Displays the distribution of event types across pages.</p>
+                        <p class="content ko">페이지 전반의 이벤트 유형 분포를 표시합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/event-distribution.png" alt="Event Distribution Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Heatmap</h3>
+                        <p class="content en">Provides a heatmap of element interactions (clicks, visibility).</p>
+                        <p class="content ko">요소 상호작용(클릭, 가시성)에 대한 히트맵을 제공합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/heatmap.png" alt="Heatmap Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Sankey Path Depth</h3>
+                        <p class="content en">Visualizes path depth changes using a Sankey diagram.</p>
+                        <p class="content ko">생키 다이어그램을 사용하여 경로 깊이 변화를 시각화합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/path-depth-sankey.png" alt="Sankey Path Depth Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Error Log</h3>
+                        <p class="content en">Tracks and displays JavaScript errors grouped by page.</p>
+                        <p class="content ko">페이지별로 그룹화된 자바스크립트 오류를 추적하고 표시합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/error-log.png" alt="Error Log Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Replay</h3>
+                        <p class="content en">Visually replays user sessions, showing mouse movements, clicks, and scrolls.</p>
+                        <p class="content ko">마우스 움직임, 클릭, 스크롤을 보여주며 사용자 세션을 시각적으로 재현합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/session-replay.gif" alt="Session Replay Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Filter</h3>
+                        <p class="content en">Allows filtering sessions based on various criteria.</p>
+                        <p class="content ko">다양한 기준에 따라 세션을 필터링할 수 있습니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/session-filter.png" alt="Session Filter" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div><meta id="zcnUQKdcWTMKmGbZmUwQVNCMkJsKPJXwSkJdMSfk-end"><meta id="DvHwIwPPpPLYtRuKHHOtTMLBASCbEZcuQghuakiY-end">
+<meta id="FUvBvyhnpjkSdUrreBMzfvUcUqujYZcdCUgNjsAx-end"><meta id="DqZwNvKUTfZJhXjpwjUmKkvcRDVOZXDXpCtACBWS-end">
+<!--        <dr-this value=""></dr-this>-->
+    </main>
+</div><meta id="HBNGRpLYgFEjFYVFmqeLijagZippXUUZGrhCejqd-end"><meta id="MMAfxqfsWsvkFxEJeBmexpOGMysTobwAwZWTgvpU-end">
+<!--    <dr-this value=""></dr-this>-->
+</main>
+
+
+<!--<iframe-->
+<!--        src="https://stackblitz.com/edit/stackblitz-starters-1idcahki?embed=1&file=src/index.ts&hideNavigation=1&hidePreview=1&view=editor&env=MODE=vvvvvtest"-->
+<!--        style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"-->
+<!--&gt;-->
+<!--</iframe>-->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+<!--                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">-->
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<meta id="mdewnhIckniAPDOCQMCrTPWnWnsvvXZamCtkVSyb-end"><meta id="BWQHZoPjVXvSgtirFTssWuxxUOyONwIhdCXmuobA-end"></div>
+</body>
+</html>

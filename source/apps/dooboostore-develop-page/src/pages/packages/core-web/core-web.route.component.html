@@ -1,0 +1,1012 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>core-web</h1>
+            <p class="content en">Browser and web platform utilities for modern web applications</p>
+            <p class="content ko">현대적인 웹 애플리케이션을 위한 브라우저와 웹 플랫폼 유틸리티</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/core-web" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/core-web" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Installs the package and its peer dependency</p>
+                <p class="content ko">패키지와 필수 의존성을 설치하세요:</p>
+                <code-snippet-container>
+                    <code-snippet name="npm">
+                        <code-snippet-code type="bash">npm install @dooboostore/core-web reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="pnpm">
+                        <code-snippet-code type="bash">pnpm add @dooboostore/core-web reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <section class="section">
+                <h2 id="demo">Demo example</h2>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                <p class="content en">DEMO EXAMPLE</p>
+                <p class="content ko">데모 예제</p>
+                    </summary>
+                <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+
+            <!-- DOM Manipulation -->
+            <section class="section">
+                <h2 id="dom-manipulation">DOM Manipulation</h2>
+                <p class="content en">Essential DOM element manipulation and query utilities</p>
+                <p class="content ko">필수 DOM 요소 조작과 쿼리 유틸리티들</p>
+
+                <div class="example-item">
+                    <h3 id="element-utils">ElementUtils</h3>
+                    <p class="example-description content en">DOM element manipulation utilities</p>
+                    <p class="example-description content ko">DOM 요소 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ElementUtils } from '@dooboostore/core-web/element/ElementUtils';
+
+// HTML to fragment
+const fragment = ElementUtils.htmlToFragment('<div>Hello</div>', { document });
+const html = ElementUtils.toInnerHTML(fragment, { document });
+
+// Query selector
+const element = ElementUtils.querySelector(document.body, '.my-class');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">loadImage</code><span class="params">(src: string): Promise&lt;HTMLImageElement&gt;</span>
+                                </span>
+                                <span class="desc content en">Load image from URL (Promise)</span>
+                                <span class="desc content ko">URL에서 이미지 로드 (Promise)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">loadImage</code><span class="params">(src: string, callback: LoadImageCallbackType): void</span>
+                                </span>
+                                <span class="desc content en">Load image from URL (callback)</span>
+                                <span class="desc content ko">URL에서 이미지 로드 (콜백)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">loadAudio</code><span class="params">(src: string): Promise&lt;HTMLAudioElement&gt;</span>
+                                </span>
+                                <span class="desc content en">Load audio from URL (Promise)</span>
+                                <span class="desc content ko">URL에서 오디오 로드 (Promise)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">loadAudio</code><span class="params">(src: string, callback: LoadAudioCallbackType): void</span>
+                                </span>
+                                <span class="desc content en">Load audio from URL (callback)</span>
+                                <span class="desc content ko">URL에서 오디오 로드 (콜백)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">replaceWith</code><span class="params">(targetElement: Element, replaceElement: Element): void</span>
+                                </span>
+                                <span class="desc content en">Replace element</span>
+                                <span class="desc content ko">요소 교체</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">nodeList</code><span class="params">(documentFragment: DocumentFragment): Node[]</span>
+                                </span>
+                                <span class="desc content en">Get node list from DocumentFragment</span>
+                                <span class="desc content ko">DocumentFragment에서 노드 리스트 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">cloneNodeList</code><span class="params">(documentFragment: DocumentFragment): Node[]</span>
+                                </span>
+                                <span class="desc content en">Clone node list from DocumentFragment</span>
+                                <span class="desc content ko">DocumentFragment에서 노드 리스트 복제</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">querySelectorAll</code><span class="params">(element: Element | {start, end}, selector: string): Element[]</span>
+                                </span>
+                                <span class="desc content en">Query all elements with selector</span>
+                                <span class="desc content ko">셀렉터로 모든 요소 쿼리</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">selectorElements</code><span class="params">(selector: string, element?: Element | Document): Element[]</span>
+                                </span>
+                                <span class="desc content en">Select elements by selector</span>
+                                <span class="desc content ko">셀렉터로 요소 선택</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">selectorNodes</code><span class="params">(selector: string, element?: Element | Document): Node[]</span>
+                                </span>
+                                <span class="desc content en">Select nodes by selector</span>
+                                <span class="desc content ko">셀렉터로 노드 선택</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">removeAttribute</code><span class="params">(element: Element, attrs: string[]): void</span>
+                                </span>
+                                <span class="desc content en">Remove multiple attributes</span>
+                                <span class="desc content ko">여러 속성 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">setAttribute</code><span class="params">(element: Element, attrs: string[]): void</span>
+                                </span>
+                                <span class="desc content en">Set multiple attributes</span>
+                                <span class="desc content ko">여러 속성 설정</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">setAttributeAttr</code><span class="params">(element: Element, attrs: Attr[]): void</span>
+                                </span>
+                                <span class="desc content en">Set attributes from Attr array</span>
+                                <span class="desc content ko">Attr 배열로 속성 설정</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getAttributeToObject</code><span class="params">(element: Element): any</span>
+                                </span>
+                                <span class="desc content en">Get all attributes as object</span>
+                                <span class="desc content ko">모든 속성을 객체로 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getStyleToObject</code><span class="params">(element: HTMLElement): any</span>
+                                </span>
+                                <span class="desc content en">Get all styles as object</span>
+                                <span class="desc content ko">모든 스타일을 객체로 가져오기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="node-utils">NodeUtils</h3>
+                    <p class="example-description content en">Node manipulation utilities</p>
+                    <p class="example-description content ko">노드 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { NodeUtils } from '@dooboostore/core-web/node/NodeUtils';
+
+// Node operations
+NodeUtils.appendChild(parentNode, childNode);
+NodeUtils.replaceNode(targetNode, newNode);
+NodeUtils.addNode(targetNode, newNode);
+
+// Clone node
+const cloned = NodeUtils.cloneNode(element, true);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">removeAllChildNode</code><span class="params">(node)</span>
+                                </span>
+                                <span class="desc content en">Remove all child nodes</span>
+                                <span class="desc content ko">모든 자식 노드 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">findNodes</code><span class="params">(rootNode, filter)</span>
+                                </span>
+                                <span class="desc content en">Find nodes with filter</span>
+                                <span class="desc content ko">필터로 노드 찾기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Browser Storage -->
+            <section class="section">
+                <h2 id="browser-storage">Browser Storage</h2>
+                <p class="content en">Browser storage and data persistence utilities</p>
+                <p class="content ko">브라우저 저장소와 데이터 지속성 유틸리티들</p>
+
+                <div class="example-item">
+                    <h3 id="storage-utils">StorageUtils</h3>
+                    <p class="example-description content en">LocalStorage and SessionStorage utilities</p>
+                    <p class="example-description content ko">LocalStorage와 SessionStorage 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { StorageUtils } from '@dooboostore/core-web/storage/StorageUtils';
+
+StorageUtils.setLocalStorageItem('key', 'value', window);
+const value = StorageUtils.getLocalStorageItem('key', window);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">setLocalStorageItem</code><span class="params">(k: string, v: string | any, window: Window): void</span>
+                                </span>
+                                <span class="desc content en">Set localStorage item (auto JSON.stringify for objects)</span>
+                                <span class="desc content ko">localStorage 항목 설정 (객체는 자동 JSON.stringify)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">setSessionStorageItem</code><span class="params">(k: string, v: string | any, window: Window): void</span>
+                                </span>
+                                <span class="desc content en">Set sessionStorage item (auto JSON.stringify for objects)</span>
+                                <span class="desc content ko">sessionStorage 항목 설정 (객체는 자동 JSON.stringify)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getLocalStorageItem</code><span class="params">(k: string, window: Window): string | null</span>
+                                </span>
+                                <span class="desc content en">Get localStorage item</span>
+                                <span class="desc content ko">localStorage 항목 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getSessionStorageItem</code><span class="params">(k: string, window: Window): string | null</span>
+                                </span>
+                                <span class="desc content en">Get sessionStorage item</span>
+                                <span class="desc content ko">sessionStorage 항목 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">cutLocalStorageItem</code><span class="params">(k: string, window: Window): string | null</span>
+                                </span>
+                                <span class="desc content en">Get and remove localStorage item</span>
+                                <span class="desc content ko">localStorage 항목 가져오고 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">cutSessionStorageItem</code><span class="params">(k: string, window: Window): string | null</span>
+                                </span>
+                                <span class="desc content en">Get and remove sessionStorage item</span>
+                                <span class="desc content ko">sessionStorage 항목 가져오고 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">removeLocalStorageItem</code><span class="params">(k: string, window: Window): void</span>
+                                </span>
+                                <span class="desc content en">Remove localStorage item</span>
+                                <span class="desc content ko">localStorage 항목 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">removeSessionStorageItem</code><span class="params">(k: string, window: Window): void</span>
+                                </span>
+                                <span class="desc content en">Remove sessionStorage item</span>
+                                <span class="desc content ko">sessionStorage 항목 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getLocalStorageJsonItem</code><span class="params">&lt;T&gt;(k: string, window: Window): T | undefined</span>
+                                </span>
+                                <span class="desc content en">Get and parse JSON from localStorage</span>
+                                <span class="desc content ko">localStorage에서 JSON 가져오고 파싱</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getSessionStorageJsonItem</code><span class="params">&lt;T&gt;(k: string, window: Window): T | undefined</span>
+                                </span>
+                                <span class="desc content en">Get and parse JSON from sessionStorage</span>
+                                <span class="desc content ko">sessionStorage에서 JSON 가져오고 파싱</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">cutLocalStorageJsonItem</code><span class="params">&lt;T&gt;(k: string, window: Window): T | undefined</span>
+                                </span>
+                                <span class="desc content en">Get JSON from localStorage and remove</span>
+                                <span class="desc content ko">localStorage에서 JSON 가져오고 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">cutSessionStorageJsonItem</code><span class="params">&lt;T&gt;(k: string, window: Window): T | undefined</span>
+                                </span>
+                                <span class="desc content en">Get JSON from sessionStorage and remove</span>
+                                <span class="desc content ko">sessionStorage에서 JSON 가져오고 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">clearLocalStorage</code><span class="params">(window: Window): void</span>
+                                </span>
+                                <span class="desc content en">Clear all localStorage</span>
+                                <span class="desc content ko">모든 localStorage 지우기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">clearSessionStorage</code><span class="params">(window: Window): void</span>
+                                </span>
+                                <span class="desc content en">Clear all sessionStorage</span>
+                                <span class="desc content ko">모든 sessionStorage 지우기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="cookie-utils">CookieUtils</h3>
+                    <p class="example-description content en">Cookie management utilities</p>
+                    <p class="example-description content ko">쿠키 관리 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { CookieUtils } from '@dooboostore/core-web/cookie/CookieUtils';
+
+const value = CookieUtils.get('cookieName');
+CookieUtils.set('cookieName', 'value', { path: '/' });
+CookieUtils.remove('cookieName', { path: '/' });</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">names</code><span class="params">(doc?)</span>
+                                </span>
+                                <span class="desc content en">Get all cookie names</span>
+                                <span class="desc content ko">모든 쿠키 이름 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">make</code><span class="params">(name, value, option?)</span>
+                                </span>
+                                <span class="desc content en">Make cookie string</span>
+                                <span class="desc content ko">쿠키 문자열 만들기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Browser APIs -->
+            <section class="section">
+                <h2 id="browser-apis">Browser APIs</h2>
+                <p class="content en">Browser window and platform APIs</p>
+                <p class="content ko">브라우저 윈도우와 플랫폼 API들</p>
+
+                <div class="example-item">
+                    <h3 id="clipboard-utils">ClipBoardUtils</h3>
+                    <p class="example-description content en">Clipboard read/write operations</p>
+                    <p class="example-description content ko">클립보드 읽기/쓰기 작업</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ClipBoardUtils } from '@dooboostore/core-web/clipboard/ClipBoardUtils';
+
+const text = await ClipBoardUtils.readText(window);
+await ClipBoardUtils.writeText('Hello World', window);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">read</code><span class="params">(window)</span>
+                                </span>
+                                <span class="desc content en">Read clipboard items</span>
+                                <span class="desc content ko">클립보드 항목 읽기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">write</code><span class="params">(data, clipboard?)</span>
+                                </span>
+                                <span class="desc content en">Write clipboard items</span>
+                                <span class="desc content ko">클립보드 항목 쓰기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="window-utils">WindowUtils</h3>
+                    <p class="example-description content en">Window event handling utilities</p>
+                    <p class="example-description content ko">윈도우 이벤트 처리 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { WindowUtils } from '@dooboostore/core-web/window/WindowUtils';
+
+const resize$ = WindowUtils.eventObservable(window, 'resize');
+resize$.subscribe(event => {
+  console.log('Window resized:', event);
+});</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">eventObservable</code><span class="params">&lt;K&gt;(window: Window, type: K, options?): Observable&lt;WindowEventMap[K]&gt;</span>
+                                </span>
+                                <span class="desc content en">Create Observable from Window events</span>
+                                <span class="desc content ko">Window 이벤트에서 Observable 생성</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Data Conversion -->
+            <section class="section">
+                <h2 id="data-conversion">Data Conversion</h2>
+                <p class="content en">Web-specific data format conversion utilities</p>
+                <p class="content ko">웹 전용 데이터 형식 변환 유틸리티</p>
+
+                <div class="example-item">
+                    <h3 id="convert-utils">ConvertUtils</h3>
+                    <p class="example-description content en">Image and data conversion utilities</p>
+                    <p class="example-description content ko">이미지와 데이터 변환 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ConvertUtils } from '@dooboostore/core-web/convert/ConvertUtils';
+
+const blob = await ConvertUtils.toBlob(imageBitmap, { type: 'image/png' });
+const base64 = await ConvertUtils.toBase64(imageFile, { type: 'image/jpeg' });
+const compressed = await ConvertUtils.compressImageToBase64(image, { 
+  maxWidth: 800, 
+  type: 'image/jpeg',
+  quality: 0.8 
+});</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">coreConvertUtils</code><span class="params">: CoreConverUtils</span>
+                                </span>
+                                <span class="desc content en">Re-export of core conversion utilities</span>
+                                <span class="desc content ko">코어 변환 유틸리티 재내보내기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">toObjectUrl</code><span class="params">(data: File | Blob): string</span>
+                                </span>
+                                <span class="desc content en">Convert File or Blob to Object URL</span>
+                                <span class="desc content ko">File 또는 Blob을 Object URL로 변환</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">isImageConvertConfig</code><span class="params">(data: any): boolean</span>
+                                </span>
+                                <span class="desc content en">Type guard for ImageConvertConfig</span>
+                                <span class="desc content ko">ImageConvertConfig 타입 가드</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">toFile</code><span class="params">(imageBitmapOrCanvas, config: {filename, type?, quality?}): Promise&lt;File&gt;</span>
+                                </span>
+                                <span class="desc content en">Convert image to File</span>
+                                <span class="desc content ko">이미지를 File로 변환</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">toImageBitmap</code><span class="params">(target: File | Blob | HTMLImageElement | Canvas): Promise&lt;ImageBitmap&gt;</span>
+                                </span>
+                                <span class="desc content en">Convert to ImageBitmap</span>
+                                <span class="desc content ko">ImageBitmap으로 변환</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">toBlobURL</code><span class="params">(imageBitmapOrCanvas, config: {type?, quality?}): Promise&lt;string&gt;</span>
+                                </span>
+                                <span class="desc content en">Convert to Blob URL</span>
+                                <span class="desc content ko">Blob URL로 변환</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Utilities -->
+            <section class="section">
+                <h2 id="utilities">Utilities</h2>
+                <p class="content en">Additional web development utilities</p>
+                <p class="content ko">추가 웹 개발 유틸리티들</p>
+
+                <div class="example-item">
+                    <h3 id="download-utils">DownloadUtils</h3>
+                    <p class="example-description content en">File download utilities</p>
+                    <p class="example-description content ko">파일 다운로드 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { DownloadUtils } from '@dooboostore/core-web/download/DownloadUtils';
+
+DownloadUtils.download(window, '/path/to/file.pdf', 'document.pdf');
+DownloadUtils.csvDownload(window, data, { headers: ['name', 'age', 'email'] });</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">download</code><span class="params">(window: Window, url: string, filename?: string): void</span>
+                                </span>
+                                <span class="desc content en">Download file from URL</span>
+                                <span class="desc content ko">URL에서 파일 다운로드</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">csvDownload</code><span class="params">&lt;T&gt;(window: Window, datas: T[], config: {includeHeader?, headers}): void</span>
+                                </span>
+                                <span class="desc content en">Download data as CSV file</span>
+                                <span class="desc content ko">데이터를 CSV 파일로 다운로드</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="event-utils">EventUtils</h3>
+                    <p class="example-description content en">Event handling with Observable pattern</p>
+                    <p class="example-description content ko">Observable 패턴으로 이벤트 처리</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { EventUtils } from '@dooboostore/core-web/event/EventUtils';
+
+const click$ = EventUtils.htmlElementEventObservable(button, 'click');
+click$.subscribe(event => {
+  console.log('Button clicked!', event);
+});</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">htmlElementEventObservable</code><span class="params">&lt;K&gt;(element: HTMLElement | Document, type: K, options?): Observable&lt;Event&gt;</span>
+                                </span>
+                                <span class="desc content en">Create Observable from HTMLElement or Document events</span>
+                                <span class="desc content ko">HTMLElement 또는 Document 이벤트에서 Observable 생성</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="valid-utils">ValidUtils</h3>
+                    <p class="example-description content en">Browser and environment validation utilities</p>
+                    <p class="example-description content ko">브라우저와 환경 검증 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ValidUtils } from '@dooboostore/core-web/valid/ValidUtils';
+
+if (ValidUtils.isBrowser()) {
+  console.log('Running in browser');
+}
+
+if (ValidUtils.isMobile(window)) {
+  console.log('Mobile device');
+}</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">coreValidUtils</code><span class="params">: CoreValidUtils</span>
+                                </span>
+                                <span class="desc content en">Re-export of core validation utilities</span>
+                                <span class="desc content ko">코어 검증 유틸리티 재내보내기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">hasParentWindow</code><span class="params">(win: Window): boolean</span>
+                                </span>
+                                <span class="desc content en">Check if window has parent window</span>
+                                <span class="desc content ko">윈도우에 부모 윈도우가 있는지 확인</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">isSocialNetworkServiceInappBrowser</code><span class="params">(): boolean</span>
+                                </span>
+                                <span class="desc content en">Check if SNS in-app browser (Facebook, Instagram, etc.)</span>
+                                <span class="desc content ko">SNS 인앱 브라우저 확인 (Facebook, Instagram 등)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">isWkWebview</code><span class="params">(): boolean</span>
+                                </span>
+                                <span class="desc content en">Check if iOS WKWebView</span>
+                                <span class="desc content ko">iOS WKWebView 확인</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">isiPhone</code><span class="params">(): boolean</span>
+                                </span>
+                                <span class="desc content en">Check if iPhone device</span>
+                                <span class="desc content ko">iPhone 기기 확인</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">isAndroidWebview</code><span class="params">(): boolean</span>
+                                </span>
+                                <span class="desc content en">Check if Android WebView</span>
+                                <span class="desc content ko">Android WebView 확인</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="style-css-utils">StyleCssUtils</h3>
+                    <p class="example-description content en">CSS manipulation and style utilities</p>
+                    <p class="example-description content ko">CSS 조작과 스타일 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { StyleCssUtils } from '@dooboostore/core-web/stylecss/StyleCssUtils';
+
+const value = StyleCssUtils.getPropertyValue('--primary-color', { el: element, window });
+StyleCssUtils.setPropertyValue('--primary-color', '#007bff', element);
+const styles = StyleCssUtils.getComputedStyle({ el: element, window });</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getPropertyEntries</code><span class="params">(config)</span>
+                                </span>
+                                <span class="desc content en">Get all CSS property entries</span>
+                                <span class="desc content ko">모든 CSS 속성 항목 가져오기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="animation-frame-utils">AnimationFrameUtils</h3>
+                    <p class="example-description content en">Animation frame utilities with FPS control</p>
+                    <p class="example-description content ko">FPS 제어를 포함한 애니메이션 프레임 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { AnimationFrameUtils } from '@dooboostore/core-web/animation/AnimationFrameUtils';
+
+const animation$ = AnimationFrameUtils.dividePerFpsObservable({ fps: 60, window });
+animation$.subscribe(() => {
+  // Run animation at 60 FPS
+});</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">fps</code><span class="params">(params: FpsConfigParamType, callback: (value) => void): Subscription</span>
+                                </span>
+                                <span class="desc content en">Execute callback at specified FPS with subscription</span>
+                                <span class="desc content ko">지정된 FPS로 콜백 실행 (구독 반환)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">dividePerFpsObservable</code><span class="params">({fps, window}): Observable&lt;number&gt;</span>
+                                </span>
+                                <span class="desc content en">Create Observable that emits at specified FPS</span>
+                                <span class="desc content ko">지정된 FPS로 방출하는 Observable 생성</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="document-utils">DocumentUtils</h3>
+                    <p class="example-description content en">Document manipulation utilities</p>
+                    <p class="example-description content ko">Document 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { DocumentUtils } from '@dooboostore/core-web/document/DocumentUtils';
+
+const elements = DocumentUtils.querySelectorAllByAttributeName(document, 'data-id');
+const event$ = DocumentUtils.eventObservable(document, 'click');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">querySelectorAllByAttributeName</code><span class="params">(document: Document | Element, attributeName: string): {element, value}[]</span>
+                                </span>
+                                <span class="desc content en">Query all elements by attribute name</span>
+                                <span class="desc content ko">속성 이름으로 모든 요소 쿼리</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">eventObservable</code><span class="params">&lt;K&gt;(document: Document, type: K, options?): Observable&lt;Event&gt;</span>
+                                </span>
+                                <span class="desc content en">Create Observable from Document events</span>
+                                <span class="desc content ko">Document 이벤트에서 Observable 생성</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="location-utils">LocationUtils</h3>
+                    <p class="example-description content en">URL and location utilities</p>
+                    <p class="example-description content ko">URL과 위치 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { LocationUtils } from '@dooboostore/core-web/location/LocationUtils';
+
+const hash = LocationUtils.hash(window);
+const params = LocationUtils.pathQueryParams(window);
+const queryObj = LocationUtils.pathQueryParamsObject(window);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">hash</code><span class="params">(window: Window): string</span>
+                                </span>
+                                <span class="desc content en">Get hash without # symbol</span>
+                                <span class="desc content ko"># 기호 없이 해시 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">hashPath</code><span class="params">(window: Window): string</span>
+                                </span>
+                                <span class="desc content en">Get hash path without query string</span>
+                                <span class="desc content ko">쿼리 문자열 없이 해시 경로 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">hashSearch</code><span class="params">(window: Window): string</span>
+                                </span>
+                                <span class="desc content en">Get hash query string</span>
+                                <span class="desc content ko">해시 쿼리 문자열 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">hashQueryParams</code><span class="params">(window: Window): Map&lt;string, string&gt;</span>
+                                </span>
+                                <span class="desc content en">Get hash query params as Map</span>
+                                <span class="desc content ko">해시 쿼리 파라미터를 Map으로 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">hashQueryParamsObject</code><span class="params">(window: Window): {[key: string]: string}</span>
+                                </span>
+                                <span class="desc content en">Get hash query params as object</span>
+                                <span class="desc content ko">해시 쿼리 파라미터를 객체로 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">path</code><span class="params">(window: Window): string</span>
+                                </span>
+                                <span class="desc content en">Get pathname</span>
+                                <span class="desc content ko">경로명 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">pathQueryParams</code><span class="params">(window: Window): Map&lt;string, string&gt;</span>
+                                </span>
+                                <span class="desc content en">Get path query params as Map</span>
+                                <span class="desc content ko">경로 쿼리 파라미터를 Map으로 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">pathQueryParamsObject</code><span class="params">(window: Window): {[key: string]: string}</span>
+                                </span>
+                                <span class="desc content en">Get path query params as object</span>
+                                <span class="desc content ko">경로 쿼리 파라미터를 객체로 가져오기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="script-utils">ScriptUtils</h3>
+                    <p class="example-description content en">Dynamic script loading utilities</p>
+                    <p class="example-description content ko">동적 스크립트 로딩 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ScriptUtils } from '@dooboostore/core-web/script/ScriptUtils';
+
+const scriptUtils = new ScriptUtils();
+await scriptUtils.loadScript('https://example.com/library.js');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">loadScript</code><span class="params">(src: string): Promise&lt;void&gt;</span>
+                                </span>
+                                <span class="desc content en">Dynamically load external script</span>
+                                <span class="desc content ko">외부 스크립트 동적으로 로드</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="canvas-utils">CanvasUtils</h3>
+                    <p class="example-description content en">Canvas manipulation and drawing utilities</p>
+                    <p class="example-description content ko">Canvas 조작 및 그리기 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { CanvasUtils } from '@dooboostore/core-web/element/CanvasUtils';
+
+const ctx = canvas.getContext('2d');
+CanvasUtils.Context2D.resetTransform(ctx);
+const fontSize = CanvasUtils.fontSize(ctx, { text: 'Hello', maxWidth: 200, maxHeight: 50 });</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">Context2D.resetTransform</code><span class="params">(context: CanvasRenderingContext2D): void</span>
+                                </span>
+                                <span class="desc content en">Reset canvas transformation matrix</span>
+                                <span class="desc content ko">캔버스 변환 행렬 초기화</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">fontSize</code><span class="params">(ctx, config: {text, maxWidth, maxHeight, fontOption?}): number</span>
+                                </span>
+                                <span class="desc content en">Calculate optimal font size for text</span>
+                                <span class="desc content ko">텍스트에 최적인 폰트 크기 계산</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">textMetrics</code><span class="params">(context: CanvasRenderingContext2D, text: string): TextMetrics</span>
+                                </span>
+                                <span class="desc content en">Get text metrics</span>
+                                <span class="desc content ko">텍스트 측정값 가져오기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="image-utils">ImageUtils</h3>
+                    <p class="example-description content en">Image manipulation utilities</p>
+                    <p class="example-description content ko">이미지 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ImageUtils } from '@dooboostore/core-web/image/ImageUtils';
+
+// Image utilities for web platform
+const imageData = ImageUtils.processImage(imageElement);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="http-dom-parser-fetcher">HttpDomParserFetcher</h3>
+                    <p class="example-description content en">HTTP fetcher with DOM parsing capabilities</p>
+                    <p class="example-description content ko">DOM 파싱 기능이 있는 HTTP fetcher</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { HttpDomParserFetcher } from '@dooboostore/core-web/fetch/HttpDomParserFetcher';
+
+const fetcher = new HttpDomParserFetcher();
+const dom = await fetcher.fetchAndParse('https://example.com');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

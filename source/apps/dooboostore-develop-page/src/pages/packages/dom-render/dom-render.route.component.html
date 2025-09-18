@@ -1,0 +1,1592 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>dom-render</h1>
+            <p class="content en">A powerful and reactive view template engine for fine-grained DOM control</p>
+            <p class="content ko">세밀한 DOM 제어를 위한 강력하고 반응형 뷰 템플릿 엔진</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/dom-render" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/dom-render" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package with your preferred package manager</p>
+                <p class="content ko">선호하는 패키지 매니저로 패키지를 설치하세요</p>
+                <code-snippet-container>
+                    <code-snippet name="npm">
+                        <code-snippet-code type="bash">npm install @dooboostore/dom-render reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="pnpm">
+                        <code-snippet-code type="bash">pnpm add @dooboostore/dom-render reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <section class="section">
+                <h2 id="demo">Demo example</h2>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                        <p class="content en">DEMO EXAMPLE</p>
+                        <p class="content ko">데모 예제</p>
+                    </summary>
+                    <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+
+            <!-- Architecture Overview -->
+            <section class="section">
+                <h2 id="architecture">Architecture Overview</h2>
+                <p class="content en">Understanding dom-render's reactive architecture</p>
+                <p class="content ko">dom-render의 반응형 아키텍처 이해하기</p>
+
+                <div class="example-item">
+                    <h3 id="core-architecture">Core Architecture</h3>
+                    <p class="example-description content en">dom-render uses a Proxy-based reactivity system for automatic DOM updates</p>
+                    <p class="example-description content ko">dom-render는 자동 DOM 업데이트를 위해 Proxy 기반 반응형 시스템을 사용합니다</p>
+                    
+                    <mermaid-diagram>
+graph TB
+    A[User State Object] -->|Wrap with Proxy| B[DomRenderProxy]
+    B -->|Track Changes| C[Property Access/Set]
+    C -->|Detect Changes| D[Messenger]
+    D -->|Notify| E[Operators]
+    E -->|Update| F[DOM Elements]
+    
+    G[Template String] -->|Parse| H[Dr Operators]
+    H -->|Create| I[Virtual Elements]
+    I -->|Render| F
+    
+    J[Components] -->|Extend| K[ComponentBase]
+    K -->|Use| B
+    K -->|Lifecycle| L[OnInit/OnDestroy]
+    
+    M[Router] -->|Path/Hash| N[Route Match]
+    N -->|Load| J
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e6
+    style D fill:#f3e8ff
+    style F fill:#dcfce7
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="reactivity-flow">Reactivity Flow</h3>
+                    <p class="example-description content en">How state changes propagate to the DOM</p>
+                    <p class="example-description content ko">상태 변경이 DOM으로 전파되는 방식</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant User
+    participant State
+    participant Proxy
+    participant Messenger
+    participant Operator
+    participant DOM
+
+    User->>State: state.count++
+    State->>Proxy: set trap triggered
+    Proxy->>Proxy: Compare old vs new value
+    alt Value Changed
+        Proxy->>Messenger: notify(property, newValue)
+        Messenger->>Operator: processUpdate()
+        Operator->>Operator: Parse template expression
+        Operator->>DOM: Update textContent/attribute
+        DOM-->>User: Visual update
+    else No Change
+        Proxy-->>User: Skip update
+    end
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="component-lifecycle">Component Lifecycle</h3>
+                    <p class="example-description content en">ComponentBase lifecycle hooks execution order</p>
+                    <p class="example-description content ko">ComponentBase 생명주기 훅 실행 순서</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant App
+    participant Component
+    participant DomRender
+    participant DOM
+
+    App->>Component: new MyComponent()
+    Component->>Component: constructor()
+    Component->>DomRender: Initialize proxy
+    DomRender->>Component: OnInitRender()
+    Component->>Component: Setup initial state
+    DomRender->>DOM: Render template
+    DomRender->>Component: OnCreateRendered()
+    Component->>Component: Query DOM elements
+    Component->>Component: Attach event listeners
+    
+    Note over Component,DOM: Component is active
+    
+    App->>Component: destroy()
+    Component->>Component: OnDestroyRender()
+    Component->>Component: Cleanup resources
+    DomRender->>DOM: Remove elements
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="operator-system">Operator System</h3>
+                    <p class="example-description content en">Built-in operators for template directives</p>
+                    <p class="example-description content ko">템플릿 지시어를 위한 내장 연산자</p>
+                    
+                    <mermaid-diagram>
+graph LR
+    A[Template] --> B{Operator Type}
+    
+    B -->|dr-if| C[DrIf]
+    B -->|dr-for-of| D[DrFor]
+    B -->|dr-choose| E[DrChoose]
+    B -->|dr-attr| F[DrAttr]
+    B -->|dr-class| G[DrClass]
+    B -->|dr-style| H[DrStyle]
+    B -->|dr-form| I[DrForm]
+    B -->|dr-event| J[DrEvent]
+    B -->|Expression| K[Dr]
+    
+    C --> L[Conditional Render]
+    D --> M[List Render]
+    E --> N[Switch Case]
+    F --> O[Dynamic Attrs]
+    G --> P[Dynamic Classes]
+    H --> Q[Dynamic Styles]
+    I --> R[Form Binding]
+    J --> S[Event Handling]
+    K --> T[Data Binding]
+    
+    style B fill:#fef3c7
+    style L fill:#dcfce7
+    style M fill:#dcfce7
+    style N fill:#dcfce7
+    style O fill:#e0e7ff
+    style P fill:#e0e7ff
+    style Q fill:#e0e7ff
+    style R fill:#fce7f3
+    style S fill:#fce7f3
+    style T fill:#dbeafe
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+            </section>
+
+            <!-- Getting Started -->
+            <section class="section">
+                <h2 id="getting-started">Getting Started</h2>
+                <p class="content en">Quick start with basic examples</p>
+                <p class="content ko">기본 예제로 빠르게 시작하기</p>
+
+                <div class="example-item">
+                    <h3 id="basic-binding">Basic Reactive Binding</h3>
+                    <p class="example-description content en">Create a reactive state object that automatically updates the DOM</p>
+                    <p class="example-description content ko">DOM을 자동으로 업데이트하는 반응형 상태 객체 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="JavaScript">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+// Create a container element
+const container = document.createElement('div');
+container.innerHTML = `
+  <h3>Title: <span>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.title&#125;&#36;</span></h3>
+  <p>Count: <span>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</span></p>
+  <button id="increment">Increment</button>
+`;
+document.body.appendChild(container);
+
+// Initialize with reactive state
+let state = &#123;
+  title: 'Hello DomRender!',
+  count: 0
+&#125;;
+
+const result = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;);
+state = result.rootObject; // Get proxied state
+
+// Reactive updates - DOM updates automatically!
+document.getElementById('increment').addEventListener('click', () => &#123;
+  state.count++; // UI updates instantly
+&#125;);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="two-way-binding">Two-Way Data Binding</h3>
+                    <p class="example-description content en">Bind input elements to state with automatic synchronization</p>
+                    <p class="example-description content ko">자동 동기화로 입력 요소를 상태에 바인딩</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="JavaScript">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.username" placeholder="Enter name" />
+  <p>Hello, <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.username&#125;&#36;</strong>!</p>
+
+  <input type="number" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.age" />
+  <p>Age: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.age&#125;&#36; years old</p>
+`;
+document.body.appendChild(container);
+
+let state = &#123;
+  username: 'Guest',
+  age: 25
+&#125;;
+
+const result = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;);
+state = result.rootObject;
+
+// Changes to input automatically update state and other bound elements!</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="array-binding">Array Binding</h3>
+                    <p class="example-description content en">Reactive array manipulation with automatic list rendering</p>
+                    <p class="example-description content ko">자동 리스트 렌더링을 통한 반응형 배열 조작</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="JavaScript">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <button id="add-item">Add Item</button>
+  <ul>
+    <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items" dr-option-item-variable-name="item">
+      \&#36;&#123;&num;item&num;.name&#125;&#36; - &#36;\&#36;&#123;&num;item&num;.price&#125;&#36;
+      <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.removeItem(&num;item&num;)">Remove</button>
+    </li>
+  </ul>
+  <p>Total: <strong>&#36;\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.total&#125;&#36;</strong></p>
+`;
+document.body.appendChild(container);
+
+let state = &#123;
+  items: [
+    &#123; name: 'Apple', price: 1.2 &#125;,
+    &#123; name: 'Banana', price: 0.8 &#125;
+  ],
+  get total() &#123;
+    return this.items.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+  &#125;,
+  removeItem(item) &#123;
+    const index = this.items.indexOf(item);
+    if (index > -1) this.items.splice(index, 1);
+  &#125;
+&#125;;
+
+const result = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;);
+state = result.rootObject;
+
+document.getElementById('add-item').addEventListener('click', () => &#123;
+  state.items.push(&#123;
+    name: `Item &#36;&#123;state.items.length + 1&#125;`,
+    price: Math.random() * 10
+  &#125;);
+&#125;);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Features -->
+            <section class="section">
+                <h2 id="core-features">Core Features</h2>
+                <p class="content en">Essential reactive templating and component features</p>
+                <p class="content ko">필수 반응형 템플릿과 컴포넌트 기능</p>
+
+                <div class="example-item">
+                    <h3 id="dom-render">DomRender Class</h3>
+                    <p class="example-description content en">Main rendering engine with reactive data binding</p>
+                    <p class="example-description content ko">반응형 데이터 바인딩을 가진 메인 렌더링 엔진</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+// Create DomRender instance
+const render = new DomRender(&#123;
+  rootObject: &#123; count: 0 &#125;,  // Your state object
+  target: document.body,      // Target DOM element
+  config: &#123;
+    window,                   // Window object
+    routerType: 'hash'        // Optional: 'hash' | 'path'
+  &#125;
+&#125;);
+
+// Access proxied state
+const state = render.rootObject;
+state.count++; // Automatically updates DOM
+
+// Access router
+render.router.go('/home');
+
+// Access event manager
+render.eventManager.addEventListener(element, 'click', handler);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">PROPERTIES & METHODS</span>
+                            <span class="content ko">속성 및 메서드</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">rootObject</code><span class="params">: T</span>
+                                </span>
+                                <span class="desc content en">Get the proxied reactive state object</span>
+                                <span class="desc content ko">프록시된 반응형 상태 객체 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">config</code><span class="params">: DomRenderConfig</span>
+                                </span>
+                                <span class="desc content en">Get configuration object</span>
+                                <span class="desc content ko">설정 객체 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">router</code><span class="params">: Router</span>
+                                </span>
+                                <span class="desc content en">Get router instance (PathRouter or HashRouter)</span>
+                                <span class="desc content ko">라우터 인스턴스 가져오기 (PathRouter 또는 HashRouter)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">eventManager</code><span class="params">: EventManager</span>
+                                </span>
+                                <span class="desc content en">Get event manager for DOM event handling</span>
+                                <span class="desc content ko">DOM 이벤트 처리를 위한 이벤트 매니저 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">target</code><span class="params">: Element | null</span>
+                                </span>
+                                <span class="desc content en">Get target DOM element</span>
+                                <span class="desc content ko">대상 DOM 요소 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">static run</code><span class="params"><T>(data: DomRenderRunParameter<T>): T</span>
+                                </span>
+                                <span class="desc content en">Static method to create and run DomRender, returns proxied state</span>
+                                <span class="desc content ko">DomRender 생성 및 실행 정적 메서드, 프록시된 상태 반환</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="component-base">ComponentBase</h3>
+                    <p class="example-description content en">Base class for building encapsulated, reusable components with lifecycle hooks and decorators</p>
+                    <p class="example-description content ko">생명주기 훅과 데코레이터를 가진 캡슐화된 재사용 가능 컴포넌트를 만들기 위한 기본 클래스</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; ComponentBase, attribute, query, event &#125; from '@dooboostore/dom-render/components';
+
+// Define your component
+export class CounterComponent extends ComponentBase &#123;
+  // Bind HTML attributes to properties
+  @attribute() initialValue: number = 0;
+  @attribute('data-label') label: string = 'Counter';
+
+  // Query DOM elements
+  @query('.count-display') countDisplay?: HTMLElement;
+  @query('button.increment') incrementBtn?: HTMLButtonElement;
+
+  // Internal state
+  private count: number = 0;
+
+  // Lifecycle: Initialize component
+  OnInitRender() &#123;
+    this.count = this.initialValue;
+    console.log('Component initialized');
+  &#125;
+
+  // Lifecycle: After first render
+  OnCreateRendered() &#123;
+    console.log('First render complete');
+    this.updateDisplay();
+  &#125;
+
+  // Event handler with decorator
+  @event('click', 'button.increment')
+  handleIncrement(e: Event) &#123;
+    this.count++;
+    this.updateDisplay();
+  &#125;
+
+  @event('click', 'button.decrement')
+  handleDecrement(e: Event) &#123;
+    this.count--;
+    this.updateDisplay();
+  &#125;
+
+  private updateDisplay() &#123;
+    if (this.countDisplay) &#123;
+      this.countDisplay.textContent = String(this.count);
+    &#125;
+  &#125;
+
+  // Lifecycle: Cleanup on destroy
+  OnDestroyRender() &#123;
+    console.log('Component destroyed');
+  &#125;
+
+  // Component template
+  override template = () => `
+    <div class="counter-widget">
+      <h3>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.label&#125;&#36;</h3>
+      <div class="count-display">\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</div>
+      <button class="increment">+</button>
+      <button class="decrement">-</button>
+    </div>
+  `;
+&#125;
+
+// Register and use component
+import &#123; drComponent &#125; from '@dooboostore/dom-render/components';
+
+drComponent(CounterComponent, 'counter-component');
+
+// Use in HTML
+// <counter-component initial-value="10" data-label="My Counter"></counter-component></code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">LIFECYCLE HOOKS</span>
+                            <span class="content ko">생명주기 훅</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">OnInitRender</code><span class="params">(): void</span>
+                                </span>
+                                <span class="desc content en">Called once when component is initialized, before first render</span>
+                                <span class="desc content ko">컴포넌트 초기화 시 첫 렌더링 전에 한 번 호출</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">OnCreateRenderData</code><span class="params">(params: OnCreateRenderDataParams): void</span>
+                                </span>
+                                <span class="desc content en">Called before render, can modify render data</span>
+                                <span class="desc content ko">렌더링 전 호출, 렌더 데이터 수정 가능</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">OnCreateRendered</code><span class="params">(): void</span>
+                                </span>
+                                <span class="desc content en">Called after first render complete, DOM elements available</span>
+                                <span class="desc content ko">첫 렌더링 완료 후 호출, DOM 요소 사용 가능</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">OnRawSetRendered</code><span class="params">(render: Render, otherData: OnRawSetRenderedOtherData): void</span>
+                                </span>
+                                <span class="desc content en">Called after each re-render</span>
+                                <span class="desc content ko">매 재렌더링 후 호출</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">OnChangeAttrRender</code><span class="params">(attrName: string, newValue: any, otherData: OtherData): void</span>
+                                </span>
+                                <span class="desc content en">Called when attribute changes</span>
+                                <span class="desc content ko">속성 변경 시 호출</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">OnDestroyRender</code><span class="params">(params: OnDestroyRenderParams): void</span>
+                                </span>
+                                <span class="desc content en">Called when component is destroyed, cleanup resources</span>
+                                <span class="desc content ko">컴포넌트 파괴 시 호출, 리소스 정리</span>
+                            </li>
+                        </ul>
+                    </details>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">DECORATORS</span>
+                            <span class="content ko">데코레이터</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">@attribute</code><span class="params">(name?: string | {name?, converter?})</span>
+                                </span>
+                                <span class="desc content en">Bind HTML attribute to component property, supports custom converter</span>
+                                <span class="desc content ko">HTML 속성을 컴포넌트 속성에 바인딩, 커스텀 변환기 지원</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">@query</code><span class="params">(selector | {selector, convert?, onDestroy?, refreshIntervalTime?})</span>
+                                </span>
+                                <span class="desc content en">Query and bind DOM element to property, auto-refresh support</span>
+                                <span class="desc content ko">DOM 요소 쿼리 및 속성에 바인딩, 자동 새로고침 지원</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">@event</code><span class="params">(eventName, selector, {onDestroy?, refreshIntervalTime?}?)</span>
+                                </span>
+                                <span class="desc content en">Declarative event listener binding with auto-cleanup</span>
+                                <span class="desc content ko">자동 정리 기능이 있는 선언적 이벤트 리스너 바인딩</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="component-set">ComponentSet</h3>
+                    <p class="example-description content en">Create lightweight component instances without custom elements</p>
+                    <p class="example-description content ko">커스텀 요소 없이 경량 컴포넌트 인스턴스 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import &#123; ComponentSet &#125; from '@dooboostore/dom-render/components/ComponentSet';
+import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+// Simple counter class
+class Counter &#123;
+  count = 0;
+  increment() &#123; this.count++; &#125;
+  decrement() &#123; this.count--; &#125;
+&#125;
+
+// Create component instances
+const counters = [
+  new ComponentSet(new Counter(), &#123;
+    template: `
+      <div>
+        <p>Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</p>
+        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()">+</button>
+        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()">-</button>
+      </div>
+    `
+  &#125;),
+  new ComponentSet(new Counter(), &#123;
+    template: `
+      <div>
+        <p>Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</p>
+        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()">+</button>
+        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()">-</button>
+      </div>
+    `
+  &#125;)
+];
+
+// Render in loop
+const container = document.createElement('div');
+container.innerHTML = `
+  <div dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.counters">
+    <div dr-this="&num;it&num;"></div>
+  </div>
+`;
+
+const state = new DomRender(&#123;
+  rootObject: &#123; counters &#125;,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Directives -->
+            <section class="section">
+                <h2 id="directives">Control Flow Directives</h2>
+                <p class="content en">Template directives for dynamic rendering and control flow</p>
+                <p class="content ko">동적 렌더링과 제어 흐름을 위한 템플릿 지시어</p>
+
+                <div class="example-item">
+                    <h3 id="dr-if">dr-if - Conditional Rendering</h3>
+                    <p class="example-description content en">Show/hide elements based on boolean expressions</p>
+                    <p class="example-description content ko">불린 표현식에 따라 요소 표시/숨김</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Basic Usage">
+                                <code-snippet-code type="html"><!-- Simple condition -->
+<div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.isLoggedIn">
+  Welcome back!
+</div>
+
+<!-- Expression -->
+<div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.count > 10">
+  Count is greater than 10
+</div>
+
+<!-- Multiple conditions -->
+<div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.user &amp;&amp; &commat;𝒕𝒉𝒊𝒔&commat;.user.isAdmin">
+  Admin panel
+</div></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.toggle()">
+    Toggle (\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isVisible ? 'Hide' : 'Show'&#125;&#36;)
+  </button>
+
+  <div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.isVisible" style="padding: 20px; background: #e0f2fe;">
+    <h3>Conditionally Rendered Content</h3>
+    <p>This appears when isVisible is true</p>
+  </div>
+
+  <div dr-if="!&commat;𝒕𝒉𝒊𝒔&commat;.isVisible" style="padding: 20px; background: #fef3c7;">
+    <p>Content is hidden</p>
+  </div>
+`;
+
+let state = &#123;
+  isVisible: true,
+  toggle() &#123;
+    this.isVisible = !this.isVisible;
+  &#125;
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-for">dr-for-of - List Rendering</h3>
+                    <p class="example-description content en">Iterate over arrays with reactive updates</p>
+                    <p class="example-description content ko">반응형 업데이트로 배열 반복</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Basic Usage">
+                                <code-snippet-code type="html"><!-- Simple list -->
+<ul>
+  <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items" dr-option-item-variable-name="item">
+    \&#36;&#123;&num;item&num;&#125;&#36;
+  </li>
+</ul>
+
+<!-- Object properties -->
+<ul>
+  <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.users" dr-option-item-variable-name="user">
+    \&#36;&#123;&num;user&num;.name&#125;&#36; - \&#36;&#123;&num;user&num;.email&#125;&#36;
+  </li>
+</ul>
+
+<!-- With index -->
+<div dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items"
+     dr-option-item-variable-name="item"
+     dr-option-index-variable-name="index">
+  Item #\&#36;&#123;&num;index&num;&#125;&#36;: \&#36;&#123;&num;item&num;&#125;&#36;
+</div></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.newTask" placeholder="New task" />
+  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.addTask()">Add Task</button>
+
+  <ul>
+    <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.tasks"
+        dr-option-item-variable-name="task"
+        dr-option-index-variable-name="index"
+        style="margin: 10px 0; padding: 10px; background: #f0f9ff;">
+      <span>\&#36;&#123;&num;index&num; + 1&#125;&#36;. \&#36;&#123;&num;task&num;.title&#125;&#36;</span>
+      <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.removeTask(&num;index&num;)"
+              style="margin-left: 10px;">
+        Remove
+      </button>
+    </li>
+  </ul>
+
+  <p>Total tasks: <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.tasks.length&#125;&#36;</strong></p>
+`;
+
+let state = &#123;
+  newTask: '',
+  tasks: [
+    &#123; title: 'Learn DomRender' &#125;,
+    &#123; title: 'Build awesome app' &#125;
+  ],
+  addTask() &#123;
+    if (this.newTask.trim()) &#123;
+      this.tasks.push(&#123; title: this.newTask &#125;);
+      this.newTask = '';
+    &#125;
+  &#125;,
+  removeTask(index) &#123;
+    this.tasks.splice(index, 1);
+  &#125;
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-choose">dr-choose - Switch Cases</h3>
+                    <p class="example-description content en">Switch-like conditional rendering with multiple branches</p>
+                    <p class="example-description content ko">여러 분기가 있는 스위치형 조건부 렌더링</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Basic Usage">
+                                <code-snippet-code type="html"><dr-choose>
+  <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'loading'">
+    Loading...
+  </dr-when>
+  <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'success'">
+    Data loaded successfully!
+  </dr-when>
+  <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'error'">
+    Error occurred
+  </dr-when>
+  <dr-otherwise>
+    Unknown status
+  </dr-otherwise>
+</dr-choose></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <div>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'idle'">Idle</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'loading'">Loading</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'success'">Success</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'error'">Error</button>
+  </div>
+
+  <dr-choose>
+    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'idle'">
+      <div style="padding: 20px; background: #f1f5f9;">
+        ⏸️ System is idle
+      </div>
+    </dr-when>
+    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'loading'">
+      <div style="padding: 20px; background: #dbeafe;">
+        ⏳ Loading data...
+      </div>
+    </dr-when>
+    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'success'">
+      <div style="padding: 20px; background: #dcfce7;">
+        ✅ Operation completed successfully!
+      </div>
+    </dr-when>
+    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'error'">
+      <div style="padding: 20px; background: #fee2e2;">
+        ❌ An error occurred
+      </div>
+    </dr-when>
+    <dr-otherwise>
+      <div style="padding: 20px; background: #fef3c7;">
+        ⚠️ Unknown status: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36;
+      </div>
+    </dr-otherwise>
+  </dr-choose>
+`;
+
+let state = &#123;
+  status: 'idle'
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dynamic Binding -->
+            <section class="section">
+                <h2 id="binding">Dynamic Binding</h2>
+                <p class="content en">Dynamic attribute, class, style, and event binding</p>
+                <p class="content ko">동적 속성, 클래스, 스타일, 이벤트 바인딩</p>
+
+                <div class="example-item">
+                    <h3 id="dr-attr">dr-attr - Attribute Binding</h3>
+                    <p class="example-description content en">Dynamically bind multiple HTML attributes</p>
+                    <p class="example-description content ko">여러 HTML 속성을 동적으로 바인딩</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Syntax">
+                                <code-snippet-code type="html"><!-- Multiple attributes -->
+<input dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled&#125;&#36;,
+                placeholder:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.placeholder&#125;&#36;,
+                type:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.inputType&#125;&#36;" />
+
+<!-- Boolean attributes -->
+<button dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loading&#125;&#36;">Submit</button>
+
+<!-- Data attributes -->
+<div dr-attr="data-id:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.userId&#125;&#36;,
+              data-role:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.role&#125;&#36;"></div></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <div>
+    <label>
+      <input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled" />
+      Disable input
+    </label>
+  </div>
+
+  <input
+    dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled&#125;&#36;,
+             placeholder:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.placeholder&#125;&#36;,
+             maxlength:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.maxLength&#125;&#36;"
+    dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.text"
+    style="margin: 10px 0; padding: 8px;" />
+
+  <p>Value: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.text&#125;&#36;</p>
+`;
+
+let state = &#123;
+  isDisabled: false,
+  placeholder: 'Enter text here...',
+  maxLength: 20,
+  text: ''
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-class">dr-class - Class Binding</h3>
+                    <p class="example-description content en">Conditionally apply CSS classes</p>
+                    <p class="example-description content ko">조건부로 CSS 클래스 적용</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Syntax">
+                                <code-snippet-code type="html"><!-- Boolean class binding -->
+<div dr-class="active:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isActive&#125;&#36;,
+               disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled&#125;&#36;,
+               loading:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isLoading&#125;&#36;">
+  Content
+</div>
+
+<!-- Dynamic class names -->
+<div dr-class="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.statusClass&#125;&#36;:true">Status</div></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <style>
+    .btn &#123; padding: 10px 20px; border: none; cursor: pointer; &#125;
+    .btn-primary &#123; background: #3b82f6; color: white; &#125;
+    .btn-danger &#123; background: #ef4444; color: white; &#125;
+    .btn-disabled &#123; opacity: 0.5; cursor: not-allowed; &#125;
+    .btn-loading &#123; position: relative; &#125;
+  </style>
+
+  <button
+    class="btn"
+    dr-class="btn-primary:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.variant === 'primary'&#125;&#36;,
+             btn-danger:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.variant === 'danger'&#125;&#36;,
+             btn-disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.disabled&#125;&#36;,
+             btn-loading:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loading&#125;&#36;"
+    dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.handleClick()">
+    \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loading ? 'Loading...' : 'Click Me'&#125;&#36;
+  </button>
+
+  <div>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.variant = 'primary'">Primary</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.variant = 'danger'">Danger</button>
+    <label>
+      <input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.disabled" /> Disabled
+    </label>
+  </div>
+`;
+
+let state = &#123;
+  variant: 'primary',
+  disabled: false,
+  loading: false,
+  handleClick() &#123;
+    if (this.disabled) return;
+    this.loading = true;
+    setTimeout(() => &#123;
+      this.loading = false;
+    &#125;, 1000);
+  &#125;
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-style">dr-style - Style Binding</h3>
+                    <p class="example-description content en">Dynamically bind inline styles</p>
+                    <p class="example-description content ko">인라인 스타일을 동적으로 바인딩</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Syntax">
+                                <code-snippet-code type="html"><!-- Multiple style properties -->
+<div dr-style="color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.textColor&#125;&#36;,
+               font-size:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.fontSize&#125;&#36;px,
+               background-color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.bgColor&#125;&#36;">
+  Styled content
+</div>
+
+<!-- Conditional styles -->
+<div dr-style="opacity:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.visible ? 1 : 0&#125;&#36;">
+  Fade in/out
+</div></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <div>
+    <label>Text Color:
+      <input type="color" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.textColor" />
+    </label>
+    <label>Background:
+      <input type="color" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.bgColor" />
+    </label>
+    <label>Font Size:
+      <input type="range" min="12" max="48" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.fontSize" />
+      \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.fontSize&#125;&#36;px
+    </label>
+    <label>Rotation:
+      <input type="range" min="0" max="360" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.rotation" />
+      \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.rotation&#125;&#36;°
+    </label>
+  </div>
+
+  <div
+    dr-style="color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.textColor&#125;&#36;,
+             background-color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.bgColor&#125;&#36;,
+             font-size:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.fontSize&#125;&#36;px,
+             transform:rotate(\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.rotation&#125;&#36;deg),
+             padding:20px,
+             margin:20px 0,
+             text-align:center">
+    Dynamic Styled Text
+  </div>
+`;
+
+let state = &#123;
+  textColor: '#ffffff',
+  bgColor: '#3b82f6',
+  fontSize: 24,
+  rotation: 0
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-event">dr-event - Event Binding</h3>
+                    <p class="example-description content en">Declarative event handling with inline expressions</p>
+                    <p class="example-description content ko">인라인 표현식으로 선언적 이벤트 처리</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Syntax">
+                                <code-snippet-code type="html"><!-- Click events -->
+<button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.handleClick()">Click Me</button>
+
+<!-- With parameters -->
+<button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.deleteItem(123)">Delete</button>
+
+<!-- Other events -->
+<input dr-event-input="&commat;𝒕𝒉𝒊𝒔&commat;.onInput(&#36;event)" />
+<div dr-event-mouseenter="&commat;𝒕𝒉𝒊𝒔&commat;.onHover()"
+     dr-event-mouseleave="&commat;𝒕𝒉𝒊𝒔&commat;.onLeave()"></div>
+
+<!-- Keyboard events -->
+<input dr-event-keydown="&commat;𝒕𝒉𝒊𝒔&commat;.onKeyDown(&#36;event)" /></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <div>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()">Increment</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()">Decrement</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.reset()">Reset</button>
+    <p>Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</p>
+  </div>
+
+  <div dr-event-mouseenter="&commat;𝒕𝒉𝒊𝒔&commat;.hovered = true"
+       dr-event-mouseleave="&commat;𝒕𝒉𝒊𝒔&commat;.hovered = false"
+       dr-style="background:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.hovered ? '#dbeafe' : '#f1f5f9'&#125;&#36;,
+                 padding:20px,
+                 transition:all 0.3s">
+    Hover me! \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.hovered ? '👋' : ''&#125;&#36;
+  </div>
+`;
+
+let state = &#123;
+  count: 0,
+  hovered: false,
+  increment() &#123; this.count++; &#125;,
+  decrement() &#123; this.count--; &#125;,
+  reset() &#123; this.count = 0; &#125;
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             Forms
+            <section class="section">
+                <h2 id="forms">Forms & Validation</h2>
+                <p class="content en">Powerful form handling with built-in validation</p>
+                <p class="content ko">내장 검증 기능이 있는 강력한 폼 처리</p>
+
+                <div class="example-item">
+                    <h3 id="dr-value">dr-value - Two-Way Binding</h3>
+                    <p class="example-description content en">Automatic synchronization between state and form inputs</p>
+                    <p class="example-description content ko">상태와 폼 입력 간 자동 동기화</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="All Input Types">
+                                <code-snippet-code type="html"><!-- Text input -->
+<input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.username" />
+
+<!-- Number input -->
+<input type="number" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.age" />
+
+<!-- Checkbox -->
+<input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.accepted" />
+
+<!-- Radio buttons -->
+<input type="radio" name="gender" value="male" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.gender" />
+<input type="radio" name="gender" value="female" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.gender" />
+
+<!-- Select dropdown -->
+<select dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.country">
+  <option value="us">United States</option>
+  <option value="kr">Korea</option>
+</select>
+
+<!-- Textarea -->
+<textarea dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.comment"></textarea></code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-form">dr-form - Form Binding</h3>
+                    <p class="example-description content en">Complete form state management with validation</p>
+                    <p class="example-description content ko">검증 기능이 있는 완전한 폼 상태 관리</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Form Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <form dr-event-submit="&commat;𝒕𝒉𝒊𝒔&commat;.handleSubmit(&#36;event)">
+    <div style="margin-bottom: 15px;">
+      <label>Username:
+        <input
+          type="text"
+          dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.username"
+          placeholder="Enter username"
+          style="display: block; width: 100%; padding: 8px;"
+        />
+      </label>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Email:
+        <input
+          type="email"
+          dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.email"
+          placeholder="Enter email"
+          style="display: block; width: 100%; padding: 8px;"
+        />
+      </label>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Age:
+        <input
+          type="number"
+          dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.age"
+          min="18"
+          max="100"
+          style="display: block; width: 100%; padding: 8px;"
+        />
+      </label>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>
+        <input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.terms" />
+        I agree to terms and conditions
+      </label>
+    </div>
+
+    <button
+      type="submit"
+      dr-attr="disabled:\&#36;&#123;!&commat;𝒕𝒉𝒊𝒔&commat;.isValid&#125;&#36;"
+      style="padding: 10px 20px; background: #3b82f6; color: white; border: none; cursor: pointer;">
+      Submit
+    </button>
+  </form>
+
+  <div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.submitted" style="margin-top: 20px; padding: 15px; background: #dcfce7;">
+    <h3>Form Submitted!</h3>
+    <pre>\&#36;&#123;JSON.stringify(&commat;𝒕𝒉𝒊𝒔&commat;.form, null, 2)&#125;&#36;</pre>
+  </div>
+`;
+
+let state = &#123;
+  form: &#123;
+    username: '',
+    email: '',
+    age: 18,
+    terms: false
+  &#125;,
+  submitted: false,
+  get isValid() &#123;
+    return this.form.username.length > 0
+        && this.form.email.includes('@')
+        && this.form.age >= 18
+        && this.form.terms;
+  &#125;,
+  handleSubmit(e) &#123;
+    e.preventDefault();
+    if (this.isValid) &#123;
+      this.submitted = true;
+      console.log('Form data:', this.form);
+    &#125;
+  &#125;
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="validators">Validators</h3>
+                    <p class="example-description content en">Built-in form validators</p>
+                    <p class="example-description content ko">내장 폼 검증기</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import &#123; RequiredValidator &#125; from &#39;&#64;dooboostore/dom-render/validators/RequiredValidator&#39;;
+import &#123; RegExpTestValidator &#125; from &#39;&#64;dooboostore/dom-render/validators/RegExpTestValidator&#39;;
+
+const emailValidator - new RegExpTestValidator(/^[\w-\.]+&#64;([\w-]+\.)+[\w-]&#123;2,4&#125;&#36;/);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER VALIDATORS</span>
+                            <span class="content ko">기타 검증기</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">RequiredValidator</code>
+                                </span>
+                                <span class="desc content en">Required field validation</span>
+                                <span class="desc content ko">필수 필드 검증</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">ValueEqualsValidator</code>
+                                </span>
+                                <span class="desc content en">Value equality validation</span>
+                                <span class="desc content ko">값 동일성 검증</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">AllCheckedValidatorArray</code>
+                                </span>
+                                <span class="desc content en">All items checked validation</span>
+                                <span class="desc content ko">모든 항목 체크 검증</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">CountEqualsCheckedValidatorArray</code>
+                                </span>
+                                <span class="desc content en">Specific count checked validation</span>
+                                <span class="desc content ko">특정 개수 체크 검증</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+             Routing
+            <section class="section">
+                <h2 id="routing">Client-Side Routing</h2>
+                <p class="content en">Built-in router for single-page applications (SPA)</p>
+                <p class="content ko">싱글 페이지 애플리케이션을 위한 내장 라우터</p>
+
+                <div class="example-item">
+                    <h3 id="router-setup">Router Setup</h3>
+                    <p class="example-description content en">Configure router type (hash or path based)</p>
+                    <p class="example-description content ko">라우터 타입 설정 (해시 또는 경로 기반)</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Hash Router">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const app = new DomRender(&#123;
+  rootObject: &#123; currentPage: 'home' &#125;,
+  target: document.body,
+  config: &#123;
+    window,
+    routerType: 'hash'  // Uses URL hash: #/home, #/about
+  &#125;
+&#125;);
+
+// Navigate programmatically
+app.router.go('/home');
+app.router.go('/users/123');</code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Path Router">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const app = new DomRender(&#123;
+  rootObject: &#123; currentPage: 'home' &#125;,
+  target: document.body,
+  config: &#123;
+    window,
+    routerType: 'path'  // Uses real paths: /home, /about
+  &#125;
+&#125;);
+
+// Navigate programmatically
+app.router.go('/home');
+app.router.go('/users/123');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-route-match">dr-route-match - Route Definition</h3>
+                    <p class="example-description content en">Define routes with path patterns and parameters</p>
+                    <p class="example-description content ko">경로 패턴과 파라미터로 라우트 정의</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Basic Routes">
+                                <code-snippet-code type="html"><!-- Static routes -->
+<dr-route-match path="/home">
+  <div>Home Page</div>
+</dr-route-match>
+
+<dr-route-match path="/about">
+  <div>About Page</div>
+</dr-route-match>
+
+<!-- Dynamic route parameters -->
+<dr-route-match path="/users/:id">
+  <div>User ID: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.id&#125;&#36;</div>
+</dr-route-match>
+
+<!-- Multiple parameters -->
+<dr-route-match path="/posts/:category/:postId">
+  <div>
+    Category: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.category&#125;&#36;
+    Post: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.postId&#125;&#36;
+  </div>
+</dr-route-match></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <nav style="padding: 20px; background: #f1f5f9; margin-bottom: 20px;">
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/home')">Home</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/about')">About</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/users/123')">User 123</button>
+    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/users/456')">User 456</button>
+  </nav>
+
+  <main style="padding: 20px;">
+    <dr-route-match path="/home">
+      <div style="padding: 20px; background: #dbeafe;">
+        <h2>Home Page</h2>
+        <p>Welcome to the home page!</p>
+      </div>
+    </dr-route-match>
+
+    <dr-route-match path="/about">
+      <div style="padding: 20px; background: #dcfce7;">
+        <h2>About Page</h2>
+        <p>Learn more about us.</p>
+      </div>
+    </dr-route-match>
+
+    <dr-route-match path="/users/:id">
+      <div style="padding: 20px; background: #fef3c7;">
+        <h2>User Profile</h2>
+        <p>User ID: <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.id&#125;&#36;</strong></p>
+        <p>Full path: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.currentPath&#125;&#36;</p>
+      </div>
+    </dr-route-match>
+  </main>
+`;
+
+let state = &#123;
+  router: null,
+  navigate(path) &#123;
+    this.router?.go(path);
+  &#125;
+&#125;;
+
+const app = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window, routerType: 'hash' &#125;
+&#125;);
+
+state = app.rootObject;
+state.router = app.router;
+
+// Initial navigation
+app.router.go('/home');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             Async
+            <section class="section">
+                <h2 id="async">Async Operations</h2>
+                <p class="content en">Declarative handling of asynchronous operations</p>
+                <p class="content ko">비동기 작업의 선언적 처리</p>
+
+                <div class="example-item">
+                    <h3 id="dr-promise-switch">dr-promise-switch - Promise States</h3>
+                    <p class="example-description content en">Render different UI based on Promise state (pending/fulfilled/rejected)</p>
+                    <p class="example-description content ko">Promise 상태(대기/완료/거부)에 따라 다른 UI 렌더링</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Basic Syntax">
+                                <code-snippet-code type="html"><dr-promise-switch promise="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.dataPromise&#125;&#36;">
+  <dr-pending>
+    <div>Loading...</div>
+  </dr-pending>
+
+  <dr-fulfilled>
+    <div>Data: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.data&#125;&#36;</div>
+  </dr-fulfilled>
+
+  <dr-rejected>
+    <div>Error: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.error&#125;&#36;</div>
+  </dr-rejected>
+</dr-promise-switch></code-snippet-code>
+                            </code-snippet>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchData()">Fetch Data</button>
+  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchWithError()">Fetch with Error</button>
+
+  <dr-promise-switch promise="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.dataPromise&#125;&#36;">
+    <dr-pending>
+      <div style="padding: 20px; background: #dbeafe; margin: 20px 0;">
+        <h3>⏳ Loading...</h3>
+        <p>Please wait while we fetch the data.</p>
+      </div>
+    </dr-pending>
+
+    <dr-fulfilled>
+      <div style="padding: 20px; background: #dcfce7; margin: 20px 0;">
+        <h3>✅ Success!</h3>
+        <p>Data: <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.result&#125;&#36;</strong></p>
+        <p>Loaded at: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loadedAt&#125;&#36;</p>
+      </div>
+    </dr-fulfilled>
+
+    <dr-rejected>
+      <div style="padding: 20px; background: #fee2e2; margin: 20px 0;">
+        <h3>❌ Error</h3>
+        <p>Failed to load data: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.errorMessage&#125;&#36;</p>
+        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchData()">Retry</button>
+      </div>
+    </dr-rejected>
+  </dr-promise-switch>
+`;
+
+let state = &#123;
+  dataPromise: null,
+  result: null,
+  errorMessage: null,
+  loadedAt: null,
+
+  fetchData() &#123;
+    this.dataPromise = new Promise((resolve) => &#123;
+      setTimeout(() => &#123;
+        this.result = `Data loaded at &#36;&#123;new Date().toLocaleTimeString()&#125;`;
+        this.loadedAt = new Date().toLocaleTimeString();
+        resolve(this.result);
+      &#125;, 2000);
+    &#125;);
+  &#125;,
+
+  fetchWithError() &#123;
+    this.dataPromise = new Promise((_, reject) => &#123;
+      setTimeout(() => &#123;
+        this.errorMessage = 'Network connection failed';
+        reject(new Error(this.errorMessage));
+      &#125;, 1000);
+    &#125;);
+  &#125;
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dr-timer">dr-timer - Interval Updates</h3>
+                    <p class="example-description content en">Execute code at regular intervals</p>
+                    <p class="example-description content ko">정기적인 간격으로 코드 실행</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
+
+const container = document.createElement('div');
+container.innerHTML = `
+  <div style="padding: 20px; background: #f1f5f9; text-align: center;">
+    <h2>Current Time</h2>
+    <p style="font-size: 48px; font-weight: bold;">
+      \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.currentTime&#125;&#36;
+    </p>
+    <p>Updates every second</p>
+  </div>
+
+  <dr-timer interval="1000" dr-event-tick="&commat;𝒕𝒉𝒊𝒔&commat;.updateTime()"></dr-timer>
+`;
+
+let state = &#123;
+  currentTime: new Date().toLocaleTimeString(),
+  updateTime() &#123;
+    this.currentTime = new Date().toLocaleTimeString();
+  &#125;
+&#125;;
+
+state = new DomRender(&#123;
+  rootObject: state,
+  target: container,
+  config: &#123; window &#125;
+&#125;).rootObject;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

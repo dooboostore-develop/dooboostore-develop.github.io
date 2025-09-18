@@ -1,0 +1,765 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot</h1>
+            <p class="content en">A powerful and flexible framework for backend and service development</p>
+            <p class="content ko">백엔드와 서비스 개발을 위한 강력하고 유연한 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package with your preferred package manager</p>
+                <p class="content ko">선호하는 패키지 매니저로 패키지를 설치하세요</p>
+                <code-snippet-container>
+                    <code-snippet name="📦 quick start">
+                        <code-snippet-code type="bash">npm init @dooboostore/simple-boot projectname</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="npm">
+                        <code-snippet-code type="bash">npm install @dooboostore/simple-boot reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="pnpm">
+                        <code-snippet-code type="bash">pnpm add @dooboostore/simple-boot reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <section class="section">
+                <h2 id="demo">Demo example</h2>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                        <p class="content en">DEMO EXAMPLE</p>
+                        <p class="content ko">데모 예제</p>
+                    </summary>
+                    <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+            <!-- Architecture Overview -->
+            <section class="section">
+                <h2 id="architecture">Architecture Overview</h2>
+                <p class="content en">Understanding simple-boot's enterprise-ready backend framework architecture</p>
+                <p class="content ko">simple-boot의 엔터프라이즈급 백엔드 프레임워크 아키텍처 이해하기</p>
+
+                <div class="example-item">
+                    <h3 id="core-architecture">Core Architecture</h3>
+                    <p class="example-description content en">simple-boot provides DI container, AOP, routing, and event-driven architecture</p>
+                    <p class="example-description content ko">simple-boot는 DI 컨테이너, AOP, 라우팅, 이벤트 기반 아키텍처를 제공합니다</p>
+                    
+                    <mermaid-diagram>
+graph TB
+    A[SimpleApplication] -->|Initialize| B[SimstanceManager]
+    A -->|Initialize| C[RouterManager]
+    A -->|Initialize| D[IntentManager]
+    
+    B -->|Manage| E[Singleton Instances]
+    B -->|Manage| F[Transient Instances]
+    B -->|Inject| G[Dependencies]
+    
+    C -->|Register| H[Router Classes]
+    C -->|Map| I[Route Methods]
+    
+    D -->|Publish| J[Intent Events]
+    D -->|Subscribe| K[Event Handlers]
+    
+    L[Sim Decorator] -->|Register| B
+    M[Cache Decorator] -->|Cache Results| N[CacheManager]
+    O[ExceptionHandler] -->|Handle Errors| P[Global Error Handler]
+    
+    style A fill:#e1f5ff
+    style B fill:#fff4e6
+    style C fill:#f3e8ff
+    style D fill:#dcfce7
+    style L fill:#fef3c7
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="di-flow">Dependency Injection Flow</h3>
+                    <p class="example-description content en">How @Sim decorator manages object lifecycles and dependencies</p>
+                    <p class="example-description content ko">@Sim 데코레이터가 객체 생명주기와 의존성을 관리하는 방식</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant App as SimpleApplication
+    participant SM as SimstanceManager
+    participant Class as @Sim Class
+    participant Deps as Dependencies
+
+    App->>SM: run()
+    SM->>SM: Scan @Sim decorators
+    SM->>Class: Check metadata
+    Class->>SM: Return config (scope, symbols)
+    
+    alt Singleton
+        SM->>Class: Create instance (once)
+        SM->>SM: Store in container
+    else Transient
+        Note over SM: Create on each request
+    end
+    
+    SM->>Deps: Resolve dependencies
+    Deps->>SM: Inject into constructor
+    SM->>Class: Initialize with deps
+    Class-->>App: Ready to use
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="routing-flow">Routing System</h3>
+                    <p class="example-description content en">Request routing with @Router and @Route decorators</p>
+                    <p class="example-description content ko">@Router와 @Route 데코레이터를 통한 요청 라우팅</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant Client
+    participant RM as RouterManager
+    participant Controller as @Router Class
+    participant Method as @Route Method
+    participant Service as Injected Service
+
+    Client->>RM: Request /api/users/123
+    RM->>RM: Parse path & params
+    RM->>Controller: Find matching @Router
+    Controller->>Method: Find matching @Route
+    Method->>Service: Call business logic
+    Service->>Service: Process data
+    Service-->>Method: Return result
+    Method-->>Controller: Format response
+    Controller-->>RM: Return response
+    RM-->>Client: Send response
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="intent-system">Intent Event System</h3>
+                    <p class="example-description content en">Decoupled component communication via publish-subscribe pattern</p>
+                    <p class="example-description content ko">발행-구독 패턴을 통한 컴포넌트 간 분리된 통신</p>
+                    
+                    <mermaid-diagram>
+graph LR
+    A[Publisher Service] -->|Intent.publish| B[IntentManager]
+    B -->|Route by URI| C[Subscriber 1]
+    B -->|Route by Symbol| D[Subscriber 2]
+    B -->|Route by Scheme| E[Subscriber 3]
+    
+    F[UserService] -->|user:created| B
+    B -->|Notify| G[EmailService]
+    B -->|Notify| H[AnalyticsService]
+    B -->|Notify| I[NotificationService]
+    
+    style A fill:#dbeafe
+    style B fill:#fef3c7
+    style C fill:#dcfce7
+    style D fill:#dcfce7
+    style E fill:#dcfce7
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+            </section>
+
+            <!-- Getting Started -->
+            <section class="section">
+                <h2 id="getting-started">Getting Started</h2>
+                <p class="content en">Quick start with basic examples</p>
+                <p class="content ko">기본 예제로 빠르게 시작하기</p>
+
+                <div class="example-item">
+                    <h3 id="basic-setup">Basic Application Setup</h3>
+                    <p class="example-description content en">Create a SimpleApplication and register services</p>
+                    <p class="example-description content ko">SimpleApplication 생성 및 서비스 등록</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="TypeScript">
+                                <code-snippet-code type="typescript">import 'reflect-metadata';
+import &#123; SimpleApplication &#125; from '&#64;dooboostore/simple-boot/SimpleApplication';
+import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+
+// Define a service
+&#64;Sim
+class HelloService &#123;
+  greet(name: string) &#123;
+    return `Hello, &#36;&#123;name&#125;!`;
+  &#125;
+&#125;
+
+// Create and run application
+const app = new SimpleApplication().run();
+
+// Get service instance
+const helloService = app.sim(HelloService);
+console.log(helloService.greet('World')); // "Hello, World!"</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dependency Injection -->
+            <section class="section">
+                <h2 id="dependency-injection">Dependency Injection</h2>
+                <p class="content en">Manage object lifecycles with powerful DI container</p>
+                <p class="content ko">강력한 DI 컨테이너로 객체 생명주기 관리</p>
+
+                <div class="example-item">
+                    <h3 id="sim-decorator">&#64;Sim Decorator - Singleton Pattern</h3>
+                    <p class="example-description content en">@Sim creates singleton instances by default - same instance returned every time</p>
+                    <p class="example-description content ko">@Sim은 기본적으로 싱글톤 인스턴스를 생성 - 항상 동일한 인스턴스 반환</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; SimpleApplication &#125; from '&#64;dooboostore/simple-boot/SimpleApplication';
+
+// Singleton service
+&#64;Sim
+class UserService &#123;
+  private users: Map<string, any> = new Map();
+
+  constructor() &#123;
+    console.log('[UserService] Created (only once)');
+  &#125;
+
+  addUser(id: string, name: string) &#123;
+    this.users.set(id, &#123; id, name &#125;);
+    console.log(`Added user: &#36;&#123;name&#125;`);
+  &#125;
+
+  getUser(id: string) &#123;
+    return this.users.get(id);
+  &#125;
+
+  getAllUsers() &#123;
+    return Array.from(this.users.values());
+  &#125;
+&#125;
+
+// Usage
+const app = new SimpleApplication().run();
+
+// Get instances
+const service1 = app.sim(UserService);
+const service2 = app.sim(UserService);
+
+console.log(service1 === service2); // true - Same instance!
+
+service1.addUser('user1', 'Alice');
+service2.addUser('user2', 'Bob');
+
+console.log(service1.getAllUsers()); // [&#123; id: 'user1', name: 'Alice' &#125;, &#123; id: 'user2', name: 'Bob' &#125;]
+console.log(service2.getAllUsers()); // Same array - shared state!</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="transient-lifecycle">Transient Lifecycle</h3>
+                    <p class="example-description content en">Create new instance on each request with Lifecycle.Transient</p>
+                    <p class="example-description content ko">Lifecycle.Transient로 각 요청마다 새 인스턴스 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim, Lifecycle &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+
+// Transient service - new instance each time
+&#64;Sim(&#123; scope: Lifecycle.Transient &#125;)
+class RequestLogger &#123;
+  private requestId: string;
+
+  constructor() &#123;
+    this.requestId = `req-&#36;&#123;Math.random().toString(36).substring(7)&#125;`;
+    console.log(`[RequestLogger] Created with ID: &#36;&#123;this.requestId&#125;`);
+  &#125;
+
+  logRequest(method: string, path: string) &#123;
+    console.log(`[&#36;&#123;this.requestId&#125;] &#36;&#123;method&#125; &#36;&#123;path&#125;`);
+  &#125;
+
+  getRequestId() &#123;
+    return this.requestId;
+  &#125;
+&#125;
+
+// Usage
+const app = new SimpleApplication().run();
+
+const logger1 = app.sim(RequestLogger); // Creates new instance
+const logger2 = app.sim(RequestLogger); // Creates another new instance
+
+console.log(logger1 === logger2); // false - Different instances!
+console.log(logger1.getRequestId()); // "req-abc123"
+console.log(logger2.getRequestId()); // "req-xyz789"
+
+logger1.logRequest('GET', '/users');    // [req-abc123] GET /users
+logger2.logRequest('POST', '/orders');  // [req-xyz789] POST /orders</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="constructor-injection">Constructor Injection</h3>
+                    <p class="example-description content en">Automatically inject dependencies via constructor parameters</p>
+                    <p class="example-description content ko">생성자 매개변수를 통해 자동으로 의존성 주입</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+
+&#64;Sim
+class UserService &#123;
+  getUser(userId: string) &#123;
+    return &#123; id: userId, name: `User &#36;&#123;userId&#125;`, email: `user&#36;&#123;userId&#125;&#64;example.com` &#125;;
+  &#125;
+&#125;
+
+// NotificationService automatically gets UserService injected
+&#64;Sim
+class NotificationService &#123;
+  constructor(private userService: UserService) &#123;
+    console.log('[NotificationService] Created with injected UserService');
+  &#125;
+
+  notifyUser(userId: string, message: string) &#123;
+    const user = this.userService.getUser(userId);
+    if (user) &#123;
+      console.log(`📧 Sending notification to &#36;&#123;user.name&#125;: "&#36;&#123;message&#125;"`);
+      return true;
+    &#125;
+    console.log(`⚠️  User &#36;&#123;userId&#125; not found`);
+    return false;
+  &#125;
+&#125;
+
+// Usage
+const app = new SimpleApplication().run();
+
+// UserService is automatically created and injected
+const notificationService = app.sim(NotificationService);
+notificationService.notifyUser('user1', 'Welcome to the platform!');
+// Output: 📧 Sending notification to User user1: "Welcome to the platform!"</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="symbol-based-di">Symbol-based Registration</h3>
+                    <p class="example-description content en">Register services with symbols for interface-based programming</p>
+                    <p class="example-description content ko">인터페이스 기반 프로그래밍을 위한 심볼로 서비스 등록</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+
+// Define symbol for interface
+const ILogger = Symbol.for('ILogger');
+
+// Register with symbol
+&#64;Sim(&#123; symbol: ILogger &#125;)
+class ConsoleLogger &#123;
+  log(message: string) &#123;
+    console.log(`[Console] &#36;&#123;message&#125;`);
+  &#125;
+&#125;
+
+&#64;Sim(&#123; symbol: ILogger &#125;)
+class FileLogger &#123;
+  log(message: string) &#123;
+    console.log(`[File] &#36;&#123;message&#125;`);
+  &#125;
+&#125;
+
+// Usage
+const app = new SimpleApplication().run();
+
+// Get all implementations of ILogger
+const loggers = app.sims(ILogger);
+loggers.forEach(logger => logger.log('Hello!'));
+// Output:
+// [Console] Hello!
+// [File] Hello!
+
+// Get first implementation
+const logger = app.sim(ILogger);
+logger.log('First logger');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Routing -->
+            <section class="section">
+                <h2 id="routing">Routing System</h2>
+                <p class="content en">Map URL paths to controller classes and methods</p>
+                <p class="content ko">URL 경로를 컨트롤러 클래스와 메서드에 매핑</p>
+
+                <div class="example-item">
+                    <h3 id="router-decorator">&#64;Router & &#64;Route Decorators</h3>
+                    <p class="example-description content en">Create RESTful routes with path parameters</p>
+                    <p class="example-description content ko">경로 매개변수로 RESTful 라우트 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Route, Router &#125; from '&#64;dooboostore/simple-boot/decorators/route/Router';
+
+// User Controller
+&#64;Sim
+&#64;Router(&#123; path: '/user' &#125;)
+class UserController &#123;
+  constructor() &#123;
+    console.log('[UserController] Created');
+  &#125;
+
+  &#64;Route(&#123; path: '/list' &#125;)
+  listUsers() &#123;
+    console.log('📋 [Route] /user/list - Listing all users');
+    return &#123; users: ['Alice', 'Bob', 'Charlie'] &#125;;
+  &#125;
+
+  &#64;Route(&#123; path: '/get' &#125;)
+  getUser(id: string) &#123;
+    console.log(`👤 [Route] /user/get - Getting user: &#36;&#123;id&#125;`);
+    return &#123; 
+      id, 
+      name: `User &#36;&#123;id&#125;`, 
+      email: `user&#36;&#123;id&#125;&#64;example.com` 
+    &#125;;
+  &#125;
+&#125;
+
+// Product Controller
+&#64;Sim
+&#64;Router(&#123; path: '/product' &#125;)
+class ProductController &#123;
+  constructor() &#123;
+    console.log('[ProductController] Created');
+  &#125;
+
+  &#64;Route(&#123; path: '/list' &#125;)
+  listProducts() &#123;
+    console.log('📦 [Route] /product/list - Listing all products');
+    return &#123; products: ['Product A', 'Product B', 'Product C'] &#125;;
+  &#125;
+
+  &#64;Route(&#123; path: '/detail' &#125;)
+  getProduct(id: string) &#123;
+    console.log(`📦 [Route] /product/detail - Getting product: &#36;&#123;id&#125;`);
+    return &#123; id, name: `Product &#36;&#123;id&#125;`, price: 99.99 &#125;;
+  &#125;
+&#125;
+
+// Usage
+const app = new SimpleApplication().run();
+
+// Controllers are automatically registered
+const userController = app.sim(UserController);
+userController.listUsers();
+// Output: 📋 [Route] /user/list - Listing all users
+
+userController.getUser('42');
+// Output: 👤 [Route] /user/get - Getting user: 42
+
+// Access routes via RouterManager
+const routerManager = app.getRouterManager();
+console.log('Registered routes:');
+console.log('  - /user/list');
+console.log('  - /user/get');
+console.log('  - /product/list');
+console.log('  - /product/detail');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Caching -->
+            <section class="section">
+                <h2 id="caching">Method Caching</h2>
+                <p class="content en">Cache expensive operations with @Cache decorator</p>
+                <p class="content ko">@Cache 데코레이터로 비용이 큰 작업 캐싱</p>
+
+                <div class="example-item">
+                    <h3 id="cache-decorator">&#64;Cache Decorator</h3>
+                    <p class="example-description content en">Automatically cache method results with custom keys and TTL</p>
+                    <p class="example-description content ko">커스텀 키와 TTL로 자동으로 메서드 결과 캐싱</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Cache &#125; from '&#64;dooboostore/simple-boot/decorators/cache/CacheDecorator';
+
+&#64;Sim
+class DataService &#123;
+  private callCount = 0;
+
+  &#64;Cache(&#123;
+    key: (userId: string) => `user-&#36;&#123;userId&#125;`
+  &#125;)
+  fetchUserData(userId: string): any &#123;
+    this.callCount++;
+    console.log(`💾 Database call #&#36;&#123;this.callCount&#125; for user: &#36;&#123;userId&#125;`);
+    
+    // Simulate expensive database operation
+    return &#123;
+      id: userId,
+      name: `User &#36;&#123;userId&#125;`,
+      email: `user&#36;&#123;userId&#125;&#64;example.com`,
+      timestamp: new Date().toISOString()
+    &#125;;
+  &#125;
+
+  &#64;Cache(&#123;
+    key: (n: number) => `calc-&#36;&#123;n&#125;`,
+    ms: 5000  // Cache for 5 seconds
+  &#125;)
+  expensiveCalculation(n: number): number &#123;
+    this.callCount++;
+    console.log(`🔢 Calculation #&#36;&#123;this.callCount&#125; for: &#36;&#123;n&#125;`);
+    
+    // Simulate expensive computation
+    let result = 0;
+    for (let i = 0; i < n; i++) &#123;
+      result += i;
+    &#125;
+    return result;
+  &#125;
+
+  getCallCount(): number &#123;
+    return this.callCount;
+  &#125;
+&#125;
+
+// Usage
+const app = new SimpleApplication().run();
+const dataService = app.sim(DataService);
+
+// First call (cache MISS)
+console.log('First call:');
+const data1 = dataService.fetchUserData('123');
+// Output: 💾 Database call #1 for user: 123
+
+// Second call with same parameter (cache HIT)
+console.log('Second call with same parameter:');
+const data2 = dataService.fetchUserData('123');
+// No output - returned from cache!
+console.log('✅ No database call made!');
+
+// Third call with different parameter (cache MISS)
+console.log('Third call with different parameter:');
+const data3 = dataService.fetchUserData('456');
+// Output: 💾 Database call #2 for user: 456
+
+// Performance benefits
+console.log('Running expensive calculation...');
+dataService.expensiveCalculation(1000000);
+// Output: �� Calculation #3 for: 1000000
+
+console.log('Running same calculation (cached):');
+dataService.expensiveCalculation(1000000);
+// No output - returned from cache!
+
+console.log(`Total expensive operations: &#36;&#123;dataService.getCallCount()&#125;`);
+// Output: Total expensive operations: 3</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intent System -->
+            <section class="section">
+                <h2 id="intent-system">Intent Event System</h2>
+                <p class="content en">Decouple components with publish-subscribe pattern</p>
+                <p class="content ko">발행-구독 패턴으로 컴포넌트 분리</p>
+
+                <div class="example-item">
+                    <h3 id="intent-publish">Publishing and Subscribing to Events</h3>
+                    <p class="example-description content en">Event-based communication between services</p>
+                    <p class="example-description content ko">서비스 간 이벤트 기반 통신</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; SimpleApplication &#125; from '&#64;dooboostore/simple-boot/SimpleApplication';
+import &#123; Intent &#125; from '&#64;dooboostore/simple-boot/intent/Intent';
+
+const app = new SimpleApplication().run();
+const intentManager = app.getIntentManager();
+
+// 1️⃣ URI-based Intent
+console.log('Publishing intent to /user/created...');
+const intent1 = new Intent('/user/created', &#123; 
+  userId: 'user-123', 
+  name: 'Alice' 
+&#125;);
+await intentManager.publish(intent1);
+console.log('✅ Intent published!');
+
+// 2️⃣ Scheme-based Intent
+console.log('Publishing intent with custom scheme...');
+const intent2 = new Intent('myapp://order/placed', &#123; 
+  orderId: 'order-456', 
+  amount: 99.99 
+&#125;);
+await intentManager.publish(intent2);
+console.log('✅ Intent published!');
+
+// 3️⃣ Symbol-based Intent
+console.log('Publishing intent with Symbol...');
+const intent3 = new Intent(
+  &#123; symbol: Symbol.for('payment'), uri: '/processed' &#125;,
+  &#123; orderId: 'order-456', success: true &#125;
+);
+await intentManager.publish(intent3);
+console.log('✅ Intent published!');
+
+// 4️⃣ Simple String Intent
+const result = await intentManager.publish('/api/hello', &#123; 
+  message: 'Hello World!' 
+&#125;);
+console.log(`✅ Published to /api/hello`);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="intent-use-case">Real-world Use Case</h3>
+                    <p class="example-description content en">Decoupled microservices communication example</p>
+                    <p class="example-description content ko">분리된 마이크로서비스 통신 예제</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&#64;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Intent &#125; from '&#64;dooboostore/simple-boot/intent/Intent';
+
+// Define event types
+class UserCreatedEvent &#123;
+  constructor(public userId: string, public name: string) &#123;&#125;
+&#125;
+
+class OrderPlacedEvent &#123;
+  constructor(public orderId: string, public amount: number) &#123;&#125;
+&#125;
+
+// Publisher Service
+&#64;Sim
+class UserService &#123;
+  constructor(private intentManager: IntentManager) &#123;&#125;
+
+  async createUser(name: string) &#123;
+    const userId = `user-&#36;&#123;Date.now()&#125;`;
+    console.log(`👤 Creating user: &#36;&#123;name&#125;`);
+    
+    // Publish event
+    const intent = new Intent('/user/created', &#123; userId, name &#125;);
+    await this.intentManager.publish(intent);
+    
+    return &#123; userId, name &#125;;
+  &#125;
+&#125;
+
+// Subscriber Services
+&#64;Sim
+class EmailService &#123;
+  constructor(private intentManager: IntentManager) &#123;
+    // Subscribe to events
+    this.intentManager.subscribe('/user/created', (event) => &#123;
+      this.sendWelcomeEmail(event.data);
+    &#125;);
+  &#125;
+
+  private sendWelcomeEmail(data: any) &#123;
+    console.log(`📧 [EmailService] Sending welcome email to &#36;&#123;data.name&#125;`);
+  &#125;
+&#125;
+
+&#64;Sim
+class AnalyticsService &#123;
+  constructor(private intentManager: IntentManager) &#123;
+    this.intentManager.subscribe('/user/created', (event) => &#123;
+      this.trackUserCreation(event.data);
+    &#125;);
+  &#125;
+
+  private trackUserCreation(data: any) &#123;
+    console.log(`📊 [AnalyticsService] Tracking user creation: &#36;&#123;data.userId&#125;`);
+  &#125;
+&#125;
+
+// Usage
+const app = new SimpleApplication().run();
+const userService = app.sim(UserService);
+const emailService = app.sim(EmailService); // Subscribers auto-initialized
+const analyticsService = app.sim(AnalyticsService);
+
+// Create user - both services will be notified
+await userService.createUser('Alice');
+// Output:
+// 👤 Creating user: Alice
+// 📧 [EmailService] Sending welcome email to Alice
+// 📊 [AnalyticsService] Tracking user creation: user-1234567890</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alert System -->
+            <section class="section">
+                <h2 id="alert-system">Alert System</h2>
+                <p class="content en">Manage alerts with AlertService and AlertFactory</p>
+                <p class="content ko">AlertService와 AlertFactory로 알림 관리</p>
+
+                <div class="example-item">
+                    <h3 id="alert-types">Alert Types & Architecture</h3>
+                    <p class="example-description content en">Built-in alert system for notifications and messages</p>
+                    <p class="example-description content ko">알림 및 메시지를 위한 내장 알림 시스템</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Alert Types">
+                                <code-snippet-code type="typescript">import &#123; AlertType &#125; from '&#64;dooboostore/simple-boot/alert/AlertType';
+
+// Available alert types:
+AlertType.DANGER   // Critical errors
+AlertType.SUCCESS  // Success messages
+AlertType.INFO     // Informational messages
+AlertType.WARNING  // Warning messages
+AlertType.ERROR    // Error messages
+AlertType.PROGRESS // Progress indicators
+
+// Alert System Architecture:
+// Components:
+//   - AlertService: Manages alerts and subscriptions
+//   - AlertFactory: Creates alert instances
+//   - Alert: Individual alert instances
+//   - AlertAction: Actions (SHOW, HIDE, UPDATE, REMOVE)
+
+// Usage Pattern:
+// 1. Create AlertFactory with &#64;Sim decorator
+// 2. AlertService auto-injected with AlertFactory
+// 3. Create alerts: alertService.danger(), .success(), etc.
+// 4. Subscribe to observable: alertService.observable.subscribe()
+// 5. Perform actions on alerts: show(), hide(), update()</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

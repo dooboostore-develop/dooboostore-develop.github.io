@@ -1,0 +1,2316 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>core</h1>
+            <p class="content en">Essential utilities and design patterns for TypeScript/JavaScript development</p>
+            <p class="content ko">TypeScript/JavaScript 개발을 위한 필수 유틸리티 및 디자인 패턴</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/core" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/core" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package with your preferred package manager</p>
+                <p class="content ko">선호하는 패키지 매니저로 패키지를 설치하세요</p>
+                <code-snippet-container>
+                    <code-snippet name="npm">
+                        <code-snippet-code type="bash">npm install @dooboostore/core reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="pnpm">
+                        <code-snippet-code type="bash">pnpm add @dooboostore/core reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+            <section class="section">
+                <h2 id="demo">Demo example</h2>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                        <p class="content en">DEMO EXAMPLE</p>
+                        <p class="content ko">데모 예제</p>
+                    </summary>
+                    <!--                <iframe  style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;" src="https://stackblitz.com/edit/stackblitz-starters-kdmysfxl?embed=1&file=package.json"></iframe>-->
+                    <!--                <iframe  style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;" src="https://stackblitz.com/edit/vitejs-vite-udkm3vaw?embed=1&file=index.html"></iframe>-->
+                    <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+
+            <!-- Low Level Utilities -->
+            <section class="section">
+                <h2 id="low-level-utilities">Low Level Utilities</h2>
+                <p class="content en">Essential utility functions for common programming tasks</p>
+                <p class="content ko">일반적인 프로그래밍 작업을 위한 필수 유틸리티 함수</p>
+
+                <!-- ArrayUtils -->
+                <div class="example-item">
+                    <h3 id="array-utils">ArrayUtils</h3>
+                    <p class="example-description content en">Comprehensive array manipulation utilities including 2D arrays, shuffling, and set operations</p>
+                    <p class="example-description content ko">2D 배열, 셔플링, 집합 연산을 포함한 포괄적인 배열 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ArrayUtils } from '@dooboostore/core/array/ArrayUtils';
+
+// Shuffle array
+const shuffled = ArrayUtils.shuffle([1, 2, 3, 4, 5]);
+
+// Create 2D array
+const matrix = ArrayUtils.create2DArray(3, 3, 0);
+
+// Set operations
+const union = ArrayUtils.union([1, 2], [2, 3]); // [1, 2, 3]
+const intersection = ArrayUtils.intersection([1, 2], [2, 3]); // [2]</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">shuffle</code><span class="params">&lt;T&gt;(array: T[]): T[]</span>
+                                </span>
+                                <span class="desc content en">Randomly shuffle array elements</span>
+                                <span class="desc content ko">배열 요소를 무작위로 섞기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">create2DArray</code><span class="params">&lt;T&gt;(rows: number, cols: number, defaultValue: T): T[][]</span>
+                                </span>
+                                <span class="desc content en">Create 2D array with default values</span>
+                                <span class="desc content ko">기본값으로 2D 배열 생성</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">union</code><span class="params">&lt;T&gt;(arr1: T[], arr2: T[]): T[]</span>
+                                </span>
+                                <span class="desc content en">Union of two arrays</span>
+                                <span class="desc content ko">두 배열의 합집합</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">intersection</code><span class="params">&lt;T&gt;(arr1: T[], arr2: T[]): T[]</span>
+                                </span>
+                                <span class="desc content en">Intersection of two arrays</span>
+                                <span class="desc content ko">두 배열의 교집합</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">difference</code><span class="params">&lt;T&gt;(arr1: T[], arr2: T[]): T[]</span>
+                                </span>
+                                <span class="desc content en">Difference of two arrays</span>
+                                <span class="desc content ko">두 배열의 차집합</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">unique</code><span class="params">&lt;T&gt;(array: T[]): T[]</span>
+                                </span>
+                                <span class="desc content en">Remove duplicate elements</span>
+                                <span class="desc content ko">중복 요소 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">chunk</code><span class="params">&lt;T&gt;(array: T[], size: number): T[][]</span>
+                                </span>
+                                <span class="desc content en">Split array into chunks</span>
+                                <span class="desc content ko">배열을 청크로 분할</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">flatten</code><span class="params">&lt;T&gt;(array: any[]): T[]</span>
+                                </span>
+                                <span class="desc content en">Flatten nested arrays</span>
+                                <span class="desc content ko">중첩 배열 평탄화</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">groupBy</code><span class="params">&lt;T&gt;(array: T[], key: keyof T | ((item: T) => any)): Record&lt;string, T[]&gt;</span>
+                                </span>
+                                <span class="desc content en">Group array by key</span>
+                                <span class="desc content ko">키로 배열 그룹화</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- StringUtils -->
+                <div class="example-item">
+                    <h3 id="string-utils">StringUtils</h3>
+                    <p class="example-description content en">Advanced string manipulation including trimming, padding, emoji handling, and Korean postposition</p>
+                    <p class="example-description content ko">트리밍, 패딩, 이모지 처리, 한글 조사 처리를 포함한 고급 문자열 조작</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { StringUtils } from '@dooboostore/core/string/StringUtils';
+
+// Korean postposition
+const text = StringUtils.withPostposition('사과', '을/를'); // '사과를'
+
+// Padding
+const padded = StringUtils.padLeft('42', 5, '0'); // '00042'
+
+// Emoji handling
+const length = StringUtils.lengthWithEmoji('Hello 😀'); // 7</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">withPostposition</code><span class="params">(word: string, postposition: string): string</span>
+                                </span>
+                                <span class="desc content en">Add Korean postposition (을/를, 이/가, etc.)</span>
+                                <span class="desc content ko">한글 조사 추가 (을/를, 이/가 등)</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">padLeft</code><span class="params">(str: string, length: number, char: string): string</span>
+                                </span>
+                                <span class="desc content en">Pad string on the left</span>
+                                <span class="desc content ko">문자열 왼쪽에 패딩 추가</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">padRight</code><span class="params">(str: string, length: number, char: string): string</span>
+                                </span>
+                                <span class="desc content en">Pad string on the right</span>
+                                <span class="desc content ko">문자열 오른쪽에 패딩 추가</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">lengthWithEmoji</code><span class="params">(str: string): number</span>
+                                </span>
+                                <span class="desc content en">Calculate string length including emojis</span>
+                                <span class="desc content ko">이모지 포함 문자열 길이 계산</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">trim</code><span class="params">(str: string): string</span>
+                                </span>
+                                <span class="desc content en">Trim whitespace from both ends</span>
+                                <span class="desc content ko">양쪽 공백 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">trimLeft</code><span class="params">(str: string): string</span>
+                                </span>
+                                <span class="desc content en">Trim whitespace from left</span>
+                                <span class="desc content ko">왼쪽 공백 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">trimRight</code><span class="params">(str: string): string</span>
+                                </span>
+                                <span class="desc content en">Trim whitespace from right</span>
+                                <span class="desc content ko">오른쪽 공백 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">capitalize</code><span class="params">(str: string): string</span>
+                                </span>
+                                <span class="desc content en">Capitalize first letter</span>
+                                <span class="desc content ko">첫 글자 대문자화</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">camelCase</code><span class="params">(str: string): string</span>
+                                </span>
+                                <span class="desc content en">Convert to camelCase</span>
+                                <span class="desc content ko">카멜케이스로 변환</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">snakeCase</code><span class="params">(str: string): string</span>
+                                </span>
+                                <span class="desc content en">Convert to snake_case</span>
+                                <span class="desc content ko">스네이크케이스로 변환</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">kebabCase</code><span class="params">(str: string): string</span>
+                                </span>
+                                <span class="desc content en">Convert to kebab-case</span>
+                                <span class="desc content ko">케밥케이스로 변환</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">truncate</code><span class="params">(str: string, length: number, suffix?: string): string</span>
+                                </span>
+                                <span class="desc content en">Truncate string with suffix</span>
+                                <span class="desc content ko">접미사와 함께 문자열 자르기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- ObjectUtils -->
+                <div class="example-item">
+                    <h3 id="object-utils">ObjectUtils</h3>
+                    <p class="example-description content en">Object manipulation utilities including deep copy, path operations, script evaluation, and path detection</p>
+                    <p class="example-description content ko">깊은 복사, 경로 연산, 스크립트 평가, 경로 감지를 포함한 객체 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ObjectUtils } from '@dooboostore/core/object/ObjectUtils';
+
+// Deep copy
+const original = { a: { b: 1 } };
+const copied = ObjectUtils.deepCopy(original);
+
+// Path operations
+const value = ObjectUtils.getByPath(obj, 'user.address.city');
+ObjectUtils.setByPath(obj, 'user.name', 'John');
+
+// Script evaluation
+const result = ObjectUtils.evalScript('a + b', { a: 1, b: 2 }); // 3</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">OTHER FUNCTIONS</span>
+                            <span class="content ko">기타 함수</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">deepCopy</code><span class="params">&lt;T&gt;(obj: T): T</span>
+                                </span>
+                                <span class="desc content en">Create deep copy of object</span>
+                                <span class="desc content ko">객체의 깊은 복사 생성</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getByPath</code><span class="params">(obj: any, path: string): any</span>
+                                </span>
+                                <span class="desc content en">Get value by dot notation path</span>
+                                <span class="desc content ko">점 표기법 경로로 값 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">setByPath</code><span class="params">(obj: any, path: string, value: any): void</span>
+                                </span>
+                                <span class="desc content en">Set value by dot notation path</span>
+                                <span class="desc content ko">점 표기법 경로로 값 설정</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">hasPath</code><span class="params">(obj: any, path: string): boolean</span>
+                                </span>
+                                <span class="desc content en">Check if path exists</span>
+                                <span class="desc content ko">경로 존재 여부 확인</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">deletePath</code><span class="params">(obj: any, path: string): boolean</span>
+                                </span>
+                                <span class="desc content en">Delete path from object</span>
+                                <span class="desc content ko">객체에서 경로 삭제</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">evalScript</code><span class="params">(script: string, context: Record&lt;string, any&gt;): any</span>
+                                </span>
+                                <span class="desc content en">Evaluate script in context</span>
+                                <span class="desc content ko">컨텍스트에서 스크립트 평가</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">merge</code><span class="params">&lt;T&gt;(target: T, ...sources: Partial&lt;T&gt;[]): T</span>
+                                </span>
+                                <span class="desc content en">Deep merge objects</span>
+                                <span class="desc content ko">객체 깊은 병합</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">pick</code><span class="params">&lt;T, K extends keyof T&gt;(obj: T, keys: K[]): Pick&lt;T, K&gt;</span>
+                                </span>
+                                <span class="desc content en">Pick properties from object</span>
+                                <span class="desc content ko">객체에서 속성 선택</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">omit</code><span class="params">&lt;T, K extends keyof T&gt;(obj: T, keys: K[]): Omit&lt;T, K&gt;</span>
+                                </span>
+                                <span class="desc content en">Omit properties from object</span>
+                                <span class="desc content ko">객체에서 속성 제외</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- ConvertUtils -->
+                <div class="example-item">
+                    <h3 id="convert-utils">ConvertUtils</h3>
+                    <p class="example-description content en">Utilities for converting data between different formats and types</p>
+                    <p class="example-description content ko">다양한 형식과 타입 간 데이터 변환 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ConvertUtils } from '@dooboostore/core/convert/ConvertUtils';
+
+// Base64 encoding/decoding
+const encoded = ConvertUtils.toBase64('Hello');
+const decoded = ConvertUtils.fromBase64(encoded);
+
+// JSON operations
+const json = ConvertUtils.toJSON({ name: 'John' });
+const obj = ConvertUtils.fromJSON(json);
+
+// Type conversions
+const num = ConvertUtils.toNumber('42'); // 42
+const bool = ConvertUtils.toBoolean('true'); // true</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toBase64</code><span class="params">(str: string): string</span>
+                </span>
+                <span class="desc content en">Encode string to Base64</span>
+                <span class="desc content ko">Encode string to Base64</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">fromBase64</code><span class="params">(str: string): string</span>
+                </span>
+                <span class="desc content en">Decode Base64 string</span>
+                <span class="desc content ko">Decode Base64 string</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toJSON</code><span class="params">(obj: any): string</span>
+                </span>
+                <span class="desc content en">Convert object to JSON string</span>
+                <span class="desc content ko">객체를 JSON 문자열로 변환</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">fromJSON&lt;T&gt;</code><span class="params">(json: string): T</span>
+                </span>
+                <span class="desc content en">Parse JSON string to object</span>
+                <span class="desc content ko">Parse JSON string to object</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toNumber</code><span class="params">(value: any): number</span>
+                </span>
+                <span class="desc content en">Convert value to number</span>
+                <span class="desc content ko">Convert value to number</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toBoolean</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Convert value to boolean</span>
+                <span class="desc content ko">Convert value to boolean</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toString</code><span class="params">(value: any): string</span>
+                </span>
+                <span class="desc content en">Convert value to string</span>
+                <span class="desc content ko">Convert value to string</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toArray&lt;T&gt;</code><span class="params">(value: T | T[]): T[]</span>
+                </span>
+                <span class="desc content en">Convert value to array</span>
+                <span class="desc content ko">Convert value to array</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">hexToRgb</code><span class="params">(hex: string): { r: number, g: number, b: number }</span>
+                </span>
+                <span class="desc content en">Convert hex color to RGB</span>
+                <span class="desc content ko">16진수 색상을 RGB로 변환</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">rgbToHex</code><span class="params">(r: number, g: number, b: number): string</span>
+                </span>
+                <span class="desc content en">Convert RGB to hex color</span>
+                <span class="desc content ko">RGB를 16진수 색상으로 변환</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- FunctionUtils -->
+                <div class="example-item">
+                    <h3 id="function-utils">FunctionUtils</h3>
+                    <p class="example-description content en">Utilities for function manipulation and higher-order functions</p>
+                    <p class="example-description content ko">함수 조작 및 고차 함수를 위한 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { FunctionUtils } from '@dooboostore/core/function/FunctionUtils';
+
+// Debounce
+const debounced = FunctionUtils.debounce(() =&gt; console.log('Called'), 300);
+
+// Throttle
+const throttled = FunctionUtils.throttle(() =&gt; console.log('Called'), 1000);
+
+// Memoize
+const memoized = FunctionUtils.memoize((n: number) =&gt; n * 2);
+
+// Once
+const once = FunctionUtils.once(() =&gt; console.log('Only once'));</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">debounce&lt;T extends</code><span class="params">(...args: any[]) =&gt; any&gt;(fn: T, delay: number): T</span>
+                </span>
+                <span class="desc content en">Debounce function calls</span>
+                <span class="desc content ko">Debounce function calls</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">throttle&lt;T extends</code><span class="params">(...args: any[]) =&gt; any&gt;(fn: T, limit: number): T</span>
+                </span>
+                <span class="desc content en">Throttle function calls</span>
+                <span class="desc content ko">Throttle function calls</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">memoize&lt;T extends</code><span class="params">(...args: any[]) =&gt; any&gt;(fn: T): T</span>
+                </span>
+                <span class="desc content en">Memoize function results</span>
+                <span class="desc content ko">함수 결과 메모이제이션</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">once&lt;T extends</code><span class="params">(...args: any[]) =&gt; any&gt;(fn: T): T</span>
+                </span>
+                <span class="desc content en">Execute function only once</span>
+                <span class="desc content ko">함수를 한 번만 실행</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">curry&lt;T extends</code><span class="params">(...args: any[]) =&gt; any&gt;(fn: T): any</span>
+                </span>
+                <span class="desc content en">Curry function</span>
+                <span class="desc content ko">함수 커링</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">compose&lt;T&gt;</code><span class="params">(...fns: Function[]): (arg: T) =&gt; any</span>
+                </span>
+                <span class="desc content en">Compose functions right-to-left</span>
+                <span class="desc content ko">Compose functions right-to-left</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">pipe&lt;T&gt;</code><span class="params">(...fns: Function[]): (arg: T) =&gt; any</span>
+                </span>
+                <span class="desc content en">Pipe functions left-to-right</span>
+                <span class="desc content ko">Pipe functions left-to-right</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">partial&lt;T extends</code><span class="params">(...args: any[]) =&gt; any&gt;(fn: T, ...args: any[]): T</span>
+                </span>
+                <span class="desc content en">Partial application</span>
+                <span class="desc content ko">Partial application</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- MathUtil -->
+                <div class="example-item">
+                    <h3 id="math-util">MathUtil</h3>
+                    <p class="example-description content en">Mathematical operations and calculations utilities</p>
+                    <p class="example-description content ko">수학 연산 및 계산 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { MathUtil } from '@dooboostore/core/math/MathUtil';
+
+// Clamp value
+const clamped = MathUtil.clamp(15, 0, 10); // 10
+
+// Linear interpolation
+const lerp = MathUtil.lerp(0, 100, 0.5); // 50
+
+// Random integer
+const random = MathUtil.randomInt(1, 100);
+
+// Round to decimal places
+const rounded = MathUtil.round(3.14159, 2); // 3.14</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">clamp</code><span class="params">(value: number, min: number, max: number): number</span>
+                </span>
+                <span class="desc content en">Clamp value between min and max</span>
+                <span class="desc content ko">값을 최소/최대 범위로 제한</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">lerp</code><span class="params">(start: number, end: number, t: number): number</span>
+                </span>
+                <span class="desc content en">Linear interpolation</span>
+                <span class="desc content ko">선형 보간</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">randomInt</code><span class="params">(min: number, max: number): number</span>
+                </span>
+                <span class="desc content en">Random integer in range</span>
+                <span class="desc content ko">범위 내 무작위 정수</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">round</code><span class="params">(value: number, decimals: number): number</span>
+                </span>
+                <span class="desc content en">Round to decimal places</span>
+                <span class="desc content ko">소수점 자리수로 반올림</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toRadians</code><span class="params">(degrees: number): number</span>
+                </span>
+                <span class="desc content en">Convert degrees to radians</span>
+                <span class="desc content ko">도를 라디안으로 변환</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toDegrees</code><span class="params">(radians: number): number</span>
+                </span>
+                <span class="desc content en">Convert radians to degrees</span>
+                <span class="desc content ko">라디안을 도로 변환</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">average</code><span class="params">(...numbers: number[]): number</span>
+                </span>
+                <span class="desc content en">Calculate average</span>
+                <span class="desc content ko">평균 계산</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">sum</code><span class="params">(...numbers: number[]): number</span>
+                </span>
+                <span class="desc content en">Calculate sum</span>
+                <span class="desc content ko">합계 계산</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">max</code><span class="params">(...numbers: number[]): number</span>
+                </span>
+                <span class="desc content en">Find maximum</span>
+                <span class="desc content ko">Find maximum</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">min</code><span class="params">(...numbers: number[]): number</span>
+                </span>
+                <span class="desc content en">Find minimum</span>
+                <span class="desc content ko">Find minimum</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- DateUtils -->
+                <div class="example-item">
+                    <h3 id="date-utils">DateUtils</h3>
+                    <p class="example-description content en">Date formatting, parsing, and manipulation utilities</p>
+                    <p class="example-description content ko">날짜 포맷팅, 파싱 및 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { DateUtils } from '@dooboostore/core/date/DateUtils';
+
+// Format date
+const formatted = DateUtils.format(new Date(), 'YYYY-MM-DD');
+
+// Add days
+const tomorrow = DateUtils.addDays(new Date(), 1);
+
+// Difference in days
+const diff = DateUtils.diffInDays(date1, date2);
+
+// Is same day
+const same = DateUtils.isSameDay(new Date(), new Date());</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">format</code><span class="params">(date: Date, format: string): string</span>
+                </span>
+                <span class="desc content en">Format date to string</span>
+                <span class="desc content ko">Format date to string</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">parse</code><span class="params">(dateString: string, format: string): Date</span>
+                </span>
+                <span class="desc content en">Parse string to date</span>
+                <span class="desc content ko">Parse string to date</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">addDays</code><span class="params">(date: Date, days: number): Date</span>
+                </span>
+                <span class="desc content en">Add days to date</span>
+                <span class="desc content ko">날짜에 일수 추가</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">addMonths</code><span class="params">(date: Date, months: number): Date</span>
+                </span>
+                <span class="desc content en">Add months to date</span>
+                <span class="desc content ko">날짜에 월 추가</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">addYears</code><span class="params">(date: Date, years: number): Date</span>
+                </span>
+                <span class="desc content en">Add years to date</span>
+                <span class="desc content ko">날짜에 연도 추가</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">diffInDays</code><span class="params">(date1: Date, date2: Date): number</span>
+                </span>
+                <span class="desc content en">Difference in days</span>
+                <span class="desc content ko">일수 차이</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">diffInHours</code><span class="params">(date1: Date, date2: Date): number</span>
+                </span>
+                <span class="desc content en">Difference in hours</span>
+                <span class="desc content ko">시간 차이</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isSameDay</code><span class="params">(date1: Date, date2: Date): boolean</span>
+                </span>
+                <span class="desc content en">Check if same day</span>
+                <span class="desc content ko">같은 날 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isToday</code><span class="params">(date: Date): boolean</span>
+                </span>
+                <span class="desc content en">Check if today</span>
+                <span class="desc content ko">오늘인지 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isFuture</code><span class="params">(date: Date): boolean</span>
+                </span>
+                <span class="desc content en">Check if future date</span>
+                <span class="desc content ko">미래 날짜 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isPast</code><span class="params">(date: Date): boolean</span>
+                </span>
+                <span class="desc content en">Check if past date</span>
+                <span class="desc content ko">과거 날짜 확인</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- URLUtils -->
+                <div class="example-item">
+                    <h3 id="url-utils">URLUtils</h3>
+                    <p class="example-description content en">URL parsing, building, and manipulation utilities</p>
+                    <p class="example-description content ko">URL 파싱, 빌딩 및 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { URLUtils } from '@dooboostore/core/url/URLUtils';
+
+// Parse query string
+const params = URLUtils.parseQuery('?name=John&amp;age=30');
+
+// Build query string
+const query = URLUtils.buildQuery({ name: 'John', age: 30 });
+
+// Join URL parts
+const url = URLUtils.join('https://api.com', 'users', '123');
+
+// Get domain
+const domain = URLUtils.getDomain('https://example.com/path');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">parseQuery</code><span class="params">(queryString: string): Record&lt;string, string&gt;</span>
+                </span>
+                <span class="desc content en">Parse query string to object</span>
+                <span class="desc content ko">Parse query string to object</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">buildQuery</code><span class="params">(params: Record&lt;string, any&gt;): string</span>
+                </span>
+                <span class="desc content en">Build query string from object</span>
+                <span class="desc content ko">Build query string from object</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">join</code><span class="params">(...parts: string[]): string</span>
+                </span>
+                <span class="desc content en">Join URL parts</span>
+                <span class="desc content ko">Join URL parts</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">getDomain</code><span class="params">(url: string): string</span>
+                </span>
+                <span class="desc content en">Extract domain from URL</span>
+                <span class="desc content ko">Extract domain from URL</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">getPath</code><span class="params">(url: string): string</span>
+                </span>
+                <span class="desc content en">Extract path from URL</span>
+                <span class="desc content ko">Extract path from URL</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isAbsolute</code><span class="params">(url: string): boolean</span>
+                </span>
+                <span class="desc content en">Check if absolute URL</span>
+                <span class="desc content ko">절대 URL 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isRelative</code><span class="params">(url: string): boolean</span>
+                </span>
+                <span class="desc content en">Check if relative URL</span>
+                <span class="desc content ko">상대 URL 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">addQueryParam</code><span class="params">(url: string, key: string, value: any): string</span>
+                </span>
+                <span class="desc content en">Add query parameter</span>
+                <span class="desc content ko">쿼리 파라미터 추가</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">removeQueryParam</code><span class="params">(url: string, key: string): string</span>
+                </span>
+                <span class="desc content en">Remove query parameter</span>
+                <span class="desc content ko">쿼리 파라미터 제거</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- ValidUtils -->
+                <div class="example-item">
+                    <h3 id="valid-utils">ValidUtils</h3>
+                    <p class="example-description content en">Data validation and type checking utilities</p>
+                    <p class="example-description content ko">데이터 검증 및 타입 체크 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ValidUtils } from '@dooboostore/core/valid/ValidUtils';
+
+// Email validation
+const isEmail = ValidUtils.isEmail('test@example.com');
+
+// URL validation
+const isUrl = ValidUtils.isURL('https://example.com');
+
+// Type checks
+const isNum = ValidUtils.isNumber(42);
+const isStr = ValidUtils.isString('hello');
+const isEmpty = ValidUtils.isEmpty(null);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isEmail</code><span class="params">(value: string): boolean</span>
+                </span>
+                <span class="desc content en">Validate email address</span>
+                <span class="desc content ko">이메일 주소 검증</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isURL</code><span class="params">(value: string): boolean</span>
+                </span>
+                <span class="desc content en">Validate URL</span>
+                <span class="desc content ko">URL 검증</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isNumber</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if number</span>
+                <span class="desc content ko">숫자 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isString</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if string</span>
+                <span class="desc content ko">문자열 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isBoolean</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if boolean</span>
+                <span class="desc content ko">불린 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isArray</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if array</span>
+                <span class="desc content ko">배열 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isObject</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if object</span>
+                <span class="desc content ko">객체 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isFunction</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if function</span>
+                <span class="desc content ko">함수 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isEmpty</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if empty (null, undefined, '', [], {})</span>
+                <span class="desc content ko">Check if empty (null, undefined, '', [], {})</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isNull</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if null</span>
+                <span class="desc content ko">null 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isUndefined</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if undefined</span>
+                <span class="desc content ko">undefined 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">isNullOrUndefined</code><span class="params">(value: any): boolean</span>
+                </span>
+                <span class="desc content en">Check if null or undefined</span>
+                <span class="desc content ko">Check if null or undefined</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- RandomUtils -->
+                <div class="example-item">
+                    <h3 id="random-utils">RandomUtils</h3>
+                    <p class="example-description content en">Random number and data generation utilities</p>
+                    <p class="example-description content ko">난수 및 데이터 생성 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { RandomUtils } from '@dooboostore/core/random/RandomUtils';
+
+// Random integer
+const num = RandomUtils.int(1, 100);
+
+// Random float
+const float = RandomUtils.float(0, 1);
+
+// Random string
+const str = RandomUtils.string(10);
+
+// Random UUID
+const uuid = RandomUtils.uuid();
+
+// Random element
+const item = RandomUtils.pick([1, 2, 3, 4, 5]);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">int</code><span class="params">(min: number, max: number): number</span>
+                </span>
+                <span class="desc content en">Random integer in range</span>
+                <span class="desc content ko">범위 내 무작위 정수</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">float</code><span class="params">(min: number, max: number): number</span>
+                </span>
+                <span class="desc content en">Random float in range</span>
+                <span class="desc content ko">Random float in range</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">string</code><span class="params">(length: number, charset?: string): string</span>
+                </span>
+                <span class="desc content en">Random string</span>
+                <span class="desc content ko">무작위 문자열</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">uuid</code><span class="params">(): string</span>
+                </span>
+                <span class="desc content en">Generate UUID v4</span>
+                <span class="desc content ko">Generate UUID v4</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">pick&lt;T&gt;</code><span class="params">(array: T[]): T</span>
+                </span>
+                <span class="desc content en">Pick random element from array</span>
+                <span class="desc content ko">Pick random element from array</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">pickMultiple&lt;T&gt;</code><span class="params">(array: T[], count: number): T[]</span>
+                </span>
+                <span class="desc content en">Pick multiple random elements</span>
+                <span class="desc content ko">Pick multiple random elements</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">boolean</code><span class="params">(): boolean</span>
+                </span>
+                <span class="desc content en">Random boolean</span>
+                <span class="desc content ko">무작위 불린</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">hexColor</code><span class="params">(): string</span>
+                </span>
+                <span class="desc content en">Random hex color</span>
+                <span class="desc content ko">무작위 16진수 색상</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">date</code><span class="params">(start: Date, end: Date): Date</span>
+                </span>
+                <span class="desc content en">Random date in range</span>
+                <span class="desc content ko">Random date in range</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- ImageUtils -->
+                <div class="example-item">
+                    <h3 id="image-utils">ImageUtils</h3>
+                    <p class="example-description content en">Image processing and manipulation utilities</p>
+                    <p class="example-description content ko">이미지 처리 및 조작 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ImageUtils } from '@dooboostore/core/image/ImageUtils';
+
+// Load image
+const img = await ImageUtils.load('image.jpg');
+
+// Resize image
+const resized = await ImageUtils.resize(img, 800, 600);
+
+// Convert to base64
+const base64 = await ImageUtils.toBase64(img);
+
+// Crop image
+const cropped = await ImageUtils.crop(img, 0, 0, 200, 200);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">load</code><span class="params">(src: string): Promise&lt;HTMLImageElement&gt;</span>
+                </span>
+                <span class="desc content en">Load image from URL</span>
+                <span class="desc content ko">URL에서 이미지 로드</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">resize</code><span class="params">(img: HTMLImageElement, width: number, height: number): Promise&lt;HTMLCanvasElement&gt;</span>
+                </span>
+                <span class="desc content en">Resize image</span>
+                <span class="desc content ko">이미지 크기 조정</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">toBase64</code><span class="params">(img: HTMLImageElement | HTMLCanvasElement): string</span>
+                </span>
+                <span class="desc content en">Convert to base64</span>
+                <span class="desc content ko">Convert to base64</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">crop</code><span class="params">(img: HTMLImageElement, x: number, y: number, width: number, height: number): Promise&lt;HTMLCanvasElement&gt;</span>
+                </span>
+                <span class="desc content en">Crop image</span>
+                <span class="desc content ko">이미지 자르기</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">rotate</code><span class="params">(img: HTMLImageElement, degrees: number): Promise&lt;HTMLCanvasElement&gt;</span>
+                </span>
+                <span class="desc content en">Rotate image</span>
+                <span class="desc content ko">이미지 회전</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">flip</code><span class="params">(img: HTMLImageElement, horizontal: boolean, vertical: boolean): Promise&lt;HTMLCanvasElement&gt;</span>
+                </span>
+                <span class="desc content en">Flip image</span>
+                <span class="desc content ko">이미지 뒤집기</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- ReflectUtils -->
+                <div class="example-item">
+                    <h3 id="reflect-utils">ReflectUtils</h3>
+                    <p class="example-description content en">Runtime reflection and metadata utilities for dynamic programming</p>
+                    <p class="example-description content ko">동적 프로그래밍을 위한 런타임 리플렉션 및 메타데이터 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { ReflectUtils } from '@dooboostore/core/reflect/ReflectUtils';
+
+// Get metadata
+const metadata = ReflectUtils.getMetadata('design:type', target, key);
+
+// Set metadata
+ReflectUtils.defineMetadata('custom', value, target, key);
+
+// Check metadata
+const has = ReflectUtils.hasMetadata('design:type', target, key);
+
+// Get property names
+const props = ReflectUtils.getOwnPropertyNames(obj);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">getMetadata</code><span class="params">(key: any, target: any, propertyKey?: string | symbol): any</span>
+                </span>
+                <span class="desc content en">Get metadata</span>
+                <span class="desc content ko">메타데이터 가져오기</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">defineMetadata</code><span class="params">(key: any, value: any, target: any, propertyKey?: string | symbol): void</span>
+                </span>
+                <span class="desc content en">Define metadata</span>
+                <span class="desc content ko">메타데이터 정의</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">hasMetadata</code><span class="params">(key: any, target: any, propertyKey?: string | symbol): boolean</span>
+                </span>
+                <span class="desc content en">Check metadata existence</span>
+                <span class="desc content ko">메타데이터 존재 확인</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">getOwnPropertyNames</code><span class="params">(obj: any): string[]</span>
+                </span>
+                <span class="desc content en">Get own property names</span>
+                <span class="desc content ko">Get own property names</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">getOwnPropertyDescriptor</code><span class="params">(obj: any, prop: string): PropertyDescriptor | undefined</span>
+                </span>
+                <span class="desc content en">Get property descriptor</span>
+                <span class="desc content ko">속성 설명자 가져오기</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">getPrototypeOf</code><span class="params">(obj: any): any</span>
+                </span>
+                <span class="desc content en">Get prototype</span>
+                <span class="desc content ko">프로토타입 가져오기</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">setPrototypeOf</code><span class="params">(obj: any, proto: any): any</span>
+                </span>
+                <span class="desc content en">Set prototype</span>
+                <span class="desc content ko">프로토타입 설정</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+
+                <!-- Expression -->
+                <div class="example-item">
+                    <h3 id="expression">Expression</h3>
+                    <p class="example-description content en">Dynamic expression evaluation and parsing utilities with template binding</p>
+                    <p class="example-description content ko">템플릿 바인딩을 사용한 동적 표현식 평가 및 파싱 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Expression } from '@dooboostore/core/expression/Expression';
+
+// Evaluate expression
+const expr = new Expression('a + b * c');
+const result = expr.evaluate({ a: 1, b: 2, c: 3 }); // 7
+
+// Template binding
+const template = new Expression('Hello, &#36;{name}!');
+const text = template.evaluate({ name: 'John' }); // 'Hello, John!'</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">OTHER FUNCTIONS</span>
+            <span class="content ko">기타 함수</span>
+        </summary>
+        <ul class="other-functions-list">
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">constructor</code><span class="params">(expression: string)</span>
+                </span>
+                <span class="desc content en">Create expression</span>
+                <span class="desc content ko">표현식 생성</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">evaluate</code><span class="params">(context: Record&lt;string, any&gt;): any</span>
+                </span>
+                <span class="desc content en">Evaluate expression in context</span>
+                <span class="desc content ko">Evaluate expression in context</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">compile</code><span class="params">(): Function</span>
+                </span>
+                <span class="desc content en">Compile expression to function</span>
+                <span class="desc content ko">Compile expression to function</span>
+            </li>
+            <li>
+                <span class="func-signature">
+                    <code class="func-name">getVariables</code><span class="params">(): string[]</span>
+                </span>
+                <span class="desc content en">Get variable names used in expression</span>
+                <span class="desc content ko">Get variable names used in expression</span>
+            </li>
+        </ul>
+    </details>
+                </div>
+            </section>
+
+            <!-- Programming Patterns -->
+            <section class="section">
+                <h2 id="programming-patterns">Programming Patterns</h2>
+                <p class="content en">Design patterns and programming concepts for better code structure</p>
+                <p class="content ko">더 나은 코드 구조를 위한 디자인 패턴 및 프로그래밍 개념</p>
+
+                <!-- Advice Pattern -->
+                <div class="example-item">
+                    <h3 id="advice">Advice</h3>
+                    <p class="example-description content en">Abstract interface for structured exception handling with advice pattern</p>
+                    <p class="example-description content ko">어드바이스 패턴을 사용한 구조화된 예외 처리를 위한 추상 인터페이스</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Advice } from '@dooboostore/core/advice/Advice';
+
+class ErrorHandler implements Advice&lt;Error, string&gt; {
+  before(error: Error): void {
+    console.log('Error occurred:', error.message);
+  }
+
+  after(result: string): void {
+    console.log('Handled result:', result);
+  }
+
+  execute(error: Error): string {
+    return &#96;Error: &#36;{error.message}&#96;;
+  }
+}</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">INTERFACE METHODS</span>
+                            <span class="content ko">인터페이스 메서드</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">before</code><span class="params">(input: T): void</span>
+                                </span>
+                                <span class="desc content en">Execute before main logic</span>
+                                <span class="desc content ko">메인 로직 전 실행</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">after</code><span class="params">(result: R): void</span>
+                                </span>
+                                <span class="desc content en">Execute after main logic</span>
+                                <span class="desc content ko">메인 로직 후 실행</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">execute</code><span class="params">(input: T): R</span>
+                                </span>
+                                <span class="desc content en">Main execution logic</span>
+                                <span class="desc content ko">메인 실행 로직</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Convenience Classes -->
+            <section class="section">
+                <h2 id="convenience-classes">Convenience Classes</h2>
+                <p class="content en">Convenience classes and utilities for common programming patterns</p>
+                <p class="content ko">일반적인 프로그래밍 패턴을 위한 편의 클래스 및 유틸리티</p>
+
+                <!-- Optional -->
+                <div class="example-item">
+                    <h3 id="optional">Optional</h3>
+                    <p class="example-description content en">Null-safe value handling with Optional pattern to prevent null pointer exceptions</p>
+                    <p class="example-description content ko">null 포인터 예외를 방지하기 위한 Optional 패턴의 null-safe 값 처리</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Optional } from '@dooboostore/core/optional/Optional';
+
+const value = Optional.of('Hello')
+  .map(v =&gt; v.toUpperCase())
+  .orElse('Default');
+
+const empty = Optional.empty&lt;string&gt;()
+  .orElseThrow(() =&gt; new Error('No value'));
+
+const nullable = Optional.ofNullable(maybeNull)
+  .ifPresent(v =&gt; console.log(v));</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static of&lt;T&gt;</code><span class="params">(value: T): Optional&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Create Optional with value</span>
+                <span class="desc content ko">값으로 Optional 생성</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static empty&lt;T&gt;</code><span class="params">(): Optional&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Create empty Optional</span>
+                <span class="desc content ko">빈 Optional 생성</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static ofNullable&lt;T&gt;</code><span class="params">(value: T | null | undefined): Optional&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Create Optional from nullable</span>
+                <span class="desc content ko">nullable에서 Optional 생성</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">isPresent</code><span class="params">(): boolean</span>
+                </span>
+                <span class="desc content en">Check if value exists</span>
+                <span class="desc content ko">값 존재 확인</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">isEmpty</code><span class="params">(): boolean</span>
+                </span>
+                <span class="desc content en">Check if value is absent</span>
+                <span class="desc content ko">값 부재 확인</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">get</code><span class="params">(): T</span>
+                </span>
+                <span class="desc content en">Get value or throw</span>
+                <span class="desc content ko">값 가져오기 또는 예외 발생</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">orElse</code><span class="params">(defaultValue: T): T</span>
+                </span>
+                <span class="desc content en">Get value or default</span>
+                <span class="desc content ko">값 가져오기 또는 기본값</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">orElseGet</code><span class="params">(supplier: () =&gt; T): T</span>
+                </span>
+                <span class="desc content en">Get value or compute default</span>
+                <span class="desc content ko">값 가져오기 또는 기본값 계산</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">orElseThrow</code><span class="params">(errorSupplier: () =&gt; Error): T</span>
+                </span>
+                <span class="desc content en">Get value or throw error</span>
+                <span class="desc content ko">값 가져오기 또는 에러 발생</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">map&lt;U&gt;</code><span class="params">(mapper: (value: T) =&gt; U): Optional&lt;U&gt;</span>
+                </span>
+                <span class="desc content en">Transform value</span>
+                <span class="desc content ko">값 변환</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">flatMap&lt;U&gt;</code><span class="params">(mapper: (value: T) =&gt; Optional&lt;U&gt;): Optional&lt;U&gt;</span>
+                </span>
+                <span class="desc content en">Transform and flatten</span>
+                <span class="desc content ko">변환 및 평탄화</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">filter</code><span class="params">(predicate: (value: T) =&gt; boolean): Optional&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Filter value</span>
+                <span class="desc content ko">값 필터링</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">ifPresent</code><span class="params">(consumer: (value: T) =&gt; void): void</span>
+                </span>
+                <span class="desc content en">Execute if present</span>
+                <span class="desc content ko">존재하면 실행</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- Entity Classes -->
+                <div class="example-item">
+                    <h3 id="entity">Entity - Point2D, Point3D, Rect, Vector</h3>
+                    <p class="example-description content en">Mathematical entities for 2D/3D graphics and calculations</p>
+                    <p class="example-description content ko">2D/3D 그래픽 및 계산을 위한 수학적 엔티티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Point2D, Point3D, Rect, Vector } from '@dooboostore/core/entity';
+
+// 2D Point operations
+const p1 = new Point2D(10, 20);
+const p2 = new Point2D(30, 40);
+const distance = p1.distanceTo(p2);
+
+// Rectangle operations
+const rect = new Rect(0, 0, 100, 50);
+const contains = rect.contains(new Point2D(50, 25));
+
+// Vector operations
+const v1 = new Vector(1, 2, 3);
+const v2 = new Vector(4, 5, 6);
+const dot = v1.dot(v2);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">CLASSES & METHODS</span>
+            <span class="content ko">클래스 및 메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li><strong>Point2D:</strong> <code>constructor(x: number, y: number)</code>, <code>distanceTo(other: Point2D): number</code>, <code>add(other: Point2D): Point2D</code></li>
+                            <li><strong>Point3D:</strong> <code>constructor(x: number, y: number, z: number)</code>, <code>distanceTo(other: Point3D): number</code></li>
+                            <li><strong>Rect:</strong> <code>constructor(x: number, y: number, width: number, height: number)</code>, <code>contains(point: Point2D): boolean</code></li>
+                            <li><strong>Vector:</strong> <code>constructor(x: number, y: number, z: number)</code>, <code>dot(other: Vector): number</code>, <code>cross(other: Vector): Vector</code></li>
+                            <li><strong>Polygon:</strong> <code>constructor(points: Point2D[])</code>, <code>area(): number</code></li>
+                            <li><strong>Ellipse:</strong> <code>constructor(center: Point2D, radiusX: number, radiusY: number)</code></li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Code Standards -->
+            <section class="section">
+                <h2 id="code-standards">Code Standards</h2>
+                <p class="content en">Standardized code definitions and constants</p>
+                <p class="content ko">표준화된 코드 정의 및 상수</p>
+
+                <!-- ISO 3166-1 -->
+                <div class="example-item">
+                    <h3 id="iso-3166-1">ISO 3166-1</h3>
+                    <p class="example-description content en">ISO 3166-1 standard country codes with alpha2, alpha3, numeric codes and metadata</p>
+                    <p class="example-description content ko">alpha2, alpha3, 숫자 코드 및 메타데이터를 포함한 ISO 3166-1 표준 국가 코드</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { IOS3166_1 } from '@dooboostore/core/code/IOS3166_1';
+
+// Get country by alpha2 code
+const korea = IOS3166_1.getByAlpha2('KR');
+// { alpha2: 'KR', alpha3: 'KOR', numeric: '410', name: 'Korea, Republic of' }
+
+// Get country by alpha3 code
+const usa = IOS3166_1.getByAlpha3('USA');
+
+// Get all countries
+const allCountries = IOS3166_1.getAll();</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static getByAlpha2</code><span class="params">(code: string): Country | undefined</span>
+                </span>
+                <span class="desc content en">Get country by 2-letter code</span>
+                <span class="desc content ko">Get country by 2-letter code</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static getByAlpha3</code><span class="params">(code: string): Country | undefined</span>
+                </span>
+                <span class="desc content en">Get country by 3-letter code</span>
+                <span class="desc content ko">Get country by 3-letter code</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static getByNumeric</code><span class="params">(code: string): Country | undefined</span>
+                </span>
+                <span class="desc content en">Get country by numeric code</span>
+                <span class="desc content ko">Get country by numeric code</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static getAll</code><span class="params">(): Country[]</span>
+                </span>
+                <span class="desc content en">Get all countries</span>
+                <span class="desc content ko">Get all countries</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static isValid</code><span class="params">(code: string): boolean</span>
+                </span>
+                <span class="desc content en">Validate country code</span>
+                <span class="desc content ko">Validate country code</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Collections -->
+            <section class="section">
+                <h2 id="collections">Collections</h2>
+                <p class="content en">Data structures and collection utilities</p>
+                <p class="content ko">자료 구조 및 컬렉션 유틸리티</p>
+
+                <!-- AsyncBlockingQueue -->
+                <div class="example-item">
+                    <h3 id="async-blocking-queue">AsyncBlockingQueue</h3>
+                    <p class="example-description content en">Asynchronous blocking queue for producer-consumer patterns</p>
+                    <p class="example-description content ko">생산자-소비자 패턴을 위한 비동기 블로킹 큐</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { AsyncBlockingQueue } from '@dooboostore/core/queues/AsyncBlockingQueue';
+
+const queue = new AsyncBlockingQueue&lt;number&gt;(10);
+
+// Producer
+await queue.enqueue(42);
+
+// Consumer
+const value = await queue.dequeue(); // Waits if empty
+
+// Check size
+const size = queue.size();</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">constructor</code><span class="params">(capacity?: number)</span>
+                </span>
+                <span class="desc content en">Create queue with optional capacity</span>
+                <span class="desc content ko">Create queue with optional capacity</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">enqueue</code><span class="params">(item: T): Promise&lt;void&gt;</span>
+                </span>
+                <span class="desc content en">Add item (waits if full)</span>
+                <span class="desc content ko">Add item (waits if full)</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">dequeue</code><span class="params">(): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Remove and return item (waits if empty)</span>
+                <span class="desc content ko">Remove and return item (waits if empty)</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">tryEnqueue</code><span class="params">(item: T): boolean</span>
+                </span>
+                <span class="desc content en">Try to add item without waiting</span>
+                <span class="desc content ko">Try to add item without waiting</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">tryDequeue</code><span class="params">(): T | undefined</span>
+                </span>
+                <span class="desc content en">Try to remove item without waiting</span>
+                <span class="desc content ko">Try to remove item without waiting</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">size</code><span class="params">(): number</span>
+                </span>
+                <span class="desc content en">Get current size</span>
+                <span class="desc content ko">Get current size</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">isEmpty</code><span class="params">(): boolean</span>
+                </span>
+                <span class="desc content en">Check if empty</span>
+                <span class="desc content ko">Check if empty</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">isFull</code><span class="params">(): boolean</span>
+                </span>
+                <span class="desc content en">Check if full</span>
+                <span class="desc content ko">Check if full</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">clear</code><span class="params">(): void</span>
+                </span>
+                <span class="desc content en">Clear all items</span>
+                <span class="desc content ko">Clear all items</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- Range Iterator -->
+                <div class="example-item">
+                    <h3 id="range">Range</h3>
+                    <p class="example-description content en">Range generation and iterator utilities for efficient data processing</p>
+                    <p class="example-description content ko">효율적인 데이터 처리를 위한 범위 생성 및 반복자 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Range } from '@dooboostore/core/iterators/Range';
+
+// Create range
+for (const i of Range.create(0, 10)) {
+  console.log(i); // 0, 1, 2, ..., 9
+}
+
+// Range with step
+for (const i of Range.create(0, 10, 2)) {
+  console.log(i); // 0, 2, 4, 6, 8
+}
+
+// To array
+const arr = Range.toArray(0, 5); // [0, 1, 2, 3, 4]</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static create</code><span class="params">(start: number, end: number, step?: number): Iterable&lt;number&gt;</span>
+                </span>
+                <span class="desc content en">Create range iterator</span>
+                <span class="desc content ko">Create range iterator</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static toArray</code><span class="params">(start: number, end: number, step?: number): number[]</span>
+                </span>
+                <span class="desc content en">Create range as array</span>
+                <span class="desc content ko">Create range as array</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static map&lt;T&gt;</code><span class="params">(start: number, end: number, fn: (i: number) =&gt; T): T[]</span>
+                </span>
+                <span class="desc content en">Map over range</span>
+                <span class="desc content ko">Map over range</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static forEach</code><span class="params">(start: number, end: number, fn: (i: number) =&gt; void): void</span>
+                </span>
+                <span class="desc content en">Iterate over range</span>
+                <span class="desc content ko">Iterate over range</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Managers -->
+            <section class="section">
+                <h2 id="managers">Managers</h2>
+                <p class="content en">Management utilities for complex operations and state handling</p>
+                <p class="content ko">복잡한 작업 및 상태 처리를 위한 관리 유틸리티</p>
+
+                <!-- TransactionManager -->
+                <div class="example-item">
+                    <h3 id="transaction">TransactionManager</h3>
+                    <p class="example-description content en">Transaction management utilities for data consistency with try-catch-finally pattern</p>
+                    <p class="example-description content ko">try-catch-finally 패턴을 사용한 데이터 일관성을 위한 트랜잭션 관리 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { TransactionManager } from '@dooboostore/core/transaction/TransactionManager';
+
+const tm = new TransactionManager();
+
+await tm.execute(async (tx) =&gt; {
+  // Database operations
+  await db.insert(data);
+  await db.update(moreData);
+
+  // Auto commit on success, rollback on error
+});</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">execute&lt;T&gt;</code><span class="params">(fn: (tx: Transaction) =&gt; Promise&lt;T&gt;): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Execute in transaction</span>
+                <span class="desc content ko">Execute in transaction</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">begin</code><span class="params">(): Promise&lt;Transaction&gt;</span>
+                </span>
+                <span class="desc content en">Begin transaction</span>
+                <span class="desc content ko">Begin transaction</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">commit</code><span class="params">(tx: Transaction): Promise&lt;void&gt;</span>
+                </span>
+                <span class="desc content en">Commit transaction</span>
+                <span class="desc content ko">Commit transaction</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">rollback</code><span class="params">(tx: Transaction): Promise&lt;void&gt;</span>
+                </span>
+                <span class="desc content en">Rollback transaction</span>
+                <span class="desc content ko">Rollback transaction</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- Schedule -->
+                <div class="example-item">
+                    <h3 id="schedule">Schedule</h3>
+                    <p class="example-description content en">Task scheduling and timing utilities for background operations with cron-like specs</p>
+                    <p class="example-description content ko">cron과 유사한 사양의 백그라운드 작업을 위한 작업 스케줄링 및 타이밍 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Schedule } from '@dooboostore/core/schedule/Schedule';
+
+// Run every 5 seconds
+const task1 = Schedule.interval(() =&gt; {
+  console.log('Periodic task');
+}, 5000);
+
+// Run once after delay
+const task2 = Schedule.timeout(() =&gt; {
+  console.log('Delayed task');
+}, 3000);
+
+// Cron-like scheduling
+const task3 = Schedule.cron('0 0 * * *', () =&gt; {
+  console.log('Daily task');
+});
+
+// Cancel task
+task1.cancel();</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static interval</code><span class="params">(fn: () =&gt; void, ms: number): Task</span>
+                </span>
+                <span class="desc content en">Schedule recurring task</span>
+                <span class="desc content ko">Schedule recurring task</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static timeout</code><span class="params">(fn: () =&gt; void, ms: number): Task</span>
+                </span>
+                <span class="desc content en">Schedule one-time task</span>
+                <span class="desc content ko">Schedule one-time task</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static cron</code><span class="params">(spec: string, fn: () =&gt; void): Task</span>
+                </span>
+                <span class="desc content en">Schedule with cron expression</span>
+                <span class="desc content ko">Schedule with cron expression</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static immediate</code><span class="params">(fn: () =&gt; void): Task</span>
+                </span>
+                <span class="desc content en">Run task immediately</span>
+                <span class="desc content ko">Run task immediately</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">cancel</code><span class="params">(): void</span>
+                </span>
+                <span class="desc content en">Cancel scheduled task</span>
+                <span class="desc content ko">Cancel scheduled task</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Providers -->
+            <section class="section">
+                <h2 id="providers">Providers</h2>
+                <p class="content en">Service providers and infrastructure utilities</p>
+                <p class="content ko">서비스 프로바이더 및 인프라 유틸리티</p>
+
+                <!-- Logger -->
+                <div class="example-item">
+                    <h3 id="logger">Logger</h3>
+                    <p class="example-description content en">Comprehensive logging utilities with configurable levels and formatting</p>
+                    <p class="example-description content ko">구성 가능한 레벨 및 포맷팅을 갖춘 포괄적인 로깅 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Logger } from '@dooboostore/core/logger/Logger';
+
+const logger = new Logger('MyApp');
+
+logger.debug('Debug message');
+logger.info('Info message');
+logger.warn('Warning message');
+logger.error('Error message', error);
+
+// Set log level
+logger.setLevel('warn');
+
+// Custom formatter
+logger.setFormatter((level, message) =&gt; {
+  return &#96;[&#36;{level}] &#36;{message}&#96;;
+});</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">constructor</code><span class="params">(name: string)</span>
+                </span>
+                <span class="desc content en">Create logger with name</span>
+                <span class="desc content ko">Create logger with name</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">debug</code><span class="params">(message: string, ...args: any[]): void</span>
+                </span>
+                <span class="desc content en">Log debug message</span>
+                <span class="desc content ko">Log debug message</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">info</code><span class="params">(message: string, ...args: any[]): void</span>
+                </span>
+                <span class="desc content en">Log info message</span>
+                <span class="desc content ko">Log info message</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">warn</code><span class="params">(message: string, ...args: any[]): void</span>
+                </span>
+                <span class="desc content en">Log warning message</span>
+                <span class="desc content ko">Log warning message</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">error</code><span class="params">(message: string, error?: Error, ...args: any[]): void</span>
+                </span>
+                <span class="desc content en">Log error message</span>
+                <span class="desc content ko">Log error message</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">setLevel</code><span class="params">(level: 'debug' | 'info' | 'warn' | 'error'): void</span>
+                </span>
+                <span class="desc content en">Set log level</span>
+                <span class="desc content ko">Set log level</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">setFormatter</code><span class="params">(formatter: (level: string, message: string) =&gt; string): void</span>
+                </span>
+                <span class="desc content en">Set custom formatter</span>
+                <span class="desc content ko">Set custom formatter</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- Storage -->
+                <div class="example-item">
+                    <h3 id="storage">MemoryStorage</h3>
+                    <p class="example-description content en">In-memory storage and data persistence utilities</p>
+                    <p class="example-description content ko">인메모리 스토리지 및 데이터 지속성 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { MemoryStorage } from '@dooboostore/core/storage/MemoryStorage';
+
+const storage = new MemoryStorage();
+
+// Set value
+storage.set('key', 'value');
+
+// Get value
+const value = storage.get('key');
+
+// Check existence
+const has = storage.has('key');
+
+// Remove value
+storage.remove('key');
+
+// Clear all
+storage.clear();</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">set</code><span class="params">(key: string, value: any): void</span>
+                </span>
+                <span class="desc content en">Store value</span>
+                <span class="desc content ko">Store value</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">get&lt;T&gt;</code><span class="params">(key: string): T | undefined</span>
+                </span>
+                <span class="desc content en">Retrieve value</span>
+                <span class="desc content ko">Retrieve value</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">has</code><span class="params">(key: string): boolean</span>
+                </span>
+                <span class="desc content en">Check if key exists</span>
+                <span class="desc content ko">Check if key exists</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">remove</code><span class="params">(key: string): boolean</span>
+                </span>
+                <span class="desc content en">Remove value</span>
+                <span class="desc content ko">Remove value</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">clear</code><span class="params">(): void</span>
+                </span>
+                <span class="desc content en">Clear all values</span>
+                <span class="desc content ko">Clear all values</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">keys</code><span class="params">(): string[]</span>
+                </span>
+                <span class="desc content en">Get all keys</span>
+                <span class="desc content ko">Get all keys</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">values</code><span class="params">(): any[]</span>
+                </span>
+                <span class="desc content en">Get all values</span>
+                <span class="desc content ko">Get all values</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">size</code><span class="params">(): number</span>
+                </span>
+                <span class="desc content en">Get storage size</span>
+                <span class="desc content ko">Get storage size</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- Fetcher -->
+                <div class="example-item">
+                    <h3 id="fetcher">HttpFetcher / HttpJsonFetcher</h3>
+                    <p class="example-description content en">HTTP request utilities and API communication helpers</p>
+                    <p class="example-description content ko">HTTP 요청 유틸리티 및 API 통신 헬퍼</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { HttpJsonFetcher } from '@dooboostore/core/fetch/HttpJsonFetcher';
+
+const fetcher = new HttpJsonFetcher('https://api.example.com');
+
+// GET request
+const data = await fetcher.get('/users');
+
+// POST request
+const result = await fetcher.post('/users', { name: 'John' });
+
+// PUT request
+await fetcher.put('/users/1', { name: 'Jane' });
+
+// DELETE request
+await fetcher.delete('/users/1');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">constructor</code><span class="params">(baseUrl: string, options?: RequestInit)</span>
+                </span>
+                <span class="desc content en">Create fetcher with base URL</span>
+                <span class="desc content ko">Create fetcher with base URL</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">get&lt;T&gt;</code><span class="params">(path: string, options?: RequestInit): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">GET request</span>
+                <span class="desc content ko">GET request</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">post&lt;T&gt;</code><span class="params">(path: string, body: any, options?: RequestInit): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">POST request</span>
+                <span class="desc content ko">POST request</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">put&lt;T&gt;</code><span class="params">(path: string, body: any, options?: RequestInit): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">PUT request</span>
+                <span class="desc content ko">PUT request</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">delete&lt;T&gt;</code><span class="params">(path: string, options?: RequestInit): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">DELETE request</span>
+                <span class="desc content ko">DELETE request</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">patch&lt;T&gt;</code><span class="params">(path: string, body: any, options?: RequestInit): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">PATCH request</span>
+                <span class="desc content ko">PATCH request</span>
+            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Async & Promise -->
+            <section class="section">
+                <h2 id="async-promise">Async &amp; Promise</h2>
+                <p class="content en">Asynchronous programming and promise utilities</p>
+                <p class="content ko">비동기 프로그래밍 및 프로미스 유틸리티</p>
+
+                <!-- PromiseUtils -->
+                <div class="example-item">
+                    <h3 id="promise-utils">PromiseUtils &amp; Result</h3>
+                    <p class="example-description content en">Advanced promise handling including sleep, settle, loop operations, and Result utilities for state management</p>
+                    <p class="example-description content ko">sleep, settle, 루프 작업을 포함한 고급 프로미스 처리 및 상태 관리를 위한 Result 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { PromiseUtils, Result } from '@dooboostore/core/promise';
+
+// Sleep utility
+await PromiseUtils.sleep(1000);
+
+// Settle all promises
+const results = await PromiseUtils.settle([p1, p2, p3]);
+
+// Retry with backoff
+const data = await PromiseUtils.retry(
+  () =&gt; fetch(url),
+  { retries: 3, delay: 1000 }
+);
+
+// Result pattern
+const result = Result.ok(42);
+if (result.isOk()) {
+  console.log(result.value);
+}
+
+const error = Result.err(new Error('Failed'));
+const value = error.unwrapOr(0);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">METHODS</span>
+            <span class="content ko">메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static sleep</code><span class="params">(ms: number): Promise&lt;void&gt;</span>
+                </span>
+                <span class="desc content en">Sleep for milliseconds</span>
+                <span class="desc content ko">Sleep for milliseconds</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static settle&lt;T&gt;</code><span class="params">(promises: Promise&lt;T&gt;[]): Promise&lt;SettledResult&lt;T&gt;[]&gt;</span>
+                </span>
+                <span class="desc content en">Settle all promises</span>
+                <span class="desc content ko">Settle all promises</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static retry&lt;T&gt;</code><span class="params">(fn: () =&gt; Promise&lt;T&gt;, options: RetryOptions): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Retry with backoff</span>
+                <span class="desc content ko">Retry with backoff</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static timeout&lt;T&gt;</code><span class="params">(promise: Promise&lt;T&gt;, ms: number): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Add timeout to promise</span>
+                <span class="desc content ko">Add timeout to promise</span>
+            </li>
+                            <li>
+                <span class="func-signature">
+                    <code class="func-name">static loop&lt;T&gt;</code><span class="params">(fn: () =&gt; Promise&lt;T&gt;, condition: (result: T) =&gt; boolean): Promise&lt;T&gt;</span>
+                </span>
+                <span class="desc content en">Loop until condition</span>
+                <span class="desc content ko">Loop until condition</span>
+            </li>
+                            <li><strong>Result:</strong> <code>Result.ok&lt;T&gt;(value: T): Result&lt;T, never&gt;</code> - Create success result</li>
+                            <li><strong>Result:</strong> <code>Result.err&lt;E&gt;(error: E): Result&lt;never, E&gt;</code> - Create error result</li>
+                            <li><code>isOk(): boolean</code>, <code>isErr(): boolean</code>, <code>unwrap(): T</code>, <code>unwrapOr(defaultValue: T): T</code></li>
+                        </ul>
+                    </details>
+                </div>
+
+                <!-- Observable & Subject -->
+                <div class="example-item">
+                    <h3 id="observable">Observable / Subject</h3>
+                    <p class="example-description content en">Reactive programming utilities with Subject pattern for event handling</p>
+                    <p class="example-description content ko">이벤트 처리를 위한 Subject 패턴의 반응형 프로그래밍 유틸리티</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Example">
+                                <code-snippet-code type="typescript">import { Subject, BehaviorSubject, ReplaySubject } from '@dooboostore/core/message';
+
+// Subject
+const subject = new Subject&lt;number&gt;();
+subject.subscribe(value =&gt; console.log(value));
+subject.next(42);
+
+// BehaviorSubject (with initial value)
+const behavior = new BehaviorSubject(0);
+behavior.subscribe(value =&gt; console.log(value)); // Logs 0 immediately
+
+// ReplaySubject (replays last N values)
+const replay = new ReplaySubject&lt;number&gt;(3);
+replay.next(1);
+replay.next(2);
+replay.subscribe(value =&gt; console.log(value)); // Logs 1, 2</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                    <details class="other-functions-details">
+        <summary class="other-functions-summary">
+            <span class="content en">CLASSES & METHODS</span>
+            <span class="content ko">클래스 및 메서드</span>
+        </summary>
+                        <ul class="other-functions-list">
+                            <li><strong>Subject:</strong> <code>next(value: T): void</code>, <code>subscribe(observer: Observer&lt;T&gt;): Subscription</code>, <code>complete(): void</code></li>
+                            <li><strong>BehaviorSubject:</strong> <code>constructor(initialValue: T)</code>, <code>getValue(): T</code></li>
+                            <li><strong>ReplaySubject:</strong> <code>constructor(bufferSize?: number)</code></li>
+                            <li><strong>AsyncSubject:</strong> Emits only the last value on completion</li>
+                            <li><strong>Observable:</strong> <code>subscribe(observer: Observer&lt;T&gt;): Subscription</code></li>
+                            <li><strong>Operators:</strong> <code>map</code>, <code>filter</code>, <code>debounce</code>, <code>throttle</code>, <code>distinctUntilChanged</code></li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

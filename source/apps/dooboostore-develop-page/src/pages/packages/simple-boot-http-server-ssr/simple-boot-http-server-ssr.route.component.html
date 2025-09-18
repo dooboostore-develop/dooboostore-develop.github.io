@@ -1,0 +1,750 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-http-server-ssr</h1>
+            <p class="content en">Server-Side Rendering framework integrating simple-boot-front and simple-boot-http-server</p>
+            <p class="content ko">simple-boot-front와 simple-boot-http-server를 통합한 서버 사이드 렌더링 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot-http-server-ssr" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-http-server-ssr" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Create a new SSR project or install the package</p>
+                <p class="content ko">새 SSR 프로젝트를 생성하거나 패키지를 설치하세요</p>
+                <code-snippet-container>
+                        <code-snippet name="📦 quick start">
+                            <code-snippet-code type="bash">npm init @dooboostore/simple-boot-http-ssr projectname</code-snippet-code>
+                        </code-snippet>
+                    <code-snippet name="Install Package">
+                        <code-snippet-code type="bash">npm install &commat;dooboostore/simple-boot-http-server-ssr reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+            <section class="section">
+                <h2 id="demo">Demo example</h2>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                        <p class="content en">DEMO EXAMPLE</p>
+                        <p class="content ko">데모 예제</p>
+                    </summary>
+                    <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+            <!-- Architecture Overview -->
+            <section class="section">
+                <h2 id="architecture">Architecture Overview</h2>
+                <p class="content en">Understanding simple-boot-http-server-ssr's SSR architecture</p>
+                <p class="content ko">simple-boot-http-server-ssr의 SSR 아키텍처 이해하기</p>
+
+                <div class="example-item">
+                    <h3 id="core-architecture">Core SSR Architecture</h3>
+                    <p class="example-description content en">Server-side rendering with JSDOM and component pooling</p>
+                    <p class="example-description content ko">JSDOM과 컴포넌트 풀링을 사용한 서버 사이드 렌더링</p>
+                    
+                    <mermaid-diagram>
+graph TB
+    A[SimpleBootHttpSSRServer] -->|Extends| B[SimpleBootHttpServer]
+    A -->|Uses| C[SSRFilter]
+    A -->|Uses| D[IntentSchemeFilter]
+    
+    C -->|Creates| E[JSDOM Pool]
+    C -->|Manages| F[SimpleBootFront Pool]
+    
+    E -->|Virtual DOM| G[Window/Document]
+    F -->|Renders| H[Components]
+    
+    D -->|Handles| I[Intent API Calls]
+    I -->|Proxies| J[Server Services]
+    
+    K[Client] -->|HTTP Request| A
+    A -->|SSR HTML| K
+    K -->|Hydrates| L[Client App]
+    
+    style A fill:#e1f5ff
+    style C fill:#dcfce7
+    style D fill:#fef3c7
+    style E fill:#ffe4e6
+    style F fill:#f3e8ff
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="ssr-lifecycle">SSR Request Lifecycle</h3>
+                    <p class="example-description content en">How server-side rendering processes requests</p>
+                    <p class="example-description content ko">서버 사이드 렌더링이 요청을 처리하는 방식</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant Client
+    participant Server as HTTP Server
+    participant SSR as SSRFilter
+    participant Pool as Front Pool
+    participant JSDOM
+    participant App as SimpleBootFront
+
+    Client->>Server: GET /page
+    Server->>SSR: proceedBefore()
+    SSR->>Pool: dequeue()
+    Pool->>App: Get available instance
+    
+    App->>App: Set ssrUse = true
+    App->>JSDOM: Navigate to /page
+    JSDOM->>App: goRouting()
+    App->>App: Render components
+    App->>App: Execute lifecycle hooks
+    
+    App->>SSR: Return HTML
+    SSR->>SSR: Inject server_side_data
+    SSR->>Client: Send rendered HTML
+    
+    SSR->>Pool: enqueue()
+    Pool->>Pool: Recycle instance
+    
+    Client->>Client: Hydrate with data
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="intent-scheme-flow">Intent Scheme Communication</h3>
+                    <p class="example-description content en">Client-server RPC using Symbol-based intent scheme</p>
+                    <p class="example-description content ko">Symbol 기반 인텐트 스킴을 사용한 클라이언트-서버 RPC</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant Client as Client Service
+    participant Proxy as SymbolIntentApiServiceProxy
+    participant HTTP as HTTP Request
+    participant Filter as IntentSchemeFilter
+    participant Intent as IntentManager
+    participant Server as Server Service
+
+    Client->>Proxy: call method(args)
+    Proxy->>Proxy: Extract Symbol
+    Proxy->>HTTP: POST with Intent header
+    
+    HTTP->>Filter: X-Simple-Boot-Ssr-Intent-Scheme
+    Filter->>Intent: Publish intent
+    Intent->>Server: Execute method
+    Server->>Intent: Return result
+    
+    Intent->>Filter: Result data
+    Filter->>HTTP: JSON response
+    HTTP->>Proxy: Parse response
+    Proxy->>Client: Return result
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="hydration-flow">Data Hydration Flow</h3>
+                    <p class="example-description content en">Server data serialization and client hydration</p>
+                    <p class="example-description content ko">서버 데이터 직렬화 및 클라이언트 하이드레이션</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant Server as Server Render
+    participant Save as SaveAroundAfter
+    participant HTML
+    participant Client as Client App
+    participant Load as LoadAroundBefore
+
+    Server->>Server: Execute service method
+    Server->>Save: Store result
+    Save->>Save: JSON.stringify(data)
+    Save->>HTML: window.server_side_data
+    
+    HTML->>Client: Delivered HTML
+    Client->>Client: Start hydration
+    Client->>Load: Check cached data
+    Load->>Load: Parse server_side_data
+    
+    alt Data found
+        Load->>Client: Return cached data
+        Client->>Client: Skip API call
+    else No data
+        Client->>Client: Execute API call
+    end
+                    </mermaid-diagram>
+                </div>
+            </section>
+
+            <!-- Getting Started -->
+            <section class="section">
+                <h2 id="getting-started">Getting Started</h2>
+                <p class="content en">Quick start with SSR server setup</p>
+                <p class="content ko">SSR 서버 설정으로 빠르게 시작하기</p>
+
+                <div class="example-item">
+                    <h3 id="basic-ssr-server">Basic SSR Server</h3>
+                    <p class="example-description content en">Create a minimal SSR server with front-end integration</p>
+                    <p class="example-description content ko">프론트엔드 통합을 포함한 최소 SSR 서버 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import 'reflect-metadata';
+import &#123; SimpleBootHttpSSRServer &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/SimpleBootHttpSSRServer';
+import &#123; HttpSSRServerOption &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/option/HttpSSRServerOption';
+import &#123; SSRFilter &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/filters/SSRFilter';
+import &#123; IntentSchemeFilter &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/filters/IntentSchemeFilter';
+import &#123; SimpleBootHttpSSRFactory &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/SimpleBootHttpSSRFactory';
+import Factory, &#123; MakeSimFrontOption &#125; from './bootfactory';
+import &#123; RootRouter &#125; from './root.router';
+import &#123; GlobalAdvice &#125; from './advices/GlobalAdvice';
+
+// SSR configuration
+const ssrOption = &#123;
+  frontDistPath: './dist-front-end',
+  frontDistIndexFileName: 'index.html',
+  factorySimFrontOption: (window: any) =&gt; MakeSimFrontOption(window),
+  factory: Factory as SimpleBootHttpSSRFactory,
+  using: [/* services */],
+  ssrExcludeFilter: (rr) =&gt; /^\/api\//.test(rr.reqUrl),
+  poolOption: &#123;
+    max: 50,
+    min: 5
+  &#125;
+&#125;;
+
+const ssrFilter = new SSRFilter(ssrOption);
+
+const option = new HttpSSRServerOption(
+  &#123;
+    listen: &#123; port: 8080 &#125;,
+    globalAdvice: new GlobalAdvice(),
+    filters: [ssrFilter, IntentSchemeFilter]
+  &#125;,
+  &#123;
+    rootRouter: RootRouter
+  &#125;
+);
+
+const ssr = new SimpleBootHttpSSRServer(option);
+await ssr.run();
+
+console.log('🚀 SSR Server running on http://localhost:8080');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Factory Setup -->
+            <section class="section">
+                <h2 id="factory">SSR Factory</h2>
+                <p class="content en">Create factory to bootstrap SimpleBootFront instances</p>
+                <p class="content ko">SimpleBootFront 인스턴스를 부트스트랩하는 팩토리 생성</p>
+
+                <div class="example-item">
+                    <h3 id="factory-implementation">Factory Implementation</h3>
+                    <p class="example-description content en">Custom factory for creating front-end applications</p>
+                    <p class="example-description content ko">프론트엔드 애플리케이션 생성을 위한 커스텀 팩토리</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; SimFrontOption, UrlType &#125; from '&commat;dooboostore/simple-boot-front/option/SimFrontOption';
+import &#123; SimpleBootHttpSSRFactory &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/SimpleBootHttpSSRFactory';
+import &#123; ConstructorType, isDefined &#125; from '&commat;dooboostore/core/types';
+import &#123; SimpleBootFront &#125; from '&commat;dooboostore/simple-boot-front/SimpleBootFront';
+import &#123; IndexRouterComponent &#125; from './pages/index.router.component';
+import &#123; Observable, Subject, Subscription &#125; from 'rxjs';
+import &#123; AlertService &#125; from '&commat;dooboostore/simple-boot/alert/AlertService';
+import &#123; ApiService &#125; from '&commat;dooboostore/simple-boot/fetch/ApiService';
+
+export const MakeSimFrontOption = (window: any): SimFrontOption =&gt; &#123;
+  return new SimFrontOption(
+    &#123; window, urlType: UrlType.path, using: [ApiService] &#125;,
+    &#123; rootRouter: IndexRouterComponent &#125;
+  );
+&#125;;
+
+class Factory extends SimpleBootHttpSSRFactory &#123;
+  async factory(
+    simFrontOption: SimFrontOption,
+    using: (ConstructorType&lt;any&gt; | Function)[],
+    domExcludes: ConstructorType&lt;any&gt;[]
+  ) &#123;
+    simFrontOption.using ??= [];
+    
+    if (Array.isArray(simFrontOption.using)) &#123;
+      simFrontOption.using.push(...using);
+    &#125; else &#123;
+      simFrontOption.using = [simFrontOption.using, using].filter(isDefined);
+    &#125;
+
+    const simpleBootFront = new SimpleBootFront(simFrontOption);
+    
+    // Exclude from proxy
+    simpleBootFront.domRendoerExcludeProxy.push(
+      Subject,
+      Observable,
+      Subscription,
+      AlertService,
+      ApiService,
+      ...domExcludes
+    );
+    
+    return simpleBootFront;
+  &#125;
+&#125;
+
+export default new Factory();</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services -->
+            <section class="section">
+                <h2 id="services">Shared Services</h2>
+                <p class="content en">Create services that work on both server and client</p>
+                <p class="content ko">서버와 클라이언트 모두에서 작동하는 서비스 생성</p>
+
+                <div class="example-item">
+                    <h3 id="service-interface">Service Interface</h3>
+                    <p class="example-description content en">Define service contract with Symbol for identification</p>
+                    <p class="example-description content ko">식별을 위한 Symbol로 서비스 계약 정의</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+import &#123; Config &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/proxy/SymbolIntentApiServiceProxy';
+
+export namespace TalkService &#123;
+  export const SYMBOL = Symbol.for('TalkService');
+  export type TalkRequest = &#123; seq: number &#125;;
+  export type TalkResponse = &#123; name: string; content: string &#125;;
+&#125;
+
+export interface TalkService &#123;
+  talk(
+    request: TalkService.TalkRequest,
+    data?: RequestResponse | ((config: Config&lt;TalkService.TalkRequest&gt;) =&gt; Promise&lt;TalkService.TalkResponse&gt;)
+  ): Promise&lt;TalkService.TalkResponse&gt;;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="server-service">Server-Side Service</h3>
+                    <p class="example-description content en">Implement service on server with actual logic</p>
+                    <p class="example-description content ko">실제 로직으로 서버에서 서비스 구현</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+import &#123; TalkService &#125; from './TalkService';
+
+&commat;Sim(&#123; symbol: TalkService.SYMBOL &#125;)
+export class BackTalkService implements TalkService &#123;
+  async talk(
+    request: TalkService.TalkRequest,
+    rr?: RequestResponse
+  ): Promise&lt;TalkService.TalkResponse&gt; &#123;
+    // Server-side implementation
+    return &#123;
+      name: 'hello intent api',
+      content: new Date().toISOString()
+    &#125;;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="client-service">Client-Side Service Proxy</h3>
+                    <p class="example-description content en">Client service that proxies calls to server</p>
+                    <p class="example-description content ko">서버 호출을 프록시하는 클라이언트 서비스</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; SymbolIntentApiServiceProxy &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/proxy/SymbolIntentApiServiceProxy';
+import &#123; TalkService &#125; from './TalkService';
+
+&commat;Sim(&#123;
+  symbol: TalkService.SYMBOL,
+  proxy: SymbolIntentApiServiceProxy
+&#125;)
+export class FrontTalkService implements TalkService &#123;
+  async talk(
+    request: TalkService.TalkRequest,
+    data?: ((config: Config&lt;TalkService.TalkRequest&gt;) =&gt; Promise&lt;TalkService.TalkResponse&gt;)
+  ): Promise&lt;TalkService.TalkResponse&gt; &#123;
+    // Calls server via intent scheme
+    return data!(&#123; body: request &#125;);
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="service-usage">Using Services in Components</h3>
+                    <p class="example-description content en">Inject and use services transparently</p>
+                    <p class="example-description content ko">서비스를 투명하게 주입 및 사용</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim, Lifecycle &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Component &#125; from '&commat;dooboostore/simple-boot-front/decorators/Component';
+import &#123; ComponentBase &#125; from '&commat;dooboostore/dom-render/components/ComponentBase';
+import &#123; Inject &#125; from '&commat;dooboostore/simple-boot/decorators/inject/Inject';
+import &#123; TalkService &#125; from './service/TalkService';
+
+&commat;Sim(&#123; scope: Lifecycle.Transient &#125;)
+&commat;Component(&#123;
+  template: `
+    &lt;div class="page"&gt;
+      &lt;h1&gt;Talk Service Demo&lt;/h1&gt;
+      &lt;button dr-event-click="&commat;this&commat;.apiIntentFetch()"&gt;
+        Call Service
+      &lt;/button&gt;
+      &lt;div&gt;&dollar;&#123;&commat;this&commat;.result&dollar;&#125;&lt;/div&gt;
+    &lt;/div&gt;
+  `,
+  styles: []
+&#125;)
+export class IndexRouteComponent extends ComponentBase&lt;any&gt; &#123;
+  public result = '';
+
+  constructor(
+    &commat;Inject(&#123; symbol: TalkService.SYMBOL &#125;) private talkService: TalkService
+  ) &#123;
+    super();
+  &#125;
+
+  async apiIntentFetch() &#123;
+    // Works on both server and client!
+    const data = await this.talkService.talk(&#123; seq: Math.random() &#125;);
+    this.result = JSON.stringify(data);
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intent Scheme Filter -->
+            <section class="section">
+                <h2 id="intent-scheme">Intent Scheme Filter</h2>
+                <p class="content en">RPC communication using custom HTTP headers</p>
+                <p class="content ko">커스텀 HTTP 헤더를 사용한 RPC 통신</p>
+
+                <div class="example-item">
+                    <h3 id="intent-filter-setup">IntentSchemeFilter Setup</h3>
+                    <p class="example-description content en">Enable Symbol-based RPC between client and server</p>
+                    <p class="example-description content ko">클라이언트와 서버 간 Symbol 기반 RPC 활성화</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; SimpleBootHttpSSRServer &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/SimpleBootHttpSSRServer';
+import &#123; HttpSSRServerOption &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/option/HttpSSRServerOption';
+import &#123; IntentSchemeFilter &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/filters/IntentSchemeFilter';
+import &#123; BackTalkService &#125; from './services/BackTalkService';
+
+const option = new HttpSSRServerOption(
+  &#123;
+    listen: &#123; port: 8080 &#125;,
+    filters: [
+      IntentSchemeFilter  // Enable intent scheme
+    ]
+  &#125;,
+  &#123;
+    rootRouter: RootRouter
+  &#125;
+);
+
+const server = new SimpleBootHttpSSRServer(option);
+await server.run();
+
+// IntentSchemeFilter automatically:
+// 1. Intercepts requests with X-Simple-Boot-Ssr-Intent-Scheme header
+// 2. Extracts Symbol from header
+// 3. Publishes Intent to IntentManager
+// 4. Routes to appropriate service method
+// 5. Returns JSON response</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Hydration -->
+            <section class="section">
+                <h2 id="hydration">Data Hydration</h2>
+                <p class="content en">Optimize performance with server data caching</p>
+                <p class="content ko">서버 데이터 캐싱으로 성능 최적화</p>
+
+                <div class="example-item">
+                    <h3 id="save-around">SaveAroundAfter Decorator</h3>
+                    <p class="example-description content en">Save server-side data for client hydration</p>
+                    <p class="example-description content ko">클라이언트 하이드레이션을 위한 서버 사이드 데이터 저장</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; SaveAroundAfter &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/decorators/SaveAroundAfter';
+
+&commat;Sim(&#123; symbol: TalkService.SYMBOL &#125;)
+export class BackTalkService implements TalkService &#123;
+  async talk(request: TalkService.TalkRequest): Promise&lt;TalkService.TalkResponse&gt; &#123;
+    const result = &#123;
+      name: 'hello intent api',
+      content: new Date().toISOString()
+    &#125;;
+    
+    // Save for client hydration
+    SaveAroundAfter(this, 'talk', [request], result);
+    
+    return result;
+  &#125;
+&#125;
+
+// Saved data is automatically:
+// 1. JSON.stringify(result)
+// 2. Stored in window.server_side_data
+// 3. Injected into HTML before sending to client</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="load-around">LoadAroundBefore Decorator</h3>
+                    <p class="example-description content en">Load hydrated data on client to skip API calls</p>
+                    <p class="example-description content ko">API 호출을 건너뛰기 위해 클라이언트에서 하이드레이트된 데이터 로드</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; LoadAroundBefore &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/decorators/LoadAroundBefore';
+
+&commat;Sim(&#123; symbol: TalkService.SYMBOL, proxy: SymbolIntentApiServiceProxy &#125;)
+export class FrontTalkService implements TalkService &#123;
+  async talk(request: TalkService.TalkRequest, data?: any): Promise&lt;TalkService.TalkResponse&gt; &#123;
+    // Try to load from hydrated data first
+    try &#123;
+      LoadAroundBefore(this, 'talk', [request]);
+    &#125; catch (e) &#123;
+      // If data found, it throws AroundForceReturn
+      // which returns the cached data immediately
+      if (e instanceof AroundForceReturn) &#123;
+        return e.returnValue;
+      &#125;
+    &#125;
+    
+    // No cached data, make actual API call
+    return data!(&#123; body: request &#125;);
+  &#125;
+&#125;
+
+// LoadAroundBefore automatically:
+// 1. Checks window.server_side_data for cached result
+// 2. If found, throws AroundForceReturn with data
+// 3. Deletes data from window.server_side_data
+// 4. If not found, allows normal execution</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- JSDOM Integration -->
+            <section class="section">
+                <h2 id="jsdom">JSDOM Integration</h2>
+                <p class="content en">Virtual DOM environment for server-side rendering</p>
+                <p class="content ko">서버 사이드 렌더링을 위한 가상 DOM 환경</p>
+
+                <div class="example-item">
+                    <h3 id="jsdom-initializer">JsdomInitializer</h3>
+                    <p class="example-description content en">Set up JSDOM with global polyfills</p>
+                    <p class="example-description content ko">글로벌 폴리필로 JSDOM 설정</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; JsdomInitializer &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/initializers/JsdomInitializer';
+
+const initializer = new JsdomInitializer(
+  './dist-front-end',
+  'index.html',
+  &#123; url: 'http://localhost' &#125;
+);
+
+const jsdom = await initializer.run();
+
+// JsdomInitializer automatically sets up:
+// - global.document
+// - global.window
+// - global.history
+// - global.Event
+// - global.HTMLElement
+// - global.Node
+// - global.IntersectionObserver
+// - And many more browser APIs
+
+const window = jsdom.window as unknown as Window & typeof globalThis;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pool Management -->
+            <section class="section">
+                <h2 id="pooling">Component Pool Management</h2>
+                <p class="content en">Efficient handling of concurrent SSR requests</p>
+                <p class="content ko">동시 SSR 요청의 효율적 처리</p>
+
+                <div class="example-item">
+                    <h3 id="pool-configuration">Pool Configuration</h3>
+                    <p class="example-description content en">Configure pool size and behavior</p>
+                    <p class="example-description content ko">풀 크기 및 동작 구성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; SSRFilter &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/filters/SSRFilter';
+
+const ssrFilter = new SSRFilter(&#123;
+  frontDistPath: './dist-front-end',
+  frontDistIndexFileName: 'index.html',
+  factorySimFrontOption: (window: any) =&gt; MakeSimFrontOption(window),
+  factory: Factory,
+  using: [BackTalkService],
+  
+  // Pool configuration
+  poolOption: &#123;
+    max: 50,                      // Maximum pool size
+    min: 5,                       // Minimum pool size
+    clearIntervalTime: 300000     // Clear every 5 minutes
+  &#125;,
+  
+  // Exclude API routes from SSR
+  ssrExcludeFilter: (rr) =&gt; /^\/api\//.test(rr.reqUrl),
+  
+  // Enable 404 error handling
+  simpleBootFront: &#123;
+    notFoundError: true
+  &#125;
+&#125;);
+
+// Pool automatically:
+// 1. Pre-creates 'min' instances on startup
+// 2. Creates more instances on demand up to 'max'
+// 3. Recycles instances after each request
+// 4. Clears old instances based on generation
+// 5. Manages queue for available instances</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Complete Example -->
+            <section class="section">
+                <h2 id="complete-example">Complete SSR Application</h2>
+                <p class="content en">Full working example with all features</p>
+                <p class="content ko">모든 기능을 포함한 완전한 작동 예제</p>
+
+                <div class="example-item">
+                    <h3 id="full-server">Complete Server Setup</h3>
+                    <p class="example-description content en">Production-ready SSR server configuration</p>
+                    <p class="example-description content ko">프로덕션 준비 SSR 서버 구성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import 'reflect-metadata';
+import &#123; SimpleBootHttpSSRServer &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/SimpleBootHttpSSRServer';
+import &#123; HttpSSRServerOption &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/option/HttpSSRServerOption';
+import &#123; SSRFilter &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/filters/SSRFilter';
+import &#123; IntentSchemeFilter &#125; from '&commat;dooboostore/simple-boot-http-server-ssr/filters/IntentSchemeFilter';
+import &#123; ResourceFilter &#125; from '&commat;dooboostore/simple-boot-http-server/filters/ResourceFilter';
+import &#123; NotFoundError &#125; from '&commat;dooboostore/simple-boot-http-server/errors/NotFoundError';
+import Factory, &#123; MakeSimFrontOption &#125; from './bootfactory';
+import &#123; RootRouter &#125; from './root.router';
+import &#123; BackTalkService &#125; from './services/BackTalkService';
+import &#123; GlobalAdvice &#125; from './advices/GlobalAdvice';
+import &#123; CloseLogEndPoint &#125; from './endpoints/CloseLogEndPoint';
+
+class Server &#123;
+  async run() &#123;
+    // SSR Filter configuration
+    const ssrOption = &#123;
+      frontDistPath: './dist-front-end',
+      frontDistIndexFileName: 'index.html',
+      factorySimFrontOption: (window: any) =&gt; MakeSimFrontOption(window),
+      factory: Factory,
+      using: [BackTalkService],
+      ssrExcludeFilter: (rr) =&gt; /^\/api\//.test(rr.reqUrl),
+      poolOption: &#123;
+        max: 50,
+        min: 5
+      &#125;,
+      simpleBootFront: &#123;
+        notFoundError: true
+      &#125;
+    &#125;;
+
+    // Resource filter for static files
+    const resourceFilter = new ResourceFilter(
+      './dist-front-end',
+      ['assets/.*', '\\.js&dollar;', '\\.map&dollar;', '\\.ico&dollar;', '\\.png&dollar;']
+    );
+
+    const ssrFilter = new SSRFilter(ssrOption);
+
+    // Server configuration
+    const option = new HttpSSRServerOption(
+      &#123;
+        listen: &#123; port: 8080, hostname: '0.0.0.0' &#125;,
+        globalAdvice: new GlobalAdvice(),
+        closeEndPoints: [new CloseLogEndPoint()],
+        noSuchRouteEndPointMappingThrow: () =&gt; new NotFoundError(),
+        filters: [
+          resourceFilter,
+          ssrFilter,
+          IntentSchemeFilter
+        ]
+      &#125;,
+      &#123;
+        rootRouter: RootRouter
+      &#125;
+    );
+
+    const ssr = new SimpleBootHttpSSRServer(option);
+    await ssr.run();
+    
+    console.log('🚀 SSR Server running on http://localhost:8080');
+    return ssr;
+  &#125;
+&#125;
+
+new Server().run().then(() =&gt; &#123;
+  console.log('✅ Server started successfully!');
+&#125;);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

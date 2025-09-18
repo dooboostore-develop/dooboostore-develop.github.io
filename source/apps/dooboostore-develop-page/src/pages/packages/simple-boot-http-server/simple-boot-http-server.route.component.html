@@ -1,0 +1,1007 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-http-server</h1>
+            <p class="content en">A lightweight and powerful HTTP web server framework for Node.js</p>
+            <p class="content ko">Node.js를 위한 경량 고성능 HTTP 웹 서버 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot-http-server" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-http-server" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Create a new server or install the package</p>
+                <p class="content ko">새 서버를 생성하거나 패키지를 설치하세요</p>
+                <code-snippet-container>
+                    <code-snippet name="📦 quick start">
+                        <code-snippet-code type="bash">npm init @dooboostore/simple-boot-http-server projectname</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="Install Package">
+                        <code-snippet-code type="bash">npm install @dooboostore/simple-boot-http-server reflect-metadata</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+            <section class="section">
+                <h2 id="demo">Demo example</h2>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                        <p class="content en">DEMO EXAMPLE</p>
+                        <p class="content ko">데모 예제</p>
+                    </summary>
+                    <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+            <!-- Architecture Overview -->
+            <section class="section">
+                <h2 id="architecture">Architecture Overview</h2>
+                <p class="content en">Understanding simple-boot-http-server's architecture</p>
+                <p class="content ko">simple-boot-http-server의 아키텍처 이해하기</p>
+
+                <div class="example-item">
+                    <h3 id="core-architecture">Core Architecture</h3>
+                    <p class="example-description content en">Request/Response lifecycle with filters and endpoints</p>
+                    <p class="example-description content ko">필터와 엔드포인트를 사용한 요청/응답 생명주기</p>
+
+                    <mermaid-diagram>
+graph TB
+    A[SimpleBootHttpServer] -->|Extends| B[SimpleApplication]
+    A -->|Creates| C[HTTP/HTTPS Server]
+    A -->|Manages| D[SessionManager]
+
+    B -->|DI Container| E[SimstanceManager]
+    B -->|Routing| F[RouterManager]
+
+    C -->|Request| G[RequestResponse]
+    G -->|Through| H[Request EndPoints]
+    H -->|Through| I[Filters Chain]
+    I -->|Executes| J[Router Methods]
+    J -->|Through| K[Filters After]
+    K -->|Through| L[Close EndPoints]
+
+    M[GlobalAdvice] -->|Catches| N[Exceptions]
+
+    style A fill:#e1f5ff
+    style B fill:#fff4e6
+    style C fill:#dcfce7
+    style G fill:#fef3c7
+    style I fill:#ffe4e6
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="request-flow">Request Processing Flow</h3>
+                    <p class="example-description content en">How HTTP requests are processed through the pipeline</p>
+                    <p class="example-description content ko">HTTP 요청이 파이프라인을 통해 처리되는 방식</p>
+
+                    <mermaid-diagram>
+sequenceDiagram
+    participant Client
+    participant Server as HTTP Server
+    participant RR as RequestResponse
+    participant EP as Request EndPoints
+    participant F as Filters
+    participant R as Router
+    participant CEP as Close EndPoints
+
+    Client->>Server: HTTP Request
+    Server->>RR: Create RequestResponse
+    RR->>EP: onInit lifecycle
+    EP->>EP: Log request start
+    EP->>F: proceedBefore()
+
+    alt Filter allows
+        F->>R: Route to method
+        R->>R: Execute handler
+        R->>F: proceedAfter()
+        F->>Client: Send response
+    else Filter blocks
+        F->>Client: Early response
+    end
+
+    Server->>CEP: on close event
+    CEP->>CEP: Log duration
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="routing-system">Routing System</h3>
+                    <p class="example-description content en">Decorator-based routing with HTTP methods</p>
+                    <p class="example-description content ko">HTTP 메서드를 사용한 데코레이터 기반 라우팅</p>
+
+                    <mermaid-diagram>
+graph LR
+    A[Router Decorator] --> B[AppRouter]
+    B --> C[ApiRouter path=/api]
+    B --> D[Other Routers]
+
+    C --> E[GET /api/hello]
+    C --> F[GET /api/users]
+    C --> G[POST /api/users]
+    C --> H[GET /api/time]
+
+    E --> I[hello method]
+    F --> J[getUsers method]
+    G --> K[createUser method]
+    H --> L[getTime method]
+
+    style A fill:#e1f5ff
+    style B fill:#dcfce7
+    style C fill:#fef3c7
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="session-system">Session Management</h3>
+                    <p class="example-description content en">Built-in session with auto-cleanup</p>
+                    <p class="example-description content ko">자동 정리 기능이 있는 내장 세션</p>
+
+                    <mermaid-diagram>
+sequenceDiagram
+    participant Client
+    participant Server
+    participant SM as SessionManager
+    participant Store as Session Store
+
+    Client->>Server: First Request
+    Server->>SM: session()
+    SM->>SM: Generate UUID
+    SM->>Store: Create session
+    Server->>Client: Set-Cookie: sessionId
+
+    Client->>Server: Subsequent Request
+    Server->>SM: session(uuid)
+    SM->>Store: Get session data
+    SM->>SM: Check expiration
+
+    alt Not expired
+        SM->>Server: Return session
+    else Expired
+        SM->>Store: Delete old data
+        SM->>Store: Create new session
+    end
+
+    Note over SM: Auto cleanup every interval
+    SM->>Store: Check all sessions
+    SM->>Store: Delete expired
+                    </mermaid-diagram>
+                </div>
+            </section>
+
+            <!-- Getting Started -->
+            <section class="section">
+                <h2 id="getting-started">Getting Started</h2>
+                <p class="content en">Quick start with basic server setup</p>
+                <p class="content ko">기본 서버 설정으로 빠르게 시작하기</p>
+
+                <div class="example-item">
+                    <h3 id="basic-server">Basic HTTP Server</h3>
+                    <p class="example-description content en">Create a minimal HTTP server</p>
+                    <p class="example-description content ko">최소 HTTP 서버 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import 'reflect-metadata';
+import &#123; SimpleBootHttpServer &#125; from '&commat;dooboostore/simple-boot-http-server/SimpleBootHttpServer';
+import &#123; HttpServerOption &#125; from '&commat;dooboostore/simple-boot-http-server/option/HttpServerOption';
+import &#123; AppRouter &#125; from './routers/AppRouter';
+import &#123; ApiRouter &#125; from './routers/ApiRouter';
+import &#123; CloseLogEndPoint &#125; from './endpoints/CloseLogEndPoint';
+import &#123; ErrorLogEndPoint &#125; from './endpoints/ErrorLogEndPoint';
+import &#123; GlobalAdvice &#125; from './advices/GlobalAdvice';
+
+// HTTP 서버 옵션 설정
+const option = new HttpServerOption(
+  &#123;
+    globalAdvice: new GlobalAdvice(),
+    closeEndPoints: [new CloseLogEndPoint()],
+    errorEndPoints: [new ErrorLogEndPoint()],
+    listen: &#123; port: 8080 &#125;,
+  &#125;,
+  &#123;
+    rootRouter: AppRouter
+  &#125;
+);
+
+const server = new SimpleBootHttpServer(option).run();
+console.log('🚀 Simple Boot HTTP Server is running!');
+console.log('📍 Server: http://localhost:8080');
+console.log('📄 Static files: http://localhost:8080/resources/');
+console.log('🔌 API endpoints: http://localhost:8080/api/');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Routing -->
+            <section class="section">
+                <h2 id="routing">Routing</h2>
+                <p class="content en">Declarative routing with HTTP method decorators</p>
+                <p class="content ko">HTTP 메서드 데코레이터를 사용한 선언적 라우팅</p>
+
+                <div class="example-item">
+                    <h3 id="root-router">Root Router Setup</h3>
+                    <p class="example-description content en">Create root router with nested routers</p>
+                    <p class="example-description content ko">중첩 라우터로 루트 라우터 생성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Router, Route &#125; from '&commat;dooboostore/simple-boot/decorators/route/Router';
+import &#123; GET &#125; from '&commat;dooboostore/simple-boot-http-server/decorators/MethodMapping';
+import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+import &#123; ReqHeader &#125; from '&commat;dooboostore/simple-boot-http-server/models/datas/ReqHeader';
+import &#123; RouterModule &#125; from '&commat;dooboostore/simple-boot/route/RouterModule';
+import &#123; ApiRouter &#125; from './ApiRouter';
+import &#123; ResourceResolver &#125; from '&commat;dooboostore/simple-boot-http-server/resolvers/ResourceResolver';
+
+&commat;Sim
+&commat;Router(&#123;
+  path: '',
+  routers: [ApiRouter]  // Nested routers
+&#125;)
+export class AppRouter &#123;
+  /**
+   * Home page - serves index.html
+   */
+  &commat;Route(&#123; path: '/' &#125;)
+  &commat;GET(&#123;res: &#123;contentType: 'text/html; charset=utf-8'&#125;&#125;)
+  index(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    const html = `
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Simple Boot HTTP Server Example&lt;/title&gt;
+    &lt;link rel="stylesheet" href="/resources/index.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;🚀 Simple Boot HTTP Server&lt;/h1&gt;
+    &lt;p&gt;Server is running on port 8080&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    `;
+    return html;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="http-methods">HTTP Method Decorators</h3>
+                    <p class="example-description content en">Map HTTP methods to controller methods</p>
+                    <p class="example-description content ko">HTTP 메서드를 컨트롤러 메서드에 매핑</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+import &#123; Router, Route &#125; from '&commat;dooboostore/simple-boot/decorators/route/Router';
+import &#123; GET, POST &#125; from '&commat;dooboostore/simple-boot-http-server/decorators/MethodMapping';
+import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+import &#123; ReqHeader &#125; from '&commat;dooboostore/simple-boot-http-server/models/datas/ReqHeader';
+import &#123; RouterModule &#125; from '&commat;dooboostore/simple-boot/route/RouterModule';
+import &#123; UserService &#125; from '../services/UserService';
+import &#123; ReqJsonBody &#125; from '&commat;dooboostore/simple-boot-http-server/models/datas/body/ReqJsonBody';
+import &#123; NotFoundError &#125; from '&commat;dooboostore/simple-boot-http-server/errors/NotFoundError';
+import &#123; BadRequestError &#125; from '&commat;dooboostore/simple-boot-http-server/errors/BadRequestError';
+
+&commat;Sim(&#123;
+  using: [UserService]
+&#125;)
+&commat;Router(&#123; path: '/api' &#125;)
+export class ApiRouter &#123;
+  constructor(private userService: UserService) &#123;
+    console.log('📡 ApiRouter initialized with UserService');
+  &#125;
+
+  /**
+   * GET /api/hello
+   * Simple hello world endpoint
+   */
+  &commat;Route(&#123; path: '/hello' &#125;)
+  &commat;GET(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  hello(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    const response = &#123;
+      message: 'Hello from Simple Boot HTTP Server!',
+      timestamp: new Date().toISOString(),
+      method: 'GET',
+      path: '/api/hello'
+    &#125;;
+
+    return response;
+  &#125;
+
+  /**
+   * GET /api/users
+   * Get all users
+   */
+  &commat;Route(&#123; path: '/users' &#125;)
+  &commat;GET(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  getUsers(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    const users = this.userService.getAllUsers();
+
+    return &#123;
+      success: true,
+      data: users,
+      count: users.length
+    &#125;;
+  &#125;
+
+  /**
+   * POST /api/users
+   * Create a new user
+   */
+  &commat;Route(&#123; path: '/users' &#125;)
+  &commat;POST(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  createUser(rr: RequestResponse, header: ReqHeader, userData: ReqJsonBody, routerModule: RouterModule) &#123;
+    try &#123;
+      const newUser = this.userService.createUser(userData);
+      return &#123;
+        success: true,
+        message: 'User created successfully',
+        data: newUser
+      &#125;;
+    &#125; catch (error) &#123;
+      throw new BadRequestError(&#123;
+        message: JSON.stringify(&#123;
+          success: false,
+          error: 'Invalid JSON data'
+        &#125;)
+      &#125;);
+    &#125;
+  &#125;
+
+  /**
+   * GET /api/time
+   * Get current server time
+   */
+  &commat;Route(&#123; path: '/time' &#125;)
+  &commat;GET(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  getTime(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    const now = new Date();
+    return &#123;
+      timestamp: now.toISOString(),
+      unix: now.getTime(),
+      formatted: now.toLocaleString('ko-KR'),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+    &#125;;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             Services
+            <section class="section">
+                <h2 id="services">Services</h2>
+                <p class="content en">Injectable services with dependency injection</p>
+                <p class="content ko">의존성 주입을 사용한 주입 가능한 서비스</p>
+
+                <div class="example-item">
+                    <h3 id="user-service">User Service Example</h3>
+                    <p class="example-description content en">Create and inject services in routers</p>
+                    <p class="example-description content ko">라우터에서 서비스 생성 및 주입</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Sim &#125; from '&commat;dooboostore/simple-boot/decorators/SimDecorator';
+
+export interface User &#123;
+  id: number;
+  name: string;
+  email: string;
+  createdAt: Date;
+&#125;
+
+&commat;Sim
+export class UserService &#123;
+  private users: User[] = [
+    &#123;
+      id: 1,
+      name: 'Alice Johnson',
+      email: 'alice&commat;example.com',
+      createdAt: new Date('2024-01-01')
+    &#125;,
+    &#123;
+      id: 2,
+      name: 'Bob Smith',
+      email: 'bob&commat;example.com',
+      createdAt: new Date('2024-01-15')
+    &#125;,
+    &#123;
+      id: 3,
+      name: 'Carol Williams',
+      email: 'carol&commat;example.com',
+      createdAt: new Date('2024-02-01')
+    &#125;
+  ];
+
+  private nextId = 4;
+
+  constructor() &#123;
+    console.log('👤 UserService initialized with', this.users.length, 'users');
+  &#125;
+
+  getAllUsers(): User[] &#123;
+    return [...this.users];
+  &#125;
+
+  getUserById(id: number): User | undefined &#123;
+    return this.users.find(user =&gt; user.id === id);
+  &#125;
+
+  createUser(userData: Partial&lt;User&gt;): User &#123;
+    const newUser: User = &#123;
+      id: this.nextId++,
+      name: userData.name || 'Unknown',
+      email: userData.email || '',
+      createdAt: new Date()
+    &#125;;
+
+    this.users.push(newUser);
+    console.log('✅ User created:', newUser);
+
+    return newUser;
+  &#125;
+
+  updateUser(id: number, userData: Partial&lt;User&gt;): User | null &#123;
+    const index = this.users.findIndex(user =&gt; user.id === id);
+
+    if (index === -1) &#123;
+      return null;
+    &#125;
+
+    this.users[index] = &#123;
+      ...this.users[index],
+      ...userData,
+      id: this.users[index].id,
+      createdAt: this.users[index].createdAt
+    &#125;;
+
+    console.log('📝 User updated:', this.users[index]);
+    return this.users[index];
+  &#125;
+
+  deleteUser(id: number): boolean &#123;
+    const index = this.users.findIndex(user =&gt; user.id === id);
+
+    if (index === -1) &#123;
+      return false;
+    &#125;
+
+    this.users.splice(index, 1);
+    console.log('🗑️  User deleted with id:', id);
+    return true;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             EndPoints
+            <section class="section">
+                <h2 id="endpoints">EndPoints</h2>
+                <p class="content en">Hook into request lifecycle events</p>
+                <p class="content ko">요청 생명주기 이벤트에 훅</p>
+
+                <div class="example-item">
+                    <h3 id="request-endpoint">Request EndPoint</h3>
+                    <p class="example-description content en">Execute code when request starts</p>
+                    <p class="example-description content ko">요청 시작 시 코드 실행</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; EndPoint &#125; from '&commat;dooboostore/simple-boot-http-server/endpoints/EndPoint';
+import &#123; SimpleBootHttpServer &#125; from '&commat;dooboostore/simple-boot-http-server/SimpleBootHttpServer';
+import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+
+export class RequestLogEndPoint implements EndPoint &#123;
+
+    async onInit(app: SimpleBootHttpServer) &#123;
+        console.log('RequestLogEndPoint onInit')
+    &#125;
+
+    async endPoint(rr: RequestResponse, app: SimpleBootHttpServer) &#123;
+        // Store start time in session
+        rr.reqSessionSet('startTime', Date.now());
+    &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="close-endpoint">Close EndPoint</h3>
+                    <p class="example-description content en">Execute code when request completes</p>
+                    <p class="example-description content ko">요청 완료 시 코드 실행</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; EndPoint &#125; from '&commat;dooboostore/simple-boot-http-server/endpoints/EndPoint';
+import &#123; SimpleBootHttpServer &#125; from '&commat;dooboostore/simple-boot-http-server/SimpleBootHttpServer';
+import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+import &#123; HttpHeaders &#125; from '&commat;dooboostore/simple-boot-http-server/codes/HttpHeaders';
+
+export class CloseLogEndPoint implements EndPoint &#123;
+
+    async onInit(app: SimpleBootHttpServer) &#123;
+        console.log('CloseLogEndPoint onInit')
+    &#125;
+
+    async endPoint(rr: RequestResponse, app: SimpleBootHttpServer) &#123;
+        const startTime = rr.reqSessionGet&lt;number&gt;('startTime');
+        let duration = 'unknown';
+        if (startTime)&#123;
+            duration = (Date.now() - startTime) + 'ms';
+        &#125;
+
+        const requestMap = new Map&lt;string, number | string | undefined&gt;();
+        requestMap.set('ip', rr.reqRemoteAddress);
+        requestMap.set('method', rr.reqMethod());
+        requestMap.set('url', rr.reqUrl);
+        requestMap.set('userAgent', rr.reqHeaderFirst(HttpHeaders.UserAgent));
+        requestMap.set('accept', rr.reqHeaderFirst(HttpHeaders.Accept));
+        requestMap.set('contentLength', rr.reqHeaderFirst(HttpHeaders.ContentLength));
+        requestMap.set('contentType', rr.reqHeaderFirst(HttpHeaders.ContentType));
+        const request  = Array.from(requestMap.entries())
+          .filter(([k, v]) =&gt; v !== undefined)
+          .map(([k, v]) =&gt; `&#36;&#123;k&#125;: &#36;&#123;v&#125;`)
+          .join(', ');
+
+        const responseMap = new Map&lt;string, number | string | undefined&gt;();
+        responseMap.set('statusCode', rr.resStatusCode());
+        responseMap.set('contentType', rr.resHeaderFirst(HttpHeaders.ContentType));
+        const response  = Array.from(responseMap.entries())
+          .filter(([k, v]) =&gt; v !== undefined)
+          .map(([k, v]) =&gt; `&#36;&#123;k&#125;: &#36;&#123;v&#125;`)
+          .join(', ');
+
+        console.info(`close:: request =&gt; &#36;&#123;request&#125;;response =&gt; &#36;&#123;response&#125;;duration: &#36;&#123;duration&#125;`);
+    &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             Global Advice
+            <section class="section">
+                <h2 id="global-advice">Global Advice</h2>
+                <p class="content en">Centralized exception handling for all routes</p>
+                <p class="content ko">모든 라우트에 대한 중앙 집중식 예외 처리</p>
+
+                <div class="example-item">
+                    <h3 id="exception-handler">Exception Handler</h3>
+                    <p class="example-description content en">Catch and handle all exceptions globally</p>
+                    <p class="example-description content ko">모든 예외를 전역적으로 포착 및 처리</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; ExceptionHandler, ExceptionHandlerSituationType &#125; from '&commat;dooboostore/simple-boot/decorators/exception/ExceptionDecorator';
+import &#123; Inject &#125; from '&commat;dooboostore/simple-boot/decorators/inject/Inject';
+import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+import &#123; HttpStatus &#125; from '&commat;dooboostore/simple-boot-http-server/codes/HttpStatus';
+import &#123; HttpHeaders &#125; from '&commat;dooboostore/simple-boot-http-server/codes/HttpHeaders';
+import &#123; Mimes &#125; from '&commat;dooboostore/simple-boot-http-server/codes/Mimes';
+import &#123; HttpError &#125; from '&commat;dooboostore/simple-boot-http-server/errors/HttpError';
+import &#123; InternalServerError &#125; from '&commat;dooboostore/simple-boot-http-server/errors/InternalServerError';
+
+export class GlobalAdvice &#123;
+
+    constructor() &#123;
+    &#125;
+
+    &commat;ExceptionHandler()
+    async catch(&commat;Inject(&#123;situationType: ExceptionHandlerSituationType.ERROR_OBJECT&#125;) e: any, rr: RequestResponse) &#123;
+        console.error(`GlobalAdvice.catch &#36;&#123;rr.reqUrl&#125;`, e);
+
+        if (rr.resIsDone()) &#123;
+            return;
+        &#125;
+
+        rr.resStatusCode(HttpStatus.InternalServerError);
+        rr.resSetHeader(HttpHeaders.ContentType, Mimes.ApplicationJson);
+
+        let data = '';
+        if (e instanceof HttpError) &#123;
+            rr.resStatusCode(e.status);
+            data = JSON.stringify(e);
+        &#125; else if (e instanceof Error)&#123;
+            const error = new InternalServerError();
+            error.data = &#123;message: e.message, stack: e.stack&#125;;
+            data = JSON.stringify(error);
+        &#125; else &#123;
+            const error = new InternalServerError();
+            error.data = e;
+            data = JSON.stringify(error);
+        &#125;
+
+        await rr.resEnd(data);
+    &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             Error Handling
+            <section class="section">
+                <h2 id="errors">Error Handling</h2>
+                <p class="content en">Built-in HTTP error classes</p>
+                <p class="content ko">내장 HTTP 에러 클래스</p>
+
+                <div class="example-item">
+                    <h3 id="http-errors">HTTP Errors</h3>
+                    <p class="example-description content en">Pre-defined error classes for common HTTP status codes</p>
+                    <p class="example-description content ko">일반적인 HTTP 상태 코드를 위한 사전 정의된 에러 클래스</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123;
+  BadRequestError,
+  UnauthorizedError,
+  ForbiddenError,
+  NotFoundError,
+  InternalServerError
+&#125; from '&commat;dooboostore/simple-boot-http-server/errors';
+
+&commat;Router('/api/items')
+export class ItemController &#123;
+
+  &commat;Route(&#123; path: '/:id' &#125;)
+  &commat;GET(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  getItem(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    const id = rr.reqParam('id');
+
+    if (!id) &#123;
+      throw new BadRequestError(&#123;
+        message: 'ID is required'
+      &#125;);
+    &#125;
+
+    const item = this.findItem(id);
+
+    if (!item) &#123;
+      throw new NotFoundError(&#123;
+        message: `Item &#36;&#123;id&#125; not found`
+      &#125;);
+    &#125;
+
+    return item;
+  &#125;
+
+  private findItem(id: string) &#123;
+    // Search logic
+    return null;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="custom-errors">Available Error Classes</h3>
+                    <p class="example-description content en">Complete list of built-in HTTP error classes</p>
+                    <p class="example-description content ko">내장 HTTP 에러 클래스의 전체 목록</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Error Classes">
+                                <code-snippet-code type="typescript">// 400 Bad Request
+throw new BadRequestError(&#123; message: 'Invalid request data' &#125;);
+
+// 401 Unauthorized
+throw new UnauthorizedError(&#123; message: 'Authentication required' &#125;);
+
+// 403 Forbidden
+throw new ForbiddenError(&#123; message: 'Access denied' &#125;);
+
+// 404 Not Found
+throw new NotFoundError(&#123; message: 'Resource not found' &#125;);
+
+// 500 Internal Server Error
+throw new InternalServerError(&#123; message: 'Server error occurred' &#125;);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             Session Management
+            <section class="section">
+                <h2 id="session">Session Management</h2>
+                <p class="content en">Built-in session support with customizable storage</p>
+                <p class="content ko">커스터마이징 가능한 스토리지를 포함한 내장 세션 지원</p>
+
+                <div class="example-item">
+                    <h3 id="session-usage">Using Sessions</h3>
+                    <p class="example-description content en">Store and retrieve data in user sessions</p>
+                    <p class="example-description content ko">사용자 세션에 데이터 저장 및 검색</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; Router, Route &#125; from '&commat;dooboostore/simple-boot/decorators/route/Router';
+import &#123; GET, POST &#125; from '&commat;dooboostore/simple-boot-http-server/decorators/MethodMapping';
+import &#123; RequestResponse &#125; from '&commat;dooboostore/simple-boot-http-server/models/RequestResponse';
+import &#123; ReqHeader &#125; from '&commat;dooboostore/simple-boot-http-server/models/datas/ReqHeader';
+import &#123; RouterModule &#125; from '&commat;dooboostore/simple-boot/route/RouterModule';
+
+&commat;Router(&#123; path: '/auth' &#125;)
+export class AuthController &#123;
+
+  &commat;Route(&#123; path: '/login' &#125;)
+  &commat;POST(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  login(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    // Store user data in session
+    rr.reqSessionSet('userId', '123');
+    rr.reqSessionSet('username', 'john');
+    rr.reqSessionSet('loginTime', Date.now());
+
+    return &#123;
+      success: true,
+      message: 'Logged in successfully'
+    &#125;;
+  &#125;
+
+  &commat;Route(&#123; path: '/profile' &#125;)
+  &commat;GET(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  getProfile(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    // Retrieve data from session
+    const userId = rr.reqSessionGet&lt;string&gt;('userId');
+    const username = rr.reqSessionGet&lt;string&gt;('username');
+    const loginTime = rr.reqSessionGet&lt;number&gt;('loginTime');
+
+    if (!userId) &#123;
+      return &#123;
+        success: false,
+        error: 'Unauthorized'
+      &#125;;
+    &#125;
+
+    return &#123;
+      success: true,
+      data: &#123;
+        userId,
+        username,
+        loginTime: new Date(loginTime).toISOString()
+      &#125;
+    &#125;;
+  &#125;
+
+  &commat;Route(&#123; path: '/logout' &#125;)
+  &commat;POST(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+  logout(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+    // Clear session data
+    rr.reqSessionSet('userId', undefined);
+    rr.reqSessionSet('username', undefined);
+    rr.reqSessionSet('loginTime', undefined);
+
+    return &#123;
+      success: true,
+      message: 'Logged out successfully'
+    &#125;;
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="session-config">Session Configuration</h3>
+                    <p class="example-description content en">Configure session behavior and storage</p>
+                    <p class="example-description content ko">세션 동작 및 스토리지 구성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import &#123; HttpServerOption &#125; from '&commat;dooboostore/simple-boot-http-server/option/HttpServerOption';
+
+const option = new HttpServerOption(
+  &#123;
+    listen: &#123; port: 8080 &#125;,
+
+    // Session configuration
+    sessionOption: &#123;
+      key: 'sessionId',                    // Cookie name
+      expiredTime: 1000 * 60 * 30,         // 30 minutes
+
+      // Optional custom provider
+      provider: &#123;
+        async uuids() &#123;
+          // Return all session UUIDs
+          return await db.getAllSessionIds();
+        &#125;,
+
+        async get(uuid: string) &#123;
+          // Get session data
+          return await db.getSession(uuid);
+        &#125;,
+
+        async set(uuid: string, data: any) &#123;
+          // Store session data
+          await db.saveSession(uuid, data);
+        &#125;,
+
+        async delete(uuid: string) &#123;
+          // Delete session
+          await db.deleteSession(uuid);
+        &#125;
+      &#125;
+    &#125;
+  &#125;,
+  &#123;
+    rootRouter: AppRouter
+  &#125;
+);
+
+const server = new SimpleBootHttpServer(option).run();</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             Request/Response API
+            <section class="section">
+                <h2 id="request-response">Request/Response API</h2>
+                <p class="content en">RequestResponse abstraction for HTTP operations</p>
+                <p class="content ko">HTTP 작업을 위한 RequestResponse 추상화</p>
+
+                <div class="example-item">
+                    <h3 id="request-api">Request API</h3>
+                    <p class="example-description content en">Access request data easily</p>
+                    <p class="example-description content ko">요청 데이터에 쉽게 접근</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">&commat;Route(&#123; path: '/example' &#125;)
+&commat;GET(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+exampleMethod(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+  // Request URL and method
+  const url = rr.reqUrl;                    // e.g., '/api/users?page=1'
+  const method = rr.reqMethod();            // e.g., 'GET'
+  const host = rr.reqHost;                  // e.g., 'localhost:8080'
+
+  // URL parameters
+  const urlObj = rr.reqUrlObject;           // URL object
+  const queryParams = rr.reqUrlParamString; // Query string
+  const page = rr.reqUrlParam('page');      // Get specific param
+
+  // Headers
+  const userAgent = rr.reqHeaderFirst(HttpHeaders.UserAgent);
+  const contentType = rr.reqHeaderFirst(HttpHeaders.ContentType);
+  const allHeaders = rr.reqHeaders();
+
+  // Cookies
+  const cookieMap = rr.reqCookieMap;
+  const sessionId = rr.reqCookieGet('sessionId');
+
+  // Client info
+  const ip = rr.reqRemoteAddress;
+
+  // Session data
+  const userId = rr.reqSessionGet&lt;string&gt;('userId');
+  rr.reqSessionSet('lastVisit', Date.now());
+
+  return &#123;
+    url,
+    method,
+    host,
+    page,
+    userAgent,
+    ip,
+    userId
+  &#125;;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="response-api">Response API</h3>
+                    <p class="example-description content en">Send responses with control</p>
+                    <p class="example-description content ko">제어와 함께 응답 전송</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">&commat;Route(&#123; path: '/example' &#125;)
+&commat;POST(&#123; res: &#123; contentType: 'application/json' &#125; &#125;)
+async exampleMethod(rr: RequestResponse, header: ReqHeader, routerModule: RouterModule) &#123;
+  // Set status code
+  rr.resStatusCode(201);  // Created
+
+  // Set headers
+  rr.resSetHeader(HttpHeaders.ContentType, Mimes.ApplicationJson);
+  rr.resSetHeader(HttpHeaders.CacheControl, 'no-cache');
+  rr.resSetHeader('X-Custom-Header', 'value');
+
+  // Set cookies
+  rr.resSetHeader(HttpHeaders.SetCookie, 'token=abc123; Path=/; HttpOnly');
+
+  // Send response
+  const data = &#123; success: true, message: 'Created' &#125;;
+  await rr.resEnd(JSON.stringify(data));
+
+  // Or simply return data (auto JSON)
+  // return data;
+
+  // Check if response is done
+  if (rr.resIsDone()) &#123;
+    console.log('Response already sent');
+  &#125;
+&#125;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+             HTTPS Support
+            <section class="section">
+                <h2 id="https">HTTPS Support</h2>
+                <p class="content en">Run secure HTTPS server with SSL/TLS</p>
+                <p class="content ko">SSL/TLS로 안전한 HTTPS 서버 실행</p>
+
+                <div class="example-item">
+                    <h3 id="https-server">HTTPS Server</h3>
+                    <p class="example-description content en">Configure HTTPS with certificate files</p>
+                    <p class="example-description content ko">인증서 파일로 HTTPS 구성</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Complete Example">
+                                <code-snippet-code type="typescript">import fs from 'fs';
+import &#123; SimpleBootHttpServer &#125; from '&commat;dooboostore/simple-boot-http-server/SimpleBootHttpServer';
+import &#123; HttpServerOption &#125; from '&commat;dooboostore/simple-boot-http-server/option/HttpServerOption';
+
+const option = new HttpServerOption(
+  &#123;
+    // HTTPS configuration
+    serverOption: &#123;
+      key: fs.readFileSync('path/to/server.key'),
+      cert: fs.readFileSync('path/to/server.cert')
+    &#125;,
+
+    listen: &#123; port: 443 &#125;,  // HTTPS port
+
+    globalAdvice: new GlobalAdvice()
+  &#125;,
+  &#123;
+    rootRouter: AppRouter
+  &#125;
+);
+
+const server = new SimpleBootHttpServer(option).run();
+
+// Automatically creates HTTP -&gt; HTTPS redirect server on port 80
+console.log('🔒 HTTPS Server running on port 443');
+console.log('🔄 HTTP redirect server running on port 80');</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

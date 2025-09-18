@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.package-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    color: #e5e5e5;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.package-header {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 3rem 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    color: #a0a0a0;
+}
+
+.breadcrumb a {
+    color: #e5e5e5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #ffffff;
+}
+
+.breadcrumb span {
+    margin: 0 0.5rem;
+    color: #606060;
+}
+
+.package-header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.package-subtitle {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.package-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.package-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.package-link:hover {
+    color: white;
+}
+
+.package-link i {
+    font-size: 16px;
+}
+
+/* Content */
+.package-content {
+    padding: 4rem 0;
+}
+
+.section {
+    margin-bottom: 4rem;
+}
+
+.section h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    padding: 1rem 0 0.5rem 0;
+    border-bottom: 1px solid #2a2a2a;
+    position: sticky;
+    top: 100px;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(12px);
+    z-index: 10;
+    border-top: 1px solid transparent;
+}
+
+.section h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 2rem 0 1rem 0;
+}
+
+.section h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.section p {
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.section ul {
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.section li {
+    margin-bottom: 0.5rem;
+}
+
+/* Inline code style (not for code-snippet component) */
+.inline-code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+    color: #9a9a9a;
+    background: #1e1e1e;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-item {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.feature-item h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.feature-item p {
+    color: #a0a0a0;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+/* Configuration Options Grid */
+.config-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.config-option-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.config-option-card:hover {
+    border-color: #3a3a3a;
+}
+
+.config-option-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.config-option-name {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.95rem;
+    color: #6a9fdf;
+    background: #1e1e1e;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: inline-block;
+    word-break: break-all;
+}
+
+.config-option-type {
+    font-size: 0.75rem;
+    color: #8a8a8a;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #1e1e1e;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.config-option-card p {
+    color: #b0b0b0;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.config-option-card p:last-of-type {
+    margin-bottom: 0;
+}
+
+.config-option-example {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #1e1e1e;
+    border-left: 2px solid #3a3a3a;
+    border-radius: 4px;
+}
+
+.config-option-example strong {
+    color: #e5e5e5;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.config-option-example code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    color: #9a9a9a;
+    background: #252525;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    margin-left: 0.5rem;
+}
+
+/* Methods Grid */
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.method-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+}
+
+.method-card:hover {
+    border-color: #3a3a3a;
+}
+
+.method-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.method-name {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    color: #6a9fdf;
+    background: #1e1e1e;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    font-weight: 500;
+    flex: 1;
+    word-break: break-word;
+}
+
+.method-badge {
+    font-size: 0.7rem;
+    color: #9a9a9a;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    background: #1e1e1e;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.method-card p {
+    color: #b0b0b0;
+    line-height: 1.6;
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+}
+
+.method-card p:last-of-type:not(:only-of-type) {
+    margin-bottom: 0;
+}
+
+.method-signature {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #1e1e1e;
+    border-left: 2px solid #3a3a3a;
+    border-radius: 4px;
+}
+
+.method-signature strong {
+    color: #e5e5e5;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.method-signature code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.82rem;
+    color: #9a9a9a;
+    background: transparent;
+    padding: 0;
+    display: block;
+    line-height: 1.5;
+    word-break: break-word;
+}

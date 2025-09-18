@@ -1,0 +1,47 @@
+.sub-navigation {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 16px 48px;
+    position: sticky;
+    height: 53px;
+    top: 64px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.breadcrumb-item {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-item:hover {
+    color: white;
+}
+
+.breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.breadcrumb-current {
+    color: white;
+    font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sub-navigation {
+        padding: 12px 16px;
+    }
+    
+    .breadcrumb {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,334 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <p align="center"><img src="https://raw.githubusercontent.com/dooboostore-develop/swt/HEAD/document/assets/logo.png" alt="SWT Logo" width="150" style="background-color: rgba(255, 255, 255, 1); padding: 10px; border-radius: 8px;"></p>
+            <h1>swt</h1>
+            <p class="package-subtitle content en">SWT (Simple Web Tracker) is a lightweight JavaScript library for tracking user interactions and events on web pages.</p>
+            <p class="package-subtitle content ko">웹 페이지의 사용자 상호작용 및 이벤트를 추적하기 위한 경량 자바스크립트 라이브러리입니다.</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/swt" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/swt" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">To use SWT, include the script in your HTML file from the CDN.</p>
+                <p class="content ko">SWT를 사용하려면 CDN을 통해 HTML 파일에 스크립트를 포함시키세요.</p>
+                <code-snippet-container>
+                    <code-snippet name="Installation">
+                        <code-snippet-code type="bash">npm i @dooboostore/swt</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Event Tracking</h3>
+                        <p class="content en">Monitors clicks, mouse movements, scrolls, page loads, and URL changes.</p>
+                        <p class="content ko">클릭, 마우스 움직임, 스크롤, 페이지 로드, URL 변경을 모니터링합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Management</h3>
+                        <p class="content en">Automatically handles user sessions, including creation and retrieval.</p>
+                        <p class="content ko">세션 생성 및 조회를 포함하여 사용자 세션을 자동으로 관리합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Built-in Dashboard</h3>
+                        <p class="content en">Provides a dashboard to visualize data with path flows, heatmaps, and session replays.</p>
+                        <p class="content ko">경로 흐름, 히트맵, 세션 리플레이 등으로 데이터를 시각화하는 대시보드를 제공합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Easy Configuration</h3>
+                        <p class="content en">Configure tracking behavior easily using `data-swt-*` attributes in the script tag.</p>
+                        <p class="content ko">스크립트 태그의 `data-swt-*` 속성을 사용하여 추적 동작을 쉽게 구성합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Replay</h3>
+                        <p class="content en">Visually replay user sessions to understand their journey and identify issues.</p>
+                        <p class="content ko">사용자 여정을 이해하고 문제를 식별하기 위해 사용자 세션을 시각적으로 재현합니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Data Export</h3>
+                        <p class="content en">Allows exporting collected session data to a CSV file for further analysis.</p>
+                        <p class="content ko">수집된 세션 데이터를 추가 분석을 위해 CSV 파일로 내보낼 수 있습니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                <p class="content en">Add the script tag to your HTML. The tracker will start automatically.</p>
+                <p class="content ko">HTML에 스크립트 태그를 추가하세요. 트래커가 자동으로 시작됩니다.</p>
+                <code-snippet-container>
+                    <code-snippet name="Basic Configuration">
+                        <code-snippet-code type="html">&lt;!-- Add this to the &lt;head&gt; or &lt;body&gt; of your HTML --&gt;
+&lt;script
+    id="swt"
+    data-swt-post-url="/api/track"
+    data-swt-project-name="My Awesome Project"
+    type="module" 
+    src="https://cdn.jsdelivr.net/npm/@dooboostore/swt/dist/index.min.js"
+&gt;&lt;/script&gt;</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <!-- Dynamic Script Insertion -->
+            <section class="section">
+                <h2 id="dynamic-script-insertion">Dynamic Script Insertion (for CDN usage)</h2>
+                <p class="content en">You can also dynamically insert the SWT script from a CDN into your page. This is useful for external sites or when you prefer not to host the script directly.</p>
+                <p class="content ko">CDN을 통해 SWT 스크립트를 페이지에 동적으로 삽입할 수도 있습니다. 이는 외부 사이트나 스크립트를 직접 호스팅하지 않으려는 경우에 유용합니다.</p>
+                <code-snippet-container>
+                    <code-snippet name="Dynamic Script Insertion">
+                        <code-snippet-code type="javascript">const script = document.createElement('script');
+script.id = 'swt';
+script.type = 'module';
+script.setAttribute('data-swt-target-query-selector', '#portal, #scriptHolder, #home_banner, #viewport-box');
+script.src = 'https://cdn.jsdelivr.net/npm/@dooboostore/swt/dist/index.min.js';
+document.head.appendChild(script);</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <!-- Configuration Options -->
+            <section class="section">
+                <h2 id="configuration-options">Configuration Options</h2>
+                <p class="content en">These options are set as <code class="inline-code">data-swt-*</code> attributes on the <code class="inline-code">&lt;script id="swt"&gt;</code> tag:</p>
+                <p class="content ko">이 옵션들은 <code class="inline-code">&lt;script id="swt"&gt;</code> 태그의 <code class="inline-code">data-swt-*</code> 속성으로 설정됩니다:</p>
+                <div class="config-options-grid">
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-target-query-selector</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">A comma-separated list of CSS selectors for elements you want to specifically track clicks, visibility, and binding events on.</p>
+                        <p class="content ko">클릭, 가시성 및 바인딩 이벤트를 특별히 추적하려는 요소에 대한 쉼표로 구분된 CSS 선택기 목록입니다.</p>
+                        <div class="config-option-example">
+                            <strong>Example:</strong> <code class="inline-code">"a, img, .trackable-div"</code>
+                        </div>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-post-url</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">The URL where collected log data will be sent via POST requests. If not provided, data will only be stored in sessionStorage.</p>
+                        <p class="content ko">수집된 로그 데이터가 POST 요청을 통해 전송될 URL입니다. 제공되지 않으면 데이터는 sessionStorage에만 저장됩니다.</p>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-post-buffer-time</code>
+                            <span class="config-option-type">Optional, number</span>
+                        </div>
+                        <p class="content en">The time in milliseconds to buffer collected events before sending them to the post-url.</p>
+                        <p class="content ko">수집된 이벤트를 post-url로 보내기 전에 버퍼링할 시간(밀리초)입니다.</p>
+                        <div class="config-option-example">
+                            <strong>Default:</strong> <code class="inline-code">0</code> (no buffering)
+                        </div>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-token</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">An authentication token to be included in the Authorization header when sending data to the post-url.</p>
+                        <p class="content ko">post-url로 데이터를 보낼 때 Authorization 헤더에 포함될 인증 토큰입니다.</p>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-open-dashboard-delay</code>
+                            <span class="config-option-type">Optional, number</span>
+                        </div>
+                        <p class="content en">Delay in milliseconds before the dashboard script is loaded when swt.openDashboard() is called.</p>
+                        <p class="content ko">swt.openDashboard()가 호출될 때 대시보드 스크립트가 로드되기 전 지연 시간(밀리초)입니다.</p>
+                        <div class="config-option-example">
+                            <strong>Default:</strong> <code class="inline-code">0</code>
+                        </div>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-disabled-auto-start</code>
+                            <span class="config-option-type">Optional, boolean</span>
+                        </div>
+                        <p class="content en">If present, SWT will not automatically start tracking on DOMContentLoaded. You will need to manually call <code class="inline-code">window.swt.run()</code>.</p>
+                        <p class="content ko">이 속성이 있으면 SWT는 DOMContentLoaded 시 자동으로 추적을 시작하지 않습니다. <code class="inline-code">window.swt.run()</code>을 수동으로 호출해야 합니다.</p>
+                    </div>
+
+                    <div class="config-option-card">
+                        <div class="config-option-header">
+                            <code class="config-option-name">data-swt-mode</code>
+                            <span class="config-option-type">Optional, string</span>
+                        </div>
+                        <p class="content en">Set to "dashboard" when the script is loaded within the SWT dashboard window. This changes the script's behavior to run the dashboard application instead of the tracker.</p>
+                        <p class="content ko">스크립트가 SWT 대시보드 창 내에서 로드될 때 "dashboard"로 설정됩니다. 이는 스크립트의 동작을 트래커 대신 대시보드 애플리케이션을 실행하도록 변경합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage -->
+            <section class="section">
+                <h2 id="usage">Usage</h2>
+                <p class="content en">Once the script is included, the <code class="inline-code">swt</code> instance will be available globally on the <code class="inline-code">window</code> object (i.e., <code class="inline-code">window.swt</code>).</p>
+                <p class="content ko">스크립트가 포함되면 <code class="inline-code">swt</code> 인스턴스는 <code class="inline-code">window</code> 객체(예: <code class="inline-code">window.swt</code>)에서 전역적으로 사용할 수 있습니다.</p>
+
+                <h3 id="available-methods">Available Methods</h3>
+                <p class="content en">You can interact with the <code class="inline-code">swt</code> instance directly from your browser's developer console or your JavaScript code.</p>
+                <p class="content ko">브라우저의 개발자 콘솔이나 자바스크립트 코드에서 직접 <code class="inline-code">swt</code> 인스턴스와 상호작용할 수 있습니다.</p>
+                
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.run()</code>
+                            <span class="method-badge">Initialize</span>
+                        </div>
+                        <p class="content en">Initializes the tracker. This is automatically called on DOMContentLoaded unless <code class="inline-code">data-swt-disabled-auto-start</code> is set.</p>
+                        <p class="content ko">트래커를 초기화합니다. <code class="inline-code">data-swt-disabled-auto-start</code>가 설정되지 않은 경우 DOMContentLoaded 시 자동으로 호출됩니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.help()</code>
+                            <span class="method-badge">Info</span>
+                        </div>
+                        <p class="content en">Displays a help message in the console with available methods.</p>
+                        <p class="content ko">사용 가능한 메서드와 함께 콘솔에 도움말 메시지를 표시합니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.status()</code>
+                            <span class="method-badge">Query</span>
+                        </div>
+                        <p class="content en">Returns the current session status and a list of past sessions.</p>
+                        <p class="content ko">현재 세션 상태와 과거 세션 목록을 반환합니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.showSession()</code>
+                            <span class="method-badge">Query</span>
+                        </div>
+                        <p class="content en">Displays the ID of the current active session in the console.</p>
+                        <p class="content ko">콘솔에 현재 활성 세션의 ID를 표시합니다.</p>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.newSession()</code>
+                            <span class="method-badge">Action</span>
+                        </div>
+                        <p class="content en">Creates a new session. You can optionally provide a sessionId and additional data for the session. If id is not provided, a random UUID is generated.</p>
+                        <p class="content ko">새 세션을 생성합니다. 선택적으로 sessionId와 세션에 대한 추가 데이터를 제공할 수 있습니다. id가 제공되지 않으면 임의의 UUID가 생성됩니다.</p>
+                        <div class="method-signature">
+                            <strong>Signature:</strong> <code class="inline-code">newSession(options?: { id?: string, data?: object })</code>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <div class="method-header">
+                            <code class="method-name">window.swt.openDashboard()</code>
+                            <span class="method-badge">Action</span>
+                        </div>
+                        <p class="content en">Opens a new browser window displaying the SWT Dashboard, which visualizes the collected session data.</p>
+                        <p class="content ko">수집된 세션 데이터를 시각화하는 SWT 대시보드를 표시하는 새 브라우저 창을 엽니다.</p>
+                    </div>
+                </div>
+
+                <h3 id="example">Example</h3>
+                <code-snippet-container>
+                    <code-snippet name="Usage Example">
+                        <code-snippet-code type="javascript">// Check the current status
+console.log(window.swt.status());
+
+// Create a new session with custom data
+window.swt.newSession({ data: { user: 'john.doe', campaign: 'summer_sale' } });
+
+// Open the dashboard
+window.swt.openDashboard();</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <!-- Demonstration -->
+            <section class="section">
+                <h2 id="demonstration">Demonstration</h2>
+                <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/use.gif" alt="SWT Demonstration" style="width: 100%; border-radius: 8px; border: 1px solid #2a2a2a;">
+            </section>
+            <!-- Dashboard -->
+            <section class="section">
+                <h2 id="dashboard">Dashboard Features</h2>
+                <p class="content en">The SWT Dashboard provides a visual interface to analyze the collected tracking data. It can be opened by calling <code class="language-javascript">window.swt.openDashboard()</code> from the tracked page.</p>
+                <p class="content ko">SWT 대시보드는 수집된 추적 데이터를 분석하기 위한 시각적 인터페이스를 제공합니다. 추적 중인 페이지에서 <code class="language-javascript">window.swt.openDashboard()</code>를 호출하여 열 수 있습니다.</p>
+                <p class="content en">The dashboard includes:</p>
+                <p class="content ko">대시보드에는 다음이 포함됩니다:</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Path Flow</h3>
+                        <p class="content en">Visualizes user navigation paths between pages.</p>
+                        <p class="content ko">페이지 간 사용자 이동 경로를 시각화합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/path-flow.png" alt="Path Flow Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Timeline</h3>
+                        <p class="content en">Shows events over time for each session.</p>
+                        <p class="content ko">각 세션의 시간 경과에 따른 이벤트를 보여줍니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/time-line.png" alt="Time Line Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Event Distribution</h3>
+                        <p class="content en">Displays the distribution of event types across pages.</p>
+                        <p class="content ko">페이지 전반의 이벤트 유형 분포를 표시합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/event-distribution.png" alt="Event Distribution Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Heatmap</h3>
+                        <p class="content en">Provides a heatmap of element interactions (clicks, visibility).</p>
+                        <p class="content ko">요소 상호작용(클릭, 가시성)에 대한 히트맵을 제공합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/heatmap.png" alt="Heatmap Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Sankey Path Depth</h3>
+                        <p class="content en">Visualizes path depth changes using a Sankey diagram.</p>
+                        <p class="content ko">생키 다이어그램을 사용하여 경로 깊이 변화를 시각화합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/path-depth-sankey.png" alt="Sankey Path Depth Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Error Log</h3>
+                        <p class="content en">Tracks and displays JavaScript errors grouped by page.</p>
+                        <p class="content ko">페이지별로 그룹화된 자바스크립트 오류를 추적하고 표시합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/error-log.png" alt="Error Log Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Replay</h3>
+                        <p class="content en">Visually replays user sessions, showing mouse movements, clicks, and scrolls.</p>
+                        <p class="content ko">마우스 움직임, 클릭, 스크롤을 보여주며 사용자 세션을 시각적으로 재현합니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/session-replay.gif" alt="Session Replay Chart" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Filter</h3>
+                        <p class="content en">Allows filtering sessions based on various criteria.</p>
+                        <p class="content ko">다양한 기준에 따라 세션을 필터링할 수 있습니다.</p>
+                        <img src="https://github.com/dooboostore-develop/swt/raw/main/document/assets/session-filter.png" alt="Session Filter" style="width: 100%; margin-top: 1rem; border-radius: 4px;">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

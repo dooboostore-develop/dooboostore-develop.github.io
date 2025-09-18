@@ -1,0 +1,166 @@
+.packages-header {
+    padding: 48px 48px 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.packages-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.packages-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+/* Content */
+.packages-content {
+    padding: 48px;
+}
+
+.packages-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* Package Category */
+.package-category h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.package-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Package Item */
+.package-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+.package-item:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.package-info {
+    flex: 1;
+}
+
+.package-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.package-info p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+.package-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.package-arrow {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 16px;
+    transition: all 0.2s ease;
+}
+
+.package-item:hover .package-arrow {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+/* Language Content Toggle */
+.content.ko {
+    display: none;
+}
+
+.content.en {
+    display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .packages-header {
+        padding: 32px 24px 24px;
+    }
+    
+    .packages-header h1 {
+        font-size: 2rem;
+    }
+    
+    .packages-subtitle {
+        font-size: 1rem;
+    }
+    
+    .packages-content {
+        padding: 32px 24px;
+    }
+    
+    .packages-grid {
+        gap: 32px;
+    }
+    
+    .package-item {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .package-arrow {
+        align-self: flex-end;
+        margin-left: 0;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .packages-header {
+        padding: 40px 32px 28px;
+    }
+    
+    .packages-content {
+        padding: 40px 32px;
+    }
+}
