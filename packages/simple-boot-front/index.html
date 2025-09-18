@@ -1,0 +1,2054 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>dooboostore - Integrated Development Platform</title>
+    <meta name="description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta name="keywords" content="TypeScript, JavaScript, library, framework, Simple Boot, DI, AOP, open source, web development">
+    <meta name="author" content="dooboostore">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dooboostore-develop.github.io/">
+    <meta property="og:title" content="dooboostore - Integrated Development Platform">
+    <meta property="og:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="og:image" content="assets/images/dooboostore.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dooboostore-develop.github.io/">
+    <meta property="twitter:title" content="dooboostore - Integrated Development Platform">
+    <meta property="twitter:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="twitter:image" content="assets/images/dooboostore.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer=""></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({startOnLoad: true});
+        window.Mermaid = mermaid;
+    </script>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "dooboostore",
+            "description": "A powerful and flexible Integrated Development Platform collection for modern web application development",
+            "url": "https://dooboostore-develop.github.io/",
+            "author": {
+                "@type": "Organization",
+                "name": "dooboostore"
+            },
+            "programmingLanguage": "TypeScript",
+            "operatingSystem": "Cross-platform",
+            "applicationCategory": "DeveloperApplication"
+        }
+    </script>
+<script defer="" src="bundle.js"></script></head>
+<body>
+
+<div id="app"><meta id="owAzxjBMfVbFUCXtcdoLnJRxSZojETrPYUkkKJpi-start"><style id="owAzxjBMfVbFUCXtcdoLnJRxSZojETrPYUkkKJpi-style"></style><meta id="IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start"><style id="IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-style">/* Header */
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).header, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).header-container, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).header-left, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .header-left {
+  display: flex;
+  align-items: center;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).logo, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).logo-img, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).logo-text, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).header-nav, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 32px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).nav-link, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .nav-link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).nav-link:hover, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .nav-link:hover {
+  color: white;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).nav-link:active, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(102, 126, 234, 0.2);
+  background-color: rgba(102, 126, 234, 0.15);
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).header-right, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* Language Toggle */
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-toggle, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-toggle {
+  position: relative;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-checkbox, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-checkbox {
+  display: none;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-label, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  width: 50px;
+  /* 더 작은 고정 너비 */
+  min-width: 50px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-label:hover, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-text, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-text {
+  transition: opacity 0.2s ease;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-text.english, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-text.english {
+  display: none;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-checkbox:checked + .language-label .language-text.korean, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-checkbox:checked + .language-label .language-text.korean {
+  display: none;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).language-checkbox:checked + .language-label .language-text.english, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .language-checkbox:checked + .language-label .language-text.english {
+  display: inline;
+}
+/* Language Content Toggle */
+/* .content.en { */
+/* display: block; */
+/* } */
+/* .content.ko { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.en { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.ko { */
+/* display: block; */
+/* } */
+/* Main Content */
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) main, #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ main:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *) {
+  min-height: 100vh;
+}
+/* Footer */
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer {
+  background: #000;
+  color: white;
+  padding: 20px 0 0;
+  /* margin-top: 120px; */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-container, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-simple, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-logo, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-logo .logo-img, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-logo .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-logo .logo-text, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-logo .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-links, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-link, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-link:hover, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-link:hover {
+  color: white;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-link i, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-link i {
+  font-size: 16px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-copyright, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-logo-small, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-logo-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).footer-copyright p, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .footer-copyright p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).content.ko, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).content.en, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .content.en {
+  display: block;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) header:has(#language-toggle:checked) ~ * .content.ko, #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ header:has(#language-toggle:checked) ~ * .content.ko:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *), :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) header:has(#language-toggle:checked) .content.ko, #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ header:has(#language-toggle:checked) .content.ko:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *) {
+  display: block;
+}
+:is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) header:has(#language-toggle:checked) ~ * .content.en, #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ header:has(#language-toggle:checked) ~ * .content.en:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *), :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) header:has(#language-toggle:checked) .content.en, #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ header:has(#language-toggle:checked) .content.en:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *) {
+  display: none;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).logo-text, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .logo-text {
+    display: none !important;
+  }
+  :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).header-nav, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .header-nav {
+    display: flex;
+    /* Show nav on mobile now */
+    margin-left: 16px;
+    /* Smaller margin on mobile */
+    gap: 16px;
+    /* Smaller gap on mobile */
+  }
+  :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).nav-link, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .nav-link {
+    font-size: 13px;
+    /* Slightly smaller font on mobile */
+  }
+  :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)).header-container, :is(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ *:not(#IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-start ~ #IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end ~ *)) .header-container {
+    padding: 0 16px;
+  }
+  /* .footer-links { */
+  /* flex-direction: column; */
+  /* gap: 16px; */
+  /* } */
+}</style><!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <meta id="AyxIeBCxMsldUFKOUEDYjBdkievZvWPZQmdafnnH-start"><style id="AyxIeBCxMsldUFKOUEDYjBdkievZvWPZQmdafnnH-style"></style><a href="/" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text content en">dooboostore</span>
+                <span class="logo-text content ko">두부가게</span>
+            </a><meta id="AyxIeBCxMsldUFKOUEDYjBdkievZvWPZQmdafnnH-end">
+            
+            <nav class="header-nav">
+                <meta id="XBszWrdlliPSHuYNaQNPKErxjIKEEHvRomGkvxeW-start"><style id="XBszWrdlliPSHuYNaQNPKErxjIKEEHvRomGkvxeW-style"></style><a href="/packages" class="nav-link content en">📦 Packages</a><meta id="XBszWrdlliPSHuYNaQNPKErxjIKEEHvRomGkvxeW-end">
+                <meta id="CdoEVgFEtXrplgqhatRLlLrTfselSuaGDxfNqMdZ-start"><style id="CdoEVgFEtXrplgqhatRLlLrTfselSuaGDxfNqMdZ-style"></style><a href="/packages" class="nav-link content ko">📦 패키지</a><meta id="CdoEVgFEtXrplgqhatRLlLrTfselSuaGDxfNqMdZ-end">
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <meta id="MJznxUAgUvVPZvEiCWFaLPrSKGhcyPuhpiPbDhtN-start"><style id="MJznxUAgUvVPZvEiCWFaLPrSKGhcyPuhpiPbDhtN-style"></style><meta id="ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start"><style id="ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-style">:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) *, #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).packages-container, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .packages-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #e5e5e5;
+  min-height: 100vh;
+  position: relative;
+}
+/* Mobile Menu Toggle */
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).mobile-menu-toggle, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .mobile-menu-toggle {
+  /* display: none; */
+  position: fixed;
+  bottom: 24px;
+  left: 14px;
+  z-index: 1000;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).menu-toggle-btn, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .menu-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).menu-toggle-btn:hover, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).menu-toggle-btn span, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .menu-toggle-btn span {
+  display: none;
+}
+/* Sidebar */
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar {
+  width: 280px;
+  background: #000;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 50;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-content, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-content {
+  padding: 24px 0;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-section, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-section {
+  margin-bottom: 8px;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-category, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-category:hover, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-category:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).category-arrow, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .category-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).category-arrow.rotated, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .category-arrow.rotated {
+  transform: rotate(180deg);
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-items, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-items.open, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-items.open {
+  max-height: 500px;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-item, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-item {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 8px 24px 8px 40px;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-item:hover, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar-item.active, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar-item.active {
+  color: #0070f3;
+  background: rgba(0, 112, 243, 0.1);
+  border-left-color: #0070f3;
+}
+/* Main Content */
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).main-content, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .main-content {
+  margin-left: 280px;
+  padding: 0;
+  min-height: 100vh;
+}
+/* Language Content Toggle */
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).content.ko, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).content.en, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .content.en {
+  display: block;
+}
+/* Desktop - 사이드바 토글 가능 */
+@media (min-width: 769px) {
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).mobile-menu-toggle, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    top: auto;
+    z-index: 1001;
+    transition: left 0.3s ease;
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).menu-toggle-btn, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .menu-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).menu-toggle-btn:hover, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .menu-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar.closed, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  /* 사이드바가 닫혔을 때 토글 버튼 위치는 그대로 유지 */
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar.closed ~ .mobile-menu-toggle, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar.closed ~ .mobile-menu-toggle {
+    left: 20px;
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).main-content, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).main-content.expanded, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .main-content.expanded {
+    margin-left: 0;
+  }
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).packages-container, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .packages-container {
+    display: block;
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).mobile-menu-toggle, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .mobile-menu-toggle {
+    display: block;
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar.open, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar.open {
+    transform: translateX(0);
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).main-content, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .main-content {
+    margin-left: 0;
+  }
+  /* Mobile overlay */
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar.open::before, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).sidebar, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .sidebar {
+    width: 240px;
+  }
+  :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)).main-content, :is(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ *:not(#ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-start ~ #ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end ~ *)) .main-content {
+    margin-left: 240px;
+  }
+}</style><div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="framework-items">
+                    <meta id="MYBjihDIPxbMQEpAaNmWfwWorxeCVeWvwMcgqBJC-start"><meta id="KEGNfVCsXgipDCLTVRaWpwWIieBbxZKyZCqiEszq-start"><style id="KEGNfVCsXgipDCLTVRaWpwWIieBbxZKyZCqiEszq-style"></style><a href="/packages/simple-boot" class="sidebar-item"><!--start text DTLWZYkjQSWDlIFStDxXKrbFnPJkTUDnOZnATYLj_DomRenderRootObject-->simple-boot<!--end text DTLWZYkjQSWDlIFStDxXKrbFnPJkTUDnOZnATYLj_DomRenderRootObject--></a><meta id="KEGNfVCsXgipDCLTVRaWpwWIieBbxZKyZCqiEszq-end"><meta id="jwikXYYyFxpiUtnSrTmhofliqsKyCTyYhxFuMAUR-start"><style id="jwikXYYyFxpiUtnSrTmhofliqsKyCTyYhxFuMAUR-style"></style><a href="/packages/simple-boot-front" class="sidebar-item active"><!--start text nBFpQOenSqBbNGqSPbztGfyhdfpkqenVyCPjpJEt_DomRenderRootObject-->simple-boot-front<!--end text nBFpQOenSqBbNGqSPbztGfyhdfpkqenVyCPjpJEt_DomRenderRootObject--></a><meta id="jwikXYYyFxpiUtnSrTmhofliqsKyCTyYhxFuMAUR-end"><meta id="qaFGiZYneYDfUQvhzIzIaBjFeQEJlhVagAmAMHxM-start"><style id="qaFGiZYneYDfUQvhzIzIaBjFeQEJlhVagAmAMHxM-style"></style><a href="/packages/simple-boot-http-server" class="sidebar-item"><!--start text BalJVqACZGZliKmdTuDMBoehWEZWaAXfrVsyLOlM_DomRenderRootObject-->simple-boot-http-server<!--end text BalJVqACZGZliKmdTuDMBoehWEZWaAXfrVsyLOlM_DomRenderRootObject--></a><meta id="qaFGiZYneYDfUQvhzIzIaBjFeQEJlhVagAmAMHxM-end"><meta id="JnvxuMaRpyAtdMGRwIZOdPFbxZayUKefqZTuuEdl-start"><style id="JnvxuMaRpyAtdMGRwIZOdPFbxZayUKefqZTuuEdl-style"></style><a href="/packages/simple-boot-http-server-ssr" class="sidebar-item"><!--start text cEXYGHIhvcYZPQllayVfchWSshEhCHACKDZLAywJ_DomRenderRootObject-->simple-boot-http-server-ssr<!--end text cEXYGHIhvcYZPQllayVfchWSshEhCHACKDZLAywJ_DomRenderRootObject--></a><meta id="JnvxuMaRpyAtdMGRwIZOdPFbxZayUKefqZTuuEdl-end"><meta id="MYBjihDIPxbMQEpAaNmWfwWorxeCVeWvwMcgqBJC-end">
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="library-items">
+                    <meta id="RKOepYFEIPvNyqhneOkiWBQGVhisDQDwDTzimFMW-start"><meta id="bPIiHMkMbjsSfiZCbGeZdLIlKkzHHYqxFOgKrSpC-start"><style id="bPIiHMkMbjsSfiZCbGeZdLIlKkzHHYqxFOgKrSpC-style"></style><a href="/packages/dom-render" class="sidebar-item"><!--start text bhaVyugwEuPLkSvVyMtXDnuIGIRlpzOusYIWdLya_DomRenderRootObject-->dom-render<!--end text bhaVyugwEuPLkSvVyMtXDnuIGIRlpzOusYIWdLya_DomRenderRootObject--></a><meta id="bPIiHMkMbjsSfiZCbGeZdLIlKkzHHYqxFOgKrSpC-end"><meta id="lQJwQZKWGfXaTjvYqjMFLLrfuDhyHarfNteSmiDn-start"><style id="lQJwQZKWGfXaTjvYqjMFLLrfuDhyHarfNteSmiDn-style"></style><a href="/packages/swt" class="sidebar-item"><!--start text PwgxmtKJSHbXfbOfrApHLpngihrJZyXAZCpbGFIK_DomRenderRootObject-->swt<!--end text PwgxmtKJSHbXfbOfrApHLpngihrJZyXAZCpbGFIK_DomRenderRootObject--></a><meta id="lQJwQZKWGfXaTjvYqjMFLLrfuDhyHarfNteSmiDn-end"><meta id="RKOepYFEIPvNyqhneOkiWBQGVhisDQDwDTzimFMW-end">
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="core-items">
+                    <meta id="zmQoKpTLBkwqDWvwiTIcPYUQiGOkyhUohDFGnibY-start"><meta id="ESdsqxjBptxxRzBghvaZTwBlztwEtDGsSLJWXwrc-start"><style id="ESdsqxjBptxxRzBghvaZTwBlztwEtDGsSLJWXwrc-style"></style><a href="/packages/core" class="sidebar-item"><!--start text TitBlguCBjGxNSTXFubjUTlWWekuyldnsayhFQRN_DomRenderRootObject-->core<!--end text TitBlguCBjGxNSTXFubjUTlWWekuyldnsayhFQRN_DomRenderRootObject--></a><meta id="ESdsqxjBptxxRzBghvaZTwBlztwEtDGsSLJWXwrc-end"><meta id="NxuHeCzGMUiCyRWWqzHgcZjGYHgPcTPERimuwXle-start"><style id="NxuHeCzGMUiCyRWWqzHgcZjGYHgPcTPERimuwXle-style"></style><a href="/packages/core-node" class="sidebar-item"><!--start text RXxJjOVyldoXKOAKHVuBzxXtodeHIvKWXWXqRtZF_DomRenderRootObject-->core-node<!--end text RXxJjOVyldoXKOAKHVuBzxXtodeHIvKWXWXqRtZF_DomRenderRootObject--></a><meta id="NxuHeCzGMUiCyRWWqzHgcZjGYHgPcTPERimuwXle-end"><meta id="QFjsbWJLqNTCVsOKWzHeIFlbLiNVNQPcDUHfHOSt-start"><style id="QFjsbWJLqNTCVsOKWzHeIFlbLiNVNQPcDUHfHOSt-style"></style><a href="/packages/core-web" class="sidebar-item"><!--start text ElITbZXElxzmkfMTTztwfXYFnosjHoBWNHRAmvNv_DomRenderRootObject-->core-web<!--end text ElITbZXElxzmkfMTTztwfXYFnosjHoBWNHRAmvNv_DomRenderRootObject--></a><meta id="QFjsbWJLqNTCVsOKWzHeIFlbLiNVNQPcDUHfHOSt-end"><meta id="zmQoKpTLBkwqDWvwiTIcPYUQiGOkyhUohDFGnibY-end">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <meta id="ZKAaMWEcfCNqoGMZFPHCBKnMJXqFcCnhqaowFfqj-start"><style id="ZKAaMWEcfCNqoGMZFPHCBKnMJXqFcCnhqaowFfqj-style"></style><meta id="npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start"><style id="npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-style">:is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).sub-navigation, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .sub-navigation {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 48px;
+  position: sticky;
+  height: 53px;
+  top: 64px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+:is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).breadcrumb, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+:is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).breadcrumb-item, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .breadcrumb-item {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).breadcrumb-item:hover, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .breadcrumb-item:hover {
+  color: white;
+}
+:is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).breadcrumb-separator, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+:is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).breadcrumb-current, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .breadcrumb-current {
+  color: white;
+  font-weight: 500;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).sub-navigation, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .sub-navigation {
+    padding: 12px 16px;
+  }
+  :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).breadcrumb, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)).breadcrumb, :is(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ *:not(#npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-start ~ #npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}</style><div class="sub-navigation">
+<meta id="QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start"><style id="QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-style">:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-item, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-item {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-item:hover, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-item:hover {
+  color: #ffffff;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-current, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-current {
+  color: #e5e5e5;
+  font-weight: 500;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-separator, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #606060;
+  user-select: none;
+}
+/* Dropdown styles */
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-dropdown, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-select, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-select {
+  position: relative;
+  display: inline-block;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-select-summary, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-select-summary {
+  cursor: pointer;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-select-body, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-select-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 150px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-select-option, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-select-option {
+  cursor: pointer;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-option-content, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-option-content {
+  padding: 0.5rem 1rem;
+  color: #e5e5e5;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-option-content:hover, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-option-content:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-option-content.selected, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-option-content.selected {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+:is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-option-content.selected:hover, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-option-content.selected:hover {
+  background-color: #f0f0f0;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb {
+    font-size: 0.8rem;
+  }
+  :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)).breadcrumb-separator, :is(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ *:not(#QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-start ~ #QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end ~ *)) .breadcrumb-separator {
+    margin: 0 0.25rem;
+  }
+}</style><div class="breadcrumb">
+  <meta id="fxEMiQFIpoUKbJPyuMXXcYpQYBathiKUJhrEctOT-start"><meta id="fxEMiQFIpoUKbJPyuMXXcYpQYBathiKUJhrEctOT-end">
+</div><meta id="QNaQdwHYflwNeSSTmTHTaOfpFevaWjFatvrqtRRw-end">
+</div>
+
+<meta id="DWCsaiDXryLepQHtdbHoiyXHukVscVrzTCvuRaYS-start"><style id="DWCsaiDXryLepQHtdbHoiyXHukVscVrzTCvuRaYS-style"></style><meta id="AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start"><style id="AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-style">:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) *, #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-container, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).container, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+/* Header */
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-header, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-header {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 3rem 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).breadcrumb, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  color: #a0a0a0;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).breadcrumb a, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .breadcrumb a {
+  color: #e5e5e5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).breadcrumb a:hover, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .breadcrumb a:hover {
+  color: #ffffff;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).breadcrumb span, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .breadcrumb span {
+  margin: 0 0.5rem;
+  color: #606060;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-header h1, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-subtitle, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-subtitle {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-actions, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-link, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-link:hover, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-link:hover {
+  color: white;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-link i, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-link i {
+  font-size: 16px;
+}
+/* Content */
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-content, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-content {
+  padding: 4rem 0;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).section, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .section {
+  margin-bottom: 4rem;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).section h2, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .section h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 100px;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  border-top: 1px solid transparent;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).section h3, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .section h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 2rem 0 1rem 0;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).section h4, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .section h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+/* Features Grid */
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).features-grid, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).feature-item, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .feature-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).feature-item h3, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .feature-item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).feature-item p, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .feature-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Concepts Grid */
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).concepts-grid, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).concept-item, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .concept-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).concept-item h4, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .concept-item h4 {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+:is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).concept-item p, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .concept-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).container, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .container {
+    padding: 0 1rem;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-header, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-header {
+    padding: 2rem 0;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-header h1, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-header h1 {
+    font-size: 2rem;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-subtitle, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-subtitle {
+    font-size: 1rem;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-content, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-content {
+    padding: 3rem 0;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).section, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .section {
+    margin-bottom: 3rem;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).features-grid, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .features-grid, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).concepts-grid, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-actions, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-actions {
+    margin-top: 0.5rem;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)).package-link, :is(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ *:not(#AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-start ~ #AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end ~ *)) .package-link {
+    font-size: 13px;
+  }
+  /* .section h2 { */
+  /* top: 90px; */
+  /* margin: -1rem -1rem -1rem -1rem; */
+  /* padding-left: 0.5rem; */
+  /* } */
+}</style><div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-front</h1>
+            <p class="content en">Single Page Application framework for web development</p>
+            <p class="content ko">웹 개발을 위한 단일 페이지 애플리케이션 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot-front" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&amp;logo=github&amp;logoColor=white" alt="GitHub">
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-front" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&amp;logo=npm&amp;logoColor=white" alt="NPM">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its dependencies:</p>
+                <p class="content ko">패키지와 의존성을 설치하세요:</p>
+                
+                <meta id="QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start"><style id="QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-example, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-header, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-title, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-example pre, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-example code, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-copy-btn, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-copy-btn:active, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-copy-btn.copied, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)).code-example pre, :is(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ *:not(#QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-start ~ #QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text JphEbWbdxIyiexFdVORuNjXnRAjNoZjWmzxZXKUq_DomRenderRootObject-->npm<!--end text JphEbWbdxIyiexFdVORuNjXnRAjNoZjWmzxZXKUq_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">npm install @dooboostore/simple-boot-front reflect-metadata</code></pre>
+</div><meta id="QGrwyCvjDGqNUxljSiNvPPYkvYrfYZBQAvGTaxde-end">
+                <meta id="hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start"><style id="hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-example, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-header, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-title, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-example pre, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-example code, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-copy-btn, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-copy-btn:active, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-copy-btn.copied, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)).code-example pre, :is(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ *:not(#hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-start ~ #hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text hrfqACyjEAALBCVPCZZmBTYclwCoOJOPGNNAlfan_DomRenderRootObject-->pnpm<!--end text hrfqACyjEAALBCVPCZZmBTYclwCoOJOPGNNAlfan_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">pnpm add @dooboostore/simple-boot-front reflect-metadata</code></pre>
+</div><meta id="hOJWxfIEbiTRfLyydqLCJFYBLFwePMtCVTNhkzPO-end">
+                <meta id="CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start"><style id="CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-example, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-header, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-title, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-example pre, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-example code, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-copy-btn, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-copy-btn:active, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-copy-btn.copied, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)).code-example pre, :is(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ *:not(#CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-start ~ #CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text ekJzModtbrHoECDOQseMEuznxaKxWPsVoSkChRWj_DomRenderRootObject-->Quick Start CLI<!--end text ekJzModtbrHoECDOQseMEuznxaKxWPsVoSkChRWj_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">npm init @dooboostore/simple-boot-front projectname</code></pre>
+</div><meta id="CGUcCMszSSijiCTSJqZLFvhEuqqbiUVDVpMAQQbV-end">
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>SPA Framework</h3>
+                        <p class="content en">Complete Single Page Application framework for modern web development</p>
+                        <p class="content ko">현대적인 웹 개발을 위한 완전한 단일 페이지 애플리케이션 프레임워크</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Component System</h3>
+                        <p class="content en">Decorator-based component system with template and style support</p>
+                        <p class="content ko">템플릿과 스타일을 지원하는 데코레이터 기반 컴포넌트 시스템</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Router System</h3>
+                        <p class="content en">Flexible routing with path parameters and route guards</p>
+                        <p class="content ko">경로 매개변수와 라우트 가드를 지원하는 유연한 라우팅</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Dependency Injection</h3>
+                        <p class="content en">Built on simple-boot core with full DI and AOP support</p>
+                        <p class="content ko">완전한 DI와 AOP를 지원하는 simple-boot 코어 기반</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Template Engine</h3>
+                        <p class="content en">Powered by dom-render for efficient DOM manipulation</p>
+                        <p class="content ko">효율적인 DOM 조작을 위한 dom-render 기반</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Script System</h3>
+                        <p class="content en">Custom script system for reusable template logic</p>
+                        <p class="content ko">재사용 가능한 템플릿 로직을 위한 커스텀 스크립트 시스템</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="basic-setup">Basic Setup</h3>
+                <p class="content en">Create a simple SPA with routing:</p>
+                <p class="content ko">라우팅을 포함한 간단한 SPA를 생성하세요:</p>
+                
+                <meta id="aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start"><style id="aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-example, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-header, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-title, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-example pre, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-example code, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-copy-btn, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-copy-btn:active, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-copy-btn.copied, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)).code-example pre, :is(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ *:not(#aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-start ~ #aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text oKZnlqKJPWbNcytoARblCEtCcZTekThhiqiFrjJC_DomRenderRootObject-->pages/home.ts<!--end text oKZnlqKJPWbNcytoARblCEtCcZTekThhiqiFrjJC_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">@Sim
+@Component({
+    template: '''<div>Home Page</div>'''
+})
+export class Home {
+    
+}</code></pre>
+</div><meta id="aFNecgXJcfLhMgONcbXFSPznzWuWSZLmlJIgMZNm-end">
+
+                <meta id="CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start"><style id="CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-example, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-header, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-title, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-example pre, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-example code, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-copy-btn, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-copy-btn:active, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-copy-btn.copied, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)).code-example pre, :is(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ *:not(#CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-start ~ #CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text kCVDTEQVLABVyjcQrwadYikzzxDzULcmytnPaHWH_DomRenderRootObject-->pages/user.ts<!--end text kCVDTEQVLABVyjcQrwadYikzzxDzULcmytnPaHWH_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">@Sim
+@Component({
+    template: '''<div>User Page</div>'''
+})
+export class User {
+    
+}</code></pre>
+</div><meta id="CJrHnJvEYSoEwGKMyugsnZKSQgxJCviNWCaAavvL-end">
+
+                <meta id="xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start"><style id="xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-example, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-header, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-title, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-example pre, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-example code, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-copy-btn, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-copy-btn:active, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-copy-btn.copied, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)).code-example pre, :is(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ *:not(#xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-start ~ #xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text DrlFUlqwXoRnWsdJKLlIuvVitmfVmZvRUmRWqPfI_DomRenderRootObject-->index.ts<!--end text DrlFUlqwXoRnWsdJKLlIuvVitmfVmZvRUmRWqPfI_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">import template from '''./index.html'''
+import style from '''./index.css'''
+
+@Sim
+@Router({
+  path: '''''',
+  route: {
+    '''/''': Home,
+    '''/user''': User
+  }
+})
+@Component({
+  template,
+  styles: [style]
+})
+export class Index implements RouterAction {
+  child?: any;
+  
+  async canActivate(url: any, module: any) {
+    this.child = module;
+  }
+}
+
+const config = new SimFrontOption(window).setUrlType(UrlType.hash);
+const simpleApplication = new SimpleBootFront(Index, config);
+simpleApplication.run();</code></pre>
+</div><meta id="xFIbaFVVcPuULyzjiijptEVnTxGuWsmaHRffmmhl-end">
+
+                <h3 id="component-system">Component System</h3>
+                <p class="content en">Create reusable components with templates and styles:</p>
+                <p class="content ko">템플릿과 스타일을 포함한 재사용 가능한 컴포넌트를 생성하세요:</p>
+                
+                <meta id="OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start"><style id="OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-example, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-header, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-title, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-example pre, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-example code, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-copy-btn, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-copy-btn:active, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-copy-btn.copied, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)).code-example pre, :is(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ *:not(#OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-start ~ #OeaCBhHTglWqnxcuTrhbjXlbmdLGKHUKEQFchUgD-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text nYyIHypskzEsoGFhvvMZwstvLPCzpMPDMNwKUqeT_DomRenderRootObject-->template.html<!--end text nYyIHypskzEsoGFhvvMZwstvLPCzpMPDMNwKUqeT_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">&lt;h1&gt;">import template from '''./template.html'''
+import style from '''./style.css'''
+
+@Sim
+@Component({
+  selector: '''my-component''', // default: class name lowercase
+  template,
+  styles: [style]
+})
+export class MyComponent {
+  public title = '''Hello Component'''
+  
+  public setData(title: string) {
+    this.title = title;
+  }
+}</code></pre>
+</div><meta id="eDclHlNFNYzgkDXbmEfMXCFuMtsFYgzwMxnFPXlH-end">
+
+                <meta id="eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start"><style id="eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-example, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-header, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-title, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-example pre, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-example code, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-copy-btn, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-copy-btn:active, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-copy-btn.copied, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)).code-example pre, :is(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ *:not(#eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-start ~ #eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text qevxwzlMgJdBLAoruoaoYvwENDQBMZbuMEmbPeuW_DomRenderRootObject-->Usage in template<!--end text qevxwzlMgJdBLAoruoaoYvwENDQBMZbuMEmbPeuW_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">&lt;my-component&gt;&lt;/my-component&gt;
+
+&lt;!-- With data binding --&gt;
+&lt;my-component dr-set="$myComponent.setData('Dynamic Title')"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Custom content&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/my-component&gt;</code></pre>
+</div><meta id="eXNHoWcDHTZaIwkPvbCnjlsThadOJYOLrqjFBiZh-end">
+
+                <h3 id="routing-example">Advanced Routing</h3>
+                <p class="content en">Handle dynamic routes with path parameters:</p>
+                <p class="content ko">경로 매개변수를 사용한 동적 라우팅을 처리하세요:</p>
+                
+                <meta id="ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start"><style id="ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-example, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-header, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-title, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-example pre, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-example code, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-copy-btn, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-copy-btn:active, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-copy-btn.copied, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)).code-example pre, :is(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ *:not(#ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-start ~ #ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text mBeNmBsvkiKjVYxQiURqGPLLzbYRkuIYkoGAWPJP_DomRenderRootObject-->Advanced Routing<!--end text mBeNmBsvkiKjVYxQiURqGPLLzbYRkuIYkoGAWPJP_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">@Sim
+@Router({
+    path: '''''',
+    route: {
+        '''/''': Home,
+        '''/user''': User,
+        '''/user/{id}''': UserDetail
+    }
+})
+@Component({
+    template,
+    styles: [style]
+})
+export class AppRouter implements RouterAction {
+    child?: any;
+    
+    canActivate(url: any, module: any): void {
+        this.child = module;
+    }
+}
+
+// Access path parameters
+@Sim
+export class UserDetail {
+    constructor(private routerManager: RouterManager) {
+        // Get path data: /user/123 -&gt; { id: '123' }
+        const userId = routerManager.activeRouterModule.pathData.id;
+        console.log('''User ID:''', userId);
+    }
+}</code></pre>
+</div><meta id="ZpIahXzMymLzdAGPblkTprKYcFtuSLfMrhQTjtRm-end">
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="section">
+                <h2 id="advanced-features">Advanced Features</h2>
+                
+                <h3 id="script-system">Script System</h3>
+                <p class="content en">Create reusable template scripts for common functionality:</p>
+                <p class="content ko">공통 기능을 위한 재사용 가능한 템플릿 스크립트를 생성하세요:</p>
+                
+                <meta id="EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start"><style id="EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-example, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-header, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-title, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-example pre, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-example code, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-copy-btn, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-copy-btn:active, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-copy-btn.copied, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)).code-example pre, :is(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ *:not(#EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-start ~ #EpKoCZYNHJWDmPqUgFGEPATtSojgdwZTERIEepRc-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text MwlGDNClqPSabYfKmSnbtOtzqblJzcaeCkcncBZT_DomRenderRootObject-->Script System<!--end text MwlGDNClqPSabYfKmSnbtOtzqblJzcaeCkcncBZT_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">@Sim({scheme: '''i18nScript'''})
+@Script({
+    name: '''i18n'''
+})
+export class I18nScript extends ScriptRunnable {
+    public language?: Language;
+    
+    constructor(public i18nService: I18nService) {
+        super();
+        i18nService.subject.subscribe(it =&gt; {
+            this.language = it;
+            this.render();  // Re-render components using this script
+        })
+    }
+    
+    run(key: string): any {
+        return this.language?.defaultData?.[key] ?? key;
+    }
+}
+
+// Usage in templates
+// &lt;div&gt;">@Sim
+@Component({
+    template: '''&lt;div&gt;Lifecycle Component&lt;/div&gt;'''
+})
+export class LifecycleComponent implements OnInit, OnDestroy, OnChangedRender {
+    
+    @PostConstruct
+    postConstruct(projectService: ProjectService) {
+        console.log('''Post construct with DI''');
+    }
+    
+    onInit(): void {
+        console.log('''Component initialized''');
+    }
+    
+    onChangedRender(): void {
+        console.log('''Component re-rendered''');
+    }
+    
+    onDestroy(): void {
+        console.log('''Component destroyed''');
+    }
+}</code></pre>
+</div><meta id="RdGHNecAfTFPtNhEFcafSkFNyiQjMllkxgsjyEPZ-end">
+
+                <h3 id="aop-support">AOP Support</h3>
+                <p class="content en">Use Aspect-Oriented Programming for cross-cutting concerns:</p>
+                <p class="content ko">횡단 관심사를 위한 관점 지향 프로그래밍을 사용하세요:</p>
+                
+                <meta id="GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start"><style id="GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-example, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-header, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-title, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-example pre, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-example code, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-copy-btn, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-copy-btn:active, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-copy-btn.copied, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)).code-example pre, :is(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ *:not(#GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-start ~ #GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text KxWOmkpjNFFkpoqbtnqRtMOlJbJIETHnjCRWNgkZ_DomRenderRootObject-->AOP Support<!--end text KxWOmkpjNFFkpoqbtnqRtMOlJbJIETHnjCRWNgkZ_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">@Sim
+@Component({
+    template: '''&lt;button dr-event-click="fire($event, $view)"&gt;Click me&lt;/button&gt;'''
+})
+export class AopComponent {
+    data = 0;
+    
+    fire($event: MouseEvent, view: View&lt;Element&gt;) {
+        console.log('''fire method''');
+        this.data = RandomUtils.random(0, 100);
+    }
+
+    @Before({property: '''fire'''})
+    before(obj: any, protoType: Function) {
+        console.log('''before fire method''', obj, protoType);
+    }
+
+    @After({property: '''fire'''})
+    after(obj: any, protoType: Function) {
+        console.log('''after fire method''', obj, protoType);
+    }
+}</code></pre>
+</div><meta id="GZPDNHuOLTaerikhBiXdtKUkqOTkZfiWBNMPieNq-end">
+            </section>
+
+            <!-- Core Concepts -->
+            <section class="section">
+                <h2 id="core-concepts">Core Concepts</h2>
+                <div class="concepts-grid">
+                    <div class="concept-item">
+                        <h4>@Component</h4>
+                        <p class="content en">Decorator for creating reusable UI components with templates and styles</p>
+                        <p class="content ko">템플릿과 스타일을 포함한 재사용 가능한 UI 컴포넌트 생성 데코레이터</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>@Router</h4>
+                        <p class="content en">Routing system that maps URLs to components with path parameters</p>
+                        <p class="content ko">경로 매개변수를 포함하여 URL을 컴포넌트에 매핑하는 라우팅 시스템</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>@Script</h4>
+                        <p class="content en">Custom script system for reusable template logic and utilities</p>
+                        <p class="content ko">재사용 가능한 템플릿 로직과 유틸리티를 위한 커스텀 스크립트 시스템</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>SimpleBootFront</h4>
+                        <p class="content en">Main application class that bootstraps the SPA framework</p>
+                        <p class="content ko">SPA 프레임워크를 부트스트랩하는 메인 애플리케이션 클래스</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>DOM Render Engine</h4>
+                        <p class="content en">Efficient DOM manipulation and template rendering system</p>
+                        <p class="content ko">효율적인 DOM 조작과 템플릿 렌더링 시스템</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Lifecycle Management</h4>
+                        <p class="content en">Component lifecycle hooks for initialization, rendering, and cleanup</p>
+                        <p class="content ko">초기화, 렌더링, 정리를 위한 컴포넌트 생명주기 훅</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div><meta id="AckllwnStjlxnfKePSnqsMwXQWNTiQVREmTGXuhK-end"><meta id="DWCsaiDXryLepQHtdbHoiyXHukVscVrzTCvuRaYS-end"><meta id="npmtzfQerzcvLcdANXzafQBNkVlGFZoMdGbFybSF-end"><meta id="ZKAaMWEcfCNqoGMZFPHCBKnMJXqFcCnhqaowFfqj-end">
+<!--        <dr-this value=""></dr-this>-->
+    </main>
+</div><meta id="ISmpDBCOeAYZkhHbMfbPgUqryGQLtUAfPPXGjqYI-end"><meta id="MJznxUAgUvVPZvEiCWFaLPrSKGhcyPuhpiPbDhtN-end">
+<!--    <dr-this value=""></dr-this>-->
+</main>
+
+
+<!--<iframe-->
+<!--        src="https://stackblitz.com/edit/stackblitz-starters-1idcahki?embed=1&file=src/index.ts&hideNavigation=1&hidePreview=1&view=editor&env=MODE=vvvvvtest"-->
+<!--        style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"-->
+<!--&gt;-->
+<!--</iframe>-->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+<!--                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">-->
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<meta id="IKzTVHTbRgbrlTHeUYwRcmoPNdBzDJkXsZjSvJra-end"><meta id="owAzxjBMfVbFUCXtcdoLnJRxSZojETrPYUkkKJpi-end"></div>
+
+
+</body></html>

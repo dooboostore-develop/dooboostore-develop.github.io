@@ -1,0 +1,299 @@
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.logo-img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border-radius: 4px;
+}
+
+.logo-text {
+    font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: 32px;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.nav-link:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(102, 126, 234, 0.2);
+    background-color: rgba(102, 126, 234, 0.15);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+
+/* Language Toggle */
+.language-toggle {
+    position: relative;
+}
+
+.language-checkbox {
+    display: none;
+}
+
+.language-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    width: 50px; /* 더 작은 고정 너비 */
+    min-width: 50px;
+}
+
+.language-label:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.language-text {
+    transition: opacity 0.2s ease;
+}
+
+.language-text.english {
+    display: none;
+}
+
+.language-checkbox:checked + .language-label .language-text.korean {
+    display: none;
+}
+
+.language-checkbox:checked + .language-label .language-text.english {
+    display: inline;
+}
+
+/* Language Content Toggle */
+/*.content.en {*/
+/*    display: block;*/
+/*}*/
+
+/*.content.ko {*/
+/*    display: none;*/
+/*}*/
+
+/*.language-checkbox:checked ~ main .content.en {*/
+/*    display: none;*/
+/*}*/
+
+/*.language-checkbox:checked ~ main .content.ko {*/
+/*    display: block;*/
+/*}*/
+
+
+
+
+
+/* Main Content */
+main {
+    min-height: 100vh;
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    color: white;
+    padding: 20px 0 0;
+    /*margin-top: 120px;*/
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 100;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.footer-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.footer-logo .logo-img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border-radius: 4px;
+}
+
+.footer-logo .logo-text {
+    font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+.footer-link i {
+    font-size: 16px;
+}
+
+
+
+.footer-copyright {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-logo-small {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.footer-copyright p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin: 0;
+}
+
+
+.content.ko {
+    display: none;
+}
+
+.content.en {
+    display: block;
+}
+header:has(#language-toggle:checked) ~ * .content.ko
+,header:has(#language-toggle:checked) .content.ko {
+    display: block;
+}
+header:has(#language-toggle:checked) ~ * .content.en
+,header:has(#language-toggle:checked) .content.en {
+    display: none;
+}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .logo-text {
+        display: none !important;
+    }
+
+    .header-nav {
+        display: flex; /* Show nav on mobile now */
+        margin-left: 16px; /* Smaller margin on mobile */
+        gap: 16px; /* Smaller gap on mobile */
+    }
+
+    .nav-link {
+        font-size: 13px; /* Slightly smaller font on mobile */
+    }
+
+    .header-container {
+        padding: 0 16px;
+    }
+
+    /*.footer-links {*/
+    /*    flex-direction: column;*/
+    /*    gap: 16px;*/
+    /*}*/
+}

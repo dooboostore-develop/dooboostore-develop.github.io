@@ -1,0 +1,437 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-http-server</h1>
+            <p class="content en">Lightweight and powerful HTTP web server framework for Node.js</p>
+            <p class="content ko">Node.js를 위한 경량이면서 강력한 HTTP 웹 서버 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot-http-server" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-http-server" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its dependencies:</p>
+                <p class="content ko">패키지와 의존성을 설치하세요:</p>
+                
+                <code-example title="npm" codeClass="language-bash">npm install @dooboostore/simple-boot-http-server reflect-metadata</code-example>
+                <code-example title="pnpm" codeClass="language-bash">pnpm add @dooboostore/simple-boot-http-server reflect-metadata</code-example>
+                <code-example title="Quick Start CLI" codeClass="language-bash">npm init @dooboostore/simple-boot-http-server projectname</code-example>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Declarative Routing</h3>
+                        <p class="content en">Use decorators (@Router, @Route) to map URLs to classes and methods</p>
+                        <p class="content ko">데코레이터(@Router, @Route)를 사용하여 URL을 클래스와 메서드에 매핑</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>HTTP Method Mapping</h3>
+                        <p class="content en">Decorators for all standard HTTP methods (@GET, @POST, @PUT, @DELETE, etc.)</p>
+                        <p class="content ko">모든 표준 HTTP 메서드를 위한 데코레이터(@GET, @POST, @PUT, @DELETE 등)</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Request/Response Handling</h3>
+                        <p class="content en">Unified RequestResponse object to manage HTTP transactions</p>
+                        <p class="content ko">HTTP 트랜잭션을 관리하는 통합된 RequestResponse 객체</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Middleware/Filters</h3>
+                        <p class="content en">Intercept requests and responses for cross-cutting concerns</p>
+                        <p class="content ko">횡단 관심사를 위한 요청 및 응답 가로채기</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Global Exception Handling</h3>
+                        <p class="content en">Centralized error handling using @Sim advice classes</p>
+                        <p class="content ko">@Sim advice 클래스를 사용한 중앙집중식 오류 처리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Management</h3>
+                        <p class="content en">Built-in session management with customizable storage providers</p>
+                        <p class="content ko">사용자 정의 저장소 제공자를 지원하는 내장 세션 관리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>HTTPS Support</h3>
+                        <p class="content en">Configure the server to run over HTTPS and HTTP/2</p>
+                        <p class="content ko">HTTPS 및 HTTP/2를 통해 실행되도록 서버 구성</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Endpoints</h3>
+                        <p class="content en">Define logic for different stages of request lifecycle</p>
+                        <p class="content ko">요청 생명주기의 다양한 단계에 대한 로직 정의</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="basic-api">Basic API Setup</h3>
+                <p class="content en">Create a simple REST API with HTTP method decorators:</p>
+                <p class="content ko">HTTP 메서드 데코레이터를 사용하여 간단한 REST API를 생성하세요:</p>
+                
+                <code-example title="Basic API Setup" codeClass="language-typescript">import { Sim, Router, Route, RouterModule } from '''@dooboostore/simple-boot''';
+import {
+    GET, POST, PUT, DELETE,
+    Mimes,
+    RequestResponse,
+    ReqJsonBody
+} from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+@Router({ path: '''/api/items''' })
+export class ItemApi {
+
+    @Route({ path: '''''' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    getAllItems() {
+        // Logic to get all items
+        return [{ id: 1, name: '''Item 1''' }, { id: 2, name: '''Item 2''' }];
+    }
+
+    @Route({ path: '''/{id}''' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    getItemById(routerModule: RouterModule) {
+        const itemId = routerModule.pathData?.id;
+        // Logic to get item by ID
+        return { id: itemId, name: `Item ${itemId}` };
+    }
+
+    @Route({ path: '''''' })
+    @POST({
+        req: { contentType: [Mimes.ApplicationJson] },
+        res: { status: 201, contentType: Mimes.ApplicationJson }
+    })
+    createItem(body: ReqJsonBody) {
+        console.log('''Creating new item:''', body);
+        // Logic to create a new item
+        return { success: true, id: 3, ...body };
+    }
+
+    @Route({ path: '''/{id}''' })
+    @PUT({ req: { contentType: [Mimes.ApplicationJson] } })
+    updateItem(routerModule: RouterModule, body: ReqJsonBody) {
+        const itemId = routerModule.pathData?.id;
+        console.log(`Updating item ${itemId}:`, body);
+        // Logic to update an item
+        return { success: true, id: itemId, ...body };
+    }
+
+    @Route({ path: '''/{id}''' })
+    @DELETE({ res: { status: 204 } })
+    deleteItem(routerModule: RouterModule) {
+        const itemId = routerModule.pathData?.id;
+        console.log(`Deleting item ${itemId}`);
+        // Logic to delete an item
+        // No content returned for 204
+    }
+}</code-example>
+
+                <h3 id="http-methods">Available HTTP Method Decorators</h3>
+                <p class="content en">All standard HTTP methods are supported:</p>
+                <p class="content ko">모든 표준 HTTP 메서드가 지원됩니다:</p>
+                
+                <code-example title="Available HTTP Method Decorators" codeClass="language-typescript">// Available method decorators:
+@GET        // GET requests
+@POST       // POST requests  
+@PUT        // PUT requests
+@DELETE     // DELETE requests
+@PATCH      // PATCH requests
+@OPTIONS    // OPTIONS requests
+@HEAD       // HEAD requests
+@TRACE      // TRACE requests
+@CONNECT    // CONNECT requests
+@UrlMapping // Generic decorator with method parameter
+
+// Example usage
+@Route({ path: '''/users/{id}''' })
+@PATCH({ 
+    req: { contentType: [Mimes.ApplicationJson] },
+    res: { contentType: Mimes.ApplicationJson }
+})
+patchUser(routerModule: RouterModule, body: ReqJsonBody) {
+    const userId = routerModule.pathData?.id;
+    // Partial update logic
+    return { success: true, updated: body };
+}</code-example>
+
+                <h3 id="server-setup">Server Setup</h3>
+                <p class="content en">Bootstrap your HTTP server with the framework:</p>
+                <p class="content ko">프레임워크로 HTTP 서버를 부트스트랩하세요:</p>
+                
+                <code-example title="Server Setup" codeClass="language-typescript">import { SimpleApplication } from '''@dooboostore/simple-boot''';
+import { SimpleBootHttpServer, HttpServerOption } from '''@dooboostore/simple-boot-http-server''';
+
+// Create your main router
+@Sim
+@Router({ 
+    path: '''''', 
+    route: {
+        '''/api''': ItemApi,
+        // Add more routes here
+    }
+})
+class MainRouter {}
+
+// Configure and start the server
+const httpOption = new HttpServerOption({
+    port: 3000,
+    host: '''localhost'''
+});
+
+const app = new SimpleApplication({ rootRouter: MainRouter });
+const server = new SimpleBootHttpServer(app, httpOption);
+
+server.run().then(() => {
+    console.log('''Server is running on http://localhost:3000''');
+});</code-example>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="section">
+                <h2 id="advanced-features">Advanced Features</h2>
+                
+                <h3 id="filters">Filters & Middleware</h3>
+                <p class="content en">Intercept requests and responses for cross-cutting concerns:</p>
+                <p class="content ko">횡단 관심사를 위해 요청과 응답을 가로채세요:</p>
+                
+                <code-example title="Filters & Middleware" codeClass="language-typescript">import { Filter, RequestResponse, SimpleBootHttpServer } from '''@dooboostore/simple-boot-http-server''';
+
+export class LoggingFilter implements Filter {
+    async before(rr: RequestResponse, app: SimpleBootHttpServer): Promise<boolean> {
+        console.log(`[${new Date().toISOString()}] ${rr.reqMethod()} ${rr.reqUrl}`);
+        return true; // Continue the chain
+    }
+
+    async after(rr: RequestResponse, app: SimpleBootHttpServer, sw: boolean): Promise<boolean> {
+        console.log(`Request finished with status ${rr.resStatusCode()}`);
+        return true;
+    }
+}
+
+// CORS Filter example
+export class CorsFilter implements Filter {
+    async before(rr: RequestResponse, app: SimpleBootHttpServer): Promise<boolean> {
+        rr.resSetHeader('''Access-Control-Allow-Origin''', '''*''');
+        rr.resSetHeader('''Access-Control-Allow-Methods''', '''GET, POST, PUT, DELETE, OPTIONS''');
+        rr.resSetHeader('''Access-Control-Allow-Headers''', '''Content-Type, Authorization''');
+        
+        if (rr.reqMethod() === '''OPTIONS''') {
+            rr.resStatusCode(200).resEnd();
+            return false; // Stop the chain for preflight requests
+        }
+        return true;
+    }
+}
+
+// Register filters in HttpServerOption
+const option = new HttpServerOption({
+    filters: [LoggingFilter, CorsFilter]
+});</code-example>
+
+                <h3 id="exception-handling">Global Exception Handling</h3>
+                <p class="content en">Handle errors globally with advice classes:</p>
+                <p class="content ko">advice 클래스로 전역적으로 오류를 처리하세요:</p>
+                
+                <code-example title="Global Exception Handling" codeClass="language-typescript">import { Sim, ExceptionHandler, Inject, ExceptionHandlerSituationType } from '''@dooboostore/simple-boot''';
+import { RequestResponse, NotFoundError, HttpError, InternalServerError, Mimes, HttpStatus } from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+export class GlobalErrorHandler {
+
+    @ExceptionHandler({ type: NotFoundError })
+    handleNotFound(rr: RequestResponse, e: NotFoundError) {
+        // Critical: Check if response is already sent
+        if (rr.resIsDone()) {
+            console.error(`Not found error for URL: ${rr.reqUrl}, but response already sent.`, e);
+            return;
+        }
+        
+        rr.resStatusCode(404)
+          .resSetHeader('''Content-Type''', Mimes.ApplicationJson);
+        rr.resEnd(JSON.stringify({ error: '''Resource not found''' }));
+    }
+
+    @ExceptionHandler()
+    async catch(@Inject({situationType: ExceptionHandlerSituationType.ERROR_OBJECT}) e: any, rr: RequestResponse) {
+        console.error(`GlobalAdvice.catch ${rr.reqUrl}`, e);
+
+        // Critical: Prevent ERR_HTTP_HEADERS_SENT error
+        if (rr.resIsDone()) {
+            return;
+        }
+
+        rr.resStatusCode(HttpStatus.InternalServerError);
+        rr.resSetHeader('''Content-Type''', Mimes.ApplicationJson);
+
+        let data = '''''';
+        if (e instanceof HttpError) {
+            rr.resStatusCode(e.status);
+            data = JSON.stringify(e);
+        } else if (e instanceof Error) {
+            const error = new InternalServerError();
+            error.data = { message: e.message };
+            data = JSON.stringify(error);
+        } else {
+            const error = new InternalServerError();
+            error.data = e;
+            data = JSON.stringify(error);
+        }
+        await rr.resEnd(data);
+    }
+}
+
+// Register in HttpServerOption
+const option = new HttpServerOption({
+    globalAdvice: GlobalErrorHandler,
+    noSuchRouteEndPointMappingThrow: (rr) => new NotFoundError({ message: `No route for ${rr.reqUrl}` }),
+});</code-example>
+
+                <h3 id="session-management">Session Management</h3>
+                <p class="content en">Built-in session management with automatic cookie handling:</p>
+                <p class="content ko">자동 쿠키 처리를 포함한 내장 세션 관리:</p>
+                
+                <code-example title="Session Management" codeClass="language-typescript">import { RequestResponse } from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+@Router({ path: '''/api/session''' })
+export class SessionApi {
+
+    @Route({ path: '''/login''' })
+    @POST({ res: { contentType: Mimes.ApplicationJson } })
+    async login(rr: RequestResponse, body: ReqJsonBody) {
+        const session = await rr.reqSession();
+        
+        // Validate user credentials (simplified)
+        if (body.username === '''admin''' && body.password === '''password''') {
+            session.userId = '''user123''';
+            session.username = body.username;
+            session.loginTime = new Date().toISOString();
+            
+            return { success: true, message: '''Logged in successfully''' };
+        } else {
+            rr.resStatusCode(401);
+            return { success: false, message: '''Invalid credentials''' };
+        }
+    }
+
+    @Route({ path: '''/profile''' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    async getProfile(rr: RequestResponse) {
+        const session = await rr.reqSession();
+        
+        if (!session.userId) {
+            rr.resStatusCode(401);
+            return { error: '''Not authenticated''' };
+        }
+        
+        let visitCount = session.visitCount || 0;
+        visitCount++;
+        session.visitCount = visitCount;
+        
+        return {
+            userId: session.userId,
+            username: session.username,
+            loginTime: session.loginTime,
+            visitCount: visitCount
+        };
+    }
+
+    @Route({ path: '''/logout''' })
+    @POST({ res: { contentType: Mimes.ApplicationJson } })
+    async logout(rr: RequestResponse) {
+        const session = await rr.reqSession();
+        
+        // Clear session data
+        Object.keys(session).forEach(key => delete session[key]);
+        
+        return { success: true, message: '''Logged out successfully''' };
+    }
+}</code-example>
+
+                <h3 id="endpoints">Lifecycle Endpoints</h3>
+                <p class="content en">Hook into different stages of the request lifecycle:</p>
+                <p class="content ko">요청 생명주기의 다양한 단계에 연결하세요:</p>
+                
+                <code-example title="Lifecycle Endpoints" codeClass="language-typescript">import { EndPoint, RequestResponse, SimpleBootHttpServer } from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+class RequestLogger implements EndPoint {
+    async endPoint(rr: RequestResponse, app: SimpleBootHttpServer) {
+        console.log(`New request: ${rr.reqMethod()} ${rr.reqUrl} from ${rr.reqRemoteAddress}`);
+    }
+}
+
+@Sim
+class ConnectionLogger implements EndPoint {
+    async endPoint(rr: RequestResponse, app: SimpleBootHttpServer) {
+        console.log(`Connection closed for ${rr.reqRemoteAddress}`);
+    }
+}
+
+@Sim
+class ErrorLogger implements EndPoint {
+    async endPoint(rr: RequestResponse, app: SimpleBootHttpServer) {
+        console.log(`Error occurred for ${rr.reqUrl}`);
+    }
+}
+
+// Register endpoints in HttpServerOption
+const option = new HttpServerOption({
+    requestEndPoints: [RequestLogger],  // Run when request starts
+    closeEndPoints: [ConnectionLogger], // Run when connection closes
+    errorEndPoints: [ErrorLogger]       // Run when error occurs
+});</code-example>
+            </section>
+
+            <!-- Core Concepts -->
+            <section class="section">
+                <h2 id="core-concepts">Core Concepts</h2>
+                <div class="concepts-grid">
+                    <div class="concept-item">
+                        <h4>@Router & @Route</h4>
+                        <p class="content en">Declarative routing system that maps URLs to classes and methods</p>
+                        <p class="content ko">URL을 클래스와 메서드에 매핑하는 선언적 라우팅 시스템</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>HTTP Method Decorators</h4>
+                        <p class="content en">@GET, @POST, @PUT, @DELETE and other HTTP method decorators</p>
+                        <p class="content ko">@GET, @POST, @PUT, @DELETE 및 기타 HTTP 메서드 데코레이터</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>RequestResponse</h4>
+                        <p class="content en">Unified object for handling HTTP requests and responses</p>
+                        <p class="content ko">HTTP 요청과 응답을 처리하는 통합 객체</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Filters</h4>
+                        <p class="content en">Middleware system for intercepting requests and responses</p>
+                        <p class="content ko">요청과 응답을 가로채는 미들웨어 시스템</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Global Exception Handling</h4>
+                        <p class="content en">Centralized error handling with @ExceptionHandler decorators</p>
+                        <p class="content ko">@ExceptionHandler 데코레이터를 사용한 중앙집중식 오류 처리</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Session Management</h4>
+                        <p class="content en">Built-in session handling with automatic cookie management</p>
+                        <p class="content ko">자동 쿠키 관리를 포함한 내장 세션 처리</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,379 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>dom-render</h1>
+            <p class="content en">HTML view template engine with DOM control and reactive rendering</p>
+            <p class="content ko">DOM 제어와 반응형 렌더링을 지원하는 HTML 뷰 템플릿 엔진</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/dom-render" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/dom-render" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its dependencies:</p>
+                <p class="content ko">패키지와 의존성을 설치하세요:</p>
+                
+                <code-example title="npm" codeClass="language-bash">npm install @dooboostore/dom-render reflect-metadata</code-example>
+                <code-example title="pnpm" codeClass="language-bash">pnpm add @dooboostore/dom-render reflect-metadata</code-example>
+                <code-example title="Quick Start CLI" codeClass="language-bash">npm init @dooboostore/dom-render projectname</code-example>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Template Engine</h3>
+                        <p class="content en">Powerful HTML template engine with expression binding and control structures</p>
+                        <p class="content ko">표현식 바인딩과 제어 구조를 지원하는 강력한 HTML 템플릿 엔진</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>DOM Control</h3>
+                        <p class="content en">Direct DOM manipulation and reordering with efficient rendering</p>
+                        <p class="content ko">효율적인 렌더링을 통한 직접적인 DOM 조작 및 재정렬</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Proxy-based Reactivity</h3>
+                        <p class="content en">All internal variables managed by DomRenderProxy for automatic updates</p>
+                        <p class="content ko">자동 업데이트를 위해 DomRenderProxy로 관리되는 모든 내부 변수</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Component System</h3>
+                        <p class="content en">ComponentBase with decorators for attributes, queries, and events</p>
+                        <p class="content ko">속성, 쿼리, 이벤트를 위한 데코레이터를 지원하는 ComponentBase</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Form Handling</h3>
+                        <p class="content en">Built-in form binding with validation support</p>
+                        <p class="content ko">검증 지원을 포함한 내장 폼 바인딩</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Routing System</h3>
+                        <p class="content en">Declarative routing with path matching and parameters</p>
+                        <p class="content ko">경로 매칭과 매개변수를 지원하는 선언적 라우팅</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="basic-usage">Basic Usage</h3>
+                <p class="content en">Get started with a simple template binding example:</p>
+                <p class="content ko">간단한 템플릿 바인딩 예제로 시작하세요:</p>
+                
+                <code-example title="TypeScript" codeClass="language-typescript">import { DomRender } from '@dooboostore/dom-render';
+
+class AppData {
+  name: string = 'my name is dom-render';
+  color: string = '#ff0000';
+  
+  changeData() {
+    this.name = 'Updated name: ' + new Date().toLocaleTimeString();
+    this.color = '#' + Math.floor(Math.random()*16777215).toString(16);
+  }
+}
+
+const data = new AppData();
+DomRender.run(data, document.querySelector('#app')!);</code-example>
+
+                <code-example title="HTML" codeClass="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;DOM Render Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body id="app"&gt;
+  &lt;h1 style="color: ${this.color}$"&gt;${this.name}$&lt;/h1&gt;
+  &lt;button dr-event-click="this.changeData()"&gt;Change Data&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code-example>
+
+                <h3 id="expressions">Template Expressions</h3>
+                <p class="content en">Use different expression types for text and HTML content:</p>
+                <p class="content ko">텍스트와 HTML 콘텐츠에 다양한 표현식 타입을 사용하세요:</p>
+                
+                <code-example title="Template Expressions" codeClass="language-html">
+
+                        &lt;!-- HTML content (unescaped) --&gt;
+&lt;div&gt;&#35; &#123;this.htmlContent&#125;&#35;&lt;/div&gt;
+
+
+                        &lt;!-- Text content (escaped) --&gt;
+&lt;div&gt;\&#36;&#123;this.name&#125;\&#36;&lt;/div&gt;
+
+&lt;!-- Attribute binding --&gt;
+                    &lt;input type="text" value="\${this.inputValue}\$" style="\${'color: ' + this.textColor}\$"&gt;;</code-example>
+
+                <h3 id="control-structures">Control Structures</h3>
+                <p class="content en">Use directives for conditional rendering and loops:</p>
+                <p class="content ko">조건부 렌더링과 반복을 위한 디렉티브를 사용하세요:</p>
+                
+                <code-example title="Control Structures" codeClass="language-html">&lt;!-- Conditional rendering --&gt;
+&lt;div dr-if="this.isVisible"&gt;This is visible&lt;/div&gt;
+&lt;div dr-if="this.user.role === 'admin'"&gt;Admin content&lt;/div&gt;
+
+&lt;!-- Loop rendering --&gt;
+&lt;ul&gt;
+  &lt;li dr-for-of="this.items"&gt;\${&#35;it&#35;.name}\$ - \${&#35;it&#35;.price}\$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Traditional for loop --&gt;
+&lt;div dr-for="var i = 0; i &amp;lt; this.count; i++"&gt;
+Item \${i + 1}\$
+&lt;/div&gt;</code-example>
+            </section>
+
+            <!-- Directives -->
+            <section class="section">
+                <h2 id="directives">Template Directives</h2>
+                <p class="content en">DOM Render provides a comprehensive set of directives for template control:</p>
+                <p class="content ko">DOM Render는 템플릿 제어를 위한 포괄적인 디렉티브 세트를 제공합니다:</p>
+                
+                <div class="directive-grid">
+                    <div class="directive-item">
+                        <h4>dr-if</h4>
+                        <p class="content en">Conditional element rendering</p>
+                        <p class="content ko">조건부 요소 렌더링</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-for / dr-for-of</h4>
+                        <p class="content en">Loop rendering with iteration</p>
+                        <p class="content ko">반복을 통한 루프 렌더링</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-event-*</h4>
+                        <p class="content en">Event binding (click, input, change, etc.)</p>
+                        <p class="content ko">이벤트 바인딩 (클릭, 입력, 변경 등)</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-value-link</h4>
+                        <p class="content en">Two-way data binding for form inputs</p>
+                        <p class="content ko">폼 입력을 위한 양방향 데이터 바인딩</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-class</h4>
+                        <p class="content en">Dynamic CSS class binding</p>
+                        <p class="content ko">동적 CSS 클래스 바인딩</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-style</h4>
+                        <p class="content en">Dynamic inline style binding</p>
+                        <p class="content ko">동적 인라인 스타일 바인딩</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-attr</h4>
+                        <p class="content en">Dynamic attribute binding</p>
+                        <p class="content ko">동적 속성 바인딩</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-this</h4>
+                        <p class="content en">Context switching for nested objects</p>
+                        <p class="content ko">중첩 객체를 위한 컨텍스트 전환</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-form</h4>
+                        <p class="content en">Form data binding with validation</p>
+                        <p class="content ko">검증을 포함한 폼 데이터 바인딩</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-checked / dr-disabled</h4>
+                        <p class="content en">Boolean attribute binding</p>
+                        <p class="content ko">불린 속성 바인딩</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-appender</h4>
+                        <p class="content en">Dynamic list management</p>
+                        <p class="content ko">동적 리스트 관리</p>
+                    </div>
+                    <div class="directive-item">
+                        <h4>dr-route-match</h4>
+                        <p class="content en">Route-based conditional rendering</p>
+                        <p class="content ko">라우트 기반 조건부 렌더링</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="section">
+                <h2 id="advanced-features">Advanced Features</h2>
+                
+                <h3 id="component-system">Component System</h3>
+                <p class="content en">Create reusable components with ComponentBase and decorators:</p>
+                <p class="content ko">ComponentBase와 데코레이터로 재사용 가능한 컴포넌트를 생성하세요:</p>
+                
+                <code-example title="Component System" codeClass="language-typescript">import { ComponentBase, attribute, query, event } from '@dooboostore/dom-render';
+
+export class UserCard extends ComponentBase&lt;{ 'user-name': string, 'user-email': string }&gt; {
+    @attribute
+    userName: string = 'Default User';
+
+    @attribute({ name: 'user-email' })
+    userEmail: string = '';
+
+    @query('button.edit')
+    private editButton: HTMLButtonElement;
+
+    @query('span.status')
+    private statusElements: HTMLSpanElement[];
+
+    @event({ query: 'button.edit', name: 'click' })
+    onEditClick(e: MouseEvent) {
+        console.log('Edit clicked for:', this.userName);
+    }
+
+    onInitRender() {
+        if (this.editButton) {
+            this.editButton.style.display = this.userEmail ? 'block' : 'none';
+        }
+    }
+}</code-example>
+
+                <code-example title="Usage in HTML" codeClass="language-html">&lt;user-card user-name="John Doe" user-email="john@example.com"&gt;
+  &lt;div&gt;
+    &lt;h3&gt;\${@this@.userName}\$&lt;/h3&gt;
+    &lt;p&gt;\${@this@.userEmail}\$&lt;/p&gt;
+    &lt;span class="status"&gt;Active&lt;/span&gt;
+    &lt;button class="edit"&gt;Edit User&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/user-card&gt;</code-example>
+
+                <h3 id="form-handling">Form Handling & Validation</h3>
+                <p class="content en">Handle forms with built-in validation support:</p>
+                <p class="content ko">내장 검증 지원으로 폼을 처리하세요:</p>
+                
+                <code-example title="Form Handling & Validation" codeClass="language-typescript">import { DomRender } from '@dooboostore/dom-render';
+import { FormValidator, NotEmptyValidator, RegExpTestValidator } from '@dooboostore/dom-render/validator';
+
+class UserForm {
+    form: FormValidator = new FormValidator();
+
+    constructor() {
+        this.form.name = new NotEmptyValidator();
+        this.form.email = new RegExpTestValidator(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+        this.form.age = new NotEmptyValidator();
+    }
+
+    submit() {
+        if (this.form.valid()) {
+            console.log('Form is valid:', this.form);
+            // Process form data
+        } else {
+            console.log('Form has errors');
+            // Show validation errors
+        }
+    }
+}</code-example>
+
+                <code-example title="Form HTML" codeClass="language-html">&lt;form dr-form="@this@.form" dr-event-submit="@this@.submit(); $event.preventDefault();"&gt;
+  &lt;div&gt;
+    &lt;label&gt;Name:&lt;/label&gt;
+    &lt;input name="name" type="text" required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label&gt;Email:&lt;/label&gt;
+    &lt;input name="email" type="email" required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label&gt;Age:&lt;/label&gt;
+    &lt;input name="age" type="number" required&gt;
+  &lt;/div&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code-example>
+
+                <h3 id="routing">Routing System</h3>
+                <p class="content en">Implement client-side routing with declarative components:</p>
+                <p class="content ko">선언적 컴포넌트로 클라이언트 사이드 라우팅을 구현하세요:</p>
+                
+                <code-example title="Routing System" codeClass="language-typescript">import { DomRender, DomRenderRunConfig } from '@dooboostore/dom-render';
+
+class App {
+    currentPath: string = '/';
+    
+    constructor() {
+        // Router will automatically update currentPath
+    }
+}
+
+const config: DomRenderRunConfig&lt;App&gt; = {
+    window: window,
+    routerType: 'path' // or 'hash'
+};
+
+const domRender = new DomRender({
+    rootObject: new App(),
+    target: document.querySelector('#app')!,
+    config: config
+}, { autoGo: '/' });</code-example>
+
+                <code-example title="Routing HTML" codeClass="language-html">&lt;nav&gt;
+  &lt;button dr-event-click="$router?.go({path:'/'})"&gt;Home&lt;/button&gt;
+  &lt;button dr-event-click="$router?.go({path:'/about'})"&gt;About&lt;/button&gt;
+  &lt;button dr-event-click="$router?.go({path:'/user/123'})"&gt;User 123&lt;/button&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+  &lt;dr-route-match value="/"&gt;
+    &lt;h1&gt;Home Page&lt;/h1&gt;
+  &lt;/dr-route-match&gt;
+
+  &lt;dr-route-match value="/about"&gt;
+    &lt;h1&gt;About Page&lt;/h1&gt;
+  &lt;/dr-route-match&gt;
+
+  &lt;dr-route-match value="/user/{id:[0-9]+}"&gt;
+    &lt;h1&gt;User Profile&lt;/h1&gt;
+    &lt;p&gt;User ID: ${$router.pathData?.id}$&lt;/p&gt;
+  &lt;/dr-route-match&gt;
+&lt;/main&gt;</code-example>
+            </section>
+
+            <!-- Core Concepts -->
+            <section class="section">
+                <h2 id="core-concepts">Core Concepts</h2>
+                <div class="concepts-grid">
+                    <div class="concept-item">
+                        <h4>DomRender</h4>
+                        <p class="content en">Main class for initializing and managing template rendering</p>
+                        <p class="content ko">템플릿 렌더링을 초기화하고 관리하는 메인 클래스</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>DomRenderProxy</h4>
+                        <p class="content en">Proxy system for automatic change detection and DOM updates</p>
+                        <p class="content ko">자동 변경 감지와 DOM 업데이트를 위한 프록시 시스템</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>ComponentBase</h4>
+                        <p class="content en">Base class for creating reusable components with lifecycle hooks</p>
+                        <p class="content ko">생명주기 훅을 포함한 재사용 가능한 컴포넌트 생성을 위한 기본 클래스</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Template Directives</h4>
+                        <p class="content en">Special attributes (dr-*) for controlling DOM behavior</p>
+                        <p class="content ko">DOM 동작을 제어하는 특수 속성 (dr-*)</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Expression Binding</h4>
+                        <p class="content en">\${}$ and &#35;{}&#35; syntax for data binding in templates</p>
+                        <p class="content ko">템플릿에서 데이터 바인딩을 위한 \${}$와 &#35;{}&#35; 구문</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Form Validation</h4>
+                        <p class="content en">Built-in validators for form data validation</p>
+                        <p class="content ko">폼 데이터 검증을 위한 내장 검증기</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

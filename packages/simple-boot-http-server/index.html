@@ -1,0 +1,1699 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>dooboostore - Integrated Development Platform</title>
+    <meta name="description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta name="keywords" content="TypeScript, JavaScript, library, framework, Simple Boot, DI, AOP, open source, web development">
+    <meta name="author" content="dooboostore">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dooboostore-develop.github.io/">
+    <meta property="og:title" content="dooboostore - Integrated Development Platform">
+    <meta property="og:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="og:image" content="assets/images/dooboostore.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dooboostore-develop.github.io/">
+    <meta property="twitter:title" content="dooboostore - Integrated Development Platform">
+    <meta property="twitter:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="twitter:image" content="assets/images/dooboostore.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer=""></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({startOnLoad: true});
+        window.Mermaid = mermaid;
+    </script>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "dooboostore",
+            "description": "A powerful and flexible Integrated Development Platform collection for modern web application development",
+            "url": "https://dooboostore-develop.github.io/",
+            "author": {
+                "@type": "Organization",
+                "name": "dooboostore"
+            },
+            "programmingLanguage": "TypeScript",
+            "operatingSystem": "Cross-platform",
+            "applicationCategory": "DeveloperApplication"
+        }
+    </script>
+<script defer="" src="bundle.js"></script></head>
+<body>
+
+<div id="app"><meta id="tpTqKtiZsycaKnugnfDqwysXNMcyQXaNLIYCtlVY-start"><style id="tpTqKtiZsycaKnugnfDqwysXNMcyQXaNLIYCtlVY-style"></style><meta id="jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start"><style id="jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-style">/* Header */
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).header, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).header-container, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).header-left, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .header-left {
+  display: flex;
+  align-items: center;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).logo, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).logo-img, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).logo-text, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).header-nav, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 32px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).nav-link, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .nav-link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).nav-link:hover, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .nav-link:hover {
+  color: white;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).nav-link:active, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(102, 126, 234, 0.2);
+  background-color: rgba(102, 126, 234, 0.15);
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).header-right, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* Language Toggle */
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-toggle, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-toggle {
+  position: relative;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-checkbox, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-checkbox {
+  display: none;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-label, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  width: 50px;
+  /* 더 작은 고정 너비 */
+  min-width: 50px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-label:hover, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-text, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-text {
+  transition: opacity 0.2s ease;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-text.english, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-text.english {
+  display: none;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-checkbox:checked + .language-label .language-text.korean, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-checkbox:checked + .language-label .language-text.korean {
+  display: none;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).language-checkbox:checked + .language-label .language-text.english, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .language-checkbox:checked + .language-label .language-text.english {
+  display: inline;
+}
+/* Language Content Toggle */
+/* .content.en { */
+/* display: block; */
+/* } */
+/* .content.ko { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.en { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.ko { */
+/* display: block; */
+/* } */
+/* Main Content */
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) main, #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ main:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *) {
+  min-height: 100vh;
+}
+/* Footer */
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer {
+  background: #000;
+  color: white;
+  padding: 20px 0 0;
+  /* margin-top: 120px; */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-container, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-simple, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-logo, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-logo .logo-img, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-logo .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-logo .logo-text, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-logo .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-links, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-link, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-link:hover, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-link:hover {
+  color: white;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-link i, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-link i {
+  font-size: 16px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-copyright, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-logo-small, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-logo-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).footer-copyright p, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .footer-copyright p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).content.ko, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).content.en, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .content.en {
+  display: block;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) header:has(#language-toggle:checked) ~ * .content.ko, #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ header:has(#language-toggle:checked) ~ * .content.ko:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *), :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) header:has(#language-toggle:checked) .content.ko, #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ header:has(#language-toggle:checked) .content.ko:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *) {
+  display: block;
+}
+:is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) header:has(#language-toggle:checked) ~ * .content.en, #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ header:has(#language-toggle:checked) ~ * .content.en:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *), :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) header:has(#language-toggle:checked) .content.en, #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ header:has(#language-toggle:checked) .content.en:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *) {
+  display: none;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).logo-text, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .logo-text {
+    display: none !important;
+  }
+  :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).header-nav, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .header-nav {
+    display: flex;
+    /* Show nav on mobile now */
+    margin-left: 16px;
+    /* Smaller margin on mobile */
+    gap: 16px;
+    /* Smaller gap on mobile */
+  }
+  :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).nav-link, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .nav-link {
+    font-size: 13px;
+    /* Slightly smaller font on mobile */
+  }
+  :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)).header-container, :is(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ *:not(#jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-start ~ #jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end ~ *)) .header-container {
+    padding: 0 16px;
+  }
+  /* .footer-links { */
+  /* flex-direction: column; */
+  /* gap: 16px; */
+  /* } */
+}</style><!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <meta id="LFquNiGavyPKSsIEWgBCksombwjyeIRoVtQOjMbn-start"><style id="LFquNiGavyPKSsIEWgBCksombwjyeIRoVtQOjMbn-style"></style><a href="/" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text content en">dooboostore</span>
+                <span class="logo-text content ko">두부가게</span>
+            </a><meta id="LFquNiGavyPKSsIEWgBCksombwjyeIRoVtQOjMbn-end">
+            
+            <nav class="header-nav">
+                <meta id="eEDMoIYVwiXNebnVlLBdJjgcgQQZnQrIxVxaheVL-start"><style id="eEDMoIYVwiXNebnVlLBdJjgcgQQZnQrIxVxaheVL-style"></style><a href="/packages" class="nav-link content en">📦 Packages</a><meta id="eEDMoIYVwiXNebnVlLBdJjgcgQQZnQrIxVxaheVL-end">
+                <meta id="hfNGnlJsRHCbkfkPhpWlsOMBsmZShoFfLvqOJczr-start"><style id="hfNGnlJsRHCbkfkPhpWlsOMBsmZShoFfLvqOJczr-style"></style><a href="/packages" class="nav-link content ko">📦 패키지</a><meta id="hfNGnlJsRHCbkfkPhpWlsOMBsmZShoFfLvqOJczr-end">
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <meta id="WOeKtaNaTVvSjCjNbHBWNxJXCZimsNOgVGSWSPqX-start"><style id="WOeKtaNaTVvSjCjNbHBWNxJXCZimsNOgVGSWSPqX-style"></style><meta id="DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start"><style id="DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-style">:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) *, #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).packages-container, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .packages-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #e5e5e5;
+  min-height: 100vh;
+  position: relative;
+}
+/* Mobile Menu Toggle */
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).mobile-menu-toggle, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .mobile-menu-toggle {
+  /* display: none; */
+  position: fixed;
+  bottom: 24px;
+  left: 14px;
+  z-index: 1000;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).menu-toggle-btn, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .menu-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).menu-toggle-btn:hover, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).menu-toggle-btn span, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .menu-toggle-btn span {
+  display: none;
+}
+/* Sidebar */
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar {
+  width: 280px;
+  background: #000;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 50;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-content, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-content {
+  padding: 24px 0;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-section, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-section {
+  margin-bottom: 8px;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-category, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-category:hover, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-category:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).category-arrow, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .category-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).category-arrow.rotated, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .category-arrow.rotated {
+  transform: rotate(180deg);
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-items, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-items.open, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-items.open {
+  max-height: 500px;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-item, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-item {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 8px 24px 8px 40px;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-item:hover, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar-item.active, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar-item.active {
+  color: #0070f3;
+  background: rgba(0, 112, 243, 0.1);
+  border-left-color: #0070f3;
+}
+/* Main Content */
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).main-content, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .main-content {
+  margin-left: 280px;
+  padding: 0;
+  min-height: 100vh;
+}
+/* Language Content Toggle */
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).content.ko, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).content.en, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .content.en {
+  display: block;
+}
+/* Desktop - 사이드바 토글 가능 */
+@media (min-width: 769px) {
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).mobile-menu-toggle, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    top: auto;
+    z-index: 1001;
+    transition: left 0.3s ease;
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).menu-toggle-btn, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .menu-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).menu-toggle-btn:hover, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .menu-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar.closed, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  /* 사이드바가 닫혔을 때 토글 버튼 위치는 그대로 유지 */
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar.closed ~ .mobile-menu-toggle, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar.closed ~ .mobile-menu-toggle {
+    left: 20px;
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).main-content, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).main-content.expanded, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .main-content.expanded {
+    margin-left: 0;
+  }
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).packages-container, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .packages-container {
+    display: block;
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).mobile-menu-toggle, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .mobile-menu-toggle {
+    display: block;
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar.open, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar.open {
+    transform: translateX(0);
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).main-content, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .main-content {
+    margin-left: 0;
+  }
+  /* Mobile overlay */
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar.open::before, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).sidebar, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .sidebar {
+    width: 240px;
+  }
+  :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)).main-content, :is(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ *:not(#DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-start ~ #DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end ~ *)) .main-content {
+    margin-left: 240px;
+  }
+}</style><div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="framework-items">
+                    <meta id="tlZLwMggyouluqnLkAHOvasSguQZbKaANMYhZXZv-start"><meta id="QSAnLoBmsaKdjUkCGZWhxSnrNXYkqTwxqnhgErvK-start"><style id="QSAnLoBmsaKdjUkCGZWhxSnrNXYkqTwxqnhgErvK-style"></style><a href="/packages/simple-boot" class="sidebar-item"><!--start text LCjnpuaZGXFCfWAlhcktQhTZhackLDvnNPWAARyM_DomRenderRootObject-->simple-boot<!--end text LCjnpuaZGXFCfWAlhcktQhTZhackLDvnNPWAARyM_DomRenderRootObject--></a><meta id="QSAnLoBmsaKdjUkCGZWhxSnrNXYkqTwxqnhgErvK-end"><meta id="AttcfbgiMKzcKehrNmurJTPwCaREcLghfqJoBNLN-start"><style id="AttcfbgiMKzcKehrNmurJTPwCaREcLghfqJoBNLN-style"></style><a href="/packages/simple-boot-front" class="sidebar-item"><!--start text AOAmRUEMuOglZtioAViMPwiXYBrEiuPuzOAJAOGQ_DomRenderRootObject-->simple-boot-front<!--end text AOAmRUEMuOglZtioAViMPwiXYBrEiuPuzOAJAOGQ_DomRenderRootObject--></a><meta id="AttcfbgiMKzcKehrNmurJTPwCaREcLghfqJoBNLN-end"><meta id="XGwsmQENMMNxvXEvNMpFjWRPeagfcGxyrLQGojJC-start"><style id="XGwsmQENMMNxvXEvNMpFjWRPeagfcGxyrLQGojJC-style"></style><a href="/packages/simple-boot-http-server" class="sidebar-item active"><!--start text NeXPrYIqZzzJKNUcPQCCnszCBgZZbkoOuyJmPXke_DomRenderRootObject-->simple-boot-http-server<!--end text NeXPrYIqZzzJKNUcPQCCnszCBgZZbkoOuyJmPXke_DomRenderRootObject--></a><meta id="XGwsmQENMMNxvXEvNMpFjWRPeagfcGxyrLQGojJC-end"><meta id="gmYpiRgoCgJutJlxleveuNQLCErsePFOQwpnmWnW-start"><style id="gmYpiRgoCgJutJlxleveuNQLCErsePFOQwpnmWnW-style"></style><a href="/packages/simple-boot-http-server-ssr" class="sidebar-item"><!--start text oBnauEIuoWRoVVqNNilLahdRCJrSPumtOeVXXAed_DomRenderRootObject-->simple-boot-http-server-ssr<!--end text oBnauEIuoWRoVVqNNilLahdRCJrSPumtOeVXXAed_DomRenderRootObject--></a><meta id="gmYpiRgoCgJutJlxleveuNQLCErsePFOQwpnmWnW-end"><meta id="tlZLwMggyouluqnLkAHOvasSguQZbKaANMYhZXZv-end">
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="library-items">
+                    <meta id="WkDQSTJYutkZADlhZVsJaLhMlLJcZSuLIknoZhXc-start"><meta id="emPjVCwdVEWNqwxIYQSvsUlaFDrXOFKrsjgznWqj-start"><style id="emPjVCwdVEWNqwxIYQSvsUlaFDrXOFKrsjgznWqj-style"></style><a href="/packages/dom-render" class="sidebar-item"><!--start text ZOqnFoEKBdELgmSwLyfjTsoikSdaxbkKgOJOnnYv_DomRenderRootObject-->dom-render<!--end text ZOqnFoEKBdELgmSwLyfjTsoikSdaxbkKgOJOnnYv_DomRenderRootObject--></a><meta id="emPjVCwdVEWNqwxIYQSvsUlaFDrXOFKrsjgznWqj-end"><meta id="kIjUiKBszSkFQYIWPgvPqeOtuEzEbBnunsJSksDi-start"><style id="kIjUiKBszSkFQYIWPgvPqeOtuEzEbBnunsJSksDi-style"></style><a href="/packages/swt" class="sidebar-item"><!--start text uPmMJuxSBzYSxoehSopEzJpMxUGCMwjmrrwFzUBC_DomRenderRootObject-->swt<!--end text uPmMJuxSBzYSxoehSopEzJpMxUGCMwjmrrwFzUBC_DomRenderRootObject--></a><meta id="kIjUiKBszSkFQYIWPgvPqeOtuEzEbBnunsJSksDi-end"><meta id="WkDQSTJYutkZADlhZVsJaLhMlLJcZSuLIknoZhXc-end">
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="core-items">
+                    <meta id="jpDLVPunRVWGApgpRgcpCzbMbUtvMGxnntvKgOFj-start"><meta id="OzkigaaYJaOYvRdBALEvsSIIfXplXngLaojaQtEH-start"><style id="OzkigaaYJaOYvRdBALEvsSIIfXplXngLaojaQtEH-style"></style><a href="/packages/core" class="sidebar-item"><!--start text ViCAHXkjTOoktYFWITznKSLKyzaqjliwOMsfbsUv_DomRenderRootObject-->core<!--end text ViCAHXkjTOoktYFWITznKSLKyzaqjliwOMsfbsUv_DomRenderRootObject--></a><meta id="OzkigaaYJaOYvRdBALEvsSIIfXplXngLaojaQtEH-end"><meta id="NzfmtNEWnLJMciJbudhvMEpWszjRnncFybExJKqf-start"><style id="NzfmtNEWnLJMciJbudhvMEpWszjRnncFybExJKqf-style"></style><a href="/packages/core-node" class="sidebar-item"><!--start text ZTZzGonNUSiEQaOuoejaiNyXfoCUlnCYeNDXnbFE_DomRenderRootObject-->core-node<!--end text ZTZzGonNUSiEQaOuoejaiNyXfoCUlnCYeNDXnbFE_DomRenderRootObject--></a><meta id="NzfmtNEWnLJMciJbudhvMEpWszjRnncFybExJKqf-end"><meta id="KgAhCvVZcaiqGSEcrEvywYWxevGupsxLjuWopXWa-start"><style id="KgAhCvVZcaiqGSEcrEvywYWxevGupsxLjuWopXWa-style"></style><a href="/packages/core-web" class="sidebar-item"><!--start text bXKSzzMHIilmXRqUpkYxJSkyygbTGTNoEYyHHnUS_DomRenderRootObject-->core-web<!--end text bXKSzzMHIilmXRqUpkYxJSkyygbTGTNoEYyHHnUS_DomRenderRootObject--></a><meta id="KgAhCvVZcaiqGSEcrEvywYWxevGupsxLjuWopXWa-end"><meta id="jpDLVPunRVWGApgpRgcpCzbMbUtvMGxnntvKgOFj-end">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <meta id="FuhnakVILJXCcCuGtqNUROYQAsroiqqDHLfIxevs-start"><style id="FuhnakVILJXCcCuGtqNUROYQAsroiqqDHLfIxevs-style"></style><meta id="ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start"><style id="ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-style">:is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).sub-navigation, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .sub-navigation {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 48px;
+  position: sticky;
+  height: 53px;
+  top: 64px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+:is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).breadcrumb, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+:is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).breadcrumb-item, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .breadcrumb-item {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).breadcrumb-item:hover, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .breadcrumb-item:hover {
+  color: white;
+}
+:is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).breadcrumb-separator, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+:is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).breadcrumb-current, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .breadcrumb-current {
+  color: white;
+  font-weight: 500;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).sub-navigation, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .sub-navigation {
+    padding: 12px 16px;
+  }
+  :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).breadcrumb, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)).breadcrumb, :is(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ *:not(#ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-start ~ #ITMnXosAfeBnAGghNUPGAZMAEjBsSHcIvpokaaga-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}</style><div class="sub-navigation">
+<meta id="gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start"><style id="gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-style">:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-item, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-item {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-item:hover, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-item:hover {
+  color: #ffffff;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-current, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-current {
+  color: #e5e5e5;
+  font-weight: 500;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-separator, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #606060;
+  user-select: none;
+}
+/* Dropdown styles */
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-dropdown, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-select, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-select {
+  position: relative;
+  display: inline-block;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-select-summary, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-select-summary {
+  cursor: pointer;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-select-body, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-select-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 150px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-select-option, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-select-option {
+  cursor: pointer;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-option-content, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-option-content {
+  padding: 0.5rem 1rem;
+  color: #e5e5e5;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-option-content:hover, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-option-content:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-option-content.selected, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-option-content.selected {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+:is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-option-content.selected:hover, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-option-content.selected:hover {
+  background-color: #f0f0f0;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb {
+    font-size: 0.8rem;
+  }
+  :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)).breadcrumb-separator, :is(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ *:not(#gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-start ~ #gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end ~ *)) .breadcrumb-separator {
+    margin: 0 0.25rem;
+  }
+}</style><div class="breadcrumb">
+  <meta id="OdxLZXvKuScQqOXwyiqvqvfZSSwhnnrkLwydrDZO-start"><meta id="OdxLZXvKuScQqOXwyiqvqvfZSSwhnnrkLwydrDZO-end">
+</div><meta id="gGNwzVndBMBppmHkeOSfzFsuWvfgjcELipzmUxet-end">
+</div>
+
+<meta id="WrwavYTAZXbCvYFZnlVBtSgDjItzDgctCvEnXcEx-start"><style id="WrwavYTAZXbCvYFZnlVBtSgDjItzDgctCvEnXcEx-style"></style><meta id="pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start"><style id="pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-style">:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) *, #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-container, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).container, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+/* Header */
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-header, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-header {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 3rem 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-header h1, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-actions, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-link, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-link:hover, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-link:hover {
+  color: white;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-link i, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-link i {
+  font-size: 16px;
+}
+/* Content */
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-content, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-content {
+  padding: 4rem 0;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).section, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .section {
+  margin-bottom: 4rem;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).section h2, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .section h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 100px;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  border-top: 1px solid transparent;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).section h3, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .section h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 2rem 0 1rem 0;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).section h4, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .section h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+/* Features Grid */
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).features-grid, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).feature-item, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .feature-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).feature-item h3, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .feature-item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).feature-item p, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .feature-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Concepts Grid */
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).concepts-grid, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).concept-item, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .concept-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).concept-item h4, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .concept-item h4 {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+:is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).concept-item p, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .concept-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-header, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-header {
+    padding: 2rem 0;
+  }
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-header h1, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-header h1 {
+    font-size: 2rem;
+  }
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-content, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-content {
+    padding: 3rem 0;
+  }
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).section, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .section {
+    margin-bottom: 3rem;
+  }
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).features-grid, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .features-grid, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).concepts-grid, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-actions, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-actions {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).package-link, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .package-link {
+    font-size: 13px;
+  }
+}
+/* Mobile code fix */
+@media (max-width: 768px) {
+  :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)).container, :is(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ *:not(#pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-start ~ #pKBCWqlEpydZRoYuZuNMAbxHBiCBxuaMrUmroMBc-end ~ *)) .container {
+    padding: 0 1rem;
+  }
+  /* .section h2 { */
+  /* top: 90px; */
+  /* margin: -1rem -1rem -1rem -1rem; */
+  /* padding-left: 0.5rem; */
+  /* } */
+}</style><div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-http-server</h1>
+            <p class="content en">Lightweight and powerful HTTP web server framework for Node.js</p>
+            <p class="content ko">Node.js를 위한 경량이면서 강력한 HTTP 웹 서버 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot-http-server" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&amp;logo=github&amp;logoColor=white" alt="GitHub">
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-http-server" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&amp;logo=npm&amp;logoColor=white" alt="NPM">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its dependencies:</p>
+                <p class="content ko">패키지와 의존성을 설치하세요:</p>
+                
+                <meta id="wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start"><style id="wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-example, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-header, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-title, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-example pre, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-example code, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-copy-btn, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-copy-btn:active, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-copy-btn.copied, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)).code-example pre, :is(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ *:not(#wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-start ~ #wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text DRKhnaLAQOskFrFulXYFYBxoLQdtHAhggmomZpbt_DomRenderRootObject-->npm<!--end text DRKhnaLAQOskFrFulXYFYBxoLQdtHAhggmomZpbt_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">npm install @dooboostore/simple-boot-http-server reflect-metadata</code></pre>
+</div><meta id="wqVTTqtiLnnbgheNPFTlsTFptcjddrrNuacbKlFK-end">
+                <meta id="ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start"><style id="ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-example, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-header, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-title, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-example pre, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-example code, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-copy-btn, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-copy-btn:active, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-copy-btn.copied, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)).code-example pre, :is(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ *:not(#ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-start ~ #ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text yeZPgUOHIEEtYurZaasogBEbuWyZEgllSFTbEUOG_DomRenderRootObject-->pnpm<!--end text yeZPgUOHIEEtYurZaasogBEbuWyZEgllSFTbEUOG_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">pnpm add @dooboostore/simple-boot-http-server reflect-metadata</code></pre>
+</div><meta id="ZrdlrZeeEVGwtVmaacrfWhUpjibRHdhCeCKfWpQC-end">
+                <meta id="qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start"><style id="qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-example, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-header, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-title, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-example pre, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-example code, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-copy-btn, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-copy-btn:active, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-copy-btn.copied, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)).code-example pre, :is(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ *:not(#qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-start ~ #qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text ylduupVTCeYpAqhAbsXaJlnhkimDCqKjnNSfQwzz_DomRenderRootObject-->Quick Start CLI<!--end text ylduupVTCeYpAqhAbsXaJlnhkimDCqKjnNSfQwzz_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">npm init @dooboostore/simple-boot-http-server projectname</code></pre>
+</div><meta id="qWtjmsgPtpZVmEGdMnqWoKLbezxiUejRRYqtyNYa-end">
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Declarative Routing</h3>
+                        <p class="content en">Use decorators (@Router, @Route) to map URLs to classes and methods</p>
+                        <p class="content ko">데코레이터(@Router, @Route)를 사용하여 URL을 클래스와 메서드에 매핑</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>HTTP Method Mapping</h3>
+                        <p class="content en">Decorators for all standard HTTP methods (@GET, @POST, @PUT, @DELETE, etc.)</p>
+                        <p class="content ko">모든 표준 HTTP 메서드를 위한 데코레이터(@GET, @POST, @PUT, @DELETE 등)</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Request/Response Handling</h3>
+                        <p class="content en">Unified RequestResponse object to manage HTTP transactions</p>
+                        <p class="content ko">HTTP 트랜잭션을 관리하는 통합된 RequestResponse 객체</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Middleware/Filters</h3>
+                        <p class="content en">Intercept requests and responses for cross-cutting concerns</p>
+                        <p class="content ko">횡단 관심사를 위한 요청 및 응답 가로채기</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Global Exception Handling</h3>
+                        <p class="content en">Centralized error handling using @Sim advice classes</p>
+                        <p class="content ko">@Sim advice 클래스를 사용한 중앙집중식 오류 처리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Management</h3>
+                        <p class="content en">Built-in session management with customizable storage providers</p>
+                        <p class="content ko">사용자 정의 저장소 제공자를 지원하는 내장 세션 관리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>HTTPS Support</h3>
+                        <p class="content en">Configure the server to run over HTTPS and HTTP/2</p>
+                        <p class="content ko">HTTPS 및 HTTP/2를 통해 실행되도록 서버 구성</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Endpoints</h3>
+                        <p class="content en">Define logic for different stages of request lifecycle</p>
+                        <p class="content ko">요청 생명주기의 다양한 단계에 대한 로직 정의</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="basic-api">Basic API Setup</h3>
+                <p class="content en">Create a simple REST API with HTTP method decorators:</p>
+                <p class="content ko">HTTP 메서드 데코레이터를 사용하여 간단한 REST API를 생성하세요:</p>
+                
+                <meta id="uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start"><style id="uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-example, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-header, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-title, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-example pre, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-example code, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-copy-btn, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-copy-btn:active, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-copy-btn.copied, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)).code-example pre, :is(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ *:not(#uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-start ~ #uCybBMGLgVZLdBBXkDwsliRiEVyEGZoFyssjrjkY-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text PgUluzufLDuhwNksByyIypZpqPHWhwKHqiJSurmn_DomRenderRootObject-->Basic API Setup<!--end text PgUluzufLDuhwNksByyIypZpqPHWhwKHqiJSurmn_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">import { Sim, Router, Route, RouterModule } from '''@dooboostore/simple-boot''';
+import {
+    GET, POST, PUT, DELETE,
+    Mimes,
+    RequestResponse,
+    ReqJsonBody
+} from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+@Router({ path: '''/api/items''' })
+export class ItemApi {
+
+    @Route({ path: '''''' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    getAllItems() {
+        // Logic to get all items
+        return [{ id: 1, name: '''Item 1''' }, { id: 2, name: '''Item 2''' }];
+    }
+
+    @Route({ path: '''/{id}''' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    getItemById(routerModule: RouterModule) {
+        const itemId = routerModule.pathData?.id;
+        // Logic to get item by ID
+        return { id: itemId, name: `Item ">// Available method decorators:
+@GET        // GET requests
+@POST       // POST requests  
+@PUT        // PUT requests
+@DELETE     // DELETE requests
+@PATCH      // PATCH requests
+@OPTIONS    // OPTIONS requests
+@HEAD       // HEAD requests
+@TRACE      // TRACE requests
+@CONNECT    // CONNECT requests
+@UrlMapping // Generic decorator with method parameter
+
+// Example usage
+@Route({ path: '''/users/{id}''' })
+@PATCH({ 
+    req: { contentType: [Mimes.ApplicationJson] },
+    res: { contentType: Mimes.ApplicationJson }
+})
+patchUser(routerModule: RouterModule, body: ReqJsonBody) {
+    const userId = routerModule.pathData?.id;
+    // Partial update logic
+    return { success: true, updated: body };
+}</code></pre>
+</div><meta id="BXLYsTrVFhGSrXXiflXUdzBdvwbRXZcGyufYyJzf-end">
+
+                <h3 id="server-setup">Server Setup</h3>
+                <p class="content en">Bootstrap your HTTP server with the framework:</p>
+                <p class="content ko">프레임워크로 HTTP 서버를 부트스트랩하세요:</p>
+                
+                <meta id="GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start"><style id="GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-example, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-header, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-title, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-example pre, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-example code, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-copy-btn, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-copy-btn:active, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-copy-btn.copied, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)).code-example pre, :is(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ *:not(#GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-start ~ #GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text JnRoHRDUHrDWZbOJVxdKvqiTEcGuPyouMGIiDRIx_DomRenderRootObject-->Server Setup<!--end text JnRoHRDUHrDWZbOJVxdKvqiTEcGuPyouMGIiDRIx_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">import { SimpleApplication } from '''@dooboostore/simple-boot''';
+import { SimpleBootHttpServer, HttpServerOption } from '''@dooboostore/simple-boot-http-server''';
+
+// Create your main router
+@Sim
+@Router({ 
+    path: '''''', 
+    route: {
+        '''/api''': ItemApi,
+        // Add more routes here
+    }
+})
+class MainRouter {}
+
+// Configure and start the server
+const httpOption = new HttpServerOption({
+    port: 3000,
+    host: '''localhost'''
+});
+
+const app = new SimpleApplication({ rootRouter: MainRouter });
+const server = new SimpleBootHttpServer(app, httpOption);
+
+server.run().then(() =&gt; {
+    console.log('''Server is running on http://localhost:3000''');
+});</code></pre>
+</div><meta id="GsDDDUuhvpuumpxizKOTvADTrJYIJpkjbqZQwLUR-end">
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="section">
+                <h2 id="advanced-features">Advanced Features</h2>
+                
+                <h3 id="filters">Filters &amp; Middleware</h3>
+                <p class="content en">Intercept requests and responses for cross-cutting concerns:</p>
+                <p class="content ko">횡단 관심사를 위해 요청과 응답을 가로채세요:</p>
+                
+                <meta id="LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start"><style id="LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-example, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-header, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-title, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-example pre, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-example code, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-copy-btn, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-copy-btn:active, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-copy-btn.copied, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)).code-example pre, :is(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ *:not(#LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-start ~ #LTmorCcICpNNOGQArvTzHvdhpjbkWnScuOpcbfSZ-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text eJVWafNQkDHeplwyJfavTXfpgAbWZGMtojKvVAlk_DomRenderRootObject-->Filters &amp; Middleware<!--end text eJVWafNQkDHeplwyJfavTXfpgAbWZGMtojKvVAlk_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">import { Filter, RequestResponse, SimpleBootHttpServer } from '''@dooboostore/simple-boot-http-server''';
+
+export class LoggingFilter implements Filter {
+    async before(rr: RequestResponse, app: SimpleBootHttpServer): Promise<boolean> {
+        console.log(`[">import { Sim, ExceptionHandler, Inject, ExceptionHandlerSituationType } from '''@dooboostore/simple-boot''';
+import { RequestResponse, NotFoundError, HttpError, InternalServerError, Mimes, HttpStatus } from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+export class GlobalErrorHandler {
+
+    @ExceptionHandler({ type: NotFoundError })
+    handleNotFound(rr: RequestResponse, e: NotFoundError) {
+        // Critical: Check if response is already sent
+        if (rr.resIsDone()) {
+            console.error(`Not found error for URL: ">import { RequestResponse } from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+@Router({ path: '''/api/session''' })
+export class SessionApi {
+
+    @Route({ path: '''/login''' })
+    @POST({ res: { contentType: Mimes.ApplicationJson } })
+    async login(rr: RequestResponse, body: ReqJsonBody) {
+        const session = await rr.reqSession();
+        
+        // Validate user credentials (simplified)
+        if (body.username === '''admin''' &amp;&amp; body.password === '''password''') {
+            session.userId = '''user123''';
+            session.username = body.username;
+            session.loginTime = new Date().toISOString();
+            
+            return { success: true, message: '''Logged in successfully''' };
+        } else {
+            rr.resStatusCode(401);
+            return { success: false, message: '''Invalid credentials''' };
+        }
+    }
+
+    @Route({ path: '''/profile''' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    async getProfile(rr: RequestResponse) {
+        const session = await rr.reqSession();
+        
+        if (!session.userId) {
+            rr.resStatusCode(401);
+            return { error: '''Not authenticated''' };
+        }
+        
+        let visitCount = session.visitCount || 0;
+        visitCount++;
+        session.visitCount = visitCount;
+        
+        return {
+            userId: session.userId,
+            username: session.username,
+            loginTime: session.loginTime,
+            visitCount: visitCount
+        };
+    }
+
+    @Route({ path: '''/logout''' })
+    @POST({ res: { contentType: Mimes.ApplicationJson } })
+    async logout(rr: RequestResponse) {
+        const session = await rr.reqSession();
+        
+        // Clear session data
+        Object.keys(session).forEach(key =&gt; delete session[key]);
+        
+        return { success: true, message: '''Logged out successfully''' };
+    }
+}</code></pre>
+</div><meta id="cbTtMfNNRquwwyhzRYHNEIhsZPfgELPnPUujZafb-end">
+
+                <h3 id="endpoints">Lifecycle Endpoints</h3>
+                <p class="content en">Hook into different stages of the request lifecycle:</p>
+                <p class="content ko">요청 생명주기의 다양한 단계에 연결하세요:</p>
+                
+                <meta id="wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start"><style id="wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-style">@keyframes flash {
+  from {
+    background-color: #777;
+  }
+  to {
+    background-color: #0d5126;
+  }
+}
+/* Code Examples */
+/* Code Examples */
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-example, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-header, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2a2a2a;
+  padding: 0.2rem 0.2rem 0.2rem 1rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-title, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-example pre, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-example code, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-copy-btn, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-copy-btn {
+  background: #575757;
+  color: #d8d8d8;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-copy-btn:active, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-copy-btn:active {
+  transform: scale(0.95);
+}
+:is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-copy-btn.copied, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-copy-btn.copied {
+  background-color: #0d5126;
+  animation: flash 0.4s ease-out;
+}
+@media (max-width: 768px) {
+  :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)).code-example pre, :is(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ *:not(#wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-start ~ #wRmOyVamNBXBRTvgKRKANEIBbMBiEhTqKarDMqTV-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+}</style><div class="code-example">
+    <div class="code-header">
+        <span class="code-title"><!--start text xIaCcKmTzWrpJkDggEoHtpvfcFsgLGbQCdpSJBQy_DomRenderRootObject-->Lifecycle Endpoints<!--end text xIaCcKmTzWrpJkDggEoHtpvfcFsgLGbQCdpSJBQy_DomRenderRootObject--></span>
+        <button class="code-copy-btn"><i class="fa-solid fa-floppy-disk"></i></button>
+    </div>
+    <pre><code class="">import { EndPoint, RequestResponse, SimpleBootHttpServer } from '''@dooboostore/simple-boot-http-server''';
+
+@Sim
+class RequestLogger implements EndPoint {
+    async endPoint(rr: RequestResponse, app: SimpleBootHttpServer) {
+        console.log(`New request: "></dr-this>-->
+    </main>
+</div><meta id="DbsIZTSMlwfmwsKJEmecxgiyWMVrbmmhSUCzPPlq-end"><meta id="WOeKtaNaTVvSjCjNbHBWNxJXCZimsNOgVGSWSPqX-end">
+<!--    <dr-this value=""></dr-this>-->
+</main>
+
+
+<!--<iframe-->
+<!--        src="https://stackblitz.com/edit/stackblitz-starters-1idcahki?embed=1&file=src/index.ts&hideNavigation=1&hidePreview=1&view=editor&env=MODE=vvvvvtest"-->
+<!--        style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"-->
+<!--&gt;-->
+<!--</iframe>-->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+<!--                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">-->
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<meta id="jWQTFIfHPeZrYpyBZHLFEFNZlPPEmLJjjBfUJDCo-end"><meta id="tpTqKtiZsycaKnugnfDqwysXNMcyQXaNLIYCtlVY-end"></div>
+
+
+</body></html>

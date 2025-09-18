@@ -1,0 +1,320 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>core-node</h1>
+            <p class="content en">Node.js utilities and file system operations</p>
+            <p class="content ko">Node.js 유틸리티 및 파일 시스템 작업</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/core-node" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/core-node" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its peer dependency:</p>
+                <p class="content ko">패키지와 필수 의존성을 설치하세요:</p>
+                
+                <code-example title="npm" codeClass="language-bash">npm install @dooboostore/core-node @dooboostore/core</code-example>
+                <code-example title="pnpm" codeClass="language-bash">pnpm add @dooboostore/core-node @dooboostore/core</code-example>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>File System Operations</h3>
+                        <p class="content en">Comprehensive file operations with File class and utility functions</p>
+                        <p class="content ko">File 클래스와 유틸리티 함수를 통한 포괄적인 파일 작업</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Buffer Conversion</h3>
+                        <p class="content en">Advanced buffer handling with Base64 support and encoding options</p>
+                        <p class="content ko">Base64 지원과 인코딩 옵션을 포함한 고급 버퍼 처리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Path Management</h3>
+                        <p class="content en">Cross-platform path utilities for file and directory operations</p>
+                        <p class="content ko">파일 및 디렉토리 작업을 위한 크로스 플랫폼 경로 유틸리티</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Memory Utilities</h3>
+                        <p class="content en">Memory management and monitoring utilities for Node.js applications</p>
+                        <p class="content ko">Node.js 애플리케이션을 위한 메모리 관리 및 모니터링 유틸리티</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Process Management</h3>
+                        <p class="content en">Process lifecycle management and event handling utilities</p>
+                        <p class="content ko">프로세스 생명주기 관리 및 이벤트 처리 유틸리티</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Node.js Optimized</h3>
+                        <p class="content en">Specifically designed for Node.js runtime environment</p>
+                        <p class="content ko">Node.js 런타임 환경에 특별히 설계됨</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="file-operations">File Operations</h3>
+                <p class="content en">Handle file operations with the File class:</p>
+                <p class="content ko">File 클래스로 파일 작업을 처리하세요:</p>
+                
+                <code-example title="File Operations" codeClass="language-typescript">import { FileUtils } from '@dooboostore/core-node/file/FileUtils';
+import { ConvertUtils } from '@dooboostore/core-node/convert/ConvertUtils';
+
+async function handleFileUpload(base64Data: string) {
+  // Convert Base64 string to Buffer
+  const imageBuffer = ConvertUtils.toBuffer(base64Data, { encoding: 'base64' });
+
+  // Write buffer to a temporary file
+  const tempFile = await FileUtils.writeFile(imageBuffer, {
+    originalName: 'my-image.png'
+  });
+
+  console.log(`File created at: ${tempFile.path}`);
+  console.log(`File size: ${tempFile.size} bytes`);
+
+  // Move file to permanent location
+  const permanentPath = `./uploads/${tempFile.fileName}`;
+  await tempFile.move(permanentPath);
+
+  console.log(`File moved to: ${tempFile.path}`);
+}</code-example>
+
+                <h3 id="buffer-conversion">Buffer Conversion</h3>
+                <p class="content en">Convert strings to buffers with various encoding options:</p>
+                <p class="content ko">다양한 인코딩 옵션으로 문자열을 버퍼로 변환하세요:</p>
+                
+                <code-example title="Buffer Conversion" codeClass="language-typescript">import { ConvertUtils } from '@dooboostore/core-node/convert/ConvertUtils';
+
+// Convert Base64 data URL to Buffer
+const base64Data = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
+const buffer = ConvertUtils.toBuffer(base64Data, { encoding: 'base64' });
+
+// Convert regular string to Buffer
+const textBuffer = ConvertUtils.toBuffer('Hello World');
+
+// Convert Buffer back to string
+const text = ConvertUtils.toString(buffer, { encoding: 'utf-8' });</code-example>
+
+                <h3 id="file-utilities">File System Utilities</h3>
+                <p class="content en">Use comprehensive file system utilities:</p>
+                <p class="content ko">포괄적인 파일 시스템 유틸리티를 사용하세요:</p>
+                
+                <code-example title="File System Utilities" codeClass="language-typescript">import { FileUtils } from '@dooboostore/core-node/file/FileUtils';
+
+// Check if file exists
+const exists = FileUtils.existesSync('./myfile.txt', {
+  existes: (path) => console.log(`File exists: ${path}`),
+  noExistes: (path) => console.log(`File not found: ${path}`)
+});
+
+// Create directory
+await FileUtils.mkdir('./uploads', { recursive: true });
+
+// Read file
+const content = FileUtils.readSync('./myfile.txt');
+
+// Write file
+FileUtils.write('Hello World', { path: './output.txt' });
+
+// Append to file
+FileUtils.writeAppend('\nNew line', { path: './output.txt' });
+
+// Delete file
+FileUtils.deleteFileSync('./temp.txt');</code-example>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="section">
+                <h2 id="advanced-features">Advanced Features</h2>
+                
+                <h3 id="file-class">File Class Methods</h3>
+                <p class="content en">Use the File class for object-oriented file operations:</p>
+                <p class="content ko">객체 지향 파일 작업을 위해 File 클래스를 사용하세요:</p>
+                
+                <code-example title="File Class Methods" codeClass="language-typescript">import { FileUtils } from '@dooboostore/core-node/file/FileUtils';
+
+// Create a File instance
+const file = new FileUtils.File({ 
+  path: './documents/report.pdf',
+  originalName: 'monthly-report.pdf'
+});
+
+// Get file information
+console.log('File name:', file.fileName);
+console.log('Directory:', file.directory);
+console.log('Extension:', file.extension);
+console.log('Original name:', file.originalName);
+console.log('File size:', file.size);
+
+// Copy file
+await file.copy('./backup/report-copy.pdf');
+
+// Rename file
+await file.rename('annual-report.pdf');
+
+// Move file to different directory
+await file.move('./archive/reports/annual-report.pdf');
+
+// Delete file
+await file.delete();</code-example>
+
+                <h3 id="path-utilities">Path Utilities</h3>
+                <p class="content en">Handle cross-platform path operations:</p>
+                <p class="content ko">크로스 플랫폼 경로 작업을 처리하세요:</p>
+                
+                <code-example title="Path Utilities" codeClass="language-typescript">import { FileUtils } from '@dooboostore/core-node/file/FileUtils';
+
+// Join path segments
+const fullPath = FileUtils.path(['documents', 'images', 'photo.jpg']);
+// Result: 'documents/images/photo.jpg' (Unix) or 'documents\\images\\photo.jpg' (Windows)
+
+// Array of path segments
+const pathSegments = ['home', 'user', 'projects', 'myapp'];
+const projectPath = FileUtils.path(pathSegments);
+
+// Single path string
+const singlePath = FileUtils.path('./src/components/Button.tsx');</code-example>
+
+                <h3 id="async-operations">Asynchronous Operations</h3>
+                <p class="content en">Handle asynchronous file operations efficiently:</p>
+                <p class="content ko">비동기 파일 작업을 효율적으로 처리하세요:</p>
+                
+                <code-example title="Asynchronous Operations" codeClass="language-typescript">import { FileUtils } from '@dooboostore/core-node/file/FileUtils';
+
+async function processFiles() {
+  try {
+    // Create directory asynchronously
+    const dirPath = await FileUtils.mkdir('./temp/processing');
+    
+    // Read file asynchronously
+    const content = await FileUtils.read('./input.txt', { 
+      option: { encoding: 'utf-8' } 
+    });
+    
+    // Process content and write to new file
+    const processedContent = content.toString().toUpperCase();
+    const buffer = Buffer.from(processedContent);
+    
+    const outputFile = await FileUtils.writeFile(buffer, {
+      path: './temp/processing/output.txt',
+      originalName: 'processed-input.txt'
+    });
+    
+    console.log('Processing complete:', outputFile.path);
+    
+  } catch (error) {
+    console.error('File processing error:', error);
+  }
+}</code-example>
+            </section>
+
+            <!-- API Reference -->
+            <section class="section">
+                <h2 id="api-reference">API Reference</h2>
+                
+                <h3 id="fileutils-namespace">FileUtils Namespace</h3>
+                <div class="api-grid">
+                    <div class="api-item">
+                        <h4>File Class</h4>
+                        <p class="content en">Object-oriented file wrapper with methods for file operations</p>
+                        <p class="content ko">파일 작업을 위한 메서드를 포함한 객체 지향 파일 래퍼</p>
+                        <ul>
+                            <li><code>constructor(data: {path: string, originalName?: string})</code></li>
+                            <li><code>copy(newPath: string): Promise&lt;void&gt;</code></li>
+                            <li><code>move(newPath: string): Promise&lt;void&gt;</code></li>
+                            <li><code>rename(newName: string): Promise&lt;void&gt;</code></li>
+                            <li><code>delete(): Promise&lt;void&gt;</code></li>
+                            <li><code>updateStats(): Promise&lt;void&gt;</code></li>
+                        </ul>
+                    </div>
+                    <div class="api-item">
+                        <h4>Utility Functions</h4>
+                        <p class="content en">Static utility functions for common file operations</p>
+                        <p class="content ko">일반적인 파일 작업을 위한 정적 유틸리티 함수</p>
+                        <ul>
+                            <li><code>writeFile(buffer: Buffer, config): Promise&lt;File&gt;</code></li>
+                            <li><code>existesSync(path: PathParamType): boolean</code></li>
+                            <li><code>mkdir(path: PathParamType): Promise&lt;string&gt;</code></li>
+                            <li><code>readSync(path: PathParamType): Buffer</code></li>
+                            <li><code>write(data: string | Buffer, config): string</code></li>
+                            <li><code>deleteSync(path: PathParamType): void</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 id="convertutils-namespace">ConvertUtils Namespace</h3>
+                <div class="api-grid">
+                    <div class="api-item">
+                        <h4>String Conversion</h4>
+                        <p class="content en">Convert between strings and buffers with encoding support</p>
+                        <p class="content ko">인코딩 지원으로 문자열과 버퍼 간 변환</p>
+                        <ul>
+                            <li><code>toString(data: string | Buffer, config?): string</code></li>
+                            <li><code>toBuffer(data: string, config?): Buffer</code></li>
+                        </ul>
+                    </div>
+                    <div class="api-item">
+                        <h4>Encoding Options</h4>
+                        <p class="content en">Support for various buffer encodings including Base64</p>
+                        <p class="content ko">Base64를 포함한 다양한 버퍼 인코딩 지원</p>
+                        <ul>
+                            <li><code>encoding: BufferEncoding</code> - utf-8, base64, hex, etc.</li>
+                            <li>Automatic Base64 data URL prefix removal</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Concepts -->
+            <section class="section">
+                <h2 id="core-concepts">Core Concepts</h2>
+                <div class="concepts-grid">
+                    <div class="concept-item">
+                        <h4>File Class</h4>
+                        <p class="content en">Object-oriented wrapper around file paths with built-in operations</p>
+                        <p class="content ko">내장 작업을 포함한 파일 경로의 객체 지향 래퍼</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Buffer Management</h4>
+                        <p class="content en">Efficient handling of binary data with encoding support</p>
+                        <p class="content ko">인코딩 지원을 통한 효율적인 바이너리 데이터 처리</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Path Utilities</h4>
+                        <p class="content en">Cross-platform path handling with array and string support</p>
+                        <p class="content ko">배열과 문자열 지원을 통한 크로스 플랫폼 경로 처리</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Async/Sync Operations</h4>
+                        <p class="content en">Both synchronous and asynchronous file operation methods</p>
+                        <p class="content ko">동기 및 비동기 파일 작업 메서드 모두 지원</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Error Handling</h4>
+                        <p class="content en">Graceful error handling with optional callback functions</p>
+                        <p class="content ko">선택적 콜백 함수를 통한 우아한 오류 처리</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Node.js Integration</h4>
+                        <p class="content en">Deep integration with Node.js file system and process APIs</p>
+                        <p class="content ko">Node.js 파일 시스템 및 프로세스 API와의 깊은 통합</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

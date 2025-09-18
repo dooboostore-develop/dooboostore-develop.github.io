@@ -1,5 +1,964 @@
-<html>
-  <body>
-    dooboosotre
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>dooboostore - Integrated Development Platform</title>
+    <meta name="description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta name="keywords" content="TypeScript, JavaScript, library, framework, Simple Boot, DI, AOP, open source, web development">
+    <meta name="author" content="dooboostore">
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dooboostore-develop.github.io/">
+    <meta property="og:title" content="dooboostore - Integrated Development Platform">
+    <meta property="og:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="og:image" content="assets/images/dooboostore.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dooboostore-develop.github.io/">
+    <meta property="twitter:title" content="dooboostore - Integrated Development Platform">
+    <meta property="twitter:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="twitter:image" content="assets/images/dooboostore.png">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer=""></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        mermaid.initialize({startOnLoad: true});
+        window.Mermaid = mermaid;
+    </script>
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "dooboostore",
+            "description": "A powerful and flexible Integrated Development Platform collection for modern web application development",
+            "url": "https://dooboostore-develop.github.io/",
+            "author": {
+                "@type": "Organization",
+                "name": "dooboostore"
+            },
+            "programmingLanguage": "TypeScript",
+            "operatingSystem": "Cross-platform",
+            "applicationCategory": "DeveloperApplication"
+        }
+    </script>
+<script defer="" src="bundle.js"></script></head>
+<body>
+
+<div id="app"><meta id="HKCeGqtbTTLpszUEOpOvJKDkjufGBDXevklIXbbi-start"><style id="HKCeGqtbTTLpszUEOpOvJKDkjufGBDXevklIXbbi-style"></style><meta id="sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start"><style id="sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-style">/* Header */
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).header, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).header-container, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).header-left, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .header-left {
+  display: flex;
+  align-items: center;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).logo, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).logo-img, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).logo-text, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).header-nav, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 32px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).nav-link, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .nav-link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).nav-link:hover, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .nav-link:hover {
+  color: white;
+  background-color: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).nav-link:active, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .nav-link:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(102, 126, 234, 0.2);
+  background-color: rgba(102, 126, 234, 0.15);
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).header-right, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* Language Toggle */
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-toggle, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-toggle {
+  position: relative;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-checkbox, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-checkbox {
+  display: none;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-label, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  width: 50px;
+  /* 더 작은 고정 너비 */
+  min-width: 50px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-label:hover, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-text, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-text {
+  transition: opacity 0.2s ease;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-text.english, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-text.english {
+  display: none;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-checkbox:checked + .language-label .language-text.korean, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-checkbox:checked + .language-label .language-text.korean {
+  display: none;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).language-checkbox:checked + .language-label .language-text.english, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .language-checkbox:checked + .language-label .language-text.english {
+  display: inline;
+}
+/* Language Content Toggle */
+/* .content.en { */
+/* display: block; */
+/* } */
+/* .content.ko { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.en { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.ko { */
+/* display: block; */
+/* } */
+/* Main Content */
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) main, #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ main:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *) {
+  min-height: 100vh;
+}
+/* Footer */
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer {
+  background: #000;
+  color: white;
+  padding: 20px 0 0;
+  /* margin-top: 120px; */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-container, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-simple, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-logo, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-logo .logo-img, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-logo .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-logo .logo-text, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-logo .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-links, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-link, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-link:hover, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-link:hover {
+  color: white;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-link i, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-link i {
+  font-size: 16px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-copyright, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-logo-small, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-logo-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).footer-copyright p, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .footer-copyright p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).content.ko, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).content.en, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .content.en {
+  display: block;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) header:has(#language-toggle:checked) ~ * .content.ko, #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ header:has(#language-toggle:checked) ~ * .content.ko:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *), :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) header:has(#language-toggle:checked) .content.ko, #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ header:has(#language-toggle:checked) .content.ko:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *) {
+  display: block;
+}
+:is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) header:has(#language-toggle:checked) ~ * .content.en, #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ header:has(#language-toggle:checked) ~ * .content.en:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *), :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) header:has(#language-toggle:checked) .content.en, #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ header:has(#language-toggle:checked) .content.en:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *) {
+  display: none;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).logo-text, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .logo-text {
+    display: none !important;
+  }
+  :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).header-nav, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .header-nav {
+    display: flex;
+    /* Show nav on mobile now */
+    margin-left: 16px;
+    /* Smaller margin on mobile */
+    gap: 16px;
+    /* Smaller gap on mobile */
+  }
+  :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).nav-link, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .nav-link {
+    font-size: 13px;
+    /* Slightly smaller font on mobile */
+  }
+  :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)).header-container, :is(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ *:not(#sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-start ~ #sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end ~ *)) .header-container {
+    padding: 0 16px;
+  }
+  /* .footer-links { */
+  /* flex-direction: column; */
+  /* gap: 16px; */
+  /* } */
+}</style><!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <meta id="xRSCoyCOjadiNHFpnSmSCvOgDCmRqHoEzENHhvsA-start"><style id="xRSCoyCOjadiNHFpnSmSCvOgDCmRqHoEzENHhvsA-style"></style><a href="/" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text content en">dooboostore</span>
+                <span class="logo-text content ko">두부가게</span>
+            </a><meta id="xRSCoyCOjadiNHFpnSmSCvOgDCmRqHoEzENHhvsA-end">
+            
+            <nav class="header-nav">
+                <meta id="yDlbeNxinQIbjSBQBNGoKexAbpOQQHqoDKlbplCJ-start"><style id="yDlbeNxinQIbjSBQBNGoKexAbpOQQHqoDKlbplCJ-style"></style><a href="/packages" class="nav-link content en">📦 Packages</a><meta id="yDlbeNxinQIbjSBQBNGoKexAbpOQQHqoDKlbplCJ-end">
+                <meta id="zIxbPsefSOYTocMMENvJhvMAuKQQFDciYNayGWXu-start"><style id="zIxbPsefSOYTocMMENvJhvMAuKQQFDciYNayGWXu-style"></style><a href="/packages" class="nav-link content ko">📦 패키지</a><meta id="zIxbPsefSOYTocMMENvJhvMAuKQQFDciYNayGWXu-end">
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <meta id="qpZABNiBGJREQKBfJkXKydaREFuWzCPflcSUFTiS-start"><style id="qpZABNiBGJREQKBfJkXKydaREFuWzCPflcSUFTiS-style"></style><meta id="iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start"><style id="iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-style">:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).home-container, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .home-container {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: white;
+  min-height: 100vh;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).container, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+/* Hero Section */
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero {
+  padding: 80px 0 80px;
+  text-align: center;
+  background: #000;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-content, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-header, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-logo, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-logo {
+  position: relative;
+  z-index: 2;
+  margin-bottom: -20px;
+  /* Just a bit more overlap than before */
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-logo-img, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-logo-img {
+  width: 85px;
+  height: 85px;
+  border-radius: 17px;
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-title, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+  padding-top: 25px;
+  /* A bit more space for logo */
+  background: linear-gradient(to right, #fff, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-subtitle, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-subtitle {
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 48px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-subtitle strong, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-subtitle strong {
+  color: white;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-actions, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-badges, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-badges a, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-badges a {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-badges a:hover, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-badges a:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-badges img, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-badges img {
+  height: 20px;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-badges img:hover, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-badges img:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).btn-get-started, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .btn-get-started {
+  background: white;
+  color: black;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).btn-get-started:hover, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .btn-get-started:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).btn-learn-more, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .btn-learn-more {
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).btn-learn-more:hover, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .btn-learn-more:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+/* What's in dooboostore */
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).whats-in, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .whats-in {
+  padding: 120px 0;
+  background: #000;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).section-header, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).section-header h2, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .section-header h2 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).section-header p, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .section-header p {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).features-grid, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).feature-card, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).feature-card:hover, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .feature-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).feature-visual, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .feature-visual {
+  margin-bottom: 24px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).feature-icon, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .feature-icon {
+  font-size: 32px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).feature-card h3, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .feature-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: white;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).feature-card p, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .feature-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+/* Testimonials */
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonials, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonials {
+  padding: 120px 0;
+  background: #000;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonials-header, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonials-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonials-intro, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonials-intro {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonials-intro strong, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonials-intro strong {
+  color: white;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonials-subtitle, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonials-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 32px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).btn-showcase, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .btn-showcase {
+  background: white;
+  color: black;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).btn-showcase:hover, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .btn-showcase:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonials-grid, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonial-card, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonial-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 32px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonial-text, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonial-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonial-author, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).author-logo, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .author-logo {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).author-name, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .author-name {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+:is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).author-title, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .author-title {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero {
+    padding: 60px 0 60px;
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-header, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-header {
+    margin-bottom: 28px;
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-logo, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-logo {
+    margin-bottom: -15px;
+    /* Proportional overlap on mobile */
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-logo-img, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-logo-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 14px;
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-title, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-title {
+    font-size: 36px;
+    padding-top: 20px;
+    /* Proportional padding */
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-subtitle, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-subtitle {
+    font-size: 18px;
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-actions, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-badges, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-badges {
+    gap: 8px;
+    margin-bottom: 0;
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).hero-badges img, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .hero-badges img {
+    height: 18px;
+  }
+  :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).features-grid, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .features-grid, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)).testimonials-grid, :is(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ *:not(#iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-start ~ #iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end ~ *)) .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}</style><div class="home-container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-header">
+<!--                <div dr-if="this.__domrender_components.qpZABNiBGJREQKBfJkXKydaREFuWzCPflcSUFTiS.value.obj.sw" class="wow">aa<div dr-if="true">vv</div></div><button dr-event-click="this.__domrender_components.qpZABNiBGJREQKBfJkXKydaREFuWzCPflcSUFTiS.value.obj.sw=!this.__domrender_components.qpZABNiBGJREQKBfJkXKydaREFuWzCPflcSUFTiS.value.obj.sw">aa</button>-->
+                <div class="hero-logo">
+                    <img src="assets/images/dooboostore.png" alt="dooboostore" class="hero-logo-img">
+                </div>
+                <h1 class="hero-title content en">Integrated Development Platform</h1>
+                <h1 class="hero-title content ko">통합 개발 플랫폼</h1>
+            </div>
+
+            <p class="hero-subtitle content en">
+                dooboostore provides a comprehensive ecosystem of tools and utilities to build
+                <strong>high-quality applications</strong> from frontend to backend with powerful features and clean
+                architecture.
+            </p>
+            <p class="hero-subtitle content ko">
+                dooboostore는 강력한 기능과 깔끔한 아키텍처로 프론트엔드부터 백엔드까지
+                <strong>고품질 애플리케이션</strong>을 구축할 수 있는 포괄적인 도구와 유틸리티 생태계를 제공합니다.
+            </p>
+
+            <div class="hero-actions">
+                <meta id="aLNiTFfbOrxgXmWvPsabboaetPPVUJZXYbGjXofg-start"><style id="aLNiTFfbOrxgXmWvPsabboaetPPVUJZXYbGjXofg-style"></style><a href="/packages" class="btn-get-started content en">Get Started</a><meta id="aLNiTFfbOrxgXmWvPsabboaetPPVUJZXYbGjXofg-end">
+                <meta id="QHoMNJbXpVowvzqoikvkmwkyTbTjGZMpyEkbdOFp-start"><style id="QHoMNJbXpVowvzqoikvkmwkyTbTjGZMpyEkbdOFp-style"></style><a href="/packages" class="btn-get-started content ko">시작 하기</a><meta id="QHoMNJbXpVowvzqoikvkmwkyTbTjGZMpyEkbdOFp-end">
+            </div>
+
+            <div class="hero-badges">
+                <a href="https://github.com/dooboostore-develop" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&amp;logo=github&amp;logoColor=white" alt="GitHub">
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&amp;logo=npm&amp;logoColor=white" alt="NPM">
+                </a>
+                <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat&amp;logo=typescript&amp;logoColor=white" alt="TypeScript">
+                </a>
+                <img alt="Hits" src="https://hits.sh/hits.sh/dooboostore-develop.github.io.svg?style=plastic&amp;extraCount=426612">
+            </div>
+        </div>
+    </section>
+
+    <!-- What's in dooboostore -->
+    <section class="whats-in">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="content en">What's in dooboostore?</h2>
+                <p class="content en">Everything you need to build great applications.</p>
+
+                <h2 class="content ko">dooboostore에는 무엇이 있나요?</h2>
+                <p class="content ko">훌륭한 애플리케이션을 만들기 위해 필요한 모든 것.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">🚀</div>
+                    </div>
+                    <h3 class="content en">Dependency Injection</h3>
+                    <p class="content en">Powerful DI container with AOP support for clean, maintainable code
+                        architecture.</p>
+
+                    <h3 class="content ko">의존성 주입</h3>
+                    <p class="content ko">깔끔하고 유지보수 가능한 코드 아키텍처를 위한 AOP 지원 강력한 DI 컨테이너.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">⚡</div>
+                    </div>
+                    <h3 class="content en">Rich Utilities</h3>
+                    <p class="content en">Comprehensive utility library with array, object, string, date manipulation
+                        and more.</p>
+
+                    <h3 class="content ko">풍부한 유틸리티</h3>
+                    <p class="content ko">배열, 객체, 문자열, 날짜 조작 등을 포함한 포괄적인 유틸리티 라이브러리.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">🔧</div>
+                    </div>
+                    <h3 class="content en">DOM Rendering</h3>
+                    <p class="content en">Lightweight DOM rendering engine with reactive data binding and component
+                        lifecycle.</p>
+
+                    <h3 class="content ko">DOM 렌더링</h3>
+                    <p class="content ko">반응형 데이터 바인딩과 컴포넌트 생명주기를 가진 경량 DOM 렌더링 엔진.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">📦</div>
+                    </div>
+                    <h3 class="content en">HTTP Server</h3>
+                    <p class="content en">Build robust HTTP servers with decorative routing, middleware, and session
+                        management.</p>
+
+                    <h3 class="content ko">HTTP 서버</h3>
+                    <p class="content ko">데코레이터 라우팅, 미들웨어, 세션 관리로 견고한 HTTP 서버를 구축하세요.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">🎨</div>
+                    </div>
+                    <h3 class="content en">Observable System</h3>
+                    <p class="content en">RxJS-like reactive programming with operators for handling asynchronous data
+                        streams.</p>
+
+                    <h3 class="content ko">Observable 시스템</h3>
+                    <p class="content ko">비동기 데이터 스트림 처리를 위한 연산자가 있는 RxJS와 같은 반응형 프로그래밍.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">🔄</div>
+                    </div>
+                    <h3 class="content en">Frontend Framework</h3>
+                    <p class="content en">Single Page Application framework with component-based architecture and
+                        routing.</p>
+
+                    <h3 class="content ko">프론트엔드 프레임워크</h3>
+                    <p class="content ko">컴포넌트 기반 아키텍처와 라우팅을 가진 단일 페이지 애플리케이션 프레임워크.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">🛠️</div>
+                    </div>
+                    <h3 class="content en">Type Safety</h3>
+                    <p class="content en">Built with TypeScript-first approach providing comprehensive type definitions
+                        and safety.</p>
+
+                    <h3 class="content ko">타입 안전성</h3>
+                    <p class="content ko">포괄적인 타입 정의와 안전성을 제공하는 TypeScript 우선 접근 방식으로 구축.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-icon">⚙️</div>
+                    </div>
+                    <h3 class="content en">Modular Architecture</h3>
+                    <p class="content en">Pick and choose only the packages you need with a fully modular ecosystem
+                        design.</p>
+
+                    <h3 class="content ko">모듈형 아키텍처</h3>
+                    <p class="content ko">완전히 모듈화된 생태계 설계로 필요한 패키지만 선택해서 사용하세요.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div style="background-color: rgba(255, 255, 255, 1); width: 64px; height: 64px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <img src="https://raw.githubusercontent.com/dooboostore-develop/swt/HEAD/document/assets/logo.png" alt="SWT Logo" style="width: 48px; height: 48px;">
+                        </div>
+                    </div>
+                    <h3 class="content en">User Tracking (SWT)</h3>
+                    <p class="content en">Lightweight user tracking with <strong>S</strong>imple <strong>W</strong>eb <strong>T</strong>racker (SWT). Analyze user behavior with session replays, heatmaps, and a built-in dashboard.</p>
+
+                    <h3 class="content ko">사용자 추적 (SWT)</h3>
+                    <p class="content ko">경량 사용자 추적 라이브러리 <strong>S</strong>imple <strong>W</strong>eb <strong>T</strong>racker (SWT). 세션 리플레이, 히트맵, 내장 대시보드로 사용자 행동을 분석하세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <p class="testimonials-intro content en">
+                    For <strong>performance</strong>, <strong>efficiency</strong> and <strong>developer
+                    experience</strong>.
+                </p>
+                <p class="testimonials-subtitle content en">
+                    dooboostore is trusted by developers and companies worldwide.
+                </p>
+                <p class="testimonials-intro content ko">
+                    <strong>성능</strong>, <strong>효율성</strong> 그리고 <strong>개발자 경험</strong>을 위해.
+                </p>
+                <p class="testimonials-subtitle content ko">
+                    dooboostore는 전 세계 개발자와 기업들의 신뢰를 받고 있습니다.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text content en">
+                        "dooboostore's DI system and modular architecture have transformed our development workflow. We
+                        can now build scalable applications with clean, maintainable code."
+                    </p>
+                    <div class="testimonial-author content en">
+                        <div class="author-logo">D</div>
+                        <div class="author-info">
+                            <div class="author-name">Developer Team</div>
+                            <div class="author-title">Senior Software Engineer, Frontend</div>
+                        </div>
+                    </div>
+
+                    <p class="testimonial-text content ko">
+                        "dooboostore의 DI 시스템과 모듈형 아키텍처가 우리의 개발 워크플로우를 완전히 바꿔놓았습니다. 이제 깔끔하고 유지보수 가능한 코드로 확장 가능한 애플리케이션을
+                        구축할 수 있습니다."
+                    </p>
+                    <div class="testimonial-author content ko">
+                        <div class="author-logo">개</div>
+                        <div class="author-info">
+                            <div class="author-name">개발팀</div>
+                            <div class="author-title">시니어 소프트웨어 엔지니어, 프론트엔드</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text content en">
+                        "The reactive data binding and component lifecycle in dooboostore's DOM rendering engine
+                        provides excellent performance with minimal overhead."
+                    </p>
+                    <div class="testimonial-author content en">
+                        <div class="author-logo">T</div>
+                        <div class="author-info">
+                            <div class="author-name">Tech Startup</div>
+                            <div class="author-title">CTO, Product Engineering</div>
+                        </div>
+                    </div>
+
+                    <p class="testimonial-text content ko">
+                        "dooboostore의 DOM 렌더링 엔진의 반응형 데이터 바인딩과 컴포넌트 생명주기는 최소한의 오버헤드로 뛰어난 성능을 제공합니다."
+                    </p>
+                    <div class="testimonial-author content ko">
+                        <div class="author-logo">기</div>
+                        <div class="author-info">
+                            <div class="author-name">기술 스타트업</div>
+                            <div class="author-title">CTO, 제품 엔지니어링</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text content en">
+                        "Building HTTP servers with dooboostore's decorative routing and middleware system has never
+                        been easier. The TypeScript integration is seamless."
+                    </p>
+                    <div class="testimonial-author content en">
+                        <div class="author-logo">E</div>
+                        <div class="author-info">
+                            <div class="author-name">Enterprise Corp</div>
+                            <div class="author-title">Lead Developer, Backend Team</div>
+                        </div>
+                    </div>
+
+                    <p class="testimonial-text content ko">
+                        "dooboostore의 데코레이터 라우팅과 미들웨어 시스템으로 HTTP 서버를 구축하는 것이 이렇게 쉬울 줄 몰랐습니다. TypeScript 통합이 완벽합니다."
+                    </p>
+                    <div class="testimonial-author content ko">
+                        <div class="author-logo">기</div>
+                        <div class="author-info">
+                            <div class="author-name">기업</div>
+                            <div class="author-title">리드 개발자, 백엔드 팀</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div><meta id="iLmFPjuaMZEXyWaNfiQcDadfAiiwmutByzHwazGA-end"><meta id="qpZABNiBGJREQKBfJkXKydaREFuWzCPflcSUFTiS-end">
+<!--    <dr-this value=""></dr-this>-->
+</main>
+
+
+<!--<iframe-->
+<!--        src="https://stackblitz.com/edit/stackblitz-starters-1idcahki?embed=1&file=src/index.ts&hideNavigation=1&hidePreview=1&view=editor&env=MODE=vvvvvtest"-->
+<!--        style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"-->
+<!--&gt;-->
+<!--</iframe>-->
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+<!--                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">-->
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<meta id="sKSVYiqSkVSFxuPJnBjYEbZNOzNqGGwTFZLjwviz-end"><meta id="HKCeGqtbTTLpszUEOpOvJKDkjufGBDXevklIXbbi-end"></div>
+
+
+</body></html>

@@ -1,0 +1,313 @@
+<div class="package-container">
+  <div class="package-header">
+    <div class="container">
+      <h1>simple-boot</h1>
+      <p class="content en">Lightweight framework with DI and AOP support</p>
+      <p class="content ko">DI, AOP를 지원하는 경량 프레임워크</p>
+      <div class="package-actions">
+          <a href="https://github.com/dooboostore-develop/packages/blob/main/@dooboostore/simple-boot" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+          </a>
+          <a href="https://www.npmjs.com/package/@dooboostore/simple-boot" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+          </a>
+      </div>
+    </div>
+  </div>
+  <div class="package-content">
+    <div class="container">
+      <!-- Installation -->
+      <section class="section">
+        <h2 id="installation">Installation</h2>
+        <p class="content en">Install the package and its peer dependency:</p>
+        <p class="content ko">패키지와 필수 의존성을 설치하세요:</p>
+
+      <code-example title="npm" codeClass="language-bash">npm install @dooboostore/simple-boot reflect-metadata</code-example>
+      <code-example title="pnpm" codeClass="language-bash">pnpm add @dooboostore/simple-boot reflect-metadata</code-example>
+      <code-example title="Quick Start CLI" codeClass="language-bash">npm init @dooboostore/simple-boot projectname</code-example>
+      <!-- Features -->
+      <section class="section">
+        <h2 id="features">Features</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>Object Management</h3>
+            <p class="content en">Dependency Injection (DI) and Lifecycle callbacks</p>
+            <p class="content ko">의존성 주입(DI)과 생명주기 콜백</p>
+          </div>
+          <div class="feature-item">
+            <h3>Aspect-Oriented Programming</h3>
+            <p class="content en">AOP support with @Before, @After, @Around decorators</p>
+            <p class="content ko">@Before, @After, @Around 데코레이터를 통한 AOP 지원</p>
+          </div>
+          <div class="feature-item">
+            <h3>Exception Handling</h3>
+            <p class="content en">Powerful global and local exception handling</p>
+            <p class="content ko">강력한 전역 및 지역 예외 처리</p>
+          </div>
+          <div class="feature-item">
+            <h3>Flexible Router System</h3>
+            <p class="content en">Class-based and method-based routing</p>
+            <p class="content ko">클래스 기반 및 메서드 기반 라우팅</p>
+          </div>
+          <div class="feature-item">
+            <h3>Intent Event System</h3>
+            <p class="content en">Decoupled communication with Intent objects</p>
+            <p class="content ko">Intent 객체를 통한 분리된 통신</p>
+          </div>
+          <div class="feature-item">
+            <h3>Method-level Caching</h3>
+            <p class="content en">Built-in caching with TTL and dynamic keys</p>
+            <p class="content ko">TTL과 동적 키를 지원하는 내장 캐싱</p>
+          </div>
+          <div class="feature-item">
+            <h3>Data Validation</h3>
+            <p class="content en">Property validation with decorators</p>
+            <p class="content ko">데코레이터를 통한 속성 검증</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Start -->
+      <section class="section">
+        <h2 id="quick-start">Quick Start</h2>
+
+        <h3 id="basic-usage">Basic Usage</h3>
+        <p class="content en">Here's a simple example to get you started:</p>
+        <p class="content ko">시작하기 위한 간단한 예제입니다:</p>
+
+        <code-example title="Basic Usage" codeClass="language-typescript">import 'reflect-metadata';
+import { SimpleApplication, Sim, Router } from '@dooboostore/simple-boot';
+
+@Sim // Decorator can be used without parentheses
+class Greeter {
+  say() {
+    console.log('Hello, Simple Boot!');
+  }
+}
+
+@Sim
+@Router({ path: '', route: { '/user': Greeter } })
+class AppRouter {}
+
+const app = new SimpleApplication({ rootRouter: AppRouter });
+app.run();
+
+// Get instance and call method
+const greeter = app.sim(Greeter);
+greeter?.say();
+
+// Or, route to the module and execute
+app.routing('/user').then(routerModule => {
+    routerModule.getModuleInstance&lt;Greeter&gt;()?.say();
+});</code-example>
+
+        <h3 id="dependency-injection">Dependency Injection</h3>
+        <p class="content en">Simple Boot automatically handles dependency injection based on constructor parameter
+          types:</p>
+        <p class="content ko">Simple Boot은 생성자 매개변수 타입을 기반으로 의존성 주입을 자동으로 처리합니다:</p>
+
+        <code-example title="Dependency Injection" codeClass="language-typescript">@Sim // Using without parentheses for default settings
+class ProjectService {
+  sum(x: number, y: number): number {
+    return x + y;
+  }
+}
+
+@Sim() // Using with parentheses is also valid
+class User {
+  constructor(private projectService: ProjectService) {}
+
+  calculate() {
+    const result = this.projectService.sum(5, 25);
+    console.log(`Calculation result is: ${result}`);
+  }
+}
+
+// somewhere in your app
+const user = app.sim(User);
+user?.calculate(); //-> Calculation result is: 30</code-example>
+
+        <h3 id="lifecycle-management">Lifecycle Management</h3>
+        <p class="content en">Control object lifecycle with Singleton and Transient scopes:</p>
+        <p class="content ko">Singleton과 Transient 스코프로 객체 생명주기를 제어하세요:</p>
+
+        <code-example title="Lifecycle Management" codeClass="language-typescript">import { Sim, Lifecycle } from '@dooboostore/simple-boot';
+
+// Singleton (Default) - Same instance every time
+@Sim({
+  scope: Lifecycle.Singleton
+})
+class DatabaseService {
+  private connection = 'db-connection';
+  
+  getConnection() {
+    return this.connection;
+  }
+}
+
+// Transient - A new instance is created on each request
+@Sim({
+  scope: Lifecycle.Transient
+})
+class RequestHandler {
+  private requestId = Math.random();
+  
+  getId() {
+    return this.requestId;
+  }
+}</code-example>
+
+        <h3 id="aop-example">AOP Example</h3>
+        <p class="content en">Use AOP decorators to intercept method calls:</p>
+        <p class="content ko">AOP 데코레이터를 사용하여 메서드 호출을 가로채세요:</p>
+
+        <code-example title="AOP Example" codeClass="language-typescript">import { Sim, Before, After, Around, AroundForceReturn } from '@dooboostore/simple-boot';
+
+const LoggingAround = () => Around({
+    before: (obj, propertyKey, args) => {
+        console.log(`[${propertyKey}] Before with args:`, args);
+        // You can modify arguments here
+        return args.map(arg => typeof arg === 'number' ? arg * 2 : arg);
+    },
+    after: (obj, propertyKey, args, beforeReturn) => {
+        console.log(`[${propertyKey}] After with result:`, beforeReturn);
+        // You can force a different return value
+        if (beforeReturn > 10) {
+            throw new AroundForceReturn("Value is too high!");
+        }
+        return beforeReturn;
+    }
+});
+
+@Sim
+class Calculator {
+    @Before({ property: 'add' })
+    logBefore() {
+        console.log('Preparing to add...');
+    }
+
+    @After({ property: 'add' })
+    logAfter() {
+        console.log('Addition complete.');
+    }
+
+    @LoggingAround()
+    add(a: number, b: number): number {
+        console.log('Executing add method');
+        return a + b;
+    }
+}</code-example>
+      </section>
+
+      <!-- Advanced Features -->
+      <section class="section">
+        <h2 id="advanced-features">Advanced Features</h2>
+
+        <h3 id="exception-handling">Exception Handling</h3>
+        <p class="content en">Handle exceptions locally or globally with @ExceptionHandler:</p>
+        <p class="content ko">@ExceptionHandler로 예외를 지역적 또는 전역적으로 처리하세요:</p>
+
+        <code-example title="Exception Handling" codeClass="language-typescript">class MyError extends Error {}
+
+@Sim
+class UserService {
+  @ExceptionHandler({ type: MyError })
+  handleMyError(e: MyError) {
+    console.error(`Caught a specific MyError: ${e.message}`);
+  }
+
+  @ExceptionHandler()
+  handleAllOtherErrors(e: any) {
+    console.error(`Caught a generic error:`, e);
+  }
+
+  doSomething() {
+    throw new MyError('Something went wrong!');
+  }
+}</code-example>
+
+        <h3 id="caching">Caching</h3>
+        <p class="content en">Cache method results with @Cache decorator:</p>
+        <p class="content ko">@Cache 데코레이터로 메서드 결과를 캐시하세요:</p>
+
+        <code-example title="Caching" codeClass="language-typescript">@Sim
+class UserService {
+    @Cache({ key: (id: string) => `user:${id}`, ms: 5000 }) // Dynamic key, 5-second TTL
+    getUserById(id: string) {
+        console.log(`Fetching user ${id} from DB...`);
+        return { id, name: 'User ' + id };
+    }
+
+    @Cache({ deleteKey: (id: string) => `user:${id}` })
+    updateUser(id: string, data: any) {
+        console.log(`Updating user ${id}, cache will be cleared.`);
+        // ... update logic
+    }
+}</code-example>
+
+        <h3 id="validation">Validation</h3>
+        <p class="content en">Validate class properties with decorators:</p>
+        <p class="content ko">데코레이터로 클래스 속성을 검증하세요:</p>
+
+        <code-example title="Validation" codeClass="language-typescript">import { Sim, Validation, NotEmpty, NotNull, Regexp, execValidationInValid, ValidException } from '@dooboostore/simple-boot';
+
+@Sim
+class UserProfile {
+    @Validation(NotEmpty)
+    @Validation(Regexp(/^[a-zA-Z]+$/))
+    name: string = '';
+
+    @Validation(NotNull)
+    age: number | null = null;
+}
+
+const profile = new UserProfile();
+profile.name = '123'; // Invalid name
+profile.age = null; // Invalid age
+
+const validationErrors = execValidationInValid(profile);
+
+if (validationErrors.length > 0) {
+    throw new ValidException(validationErrors);
+}</code-example>
+      </section>
+
+      <!-- Core Concepts -->
+      <section class="section">
+        <h2 id="core-concepts">Core Concepts</h2>
+        <div class="concepts-grid">
+          <div class="concept-item">
+            <h4>@Sim</h4>
+            <p class="content en">Core decorator that marks a class for management by the Simple Boot container</p>
+            <p class="content ko">Simple Boot 컨테이너에서 관리할 클래스를 표시하는 핵심 데코레이터</p>
+          </div>
+          <div class="concept-item">
+            <h4>SimpleApplication</h4>
+            <p class="content en">Application entry point that initializes and manages the DI container</p>
+            <p class="content ko">DI 컨테이너를 초기화하고 관리하는 애플리케이션 진입점</p>
+          </div>
+          <div class="concept-item">
+            <h4>@Router & @Route</h4>
+            <p class="content en">Routing system that maps URL paths to classes or methods</p>
+            <p class="content ko">URL 경로를 클래스나 메서드에 매핑하는 라우팅 시스템</p>
+          </div>
+          <div class="concept-item">
+            <h4>@Before/@After/@Around</h4>
+            <p class="content en">AOP decorators for intercepting method calls</p>
+            <p class="content ko">메서드 호출을 가로채는 AOP 데코레이터</p>
+          </div>
+          <div class="concept-item">
+            <h4>Intent System</h4>
+            <p class="content en">Event system for decoupled communication between components</p>
+            <p class="content ko">컴포넌트 간 분리된 통신을 위한 이벤트 시스템</p>
+          </div>
+          <div class="concept-item">
+            <h4>@Cache</h4>
+            <p class="content en">Method-level caching with TTL and dynamic key support</p>
+            <p class="content ko">TTL과 동적 키를 지원하는 메서드 레벨 캐싱</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
