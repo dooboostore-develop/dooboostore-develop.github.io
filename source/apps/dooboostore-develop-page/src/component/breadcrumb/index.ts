@@ -1,0 +1,1 @@
+export { BreadcrumbComponent, type BreadcrumbItem, type BreadcrumbData, type BreadcrumbProps, type BreadcrumbDropdown } from './breadcrumb.component';

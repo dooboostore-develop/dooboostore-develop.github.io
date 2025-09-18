@@ -1,0 +1,445 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-http-server-ssr</h1>
+            <p class="content en">Server-Side Rendering framework for building fast, SEO-friendly web applications</p>
+            <p class="content ko">빠르고 SEO 친화적인 웹 애플리케이션을 구축하기 위한 서버 사이드 렌더링 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-http-server-ssr" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its dependencies:</p>
+                <p class="content ko">패키지와 의존성을 설치하세요:</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">npm</span>
+                    </div>
+                    <pre dr-pre><code class="language-bash">npm install @dooboostore/simple-boot-http-server-ssr reflect-metadata jsdom</code></pre>
+                </div>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">pnpm</span>
+                    </div>
+                    <pre dr-pre><code class="language-bash">pnpm add @dooboostore/simple-boot-http-server-ssr reflect-metadata jsdom</code></pre>
+                </div>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">Quick Start CLI</span>
+                    </div>
+                    <pre dr-pre><code class="language-bash">npm init @dooboostore/simple-boot-http-server-ssr projectname
+cd projectname
+npm start</code></pre>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Server-Side Rendering</h3>
+                        <p class="content en">Renders SPA on the server before sending to client for better SEO and performance</p>
+                        <p class="content ko">더 나은 SEO와 성능을 위해 클라이언트로 보내기 전에 서버에서 SPA를 렌더링</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>JSDOM Integration</h3>
+                        <p class="content en">Uses jsdom to create virtual DOM environment on server for front-end code execution</p>
+                        <p class="content ko">프론트엔드 코드 실행을 위해 서버에서 가상 DOM 환경을 생성하는 jsdom 사용</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Component Pooling</h3>
+                        <p class="content en">Manages pool of SimpleBootFront instances for efficient concurrent SSR requests</p>
+                        <p class="content ko">효율적인 동시 SSR 요청을 위한 SimpleBootFront 인스턴스 풀 관리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Data Hydration</h3>
+                        <p class="content en">Automatically serializes server data and hydrates on client, avoiding redundant API calls</p>
+                        <p class="content ko">서버 데이터를 자동으로 직렬화하고 클라이언트에서 하이드레이션하여 중복 API 호출 방지</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Unified Codebase</h3>
+                        <p class="content en">Share routing, services, and components between server and client</p>
+                        <p class="content ko">서버와 클라이언트 간 라우팅, 서비스, 컴포넌트 공유</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Intent-based Communication</h3>
+                        <p class="content en">Client-server communication using custom HTTP headers and intent publishing</p>
+                        <p class="content ko">커스텀 HTTP 헤더와 인텐트 퍼블리싱을 사용한 클라이언트-서버 통신</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="section">
+                <h2 id="how-it-works">How It Works</h2>
+                <p class="content en">The SSR process follows these steps when handling HTML requests:</p>
+                <p class="content ko">HTML 요청을 처리할 때 SSR 프로세스는 다음 단계를 따릅니다:</p>
+                
+                <div class="process-steps">
+                    <div class="process-step" data-step="1">
+                        <h4>Request Interception</h4>
+                        <p class="content en">Captures the request before serving static index.html file</p>
+                        <p class="content ko">정적 index.html 파일을 제공하기 전에 요청을 캡처</p>
+                    </div>
+                    <div class="process-step" data-step="2">
+                        <h4>Browser Environment</h4>
+                        <p class="content en">Acquires pre-initialized jsdom instance from pool acting as virtual browser</p>
+                        <p class="content ko">가상 브라우저 역할을 하는 풀에서 사전 초기화된 jsdom 인스턴스 획득</p>
+                    </div>
+                    <div class="process-step" data-step="3">
+                        <h4>App Initialization</h4>
+                        <p class="content en">Uses SimpleBootFront instance from pool and sets context to jsdom window</p>
+                        <p class="content ko">풀에서 SimpleBootFront 인스턴스를 사용하고 jsdom 윈도우에 컨텍스트 설정</p>
+                    </div>
+                    <div class="process-step" data-step="4">
+                        <h4>Routing Execution</h4>
+                        <p class="content en">Triggers front-end router within jsdom environment using request path</p>
+                        <p class="content ko">요청 경로를 사용하여 jsdom 환경 내에서 프론트엔드 라우터 트리거</p>
+                    </div>
+                    <div class="process-step" data-step="5">
+                        <h4>Component Rendering</h4>
+                        <p class="content en">Front-end components render into the virtual DOM</p>
+                        <p class="content ko">프론트엔드 컴포넌트가 가상 DOM으로 렌더링</p>
+                    </div>
+                    <div class="process-step" data-step="6">
+                        <h4>Data Fetching</h4>
+                        <p class="content en">Handles server-side data fetching with automatic serialization</p>
+                        <p class="content ko">자동 직렬화를 통한 서버 사이드 데이터 페칭 처리</p>
+                    </div>
+                    <div class="process-step" data-step="7">
+                        <h4>DOM Serialization</h4>
+                        <p class="content en">Captures outerHTML of jsdom document after rendering completion</p>
+                        <p class="content ko">렌더링 완료 후 jsdom 문서의 outerHTML 캡처</p>
+                    </div>
+                    <div class="process-step" data-step="8">
+                        <h4>Hydration Injection</h4>
+                        <p class="content en">Injects serialized data into HTML inside script tag for client hydration</p>
+                        <p class="content ko">클라이언트 하이드레이션을 위해 스크립트 태그 내부 HTML에 직렬화된 데이터 주입</p>
+                    </div>
+                    <div class="process-step" data-step="9">
+                        <h4>Response Delivery</h4>
+                        <p class="content en">Sends fully rendered HTML to client for immediate display</p>
+                        <p class="content ko">즉시 표시를 위해 완전히 렌더링된 HTML을 클라이언트로 전송</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="factory-setup">Factory Setup</h3>
+                <p class="content en">Create a factory for both server (SSR) and client (browser) rendering:</p>
+                <p class="content ko">서버(SSR)와 클라이언트(브라우저) 렌더링을 위한 팩토리를 생성하세요:</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">factory.ts</span>
+                    </div>
+                    <pre dr-pre><code class="language-typescript">import { SimpleBootHttpSSRFactory, SimFrontOption, SimpleBootFront } from '@dooboostore/simple-boot-http-server-ssr';
+import { ConstructorType } from '@dooboostore/core';
+import { IndexRouterComponent } from './components/index.router.component';
+
+// Function to create a standard front-end option object
+export const MakeSimFrontOption = (window: any): SimFrontOption => {
+    return new SimFrontOption(window).setUrlType('path');
+}
+
+// The factory class that creates instances of the front-end application
+class Factory extends SimpleBootHttpSSRFactory {
+    factory(simFrontOption: SimFrontOption, using: ConstructorType<any>[] = [], domExcludes: ConstructorType<any>[] = []): Promise<SimpleBootFront> {
+        const simpleBootFront = new SimpleBootFront(IndexRouterComponent, simFrontOption);
+        // Exclude certain types from being proxied by the DOM renderer
+        simpleBootFront.domRendoerExcludeProxy.push(...domExcludes);
+        return Promise.resolve(simpleBootFront);
+    }
+}
+
+export default new Factory();</code></pre>
+                </div>
+
+                <h3 id="server-setup">Server Setup</h3>
+                <p class="content en">Configure the HTTP server with SSR and Intent filters:</p>
+                <p class="content ko">SSR 및 Intent 필터로 HTTP 서버를 구성하세요:</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">server.ts</span>
+                    </div>
+                    <pre dr-pre><code class="language-typescript">import 'reflect-metadata';
+import { SimpleBootHttpSSRServer } from '@dooboostore/simple-boot-http-server-ssr/SimpleBootHttpSSRServer';
+import { HttpSSRServerOption } from '@dooboostore/simple-boot-http-server-ssr/option/HttpSSRServerOption';
+import { SSRFilter, FactoryAndParams } from '@dooboostore/simple-boot-http-server-ssr/filters/SSRFilter';
+import { IntentSchemeFilter } from '@dooboostore/simple-boot-http-server-ssr/filters/IntentSchemeFilter';
+import { ResourceFilter } from '@dooboostore/simple-boot-http-server/filters/ResourceFilter';
+import Factory, { MakeSimFrontOption } from './factory';
+
+// SSR Configuration
+const ssrOption: FactoryAndParams = {
+    frontDistPath: './dist',
+    frontDistIndexFileName: 'index.html',
+    factorySimFrontOption: (window: any) => MakeSimFrontOption(window),
+    factory: Factory,
+    poolOption: {
+        max: 50,
+        min: 5
+    },
+    using: [], // Add your services here
+    domExcludes: [], // Add types to exclude from DOM proxy
+    ssrExcludeFilter: (rr) => {
+        // Exclude certain paths from SSR
+        const excludePatterns = [
+            /^\/api\/.*/,
+            /^\/assets\/.*/,
+            /^\/static\/.*/
+        ];
+        return excludePatterns.some(pattern => pattern.test(rr.reqUrl));
+    },
+    simpleBootFront: {
+        notFoundError: true
+    }
+};
+
+// Create filters
+const ssrFilter = new SSRFilter(ssrOption);
+const resourceFilter = new ResourceFilter('./dist', ['assets/.*', '\\.js$', '\\.css$']);
+
+// Server configuration
+const option = new HttpSSRServerOption();
+option.listen = { port: 3000, host: 'localhost' };
+option.filters = [
+    resourceFilter,
+    ssrFilter,
+    IntentSchemeFilter
+];
+
+// Start server
+const server = new SimpleBootHttpSSRServer(option);
+server.run().then(() => {
+    console.log('SSR Server is running on http://localhost:3000');
+});</code></pre>
+                </div>
+
+                <h3 id="data-hydration">Data Hydration</h3>
+                <p class="content en">Use decorators to automatically handle server-client data synchronization:</p>
+                <p class="content ko">서버-클라이언트 데이터 동기화를 자동으로 처리하는 데코레이터를 사용하세요:</p>
+                
+                <div class="code-example">
+                    <pre dr-pre><code class="language-typescript">import { SaveAroundAfter, LoadAroundBefore } from '@dooboostore/simple-boot-http-server-ssr';
+
+@Sim
+export class UserService {
+    
+    @SaveAroundAfter('user-data') // Save to window.server_side_data on server
+    @LoadAroundBefore('user-data') // Load from window.server_side_data on client
+    async getUserProfile(userId: string) {
+        // This method runs on server during SSR
+        // Data is automatically saved and loaded on client
+        const response = await fetch(`/api/users/${userId}`);
+        return response.json();
+    }
+}
+
+@Sim
+@Component({
+    template: `
+        &lt;div&gt;
+            &lt;h2&gt;User Profile&lt;/h2&gt;
+            &lt;div dr-if="user"&gt;
+                &lt;p&gt;Name: \${user.name}&lt;/p&gt;
+                &lt;p&gt;Email: \${user.email}&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    `
+})
+export class UserProfileComponent implements OnInit {
+    user?: any;
+    
+    constructor(private userService: UserService) {}
+    
+    async onInit() {
+        // On server: fetches data and saves to window.server_side_data
+        // On client: loads from window.server_side_data (no API call)
+        this.user = await this.userService.getUserProfile('123');
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="section">
+                <h2 id="advanced-features">Advanced Features</h2>
+                
+                <h3 id="intent-communication">Intent-based Communication</h3>
+                <p class="content en">Enable client-server communication using custom headers and intent publishing:</p>
+                <p class="content ko">커스텀 헤더와 인텐트 퍼블리싱을 사용한 클라이언트-서버 통신을 활성화하세요:</p>
+                
+                <div class="code-example">
+                    <pre dr-pre><code class="language-typescript">// Client-side intent request
+const response = await fetch('/api/user-action', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json-post+simple-boot-ssr-intent-scheme',
+        'X-Simple-Boot-Ssr-Intent-Scheme': 'UserService://updateProfile',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name: 'John Doe', email: 'john@example.com' })
+});
+
+// Server-side intent handler
+@Sim({ scheme: 'UserService' })
+export class UserService {
+    
+    updateProfile(intent: Intent) {
+        const userData = intent.data;
+        console.log('Updating user profile:', userData);
+        
+        // Process the update
+        return {
+            success: true,
+            message: 'Profile updated successfully',
+            data: userData
+        };
+    }
+}</code></pre>
+                </div>
+
+                <h3 id="component-pooling">Component Pooling Configuration</h3>
+                <p class="content en">Configure the pool of SimpleBootFront instances for optimal performance:</p>
+                <p class="content ko">최적의 성능을 위한 SimpleBootFront 인스턴스 풀을 구성하세요:</p>
+                
+                <div class="code-example">
+                    <pre dr-pre><code class="language-typescript">const ssrOption: FactoryAndParams = {
+    // ... other options
+    poolOption: {
+        max: 100,        // Maximum number of instances in pool
+        min: 10,         // Minimum number of instances to maintain
+        acquireTimeoutMillis: 30000,  // Timeout for acquiring instance
+        idleTimeoutMillis: 300000,    // Idle timeout before cleanup
+        evictionRunIntervalMillis: 60000  // Cleanup interval
+    },
+    
+    // Performance optimizations
+    using: [
+        UserService,
+        DataService,
+        // Add your services that need to be available during SSR
+    ],
+    
+    domExcludes: [
+        DatabaseConnection,
+        FileSystemService,
+        // Exclude server-only services from DOM proxy
+    ],
+    
+    // Custom SSR exclusion logic
+    ssrExcludeFilter: (rr: RequestResponse) => {
+        // Skip SSR for API routes
+        if (rr.reqUrl.startsWith('/api/')) return true;
+        
+        // Skip SSR for static assets
+        if (/\.(js|css|png|jpg|ico)$/.test(rr.reqUrl)) return true;
+        
+        // Skip SSR for specific user agents (e.g., bots that don't need SSR)
+        const userAgent = rr.reqHeaders()['user-agent'];
+        if (userAgent?.includes('bot')) return true;
+        
+        return false;
+    }
+};</code></pre>
+                </div>
+
+                <h3 id="error-handling">SSR Error Handling</h3>
+                <p class="content en">Handle SSR-specific errors and fallbacks:</p>
+                <p class="content ko">SSR 특정 오류 및 폴백을 처리하세요:</p>
+                
+                <div class="code-example">
+                    <pre dr-pre><code class="language-typescript">@Sim
+export class SSRErrorHandler {
+    
+    @ExceptionHandler({ type: SSRRenderError })
+    handleSSRError(rr: RequestResponse, error: SSRRenderError) {
+        console.error('SSR rendering failed:', error);
+        
+        // Fallback to client-side rendering
+        if (!rr.resIsDone()) {
+            rr.resStatusCode(200);
+            rr.resSetHeader('Content-Type', 'text/html');
+            
+            // Serve basic HTML that will bootstrap client-side app
+            const fallbackHtml = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Loading...</title>
+                    <script>window.SSR_FAILED = true;</script>
+                </head>
+                <body>
+                    <div id="app">Loading...</div>
+                    <script src="/app.js"></script>
+                </body>
+                </html>
+            `;
+            rr.resEnd(fallbackHtml);
+        }
+    }
+}
+
+// Register in server configuration
+const option = new HttpSSRServerOption();
+option.globalAdvice = SSRErrorHandler;</code></pre>
+                </div>
+            </section>
+
+            <!-- Core Concepts -->
+            <section class="section">
+                <h2 id="core-concepts">Core Concepts</h2>
+                <div class="concepts-grid">
+                    <div class="concept-item">
+                        <h4>SSRFilter</h4>
+                        <p class="content en">Core filter that intercepts requests and performs server-side rendering</p>
+                        <p class="content ko">요청을 가로채고 서버 사이드 렌더링을 수행하는 핵심 필터</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>SimpleBootHttpSSRFactory</h4>
+                        <p class="content en">Factory pattern for creating and managing SimpleBootFront instances</p>
+                        <p class="content ko">SimpleBootFront 인스턴스 생성 및 관리를 위한 팩토리 패턴</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Data Hydration Decorators</h4>
+                        <p class="content en">@SaveAroundAfter and @LoadAroundBefore for automatic data synchronization</p>
+                        <p class="content ko">자동 데이터 동기화를 위한 @SaveAroundAfter 및 @LoadAroundBefore</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>IntentSchemeFilter</h4>
+                        <p class="content en">Handles client-server communication through intent-based messaging</p>
+                        <p class="content ko">인텐트 기반 메시징을 통한 클라이언트-서버 통신 처리</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>JSDOM Virtual Environment</h4>
+                        <p class="content en">Server-side DOM environment for running front-end code</p>
+                        <p class="content ko">프론트엔드 코드 실행을 위한 서버 사이드 DOM 환경</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Component Pooling</h4>
+                        <p class="content en">Efficient resource management through instance pooling</p>
+                        <p class="content ko">인스턴스 풀링을 통한 효율적인 리소스 관리</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

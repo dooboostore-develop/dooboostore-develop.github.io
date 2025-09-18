@@ -1,0 +1,222 @@
+import { Router } from "@dooboostore/simple-boot/decorators/route/Router";
+import { CoreRouterComponent } from "./core/core.router.component";
+import { CoreNodeRouterComponent } from "./core-node/core-node.router.component";
+import { CoreWebRouterComponent } from "./core-web/core-web.router.component";
+import { DomRenderRouterComponent } from "./dom-render/dom-render.router.component";
+import { SimpleBootRouterComponent } from "./simple-boot/simple-boot.router.component";
+import { SimpleBootFrontRouterComponent } from "./simple-boot-front/simple-boot-front.router.component";
+import { SimpleBootHttpServerRouterComponent } from "./simple-boot-http-server/simple-boot-http-server.router.component";
+import { SimpleBootHttpServerSsrRouterComponent } from "./simple-boot-http-server-ssr/simple-boot-http-server-ssr.router.component";
+import { RouterAction, Sim } from "@dooboostore/simple-boot";
+import { Component } from "@dooboostore/simple-boot-front";
+import template from "./packages.router.component.html";
+import styles from "./packages.router.component.css";
+import { ComponentRouterBase } from "@dooboostore/simple-boot-front/component/ComponentRouterBase";
+import { PackagesRouteComponent } from "@src/pages/packages/packages.route.component";
+import { query } from "@dooboostore/dom-render/components/ComponentBase";
+import { OnDestroyRenderParams } from "@dooboostore/dom-render";
+import { RawSet } from "@dooboostore/dom-render/rawsets/RawSet";
+
+@Sim
+@Router({
+  path: "/packages",
+  route: {
+    "": "/",
+    "/": PackagesRouteComponent,
+  },
+  routers: [
+    CoreRouterComponent,
+    CoreNodeRouterComponent,
+    CoreWebRouterComponent,
+    DomRenderRouterComponent,
+    SimpleBootRouterComponent,
+    SimpleBootFrontRouterComponent,
+    SimpleBootHttpServerRouterComponent,
+    SimpleBootHttpServerSsrRouterComponent,
+  ],
+})
+@Component({
+  template,
+  styles,
+  using: [
+    PackagesRouteComponent, // Changed here
+    CoreRouterComponent,
+    CoreNodeRouterComponent,
+    CoreWebRouterComponent,
+    DomRenderRouterComponent,
+    SimpleBootRouterComponent,
+    SimpleBootFrontRouterComponent,
+    SimpleBootHttpServerRouterComponent,
+    SimpleBootHttpServerSsrRouterComponent,
+  ],
+})
+export class PackagesRouterComponent extends ComponentRouterBase {
+  @query(".packages-container")
+  container?: HTMLElement;
+
+  private observer?: IntersectionObserver;
+
+  constructor() {
+    super({ sameRouteNoApply: true });
+    console.log("PackagesRouterComponent constructor");
+  }
+
+  toggleSidebar() {
+    if (!this.container) return;
+
+    const sidebar = this.container.querySelector("#sidebar");
+    const mainContent = this.container.querySelector(".main-content");
+
+    if (sidebar && mainContent) {
+      // 모바일에서는 기존 로직 (open 클래스 토글)
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle("open");
+      }
+      // PC에서는 closed 클래스와 expanded 클래스 토글
+      else {
+        sidebar.classList.toggle("closed");
+        mainContent.classList.toggle("expanded");
+      }
+    }
+  }
+
+  toggleCategory(categoryId: string) {
+    if (!this.container) return;
+
+    const items = this.container.querySelector(`#${categoryId}-items`);
+    const arrow = this.container.querySelector(`#${categoryId}-arrow`);
+
+    if (items) {
+      items.classList.toggle("open");
+    }
+    if (arrow) {
+      arrow.classList.toggle("rotated");
+    }
+  }
+
+  private clearAllActiveMenuItems() {
+    if (!this.container) return;
+
+    // Remove all active states
+    const allItems = this.container.querySelectorAll(".sidebar-item");
+    allItems.forEach((item) => item.classList.remove("active"));
+  }
+
+  private updateActiveMenuItem(activeId: string) {
+    if (!this.container) return;
+
+    // Remove all active states first
+    this.clearAllActiveMenuItems();
+
+    // Add active state to current item
+    const activeItem = this.container.querySelector(
+      `[href="/packages/${activeId}"]`,
+    );
+    if (activeItem) {
+      activeItem.classList.add("active");
+
+      // Also expand the parent category
+      const parentSection = activeItem.closest(".sidebar-section");
+      if (parentSection) {
+        const items = parentSection.querySelector(".sidebar-items");
+        const arrow = parentSection.querySelector(".category-arrow");
+        if (items && arrow) {
+          items.classList.add("open");
+          arrow.classList.add("rotated");
+        }
+      }
+    }
+  }
+
+  private setupIntersectionObserver() {
+    if (!this.container) return;
+
+    // Observe sections with data-section attribute
+    const sections = this.container.querySelectorAll("[data-section]");
+
+    if (sections.length === 0) return;
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute("data-section");
+            if (sectionId) {
+              this.updateActiveMenuItem(sectionId);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -70% 0px",
+        threshold: 0.1,
+      },
+    );
+
+    sections.forEach((section) => {
+      this.observer!.observe(section);
+    });
+  }
+  onInitRender(param: any, rawSet: RawSet) {
+    super.onInitRender(param, rawSet);
+    // console.log('vvvvvvvvvvv');
+  }
+
+  onInit() {
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener("click", (event) => {
+      if (!this.container) return;
+
+      const sidebar = this.container.querySelector("#sidebar");
+      const toggleBtn = this.container.querySelector(".menu-toggle-btn");
+
+      if (
+        window.innerWidth <= 768 &&
+        sidebar &&
+        toggleBtn &&
+        !sidebar.contains(event.target as Node) &&
+        !toggleBtn.contains(event.target as Node) &&
+        sidebar.classList.contains("open")
+      ) {
+        sidebar.classList.remove("open");
+      }
+    });
+
+    // Setup intersection observer for active menu detection
+    setTimeout(() => {
+      this.setupIntersectionObserver();
+    }, 100);
+  }
+
+  async onRouting(r: RouterAction.RoutingDataSet): Promise<void> {
+    super.onRouting(r);
+    // console.log('rrrrr', r);
+    const uri = r.intent.uri;
+
+    // Only process if uri is a string
+    if (typeof uri === 'string') {
+      // Extract package name from URI (e.g., "/packages/core" -> "core")
+      const packageMatch = uri.match(/^\/packages\/([^\/]+)/);
+      if (packageMatch) {
+        const packageName = packageMatch[1];
+        // Update active menu item
+        this.updateActiveMenuItem(packageName);
+      } else if (uri === '/packages' || uri === '/packages/') {
+        // Clear all active states when on packages root page
+        this.clearAllActiveMenuItems();
+      }
+    }
+  }
+
+  onDrThisUnBind() {
+    super.onDrThisUnBind();
+    this.onDestroyRender();
+  }
+
+  onDestroyRender(data?: OnDestroyRenderParams) {
+    super.onDestroyRender(data);
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+}

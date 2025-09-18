@@ -1,0 +1,59 @@
+<!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <dr-a href="/" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text">dooboostore</span>
+            </dr-a>
+            
+            <nav class="header-nav">
+                <dr-a href="/packages" class="nav-link content en">📦 Packages</dr-a>
+                <dr-a href="/packages" class="nav-link content ko">📦 패키지</dr-a>
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <dr-router-outlet></dr-router-outlet>
+<!--    <dr-this value="${@this@.child}$"></dr-this>-->
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>

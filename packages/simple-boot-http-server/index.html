@@ -1,0 +1,1096 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>dooboostore - Integrated Development Platform</title>
+    <meta name="description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta name="keywords" content="TypeScript, JavaScript, library, framework, Simple Boot, DI, AOP, open source, web development">
+    <meta name="author" content="dooboostore">
+    
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dooboostore-develop.github.io/">
+    <meta property="og:title" content="dooboostore - Integrated Development Platform">
+    <meta property="og:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="og:image" content="assets/images/dooboostore.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dooboostore-develop.github.io/">
+    <meta property="twitter:title" content="dooboostore - Integrated Development Platform">
+    <meta property="twitter:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="twitter:image" content="assets/images/dooboostore.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer=""></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "dooboostore",
+      "description": "A powerful and flexible Integrated Development Platform collection for modern web application development",
+      "url": "https://dooboostore-develop.github.io/",
+      "author": {
+        "@type": "Organization",
+        "name": "dooboostore"
+      },
+      "programmingLanguage": "TypeScript",
+      "operatingSystem": "Cross-platform",
+      "applicationCategory": "DeveloperApplication"
+    }
+    </script>
+<script defer="" src="bundle.js"></script></head>
+<body>
+
+<div id="app"><meta id="XCaxtxEMxShuZfnqUehzVSGArcjqbNFKAGvqwWcs-start"><style id="XCaxtxEMxShuZfnqUehzVSGArcjqbNFKAGvqwWcs-style"></style><meta id="LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start"><style id="LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-style">/* Header */
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).header, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).header-container, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).header-left, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .header-left {
+  display: flex;
+  align-items: center;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).logo, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).logo-img, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).logo-text, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).header-nav, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 32px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).nav-link, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).nav-link:hover, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .nav-link:hover {
+  color: white;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).header-right, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* Language Toggle */
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-toggle, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-toggle {
+  position: relative;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-checkbox, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-checkbox {
+  display: none;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-label, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  width: 50px;
+  /* 더 작은 고정 너비 */
+  min-width: 50px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-label:hover, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-text, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-text {
+  transition: opacity 0.2s ease;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-text.english, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-text.english {
+  display: none;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-checkbox:checked + .language-label .language-text.korean, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-checkbox:checked + .language-label .language-text.korean {
+  display: none;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).language-checkbox:checked + .language-label .language-text.english, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .language-checkbox:checked + .language-label .language-text.english {
+  display: inline;
+}
+/* Language Content Toggle */
+/* .content.en { */
+/* display: block; */
+/* } */
+/* .content.ko { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.en { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.ko { */
+/* display: block; */
+/* } */
+/* Main Content */
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) main, #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ main:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *) {
+  min-height: 100vh;
+}
+/* Footer */
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer {
+  background: #000;
+  color: white;
+  padding: 20px 0 0;
+  /* margin-top: 120px; */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-container, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-simple, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-logo, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-logo .logo-img, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-logo .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-logo .logo-text, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-logo .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-links, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-link, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-link:hover, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-link:hover {
+  color: white;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-link i, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-link i {
+  font-size: 16px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-copyright, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-logo-small, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-logo-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).footer-copyright p, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .footer-copyright p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).header-nav, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .header-nav {
+    display: flex;
+    /* Show nav on mobile now */
+    margin-left: 16px;
+    /* Smaller margin on mobile */
+    gap: 16px;
+    /* Smaller gap on mobile */
+  }
+  :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).nav-link, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .nav-link {
+    font-size: 13px;
+    /* Slightly smaller font on mobile */
+  }
+  :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).header-container, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .header-container {
+    padding: 0 16px;
+  }
+  /* .footer-links { */
+  /* flex-direction: column; */
+  /* gap: 16px; */
+  /* } */
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).content.ko, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)).content.en, :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) .content.en {
+  display: block;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) header:has(#language-toggle:checked) ~ * .content.ko, #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ header:has(#language-toggle:checked) ~ * .content.ko:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *), :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) header:has(#language-toggle:checked) .content.ko, #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ header:has(#language-toggle:checked) .content.ko:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *) {
+  display: block;
+}
+:is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) header:has(#language-toggle:checked) ~ * .content.en, #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ header:has(#language-toggle:checked) ~ * .content.en:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *), :is(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ *:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *)) header:has(#language-toggle:checked) .content.en, #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ header:has(#language-toggle:checked) .content.en:not(#LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-start ~ #LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end ~ *) {
+  display: none;
+}</style><!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <meta id="QMDYQkaEDNCvoeyiCQbCFVHyTizGkofscgysSgzf-start"><style id="QMDYQkaEDNCvoeyiCQbCFVHyTizGkofscgysSgzf-style"></style><a href="/" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text">dooboostore</span>
+            </a><meta id="QMDYQkaEDNCvoeyiCQbCFVHyTizGkofscgysSgzf-end">
+            
+            <nav class="header-nav">
+                <meta id="VETkmSwLVizVmHnTSRSKPCKSevnRVYbGFzaVtaRf-start"><style id="VETkmSwLVizVmHnTSRSKPCKSevnRVYbGFzaVtaRf-style"></style><a href="/packages" class="nav-link content en">📦 Packages</a><meta id="VETkmSwLVizVmHnTSRSKPCKSevnRVYbGFzaVtaRf-end">
+                <meta id="WvFxsSVhPJqscQmqGSmKvYYjOwaCRZqqRUHpVuSE-start"><style id="WvFxsSVhPJqscQmqGSmKvYYjOwaCRZqqRUHpVuSE-style"></style><a href="/packages" class="nav-link content ko">📦 패키지</a><meta id="WvFxsSVhPJqscQmqGSmKvYYjOwaCRZqqRUHpVuSE-end">
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <meta id="ixGdDsWTYCiILHeOzlELZNDtDNUHNSDKmfPfhAPp-start"><style id="ixGdDsWTYCiILHeOzlELZNDtDNUHNSDKmfPfhAPp-style"></style><meta id="YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start"><style id="YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-style">:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) *, #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).packages-container, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .packages-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #e5e5e5;
+  min-height: 100vh;
+  position: relative;
+}
+/* Mobile Menu Toggle */
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).mobile-menu-toggle, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .mobile-menu-toggle {
+  /* display: none; */
+  position: fixed;
+  bottom: 24px;
+  left: 14px;
+  z-index: 1000;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).menu-toggle-btn, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .menu-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).menu-toggle-btn:hover, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).menu-toggle-btn span, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .menu-toggle-btn span {
+  display: none;
+}
+/* Sidebar */
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar {
+  width: 280px;
+  background: #000;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 50;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-content, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-content {
+  padding: 24px 0;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-section, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-section {
+  margin-bottom: 8px;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-category, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-category:hover, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-category:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).category-arrow, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .category-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).category-arrow.rotated, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .category-arrow.rotated {
+  transform: rotate(180deg);
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-items, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-items.open, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-items.open {
+  max-height: 500px;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-item, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-item {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 8px 24px 8px 40px;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-item:hover, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar-item.active, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar-item.active {
+  color: #0070f3;
+  background: rgba(0, 112, 243, 0.1);
+  border-left-color: #0070f3;
+}
+/* Main Content */
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).main-content, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .main-content {
+  margin-left: 280px;
+  padding: 0;
+  min-height: 100vh;
+}
+/* Language Content Toggle */
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).content.ko, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).content.en, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .content.en {
+  display: block;
+}
+/* Desktop - 사이드바 토글 가능 */
+@media (min-width: 769px) {
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).mobile-menu-toggle, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    top: auto;
+    z-index: 1001;
+    transition: left 0.3s ease;
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).menu-toggle-btn, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .menu-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).menu-toggle-btn:hover, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .menu-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar.closed, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  /* 사이드바가 닫혔을 때 토글 버튼 위치는 그대로 유지 */
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar.closed ~ .mobile-menu-toggle, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar.closed ~ .mobile-menu-toggle {
+    left: 20px;
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).main-content, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).main-content.expanded, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .main-content.expanded {
+    margin-left: 0;
+  }
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).packages-container, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .packages-container {
+    display: block;
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).mobile-menu-toggle, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .mobile-menu-toggle {
+    display: block;
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar.open, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar.open {
+    transform: translateX(0);
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).main-content, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .main-content {
+    margin-left: 0;
+  }
+  /* Mobile overlay */
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar.open::before, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).sidebar, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .sidebar {
+    width: 240px;
+  }
+  :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)).main-content, :is(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ *:not(#YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-start ~ #YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end ~ *)) .main-content {
+    margin-left: 240px;
+  }
+}</style><div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="framework-items">
+                    <meta id="gCHvpsAOCBQnUfrxrhUaIFvJfjrRlXqYQDIsBtuX-start"><style id="gCHvpsAOCBQnUfrxrhUaIFvJfjrRlXqYQDIsBtuX-style"></style><a href="/packages/simple-boot" class="sidebar-item">simple-boot</a><meta id="gCHvpsAOCBQnUfrxrhUaIFvJfjrRlXqYQDIsBtuX-end">
+                    <meta id="mLoqYDknIlZsSmzlzBrRIBgZHLdLSwEKzlyZtGkn-start"><style id="mLoqYDknIlZsSmzlzBrRIBgZHLdLSwEKzlyZtGkn-style"></style><a href="/packages/simple-boot-front" class="sidebar-item">simple-boot-front</a><meta id="mLoqYDknIlZsSmzlzBrRIBgZHLdLSwEKzlyZtGkn-end">
+                    <meta id="qexJnjYPpMJWmswyjmltxlcLaVefsnWuYqHTWnxe-start"><style id="qexJnjYPpMJWmswyjmltxlcLaVefsnWuYqHTWnxe-style"></style><a href="/packages/simple-boot-http-server" class="sidebar-item active">simple-boot-http-server</a><meta id="qexJnjYPpMJWmswyjmltxlcLaVefsnWuYqHTWnxe-end">
+                    <meta id="yJrlixchuBLTcthxXJGbPNwhoifmbcXMMtOoBKkE-start"><style id="yJrlixchuBLTcthxXJGbPNwhoifmbcXMMtOoBKkE-style"></style><a href="/packages/simple-boot-http-server-ssr" class="sidebar-item">simple-boot-http-server-ssr</a><meta id="yJrlixchuBLTcthxXJGbPNwhoifmbcXMMtOoBKkE-end">
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="library-items">
+                    <meta id="DUoFIuKZpSmMFUVtJYUsQYcpjyUTbcOmWvKmKJqD-start"><style id="DUoFIuKZpSmMFUVtJYUsQYcpjyUTbcOmWvKmKJqD-style"></style><a href="/packages/dom-render" class="sidebar-item">dom-render</a><meta id="DUoFIuKZpSmMFUVtJYUsQYcpjyUTbcOmWvKmKJqD-end">
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="core-items">
+                    <meta id="CyRKwSsVuNRmfBZYXyhxqyhaTymNnjuxSqeyRuOY-start"><style id="CyRKwSsVuNRmfBZYXyhxqyhaTymNnjuxSqeyRuOY-style"></style><a href="/packages/core" class="sidebar-item">core</a><meta id="CyRKwSsVuNRmfBZYXyhxqyhaTymNnjuxSqeyRuOY-end">
+                    <meta id="UASkQdGbgFYtYHhFHIGKJHbHMLLpMtsboFxBwYZy-start"><style id="UASkQdGbgFYtYHhFHIGKJHbHMLLpMtsboFxBwYZy-style"></style><a href="/packages/core-node" class="sidebar-item">core-node</a><meta id="UASkQdGbgFYtYHhFHIGKJHbHMLLpMtsboFxBwYZy-end">
+                    <meta id="SWxePvoGMAvVZnwzoTCkVXqOvrbjfTyXXZkdkXmY-start"><style id="SWxePvoGMAvVZnwzoTCkVXqOvrbjfTyXXZkdkXmY-style"></style><a href="/packages/core-web" class="sidebar-item">core-web</a><meta id="SWxePvoGMAvVZnwzoTCkVXqOvrbjfTyXXZkdkXmY-end">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <meta id="hNyKtAzDrTNLTTJGQeALezwXYiZTIlRvDiFkWyHM-start"><style id="hNyKtAzDrTNLTTJGQeALezwXYiZTIlRvDiFkWyHM-style"></style><meta id="wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start"><style id="wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-style">:is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).sub-navigation, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .sub-navigation {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 48px;
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+:is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).breadcrumb, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+:is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).breadcrumb-item, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .breadcrumb-item {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).breadcrumb-item:hover, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .breadcrumb-item:hover {
+  color: white;
+}
+:is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).breadcrumb-separator, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+:is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).breadcrumb-current, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .breadcrumb-current {
+  color: white;
+  font-weight: 500;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).sub-navigation, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .sub-navigation {
+    padding: 12px 16px;
+  }
+  :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).breadcrumb, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)).breadcrumb, :is(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ *:not(#wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-start ~ #wKZMDpnRjvLcueWqEktrbKuUYGaWMNSrPIzQfENI-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}</style><div class="sub-navigation">
+<meta id="cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start"><style id="cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-style">:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-item, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-item {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-item:hover, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-item:hover {
+  color: #ffffff;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-current, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-current {
+  color: #e5e5e5;
+  font-weight: 500;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-separator, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #606060;
+  user-select: none;
+}
+/* Dropdown styles */
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-dropdown, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-select, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-select {
+  position: relative;
+  display: inline-block;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-select-summary, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-select-summary {
+  cursor: pointer;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-select-body, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-select-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 150px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-select-option, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-select-option {
+  cursor: pointer;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-option-content, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-option-content {
+  padding: 0.5rem 1rem;
+  color: #e5e5e5;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-option-content:hover, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-option-content:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-option-content.selected, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-option-content.selected {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+:is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-option-content.selected:hover, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-option-content.selected:hover {
+  background-color: #f0f0f0;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb {
+    font-size: 0.8rem;
+  }
+  :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)).breadcrumb-separator, :is(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ *:not(#cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-start ~ #cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end ~ *)) .breadcrumb-separator {
+    margin: 0 0.25rem;
+  }
+}</style><div class="breadcrumb">
+  <meta id="NvQJgTnDoFqXRiClGPNBfsXSPSOExauTWPzhaelU-start"><meta id="NvQJgTnDoFqXRiClGPNBfsXSPSOExauTWPzhaelU-end">
+</div><meta id="cSrAndkQzFeLOvuxwEjZolNbKRlrUXmXWSqmbrQp-end">
+</div>
+
+<meta id="DQfRHRsQKdhzuqBmhuUGuHfwphjqvfyJdeuXsNts-start"><style id="DQfRHRsQKdhzuqBmhuUGuHfwphjqvfyJdeuXsNts-style"></style><meta id="gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start"><style id="gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-style">:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) *, #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-container, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).container, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+/* Header */
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-header, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-header {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 3rem 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-header h1, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-actions, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-link, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-link:hover, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-link:hover {
+  color: white;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-link i, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-link i {
+  font-size: 16px;
+}
+/* Content */
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-content, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-content {
+  padding: 4rem 0;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).section, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .section {
+  margin-bottom: 4rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).section h2, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .section h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 100px;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  border-top: 1px solid transparent;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).section h3, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .section h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 2rem 0 1rem 0;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).section h4, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .section h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+/* Code Examples */
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).code-example, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).code-header, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .code-header {
+  background: #2a2a2a;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).code-title, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).code-example pre, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).code-example code, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+/* Features Grid */
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).features-grid, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).feature-item, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .feature-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).feature-item h3, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .feature-item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).feature-item p, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .feature-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Concepts Grid */
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).concepts-grid, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).concept-item, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .concept-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).concept-item h4, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .concept-item h4 {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+:is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).concept-item p, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .concept-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-header, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-header {
+    padding: 2rem 0;
+  }
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-header h1, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-header h1 {
+    font-size: 2rem;
+  }
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-content, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-content {
+    padding: 3rem 0;
+  }
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).section, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .section {
+    margin-bottom: 3rem;
+  }
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).features-grid, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .features-grid, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).concepts-grid, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-actions, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-actions {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).package-link, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .package-link {
+    font-size: 13px;
+  }
+}
+/* Mobile code fix */
+@media (max-width: 768px) {
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).container, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .container {
+    padding: 0 1rem;
+  }
+  /* .code-example { */
+  /* margin: 0 -1rem 1.5rem -1rem; */
+  /* border-radius: 0; */
+  /* } */
+  :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)).code-example pre, :is(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ *:not(#gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-start ~ #gIhhXeBjlWwYpnLsJBQBdNcsAEKanFrZQEdaKxCZ-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+  /* .section h2 { */
+  /* top: 90px; */
+  /* margin: -1rem -1rem -1rem -1rem; */
+  /* padding-left: 0.5rem; */
+  /* } */
+}</style><div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>simple-boot-http-server</h1>
+            <p class="content en">Lightweight and powerful HTTP web server framework for Node.js</p>
+            <p class="content ko">Node.js를 위한 경량이면서 강력한 HTTP 웹 서버 프레임워크</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&amp;logo=github&amp;logoColor=white" alt="GitHub">
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/simple-boot-http-server" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&amp;logo=npm&amp;logoColor=white" alt="NPM">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its dependencies:</p>
+                <p class="content ko">패키지와 의존성을 설치하세요:</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">npm</span>
+                    </div>
+                    <pre><code class="language-bash">npm install @dooboostore/simple-boot-http-server reflect-metadata</code></pre>
+                </div>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">pnpm</span>
+                    </div>
+                    <pre><code class="language-bash">pnpm add @dooboostore/simple-boot-http-server reflect-metadata</code></pre>
+                </div>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">Quick Start CLI</span>
+                    </div>
+                    <pre><code class="language-bash">npm init @dooboostore/simple-boot-http-server projectname
+cd projectname
+npm start</code></pre>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Declarative Routing</h3>
+                        <p class="content en">Use decorators (@Router, @Route) to map URLs to classes and methods</p>
+                        <p class="content ko">데코레이터(@Router, @Route)를 사용하여 URL을 클래스와 메서드에 매핑</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>HTTP Method Mapping</h3>
+                        <p class="content en">Decorators for all standard HTTP methods (@GET, @POST, @PUT, @DELETE, etc.)</p>
+                        <p class="content ko">모든 표준 HTTP 메서드를 위한 데코레이터(@GET, @POST, @PUT, @DELETE 등)</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Request/Response Handling</h3>
+                        <p class="content en">Unified RequestResponse object to manage HTTP transactions</p>
+                        <p class="content ko">HTTP 트랜잭션을 관리하는 통합된 RequestResponse 객체</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Middleware/Filters</h3>
+                        <p class="content en">Intercept requests and responses for cross-cutting concerns</p>
+                        <p class="content ko">횡단 관심사를 위한 요청 및 응답 가로채기</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Global Exception Handling</h3>
+                        <p class="content en">Centralized error handling using @Sim advice classes</p>
+                        <p class="content ko">@Sim advice 클래스를 사용한 중앙집중식 오류 처리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Session Management</h3>
+                        <p class="content en">Built-in session management with customizable storage providers</p>
+                        <p class="content ko">사용자 정의 저장소 제공자를 지원하는 내장 세션 관리</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>HTTPS Support</h3>
+                        <p class="content en">Configure the server to run over HTTPS and HTTP/2</p>
+                        <p class="content ko">HTTPS 및 HTTP/2를 통해 실행되도록 서버 구성</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Endpoints</h3>
+                        <p class="content en">Define logic for different stages of request lifecycle</p>
+                        <p class="content ko">요청 생명주기의 다양한 단계에 대한 로직 정의</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="basic-api">Basic API Setup</h3>
+                <p class="content en">Create a simple REST API with HTTP method decorators:</p>
+                <p class="content ko">HTTP 메서드 데코레이터를 사용하여 간단한 REST API를 생성하세요:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import { Sim, Router, Route, RouterModule } from '@dooboostore/simple-boot';
+import {
+    GET, POST, PUT, DELETE,
+    Mimes,
+    RequestResponse,
+    ReqJsonBody
+} from '@dooboostore/simple-boot-http-server';
+
+@Sim
+@Router({ path: '/api/items' })
+export class ItemApi {
+
+    @Route({ path: '' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    getAllItems() {
+        // Logic to get all items
+        return [{ id: 1, name: 'Item 1' }, { id: 2, name: 'Item 2' }];
+    }
+
+    @Route({ path: '/{id}' })
+    @GET({ res: { contentType: Mimes.ApplicationJson } })
+    getItemById(routerModule: RouterModule) {
+        const itemId = routerModule.pathData?.id;
+        // Logic to get item by ID
+        return { id: itemId, name: `Item "></dr-this>-->
+    </main>
+</div><meta id="YtObLxbtFbSLTgeHIjiINKcusdyyVClNLhsOdtZS-end"><meta id="ixGdDsWTYCiILHeOzlELZNDtDNUHNSDKmfPfhAPp-end">
+<!--    <dr-this value=""></dr-this>-->
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<meta id="LaQtzWLYjApdAdlYpsZmqQGwtQJBAcXWCuUYXZgW-end"><meta id="XCaxtxEMxShuZfnqUehzVSGArcjqbNFKAGvqwWcs-end"></div>
+
+
+</body></html>

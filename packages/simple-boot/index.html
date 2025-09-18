@@ -1,0 +1,1158 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>dooboostore - Integrated Development Platform</title>
+    <meta name="description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta name="keywords" content="TypeScript, JavaScript, library, framework, Simple Boot, DI, AOP, open source, web development">
+    <meta name="author" content="dooboostore">
+    
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dooboostore-develop.github.io/">
+    <meta property="og:title" content="dooboostore - Integrated Development Platform">
+    <meta property="og:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="og:image" content="assets/images/dooboostore.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dooboostore-develop.github.io/">
+    <meta property="twitter:title" content="dooboostore - Integrated Development Platform">
+    <meta property="twitter:description" content="A powerful and flexible Integrated Development Platform for modern web application development">
+    <meta property="twitter:image" content="assets/images/dooboostore.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js" defer=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" defer=""></script>
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="assets/css/global.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "dooboostore",
+      "description": "A powerful and flexible Integrated Development Platform collection for modern web application development",
+      "url": "https://dooboostore-develop.github.io/",
+      "author": {
+        "@type": "Organization",
+        "name": "dooboostore"
+      },
+      "programmingLanguage": "TypeScript",
+      "operatingSystem": "Cross-platform",
+      "applicationCategory": "DeveloperApplication"
+    }
+    </script>
+<script defer="" src="bundle.js"></script></head>
+<body>
+
+<div id="app"><meta id="GuDwbWNKqBOoWiMPiQSvITjrctXNWseCrITDVbSr-start"><style id="GuDwbWNKqBOoWiMPiQSvITjrctXNWseCrITDVbSr-style"></style><meta id="UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start"><style id="UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-style">/* Header */
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).header, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).header-container, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).header-left, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .header-left {
+  display: flex;
+  align-items: center;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).logo, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).logo-img, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).logo-text, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).header-nav, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 32px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).nav-link, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).nav-link:hover, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .nav-link:hover {
+  color: white;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).header-right, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* Language Toggle */
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-toggle, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-toggle {
+  position: relative;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-checkbox, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-checkbox {
+  display: none;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-label, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  width: 50px;
+  /* 더 작은 고정 너비 */
+  min-width: 50px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-label:hover, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-text, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-text {
+  transition: opacity 0.2s ease;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-text.english, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-text.english {
+  display: none;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-checkbox:checked + .language-label .language-text.korean, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-checkbox:checked + .language-label .language-text.korean {
+  display: none;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).language-checkbox:checked + .language-label .language-text.english, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .language-checkbox:checked + .language-label .language-text.english {
+  display: inline;
+}
+/* Language Content Toggle */
+/* .content.en { */
+/* display: block; */
+/* } */
+/* .content.ko { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.en { */
+/* display: none; */
+/* } */
+/* .language-checkbox:checked ~ main .content.ko { */
+/* display: block; */
+/* } */
+/* Main Content */
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) main, #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ main:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *) {
+  min-height: 100vh;
+}
+/* Footer */
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer {
+  background: #000;
+  color: white;
+  padding: 20px 0 0;
+  /* margin-top: 120px; */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 100;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-container, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-simple, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-logo, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-logo .logo-img, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-logo .logo-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-logo .logo-text, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-logo .logo-text {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-links, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-link, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-link:hover, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-link:hover {
+  color: white;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-link i, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-link i {
+  font-size: 16px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-copyright, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-copyright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-logo-small, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-logo-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).footer-copyright p, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .footer-copyright p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).header-nav, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .header-nav {
+    display: flex;
+    /* Show nav on mobile now */
+    margin-left: 16px;
+    /* Smaller margin on mobile */
+    gap: 16px;
+    /* Smaller gap on mobile */
+  }
+  :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).nav-link, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .nav-link {
+    font-size: 13px;
+    /* Slightly smaller font on mobile */
+  }
+  :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).header-container, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .header-container {
+    padding: 0 16px;
+  }
+  /* .footer-links { */
+  /* flex-direction: column; */
+  /* gap: 16px; */
+  /* } */
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).content.ko, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)).content.en, :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) .content.en {
+  display: block;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) header:has(#language-toggle:checked) ~ * .content.ko, #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ header:has(#language-toggle:checked) ~ * .content.ko:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *), :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) header:has(#language-toggle:checked) .content.ko, #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ header:has(#language-toggle:checked) .content.ko:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *) {
+  display: block;
+}
+:is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) header:has(#language-toggle:checked) ~ * .content.en, #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ header:has(#language-toggle:checked) ~ * .content.en:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *), :is(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ *:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *)) header:has(#language-toggle:checked) .content.en, #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ header:has(#language-toggle:checked) .content.en:not(#UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-start ~ #UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end ~ *) {
+  display: none;
+}</style><!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <meta id="ITFIKrOiSAqUoDDBTGsrpMwQwlDgreLUDSLLiCRW-start"><style id="ITFIKrOiSAqUoDDBTGsrpMwQwlDgreLUDSLLiCRW-style"></style><a href="/" class="logo">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="logo-img">
+                <span class="logo-text">dooboostore</span>
+            </a><meta id="ITFIKrOiSAqUoDDBTGsrpMwQwlDgreLUDSLLiCRW-end">
+            
+            <nav class="header-nav">
+                <meta id="XuPIJUDsLUugLevUymOAUMKCOGvZGCiIBagVgoRC-start"><style id="XuPIJUDsLUugLevUymOAUMKCOGvZGCiIBagVgoRC-style"></style><a href="/packages" class="nav-link content en">📦 Packages</a><meta id="XuPIJUDsLUugLevUymOAUMKCOGvZGCiIBagVgoRC-end">
+                <meta id="gCcZrjGZInNIrvcIONXKDEFTWXzVUMAVFrnItJsp-start"><style id="gCcZrjGZInNIrvcIONXKDEFTWXzVUMAVFrnItJsp-style"></style><a href="/packages" class="nav-link content ko">📦 패키지</a><meta id="gCcZrjGZInNIrvcIONXKDEFTWXzVUMAVFrnItJsp-end">
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <input type="checkbox" id="language-toggle" class="language-checkbox">
+                <label for="language-toggle" class="language-label">
+                    <span class="language-text korean">KO</span>
+                    <span class="language-text english">EN</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <meta id="LyunaAMNMBOldDZxFmJwppcXLYfAXbgiGycyMFAr-start"><style id="LyunaAMNMBOldDZxFmJwppcXLYfAXbgiGycyMFAr-style"></style><meta id="MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start"><style id="MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-style">:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) *, #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).packages-container, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .packages-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #e5e5e5;
+  min-height: 100vh;
+  position: relative;
+}
+/* Mobile Menu Toggle */
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).mobile-menu-toggle, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .mobile-menu-toggle {
+  /* display: none; */
+  position: fixed;
+  bottom: 24px;
+  left: 14px;
+  z-index: 1000;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).menu-toggle-btn, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .menu-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).menu-toggle-btn:hover, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .menu-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).menu-toggle-btn span, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .menu-toggle-btn span {
+  display: none;
+}
+/* Sidebar */
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar {
+  width: 280px;
+  background: #000;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 50;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-content, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-content {
+  padding: 24px 0;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-section, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-section {
+  margin-bottom: 8px;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-category, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-category:hover, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-category:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).category-arrow, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .category-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).category-arrow.rotated, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .category-arrow.rotated {
+  transform: rotate(180deg);
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-items, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-items.open, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-items.open {
+  max-height: 500px;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-item, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-item {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 8px 24px 8px 40px;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-item:hover, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-item:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar-item.active, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar-item.active {
+  color: #0070f3;
+  background: rgba(0, 112, 243, 0.1);
+  border-left-color: #0070f3;
+}
+/* Main Content */
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).main-content, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .main-content {
+  margin-left: 280px;
+  padding: 0;
+  min-height: 100vh;
+}
+/* Language Content Toggle */
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).content.ko, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .content.ko {
+  display: none;
+}
+:is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).content.en, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .content.en {
+  display: block;
+}
+/* Desktop - 사이드바 토글 가능 */
+@media (min-width: 769px) {
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).mobile-menu-toggle, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    bottom: 24px;
+    left: 20px;
+    top: auto;
+    z-index: 1001;
+    transition: left 0.3s ease;
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).menu-toggle-btn, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .menu-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).menu-toggle-btn:hover, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .menu-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar {
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar.closed, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  /* 사이드바가 닫혔을 때 토글 버튼 위치는 그대로 유지 */
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar.closed ~ .mobile-menu-toggle, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar.closed ~ .mobile-menu-toggle {
+    left: 20px;
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).main-content, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).main-content.expanded, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .main-content.expanded {
+    margin-left: 0;
+  }
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).packages-container, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .packages-container {
+    display: block;
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).mobile-menu-toggle, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .mobile-menu-toggle {
+    display: block;
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar.open, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar.open {
+    transform: translateX(0);
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).main-content, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .main-content {
+    margin-left: 0;
+  }
+  /* Mobile overlay */
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar.open::before, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).sidebar, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .sidebar {
+    width: 240px;
+  }
+  :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)).main-content, :is(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ *:not(#MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-start ~ #MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end ~ *)) .main-content {
+    margin-left: 240px;
+  }
+}</style><div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="framework-items">
+                    <meta id="YfcMGgEsChXXyVyVlxqPHuUYXoWbXkRmLqwsbQuE-start"><style id="YfcMGgEsChXXyVyVlxqPHuUYXoWbXkRmLqwsbQuE-style"></style><a href="/packages/simple-boot" class="sidebar-item active">simple-boot</a><meta id="YfcMGgEsChXXyVyVlxqPHuUYXoWbXkRmLqwsbQuE-end">
+                    <meta id="nMFFXvVIJVFkxECRnIIXmKgthCyYVkpRFIsPkBsi-start"><style id="nMFFXvVIJVFkxECRnIIXmKgthCyYVkpRFIsPkBsi-style"></style><a href="/packages/simple-boot-front" class="sidebar-item">simple-boot-front</a><meta id="nMFFXvVIJVFkxECRnIIXmKgthCyYVkpRFIsPkBsi-end">
+                    <meta id="xJAoIZwJIYubGXltxFyNcOdPsFAjnwhIdIIzzbhU-start"><style id="xJAoIZwJIYubGXltxFyNcOdPsFAjnwhIdIIzzbhU-style"></style><a href="/packages/simple-boot-http-server" class="sidebar-item">simple-boot-http-server</a><meta id="xJAoIZwJIYubGXltxFyNcOdPsFAjnwhIdIIzzbhU-end">
+                    <meta id="GpZNdjYGbbzvKLturXAbSanhxugaIzocqmElUdrR-start"><style id="GpZNdjYGbbzvKLturXAbSanhxugaIzocqmElUdrR-style"></style><a href="/packages/simple-boot-http-server-ssr" class="sidebar-item">simple-boot-http-server-ssr</a><meta id="GpZNdjYGbbzvKLturXAbSanhxugaIzocqmElUdrR-end">
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="library-items">
+                    <meta id="ovYXLvyPBgtzJSLVHpZBVzSHRDhKHOqjfxAwFxXM-start"><style id="ovYXLvyPBgtzJSLVHpZBVzSHRDhKHOqjfxAwFxXM-style"></style><a href="/packages/dom-render" class="sidebar-item">dom-render</a><meta id="ovYXLvyPBgtzJSLVHpZBVzSHRDhKHOqjfxAwFxXM-end">
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow rotated" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items open" id="core-items">
+                    <meta id="rOKPWTVeVIXMsvfLCIhhHfmBtOsXSWVrlkProReh-start"><style id="rOKPWTVeVIXMsvfLCIhhHfmBtOsXSWVrlkProReh-style"></style><a href="/packages/core" class="sidebar-item">core</a><meta id="rOKPWTVeVIXMsvfLCIhhHfmBtOsXSWVrlkProReh-end">
+                    <meta id="wEmebYhgGwslUdhKZvolXWugOuQCVSEkvhBkfUwO-start"><style id="wEmebYhgGwslUdhKZvolXWugOuQCVSEkvhBkfUwO-style"></style><a href="/packages/core-node" class="sidebar-item">core-node</a><meta id="wEmebYhgGwslUdhKZvolXWugOuQCVSEkvhBkfUwO-end">
+                    <meta id="fbLNBpjRUzbsqGaEeKwQriUuCUXnBGYrUbJBrCVN-start"><style id="fbLNBpjRUzbsqGaEeKwQriUuCUXnBGYrUbJBrCVN-style"></style><a href="/packages/core-web" class="sidebar-item">core-web</a><meta id="fbLNBpjRUzbsqGaEeKwQriUuCUXnBGYrUbJBrCVN-end">
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <meta id="jJlvpZKUqOcHdwTvKAKLhXOADqFgsauNqidwoCKV-start"><style id="jJlvpZKUqOcHdwTvKAKLhXOADqFgsauNqidwoCKV-style"></style><meta id="xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start"><style id="xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-style">:is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).sub-navigation, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .sub-navigation {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 48px;
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+:is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).breadcrumb, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+:is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).breadcrumb-item, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .breadcrumb-item {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).breadcrumb-item:hover, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .breadcrumb-item:hover {
+  color: white;
+}
+:is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).breadcrumb-separator, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .breadcrumb-separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+:is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).breadcrumb-current, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .breadcrumb-current {
+  color: white;
+  font-weight: 500;
+}
+/* Mobile */
+@media (max-width: 768px) {
+  :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).sub-navigation, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .sub-navigation {
+    padding: 12px 16px;
+  }
+  :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)).breadcrumb, :is(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ *:not(#xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-start ~ #xIpncQOkmIJbAqsrAbMLZHyHGanQpkTszsHRpkPF-end ~ *)) .breadcrumb {
+    font-size: 13px;
+  }
+}</style><div class="sub-navigation">
+<meta id="EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start"><style id="EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-style">:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  color: #a0a0a0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-item, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-item {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-item:hover, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-item:hover {
+  color: #ffffff;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-current, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-current {
+  color: #e5e5e5;
+  font-weight: 500;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-separator, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: #606060;
+  user-select: none;
+}
+/* Dropdown styles */
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-dropdown, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-select, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-select {
+  position: relative;
+  display: inline-block;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-select-summary, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-select-summary {
+  cursor: pointer;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-select-body, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-select-body {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 150px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-select-option, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-select-option {
+  cursor: pointer;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-option-content, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-option-content {
+  padding: 0.5rem 1rem;
+  color: #e5e5e5;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-option-content:hover, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-option-content:hover {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-option-content.selected, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-option-content.selected {
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+:is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-option-content.selected:hover, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-option-content.selected:hover {
+  background-color: #f0f0f0;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb {
+    font-size: 0.8rem;
+  }
+  :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)).breadcrumb-separator, :is(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ *:not(#EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-start ~ #EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end ~ *)) .breadcrumb-separator {
+    margin: 0 0.25rem;
+  }
+}</style><div class="breadcrumb">
+  <meta id="hsBntjeLCLZTPhdNszYaicadGotPEpQYDCWSMBbP-start"><meta id="hsBntjeLCLZTPhdNszYaicadGotPEpQYDCWSMBbP-end">
+</div><meta id="EfTHnvKIilSsKqsaaCPWPqJMRNChUQbEYEmqDZEH-end">
+</div>
+
+
+<meta id="syFWUSdYCqDwlGxIUNngyTPkozVeFHkkndxtzUOa-start"><style id="syFWUSdYCqDwlGxIUNngyTPkozVeFHkkndxtzUOa-style"></style><meta id="jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start"><style id="jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-style">:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) *, #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-container, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).container, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+/* Header */
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-header, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-header {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 3rem 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).breadcrumb, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .breadcrumb {
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  color: #a0a0a0;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).breadcrumb a, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .breadcrumb a {
+  color: #e5e5e5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).breadcrumb a:hover, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .breadcrumb a:hover {
+  color: #ffffff;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).breadcrumb span, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .breadcrumb span {
+  margin: 0 0.5rem;
+  color: #606060;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-header h1, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-subtitle, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-subtitle {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-actions, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-actions {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-link, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-link:hover, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-link:hover {
+  color: white;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-link i, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-link i {
+  font-size: 16px;
+}
+/* Content */
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-content, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-content {
+  padding: 4rem 0;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).section, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .section {
+  margin-bottom: 4rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).section h2, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .section h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  padding: 1rem 0 0.5rem 0;
+  border-bottom: 1px solid #2a2a2a;
+  position: sticky;
+  top: 100px;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(12px);
+  z-index: 10;
+  border-top: 1px solid transparent;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).section h3, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .section h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 2rem 0 1rem 0;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).section h4, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .section h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+/* Code Examples */
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).code-example, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .code-example {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).code-header, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .code-header {
+  background: #2a2a2a;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #3a3a3a;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).code-title, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .code-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e5e5;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).code-example pre, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .code-example pre {
+  padding: 1.5rem;
+  margin: 0;
+  overflow-x: auto;
+  background: transparent;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).code-example code, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .code-example code {
+  color: #e5e5e5;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+/* Philosophy Grid */
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).philosophy-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).philosophy-item, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .philosophy-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).philosophy-item h3, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .philosophy-item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).philosophy-item p, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .philosophy-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Features Grid */
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).features-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).feature-item, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .feature-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).feature-item h3, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .feature-item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).feature-item p, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .feature-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Concepts Grid */
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).concepts-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).concept-item, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .concept-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).concept-item h4, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .concept-item h4 {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+:is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).concept-item p, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .concept-item p {
+  color: #a0a0a0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  /* .section h2 { */
+  /* margin: -1rem -1rem -1rem -1rem; */
+  /* padding-left: 0.5rem; */
+  /* border-radius: 0; */
+  /* top: 90px; */
+  /* } */
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).container, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .container {
+    padding: 0 1rem;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-header, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-header {
+    padding: 2rem 0;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-header h1, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-header h1 {
+    font-size: 2rem;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-subtitle, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-subtitle {
+    font-size: 1rem;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-content, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-content {
+    padding: 3rem 0;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).section, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .section {
+    margin-bottom: 3rem;
+  }
+  /* .code-example { */
+  /* margin: 0 -1rem 1.5rem -1rem; */
+  /* border-radius: 0; */
+  /* } */
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).code-example pre, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .code-example pre {
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).philosophy-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .philosophy-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).features-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .features-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).concepts-grid, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-actions, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-actions {
+    margin-top: 0.5rem;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)).package-link, :is(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ *:not(#jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-start ~ #jyNNmNDgaJXSGZwlANdKiCKiIUtrEwcMOjZdnzNL-end ~ *)) .package-link {
+    font-size: 13px;
+  }
+}</style><div class="package-container">
+  <div class="package-header">
+    <div class="container">
+      <h1>simple-boot</h1>
+      <p class="content en">Lightweight framework with DI and AOP support</p>
+      <p class="content ko">DI, AOP를 지원하는 경량 프레임워크</p>
+      <div class="package-actions">
+          <a href="https://github.com/dooboostore-develop/packages" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/Github-555555?style=flat&amp;logo=github&amp;logoColor=white" alt="GitHub">
+          </a>
+          <a href="https://www.npmjs.com/package/@dooboostore/simple-boot" target="_blank" rel="noopener noreferrer">
+              <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&amp;logo=npm&amp;logoColor=white" alt="NPM">
+          </a>
+      </div>
+    </div>
+  </div>
+  <div class="package-content">
+    <div class="container">
+      <!-- Installation -->
+      <section class="section">
+        <h2 id="installation">Installation</h2>
+        <p class="content en">Install the package and its peer dependency:</p>
+        <p class="content ko">패키지와 필수 의존성을 설치하세요:</p>
+
+        <div class="code-example">
+          <div class="code-header">
+            <span class="code-title">npm</span>
+          </div>
+          <pre><code class="language-bash">npm install @dooboostore/simple-boot reflect-metadata</code></pre>
+        </div>
+        <div class="code-example">
+          <div class="code-header">
+            <span class="code-title">pnpm</span>
+          </div>
+          <pre><code class="language-bash">pnpm add @dooboostore/simple-boot reflect-metadata</code></pre>
+        </div>
+
+        <div class="code-example">
+          <div class="code-header">
+            <span class="code-title">Quick Start CLI</span>
+          </div>
+          <pre><code class="language-bash">npm init @dooboostore/simple-boot projectname
+cd projectname
+npm start</code></pre>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="section">
+        <h2 id="features">Features</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>Object Management</h3>
+            <p class="content en">Dependency Injection (DI) and Lifecycle callbacks</p>
+            <p class="content ko">의존성 주입(DI)과 생명주기 콜백</p>
+          </div>
+          <div class="feature-item">
+            <h3>Aspect-Oriented Programming</h3>
+            <p class="content en">AOP support with @Before, @After, @Around decorators</p>
+            <p class="content ko">@Before, @After, @Around 데코레이터를 통한 AOP 지원</p>
+          </div>
+          <div class="feature-item">
+            <h3>Exception Handling</h3>
+            <p class="content en">Powerful global and local exception handling</p>
+            <p class="content ko">강력한 전역 및 지역 예외 처리</p>
+          </div>
+          <div class="feature-item">
+            <h3>Flexible Router System</h3>
+            <p class="content en">Class-based and method-based routing</p>
+            <p class="content ko">클래스 기반 및 메서드 기반 라우팅</p>
+          </div>
+          <div class="feature-item">
+            <h3>Intent Event System</h3>
+            <p class="content en">Decoupled communication with Intent objects</p>
+            <p class="content ko">Intent 객체를 통한 분리된 통신</p>
+          </div>
+          <div class="feature-item">
+            <h3>Method-level Caching</h3>
+            <p class="content en">Built-in caching with TTL and dynamic keys</p>
+            <p class="content ko">TTL과 동적 키를 지원하는 내장 캐싱</p>
+          </div>
+          <div class="feature-item">
+            <h3>Data Validation</h3>
+            <p class="content en">Property validation with decorators</p>
+            <p class="content ko">데코레이터를 통한 속성 검증</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Start -->
+      <section class="section">
+        <h2 id="quick-start">Quick Start</h2>
+
+        <h3 id="basic-usage">Basic Usage</h3>
+        <p class="content en">Here's a simple example to get you started:</p>
+        <p class="content ko">시작하기 위한 간단한 예제입니다:</p>
+
+        <div class="code-example">
+          <pre><code class="language-typescript">import 'reflect-metadata';
+import { SimpleApplication, Sim, Router } from '@dooboostore/simple-boot';
+
+@Sim // Decorator can be used without parentheses
+class Greeter {
+  say() {
+    console.log('Hello, Simple Boot!');
+  }
+}
+
+@Sim
+@Router({ path: '', route: { '/user': Greeter } })
+class AppRouter {}
+
+const app = new SimpleApplication({ rootRouter: AppRouter });
+app.run();
+
+// Get instance and call method
+const greeter = app.sim(Greeter);
+greeter?.say();
+
+// Or, route to the module and execute
+app.routing('/user').then(routerModule =&gt; {
+    routerModule.getModuleInstance<greeter>()?.say();
+});</greeter></code></pre>
+        </div>
+
+        <h3 id="dependency-injection">Dependency Injection</h3>
+        <p class="content en">Simple Boot automatically handles dependency injection based on constructor parameter
+          types:</p>
+        <p class="content ko">Simple Boot은 생성자 매개변수 타입을 기반으로 의존성 주입을 자동으로 처리합니다:</p>
+
+        <div class="code-example">
+          <pre><code class="language-typescript">@Sim // Using without parentheses for default settings
+class ProjectService {
+  sum(x: number, y: number): number {
+    return x + y;
+  }
+}
+
+@Sim() // Using with parentheses is also valid
+class User {
+  constructor(private projectService: ProjectService) {}
+
+  calculate() {
+    const result = this.projectService.sum(5, 25);
+    console.log(`Calculation result is: "></dr-this>-->
+    </main>
+</div><meta id="MayTsBZvzzQoDQUDUlGaIrytHbQSvIlUxkEUvtgr-end"><meta id="LyunaAMNMBOldDZxFmJwppcXLYfAXbgiGycyMFAr-end">
+<!--    <dr-this value=""></dr-this>-->
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-simple">
+            <div class="footer-links">
+                <a href="https://github.com/dooboostore-develop" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.npmjs.com/~dooboostore" target="_blank" class="footer-link">
+                    <i class="fab fa-npm"></i>
+                    NPM
+                </a>
+                <a href="mailto:dooboostore-develop@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+                <img src="assets/images/dooboostore.png" alt="dooboostore" class="footer-logo-small">
+                <p>© 2025 dooboostore. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<meta id="UvNYbWUnqdMIvARTnheqPOHSosVPcyRytptLADOI-end"><meta id="GuDwbWNKqBOoWiMPiQSvITjrctXNWseCrITDVbSr-end"></div>
+
+
+</body></html>
