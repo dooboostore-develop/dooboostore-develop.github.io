@@ -1,0 +1,461 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>core-web</h1>
+            <p class="content en">Web browser utilities and DOM manipulation tools</p>
+            <p class="content ko">웹 브라우저 유틸리티 및 DOM 조작 도구</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white" alt="GitHub"/>
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/core-web" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM"/>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package and its peer dependency:</p>
+                <p class="content ko">패키지와 필수 의존성을 설치하세요:</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">npm</span>
+                    </div>
+                    <pre><code class="language-bash">npm install @dooboostore/core-web @dooboostore/core</code></pre>
+                </div>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span class="code-title">pnpm</span>
+                    </div>
+                    <pre><code class="language-bash">pnpm add @dooboostore/core-web @dooboostore/core</code></pre>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="section">
+                <h2 id="features">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>DOM Manipulation</h3>
+                        <p class="content en">Comprehensive utilities for querying DOM, manipulating nodes, and managing attributes</p>
+                        <p class="content ko">DOM 쿼리, 노드 조작, 속성 관리를 위한 포괄적인 유틸리티</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Browser APIs</h3>
+                        <p class="content en">Easy-to-use wrappers for Clipboard, Storage, and Cookie APIs</p>
+                        <p class="content ko">클립보드, 스토리지, 쿠키 API를 위한 사용하기 쉬운 래퍼</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Resource Loading</h3>
+                        <p class="content en">Asynchronous loading of images, audio, scripts, and stylesheets</p>
+                        <p class="content ko">이미지, 오디오, 스크립트, 스타일시트의 비동기 로딩</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Event Handling</h3>
+                        <p class="content en">Observable streams from DOM and window events</p>
+                        <p class="content ko">DOM 및 윈도우 이벤트로부터 Observable 스트림 생성</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Animation Utilities</h3>
+                        <p class="content en">Tools for requestAnimationFrame and FPS monitoring</p>
+                        <p class="content ko">requestAnimationFrame과 FPS 모니터링을 위한 도구</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Image Processing</h3>
+                        <p class="content en">Advanced converters for File, Blob, Canvas, and Base64 data</p>
+                        <p class="content ko">File, Blob, Canvas, Base64 데이터를 위한 고급 변환기</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Environment Detection</h3>
+                        <p class="content en">Browser environment and mobile webview detection</p>
+                        <p class="content ko">브라우저 환경 및 모바일 웹뷰 감지</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Web Validation</h3>
+                        <p class="content en">Browser-specific validation and environment checks</p>
+                        <p class="content ko">브라우저별 검증 및 환경 체크</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                
+                <h3 id="storage-operations">Storage Operations</h3>
+                <p class="content en">Handle localStorage and sessionStorage with ease:</p>
+                <p class="content ko">localStorage와 sessionStorage를 쉽게 처리하세요:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import &#123; StorageUtils &#125; from '@dooboostore/core-web/storage/StorageUtils';
+
+// Save an object to localStorage
+const user = &#123; id: 1, name: 'John Doe' &#125;;
+StorageUtils.setLocalStorageItem('currentUser', user, window);
+
+// Retrieve and parse the object
+const savedUser = StorageUtils.getLocalStorageJsonItem&lt;&#123; id: number, name: string &#125;&gt;('currentUser', window);
+console.log(savedUser?.name); // "John Doe"
+
+// Remove the item
+StorageUtils.removeLocalStorageItem('currentUser', window);
+
+// Session storage operations
+StorageUtils.setSessionStorageItem('tempData', &#123; value: 'temporary' &#125;, window);
+const tempData = StorageUtils.getSessionStorageJsonItem('tempData', window);</code></pre>
+                </div>
+
+                <h3 id="clipboard-operations">Clipboard Operations</h3>
+                <p class="content en">Copy and paste text with clipboard API:</p>
+                <p class="content ko">클립보드 API로 텍스트를 복사하고 붙여넣기하세요:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import &#123; ClipBoardUtils &#125; from '@dooboostore/core-web/clipboard/ClipBoardUtils';
+
+async function copyToClipboard(text: string) &#123;
+  try &#123;
+    await ClipBoardUtils.writeText(text, window);
+    console.log('Text copied successfully!');
+  &#125; catch (err) &#123;
+    console.error('Failed to copy text: ', err);
+  &#125;
+&#125;
+
+async function readFromClipboard() &#123;
+  try &#123;
+    const text = await ClipBoardUtils.readText(window);
+    console.log('Clipboard content:', text);
+  &#125; catch (err) &#123;
+    console.error('Failed to read clipboard: ', err);
+  &#125;
+&#125;
+
+copyToClipboard('Hello, world!');</code></pre>
+                </div>
+
+                <h3 id="element-loading">Element Loading</h3>
+                <p class="content en">Load images and audio elements asynchronously:</p>
+                <p class="content ko">이미지와 오디오 요소를 비동기적으로 로드하세요:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import &#123; ElementUtils &#125; from '@dooboostore/core-web/element/ElementUtils';
+
+async function displayImage(src: string) &#123;
+  try &#123;
+    const imgElement = await ElementUtils.loadImage(src);
+    document.body.appendChild(imgElement);
+    console.log(`Image loaded: $&#123;imgElement.width&#125;x$&#123;imgElement.height&#125;`);
+  &#125; catch (error) &#123;
+    console.error('Failed to load image', error);
+  &#125;
+&#125;
+
+async function loadAudio(src: string) &#123;
+  try &#123;
+    const audioElement = await ElementUtils.loadAudio(src);
+    audioElement.play();
+  &#125; catch (error) &#123;
+    console.error('Failed to load audio', error);
+  &#125;
+&#125;
+
+displayImage('https://via.placeholder.com/150');</code></pre>
+                </div>
+            </section>
+
+            <!-- Advanced Features -->
+            <section class="section">
+                <h2 id="advanced-features">Advanced Features</h2>
+                
+                <h3 id="image-conversion">Image Conversion & Processing</h3>
+                <p class="content en">Convert between different image formats and compress images:</p>
+                <p class="content ko">다양한 이미지 형식 간 변환 및 이미지 압축:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import &#123; ConvertUtils &#125; from '@dooboostore/core-web/convert/ConvertUtils';
+
+async function processImage(file: File) &#123;
+  try &#123;
+    // Convert File to ImageBitmap
+    const imageBitmap = await ConvertUtils.toImageBitmap(file);
+    
+    // Compress image
+    const compressedBlob = await ConvertUtils.compressImage(imageBitmap, &#123;
+      maxWidth: 800,
+      type: 'image/jpeg',
+      quality: 0.8
+    &#125;);
+    
+    // Convert to Base64
+    const base64 = await ConvertUtils.toBase64(compressedBlob, &#123;
+      type: 'image/jpeg',
+      quality: 0.8
+    &#125;);
+    
+    // Create object URL for display
+    const objectUrl = ConvertUtils.toObjectUrl(compressedBlob);
+    
+    console.log('Processed image:', &#123; base64, objectUrl &#125;);
+  &#125; catch (error) &#123;
+    console.error('Image processing failed:', error);
+  &#125;
+&#125;</code></pre>
+                </div>
+
+                <h3 id="script-loading">Dynamic Script Loading</h3>
+                <p class="content en">Load external scripts and stylesheets dynamically:</p>
+                <p class="content ko">외부 스크립트와 스타일시트를 동적으로 로드하세요:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import &#123; ScriptUtils &#125; from '@dooboostore/core-web/script/ScriptUtils';
+
+async function loadExternalResources() &#123;
+  try &#123;
+    // Load external JavaScript
+    await ScriptUtils.loadScript(document, 'https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js');
+    
+    // Load external CSS
+    await ScriptUtils.loadStyleSheet(document, 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+    
+    // Load inline script
+    await ScriptUtils.loadScriptBody(document, `
+      console.log('Inline script loaded!');
+      window.myCustomFunction = function() &#123;
+        return 'Hello from dynamic script!';
+      &#125;;
+    `);
+    
+    console.log('All resources loaded successfully!');
+  &#125; catch (error) &#123;
+    console.error('Failed to load resources:', error);
+  &#125;
+&#125;</code></pre>
+                </div>
+
+                <h3 id="environment-detection">Environment Detection</h3>
+                <p class="content en">Detect browser environment and mobile webviews:</p>
+                <p class="content ko">브라우저 환경과 모바일 웹뷰를 감지하세요:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import &#123; ValidUtils &#125; from '@dooboostore/core-web/valid/ValidUtils';
+
+function checkEnvironment() &#123;
+  // Check if running in browser
+  if (ValidUtils.isBrowser()) &#123;
+    console.log('Running in browser environment');
+    
+    // Check for mobile
+    if (ValidUtils.isMobile()) &#123;
+      console.log('Mobile device detected');
+    &#125;
+    
+    // Check for social network in-app browsers
+    if (ValidUtils.isSocialNetworkServiceInappBrowser()) &#123;
+      console.log('Social network in-app browser detected');
+    &#125;
+    
+    // Check for iOS webview
+    if (ValidUtils.isWkWebview()) &#123;
+      console.log('iOS WKWebView detected');
+    &#125;
+    
+    // Check for Android webview
+    if (ValidUtils.isAndroidWebview()) &#123;
+      console.log('Android WebView detected');
+    &#125;
+    
+    // Check if has parent window (iframe)
+    if (ValidUtils.hasParentWindow(window)) &#123;
+      console.log('Running inside iframe');
+    &#125;
+  &#125; else &#123;
+    console.log('Not running in browser environment');
+  &#125;
+&#125;
+
+checkEnvironment();</code></pre>
+                </div>
+
+                <h3 id="dom-manipulation">DOM Manipulation</h3>
+                <p class="content en">Advanced DOM querying and manipulation:</p>
+                <p class="content ko">고급 DOM 쿼리 및 조작:</p>
+                
+                <div class="code-example">
+                    <pre><code class="language-typescript">import &#123; ElementUtils &#125; from '@dooboostore/core-web/element/ElementUtils';
+
+function manipulateDOM() &#123;
+  // Query elements
+  const elements = ElementUtils.selectorElements('.my-class');
+  console.log(`Found $&#123;elements.length&#125; elements`);
+  
+  // Get element attributes as object
+  const firstElement = elements[0];
+  if (firstElement) &#123;
+    const attributes = ElementUtils.getAttributeToObject(firstElement);
+    console.log('Element attributes:', attributes);
+    
+    // Get element styles as object
+    if (firstElement instanceof HTMLElement) &#123;
+      const styles = ElementUtils.getStyleToObject(firstElement);
+      console.log('Element styles:', styles);
+    &#125;
+    
+    // Set multiple attributes
+    ElementUtils.setAttributeAttr(firstElement, [
+      &#123; name: 'data-processed', value: 'true' &#125;,
+      &#123; name: 'aria-label', value: 'Processed element' &#125;
+    ]);
+    
+    // Remove attributes
+    ElementUtils.removeAttribute(firstElement, ['data-temp', 'data-old']);
+  &#125;
+&#125;</code></pre>
+                </div>
+            </section>
+
+            <!-- API Reference -->
+            <section class="section">
+                <h2 id="api-reference">API Reference</h2>
+                
+                <h3 id="storage-api">StorageUtils</h3>
+                <div class="api-grid">
+                    <div class="api-item">
+                        <h4>LocalStorage Methods</h4>
+                        <p class="content en">Methods for localStorage operations</p>
+                        <p class="content ko">localStorage 작업을 위한 메서드</p>
+                        <ul>
+                            <li><code>setLocalStorageItem(key: string, value: any, window: Window)</code></li>
+                            <li><code>getLocalStorageItem(key: string, window: Window): string | null</code></li>
+                            <li><code>getLocalStorageJsonItem&lt;T&gt;(key: string, window: Window): T | undefined</code></li>
+                            <li><code>removeLocalStorageItem(key: string, window: Window)</code></li>
+                            <li><code>cutLocalStorageItem(key: string, window: Window): string | null</code></li>
+                            <li><code>clearLocalStorage(window: Window)</code></li>
+                        </ul>
+                    </div>
+                    <div class="api-item">
+                        <h4>SessionStorage Methods</h4>
+                        <p class="content en">Methods for sessionStorage operations</p>
+                        <p class="content ko">sessionStorage 작업을 위한 메서드</p>
+                        <ul>
+                            <li><code>setSessionStorageItem(key: string, value: any, window: Window)</code></li>
+                            <li><code>getSessionStorageItem(key: string, window: Window): string | null</code></li>
+                            <li><code>getSessionStorageJsonItem&lt;T&gt;(key: string, window: Window): T | undefined</code></li>
+                            <li><code>removeSessionStorageItem(key: string, window: Window)</code></li>
+                            <li><code>cutSessionStorageItem(key: string, window: Window): string | null</code></li>
+                            <li><code>clearSessionStorage(window: Window)</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 id="clipboard-api">ClipBoardUtils</h3>
+                <div class="api-grid">
+                    <div class="api-item">
+                        <h4>Clipboard Operations</h4>
+                        <p class="content en">Methods for clipboard API operations</p>
+                        <p class="content ko">클립보드 API 작업을 위한 메서드</p>
+                        <ul>
+                            <li><code>readText(window: Window): Promise&lt;string&gt;</code></li>
+                            <li><code>writeText(data: string, window: Window): Promise&lt;void&gt;</code></li>
+                            <li><code>read(window: Window): Promise&lt;ClipboardItems&gt;</code></li>
+                            <li><code>write(data: ClipboardItems, clipboard?: Clipboard): Promise&lt;void&gt;</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 id="convert-api">ConvertUtils</h3>
+                <div class="api-grid">
+                    <div class="api-item">
+                        <h4>Image Conversion</h4>
+                        <p class="content en">Methods for image format conversion</p>
+                        <p class="content ko">이미지 형식 변환을 위한 메서드</p>
+                        <ul>
+                            <li><code>toObjectUrl(data: File | Blob): string</code></li>
+                            <li><code>toBlob(source: ImageSource, config: ImageConvertConfig): Promise&lt;Blob&gt;</code></li>
+                            <li><code>toBase64(source: ImageSource, config: ImageConvertConfig): Promise&lt;string&gt;</code></li>
+                            <li><code>toImageBitmap(target: ImageSource): Promise&lt;ImageBitmap&gt;</code></li>
+                            <li><code>compressImage(img: ImageBitmap | File, config): Promise&lt;Blob | ImageBitmap&gt;</code></li>
+                        </ul>
+                    </div>
+                    <div class="api-item">
+                        <h4>Image Processing</h4>
+                        <p class="content en">Advanced image processing utilities</p>
+                        <p class="content ko">고급 이미지 처리 유틸리티</p>
+                        <ul>
+                            <li><code>compressImageToBase64(img: ImageBitmap | File, config): Promise&lt;string&gt;</code></li>
+                            <li><code>toFile(source: ImageSource, config): Promise&lt;File&gt;</code></li>
+                            <li><code>toBlobURL(source: ImageSource, config): Promise&lt;string&gt;</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 id="element-api">ElementUtils</h3>
+                <div class="api-grid">
+                    <div class="api-item">
+                        <h4>Resource Loading</h4>
+                        <p class="content en">Methods for loading web resources</p>
+                        <p class="content ko">웹 리소스 로딩을 위한 메서드</p>
+                        <ul>
+                            <li><code>loadImage(src: string): Promise&lt;HTMLImageElement&gt;</code></li>
+                            <li><code>loadAudio(src: string): Promise&lt;HTMLAudioElement&gt;</code></li>
+                        </ul>
+                    </div>
+                    <div class="api-item">
+                        <h4>DOM Manipulation</h4>
+                        <p class="content en">Methods for DOM element manipulation</p>
+                        <p class="content ko">DOM 요소 조작을 위한 메서드</p>
+                        <ul>
+                            <li><code>querySelector(element: Element, selector: string): Element | null</code></li>
+                            <li><code>querySelectorAll(element: Element, selector: string): Element[]</code></li>
+                            <li><code>selectorElements(selector: string, element?: Element): Element[]</code></li>
+                            <li><code>getAttributeToObject(input: Element): any</code></li>
+                            <li><code>getStyleToObject(input: HTMLElement): any</code></li>
+                            <li><code>setAttributeAttr(result: Element, attrs: Attr[])</code></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Concepts -->
+            <section class="section">
+                <h2 id="core-concepts">Core Concepts</h2>
+                <div class="concepts-grid">
+                    <div class="concept-item">
+                        <h4>Browser API Wrappers</h4>
+                        <p class="content en">Simplified interfaces for complex browser APIs like Clipboard and Storage</p>
+                        <p class="content ko">클립보드와 스토리지 같은 복잡한 브라우저 API를 위한 단순화된 인터페이스</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Asynchronous Resource Loading</h4>
+                        <p class="content en">Promise-based loading of images, audio, scripts, and stylesheets</p>
+                        <p class="content ko">이미지, 오디오, 스크립트, 스타일시트의 Promise 기반 로딩</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Image Processing Pipeline</h4>
+                        <p class="content en">Complete image conversion and compression workflow</p>
+                        <p class="content ko">완전한 이미지 변환 및 압축 워크플로우</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Environment Detection</h4>
+                        <p class="content en">Comprehensive browser and webview environment detection</p>
+                        <p class="content ko">포괄적인 브라우저 및 웹뷰 환경 감지</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>DOM Utilities</h4>
+                        <p class="content en">Enhanced DOM querying and manipulation with modern JavaScript</p>
+                        <p class="content ko">현대적인 JavaScript를 사용한 향상된 DOM 쿼리 및 조작</p>
+                    </div>
+                    <div class="concept-item">
+                        <h4>Cross-Platform Compatibility</h4>
+                        <p class="content en">Consistent behavior across different browsers and mobile webviews</p>
+                        <p class="content ko">다양한 브라우저와 모바일 웹뷰에서 일관된 동작</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

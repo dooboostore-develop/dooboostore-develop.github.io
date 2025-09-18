@@ -1,0 +1,59 @@
+<div class="packages-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <!-- Framework -->
+            <div class="sidebar-section">
+                <button class="sidebar-category" dr-event-click="@this@.toggleCategory('framework')">
+                    <span>Framework</span>
+                    <i class="fas fa-chevron-down category-arrow" id="framework-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="framework-items">
+                    <dr-a href="/packages/simple-boot" class="sidebar-item">simple-boot</dr-a>
+                    <dr-a href="/packages/simple-boot-front" class="sidebar-item">simple-boot-front</dr-a>
+                    <dr-a href="/packages/simple-boot-http-server" class="sidebar-item">simple-boot-http-server</dr-a>
+                    <dr-a href="/packages/simple-boot-http-server-ssr" class="sidebar-item">simple-boot-http-server-ssr</dr-a>
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="sidebar-section">
+                <button class="sidebar-category" dr-event-click="@this@.toggleCategory('library')">
+                    <span>Library</span>
+                    <i class="fas fa-chevron-down category-arrow" id="library-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="library-items">
+                    <dr-a href="/packages/dom-render" class="sidebar-item">dom-render</dr-a>
+                    <dr-a href="/packages/swt" class="sidebar-item">swt</dr-a>
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="sidebar-section">
+                <button class="sidebar-category" dr-event-click="@this@.toggleCategory('core')">
+                    <span>Core</span>
+                    <i class="fas fa-chevron-down category-arrow" id="core-arrow"></i>
+                </button>
+                <div class="sidebar-items" id="core-items">
+                    <dr-a href="/packages/core" class="sidebar-item">core</dr-a>
+                    <dr-a href="/packages/core-node" class="sidebar-item">core-node</dr-a>
+                    <dr-a href="/packages/core-web" class="sidebar-item">core-web</dr-a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Menu Toggle Button -->
+    <div class="mobile-menu-toggle">
+        <button class="menu-toggle-btn" dr-event-click="@this@.toggleSidebar()">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <dr-router-outlet></dr-router-outlet>
+<!--        <dr-this value="${@this@.child}$"></dr-this>-->
+    </main>
+</div>
