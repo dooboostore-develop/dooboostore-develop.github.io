@@ -88,7 +88,7 @@ module.exports = {
       // --- Monorepo Workspace Alias ---
       // Force webpack to resolve workspace packages to their source code ('src')
       // directory to ensure a consistent dependency graph built entirely from source.
-      // '@dooboostore/simple-boot': path.resolve(__dirname, '../../../packages/@dooboostore/simple-boot/src'),
+      '@dooboostore/simple-boot': path.resolve(__dirname, '../../../packages/@dooboostore/simple-boot/src'),
       '@dooboostore/simple-boot-http-server': path.resolve(__dirname, '../../../packages/@dooboostore/simple-boot-http-server/src'),
       '@dooboostore/simple-boot-http-server-ssr': path.resolve(__dirname, '../../../packages/@dooboostore/simple-boot-http-server-ssr/src'),
       '@dooboostore/simple-boot-front': path.resolve(__dirname, '../../../packages/@dooboostore/simple-boot-front/src'),

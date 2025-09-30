@@ -29,7 +29,8 @@ class SSGGenerator {
     this.copyAssets(outputDir);
 
     // 각 라우트에 대해 HTML 생성
-    await this.pageDownloader.downloadAndSaveAll(outputDir, routes);
+    await Promise.all(routes.map(it => this.pageDownloader.downloadAndSaveAll(outputDir, [it])))
+    // await this.pageDownloader.downloadAndSaveAll(outputDir, routes);
 
     this.makeSiteMapAndCopy(outputDir, routes);
 

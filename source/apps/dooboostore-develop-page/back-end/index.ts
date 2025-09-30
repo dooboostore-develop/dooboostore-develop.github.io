@@ -44,8 +44,8 @@ class Server implements Runnable<void, void> {
       using: [...services],
       ssrExcludeFilter: (rr) => /^\/api\//.test(rr.reqUrl), // Exclude API routes from SSR
       poolOption: {
-        max: 1,
-        min: 1
+        max: 10,
+        min: 5
       },
     };
 

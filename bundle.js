@@ -3078,9 +3078,18 @@ var ElementUtils;
         // if (documentFragment) {
         const tempDiv = config.document.createElement('div');
         tempDiv.appendChild(documentFragment.cloneNode(true));
-        console.log('DocumentFragment innerHTML:', tempDiv.innerHTML);
+        // console.log('DocumentFragment innerHTML:', tempDiv.innerHTML);
         return tempDiv.innerHTML;
         // }
+    };
+    ElementUtils.htmlToFragment = (html, config = { document }) => {
+        const tempDiv = config.document.createElement('div');
+        tempDiv.innerHTML = html;
+        const fragment = config.document.createDocumentFragment();
+        while (tempDiv.firstChild) {
+            fragment.appendChild(tempDiv.firstChild);
+        }
+        return fragment;
     };
     /*
        17 // originalDiv 자체와 속성만 복사하고, childSpan은 복사하지 않습니다.
@@ -3276,6 +3285,71 @@ class LocationUtils {
         return params;
     }
 }
+
+
+/***/ }),
+
+/***/ "../../packages/@dooboostore/core-web/src/node/NodeUtils.ts":
+/*!******************************************************************!*\
+  !*** ../../packages/@dooboostore/core-web/src/node/NodeUtils.ts ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   NodeUtils: () => (/* binding */ NodeUtils)
+/* harmony export */ });
+var NodeUtils;
+(function (NodeUtils) {
+    let FindNodesFilterResult;
+    (function (FindNodesFilterResult) {
+        FindNodesFilterResult["MATCH_AND_CONTINUE"] = "MATCH_AND_CONTINUE";
+        FindNodesFilterResult["MATCH_AND_SKIP_CHILDREN"] = "MATCH_AND_SKIP_CHILDREN";
+        FindNodesFilterResult["NO_MATCH_AND_CONTINUE"] = "NO_MATCH_AND_CONTINUE";
+        FindNodesFilterResult["NO_MATCH_AND_SKIP_CHILDREN"] = "NO_MATCH_AND_SKIP_CHILDREN"; // Don't match the node, and also skip its children
+    })(FindNodesFilterResult = NodeUtils.FindNodesFilterResult || (NodeUtils.FindNodesFilterResult = {}));
+    // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+    NodeUtils.removeAllChildNode = (node) => {
+        while (node?.firstChild) {
+            node.firstChild.remove();
+        }
+    };
+    NodeUtils.appendChild = (parentNode, childNode) => {
+        return parentNode.appendChild(childNode);
+    };
+    NodeUtils.replaceNode = (targetNode, newNode) => {
+        // console.log('repalceNode', targetNode, newNode, targetNode.parentNode)
+        return targetNode.parentNode?.replaceChild(newNode, targetNode);
+    };
+    NodeUtils.addNode = (targetNode, newNode) => {
+        return targetNode.parentNode?.insertBefore(newNode, targetNode.nextSibling);
+    };
+    NodeUtils.cloneNode = (element, deep) => {
+        return element.cloneNode(deep ?? false);
+    };
+    NodeUtils.findNodes = (rootNode, filter) => {
+        const foundNodes = [];
+        function traverse(node) {
+            if (!node) {
+                return;
+            }
+            node.childNodes.forEach(child => {
+                const result = filter(child);
+                if (result === FindNodesFilterResult.MATCH_AND_CONTINUE ||
+                    result === FindNodesFilterResult.MATCH_AND_SKIP_CHILDREN) {
+                    foundNodes.push(child);
+                }
+                if (result === FindNodesFilterResult.MATCH_AND_CONTINUE ||
+                    result === FindNodesFilterResult.NO_MATCH_AND_CONTINUE) {
+                    traverse(child);
+                }
+            });
+        }
+        traverse(rootNode);
+        return foundNodes;
+    };
+})(NodeUtils || (NodeUtils = {}));
 
 
 /***/ }),
@@ -9003,7 +9077,7 @@ class DomRenderProxy {
                     const firstTargetDictionary = [];
                     firstTargets?.forEach(it => {
                         // console.log('----forEach---', it);
-                        const type = it.point.start.getAttribute?.('type');
+                        const type = it.point.start?.getAttribute?.('type');
                         if (type === _rawsets_RawSetOperatorType__WEBPACK_IMPORTED_MODULE_6__.RawSetOperatorType.DR_THIS_PROPERTY) {
                             firstTargetDictionary.push(it);
                         }
@@ -11911,6 +11985,9 @@ var Select;
         //   super.onCreatedThisChild(child, data);
         //   this.updateStatus();
         // }
+        // async onRawSetRendered(rawSet:RawSet, otherData:OnRawSetRenderedOtherData):Promise<void>{
+        //   await super.onRawSetRendered(rawSet, otherData);
+        // }
         onCreatedThisChildDebounce(childrenSet) {
             super.onCreatedThisChildDebounce(childrenSet);
             this.updateStatus();
@@ -12000,31 +12077,31 @@ var Select;
         options = [];
         disabled = false;
         element;
-        constructor() {
-            super({ onlyParentType: Select });
-        }
+        // constructor() {
+        //   super({ onlyParentType: Select });
+        // }
         setDisabled(disabled) {
             this.disabled = disabled;
-            this.getChildren(SummaryPlaceholder).forEach(it => it.hidden = true);
-            this.getChildren(SummarySelected).forEach(it => it.hidden = true);
-            this.getChildren(SummaryDisabled).forEach(it => it.hidden = false);
+            this.getChildren(SummaryPlaceholder).forEach(it => (it.hidden = true));
+            this.getChildren(SummarySelected).forEach(it => (it.hidden = true));
+            this.getChildren(SummaryDisabled).forEach(it => (it.hidden = false));
         }
         setOptions(options = []) {
             this.options = options;
             const selectedOptions = this.options.filter(it => it.selected && !it.disabled);
             if (!this.disabled) {
                 if (selectedOptions.length > 0) {
-                    this.getChildren(SummaryPlaceholder).forEach(it => it.hidden = true);
+                    this.getChildren(SummaryPlaceholder).forEach(it => (it.hidden = true));
                     this.getChildren(SummarySelected).forEach(c => {
                         c.setOptions(options);
                         c.hidden = false;
                     });
-                    this.getChildren(SummaryDisabled).forEach(it => it.hidden = true);
+                    this.getChildren(SummaryDisabled).forEach(it => (it.hidden = true));
                 }
                 else {
-                    this.getChildren(SummaryDisabled).forEach(it => it.hidden = true);
-                    this.getChildren(SummaryPlaceholder).forEach(it => it.hidden = false);
-                    this.getChildren(SummarySelected).forEach(c => c.hidden = true);
+                    this.getChildren(SummaryDisabled).forEach(it => (it.hidden = true));
+                    this.getChildren(SummaryPlaceholder).forEach(it => (it.hidden = false));
+                    this.getChildren(SummarySelected).forEach(c => (c.hidden = true));
                 }
             }
         }
@@ -12039,15 +12116,18 @@ var Select;
             this.element = element;
         }
         updateView(hasSelection) {
-            this.getChildren(SummaryPlaceholder).forEach(c => c.hidden = hasSelection);
-            this.getChildren(SummarySelected).forEach(c => c.hidden = !hasSelection);
+            this.getChildren(SummaryPlaceholder).forEach(c => (c.hidden = hasSelection));
+            this.getChildren(SummarySelected).forEach(c => (c.hidden = !hasSelection));
         }
         // onCreatedThisChild(child: any, data: OnCreateRenderDataParams) {
         //   super.onCreatedThisChild(child, data);
         // }
+        // async onRawSetRendered(rawSet: RawSet, otherData: OnRawSetRenderedOtherData): Promise<void> {
+        //   await super.onRawSetRendered(rawSet, otherData);
+        // }
         onCreatedThisChildDebounce(childrenSet) {
             super.onCreatedThisChildDebounce(childrenSet);
-            this.updateView(this.getParentThis()?.selectedValues.length > 0);
+            this.updateView(this.getParentThis()?.selectedValues?.length > 0);
         }
         onSummaryClick(element, event) {
             if (this.getParentThis()?.disabled) {
@@ -12068,17 +12148,22 @@ var Select;
         constructor() {
             super({ onlyParentType: Select });
         }
-        onCreatedThisChildDebounce(childrenSet) {
+        async onRawSetRendered(rawSet, otherData) {
+            await super.onRawSetRendered(rawSet, otherData);
+            // }
+            // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+            //   super.onCreatedThisChildDebounce(childrenSet);
             this.changeOptionState();
         }
         changeOptionState(option) {
             const options = this.getChildren(Option);
             const select = this.getParentThis();
+            // console.log('------opti',option, select);
             // // 멀티플이 아닐때에는 마지막 선택된값으로 처리
             if (!select.multiple) {
                 // 내가 선택한게 있으면
                 if (option && option.selected) {
-                    options.filter(it => it !== option).forEach(it => it.selected = false);
+                    options.filter(it => it !== option).forEach(it => (it.selected = false));
                 }
                 else {
                     const selectedOptions = options.filter(it => it.selected && !it.disabled);
@@ -12318,7 +12403,7 @@ const stateComponentFactory = (name, type) => {
                 '</details>\n' +
                 '<select hidden="hidden" name="${@this@.name}$" disabled="${@this@.disabled ? \'disabled\' : null}$"  style="width: 1500px; height:500px"  multiple>\n' +
                 '    <option dr-for-of="@this@.options" value="${#it#.value}$" selected="${#it#.selected ? \'selected\' : null}$">#it# ${#it#.value}$</option>\n' +
-                '</select',
+                '</select>',
             objFactory: (e, o, r2, constructorParam) => _DomRender__WEBPACK_IMPORTED_MODULE_2__.DomRender.run({ rootObject: new Select.Select(config), config })
         });
     },
@@ -14898,6 +14983,18 @@ class DrTargetElement extends _OperatorExecuter__WEBPACK_IMPORTED_MODULE_2__.Ope
                 }
                 // console.log('----------2', ElementUtils.toInnerHTML(targetFragment, {document: this.source.config.window.document}));
                 const rr = _rawsets_RawSet__WEBPACK_IMPORTED_MODULE_1__.RawSet.checkPointCreates(targetFragment, this.source.obj, this.source.config);
+                rr.forEach((it, index) => {
+                    // const z = ElementUtils.toInnerHTML(it.dataSet.fragment, {document: this.source.config.window.document});
+                    // console.log('-z--z('+index+')', z, it);
+                    // it.point.start;
+                    // // 새로운 comment element 추가
+                    // const comment = this.source.config.window.document.createComment('새로 만든 comment element');
+                    // it.point.start.parentNode?.insertBefore(comment, it.point.start.nextSibling);
+                });
+                // for (let rawSet of rr) {
+                //   await rawSet.render(this.source.obj, this.source.config)
+                // }
+                // console.log('cccccccccccccccccccccc', rr, typeof Window);
                 if (targetElement.noStrip) {
                     Array.from(targetFragment.childNodes || []).forEach(child => {
                         documentFragment.firstElementChild?.appendChild(child);
@@ -15385,6 +15482,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lifecycle_OnDestroyRender__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../lifecycle/OnDestroyRender */ "../../packages/@dooboostore/dom-render/src/lifecycle/OnDestroyRender.ts");
 /* harmony import */ var _operators_DrTargetElementIsElement__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../operators/DrTargetElementIsElement */ "../../packages/@dooboostore/dom-render/src/operators/DrTargetElementIsElement.ts");
 /* harmony import */ var _dooboostore_core_object_ObjectUtils__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @dooboostore/core/object/ObjectUtils */ "../../packages/@dooboostore/core/src/object/ObjectUtils.ts");
+/* harmony import */ var _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @dooboostore/core-web/node/NodeUtils */ "../../packages/@dooboostore/core-web/src/node/NodeUtils.ts");
+
 
 
 
@@ -15531,7 +15630,7 @@ class RawSet {
     }
     get isConnected() {
         // console.log('isConnect???', this, this.point.start.isConnected, this.point.end.isConnected);
-        return this.point.start.isConnected && this.point.end.isConnected;
+        return this.point && this.point.start && this.point.end && this.point.start.isConnected && this.point.end.isConnected;
     }
     // 중요
     getUsingTriggerVariables(config) {
@@ -15953,125 +16052,281 @@ class RawSet {
         // console.log('!@@@@@@@@@@@@@@@@', obj);
         // const NodeFilter = (config.window as any).NodeFilter;
         // const thisVariableName = (element as any).__domrender_this_variable_name;
-        // console.log('thisVariableName---', thisVariableName);
-        const nodeIterator = config.window.document?.createNodeIterator(element, NodeFilter.SHOW_ALL, {
-            acceptNode(node) {
-                // console.log('nodeType', node.nodeType, (node as any).tagName, (node as any).data);
-                if (node.nodeType === Node.TEXT_NODE) {
-                    // console.log('text--->', node.textContent)
-                    // console.log('????????', node.parentElement, node.parentElement?.getAttribute('dr-pre'));
-                    // console.log('???????/',node.textContent, node.parentElement?.getAttribute('dr-pre'))
-                    // TODO: 나중에
-                    // const between = StringUtils.betweenRegexpStr('[$#]\\{', '\\}', StringUtils.deleteEnter((node as Text).data ?? ''))
-                    const between = RawSet.expressionGroups(_dooboostore_core_string_StringUtils__WEBPACK_IMPORTED_MODULE_1__.StringUtils.deleteEnter(node.data ?? ''));
-                    // console.log('bbbb', between)
-                    return between?.length > 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-                    // return /\$\{.*?\}/g.test(StringUtils.deleteEnter((node as Text).data ?? '')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-                    // return /[$#]\{.*?\}/g.test(StringUtils.deleteEnter((node as Text).data ?? '')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-                }
-                else if (node.nodeType === Node.ELEMENT_NODE) {
-                    const element = node;
-                    if (element.hasAttribute(RawSet.DR_PRE_NAME)) {
-                        return NodeFilter.FILTER_REJECT;
-                    }
-                    if (element.hasAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.attrAttrName)) {
-                        const script = element.getAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.attrAttrName) ?? '';
-                        // console.log('scriptscriptscriptscriptscriptscript,', script)
-                        const keyValuePairs = Array.from(script.matchAll(/(\w+):\s*([^,}]+)/g)).map(match => ({
-                            key: match[1],
-                            value: match[2]
-                        }));
-                        (keyValuePairs ?? []).forEach(it => {
-                            element.setAttribute(it.key, '${' + it.value + '}$');
-                        });
-                        // console.log('-------k', keyValuePairs)
-                        // const drAttr = ScriptUtils.evalReturn(script, obj)
-                        // Object.entries(drAttr).forEach(([key, value]) => {
-                        //   const keyValuePairs = Array.from(a.matchAll(/(\w+):\s*([^,}]+)/g)).map(match => ({ key: match[1], value: match[2] }));
-                        //   console.log(keyValuePairs);
-                        //   // 출력: [{ key: 'value', value: 'this.child.obj.name' }, { key: 'wow', value: 'this.ww' }, { key: 'zz', value: '22' }, { key: 'v', value: '"ee"' }]
-                        //
-                        //   console.log('-----------------', key,value)
-                        //   element.setAttribute(key, '${'+(value)+'}$');
-                        // })
-                        // EventManager.attrNames.filter(it => it in drAttr).forEach(it => {
-                        //   if (drAttr[it] === null) {
-                        //     element.removeAttribute(it);
-                        //   } else {
-                        //     element.setAttribute(it, drAttr[it]);
-                        //   }
-                        // })
-                        // console.log('-------->', Array.from(element.attributes), element.getAttribute('dr-attr'), obj)
-                    }
-                    // element.setAttribute('dr-event-click', 'console.log(11)');
-                    const targetElementIs = element.getAttribute(RawSet.DR_REPLACE_TARGET_ELEMENT_IS_NAME);
-                    const targetElementNames = config.targetElements?.map(it => it.name.toLowerCase()) ?? [];
-                    const isElement = targetElementNames.includes(element.tagName.toLowerCase()) ||
-                        targetElementNames.includes(targetElementIs?.toLowerCase());
-                    // if (isElement) {
-                    //   (element as HTMLElement).style.display = 'none';
-                    //   (element as HTMLElement).style.width = '100px';
-                    //   (element as HTMLElement).style.height = '100px';
-                    //   console.log((element as HTMLElement).outerHTML)
-                    // }
-                    // console.log('------targetElementIstargetElementIs>', targetElementNames, '---', isElement, targetElementIs);
-                    // const targetAttrNames = (config.targetAttrs?.map(it => it.name) ?? []).concat([...RawSet.DR_ATTRIBUTES,...EventManager.RAWSET_CHECK_ATTRIBUTE]);
-                    const targetAttrNames = (config.targetAttrs?.map(it => it.name) ?? []).concat([...RawSet.DR_ATTRIBUTES]);
-                    const normalAttrs = new Map();
-                    const linkVariables = new Map();
-                    const linkNames = _events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.linkAttrs.map(it => it.name);
-                    const isAttr = element.getAttributeNames().filter(it => {
-                        const value = element.getAttribute(it);
-                        // link일때
-                        if (value && linkNames.includes(it)) {
-                            linkVariables.set(it, value);
-                        }
-                        else if (value && RawSet.isExpression(value)) {
-                            // 표현식있을떄
-                            let variablePath = RawSet.expressionGroups(value)[0][1];
-                            // console.log('0-----',variablePath, node);
-                            // normal Attribute 초반에 셋팅해주기.
-                            // TODO: 이거 하긴했는데 사이드 이팩트?
-                            const originVariable = variablePath;
-                            variablePath = variablePath.replace(/#[^#]*#/g, '({})');
-                            // console.log('1-----',variablePath, node);
-                            const optionalChainPath = _dooboostore_core_object_ObjectUtils__WEBPACK_IMPORTED_MODULE_32__.ObjectUtils.Path.toOptionalChainPath(variablePath);
-                            // console.log('2-----',optionalChainPath);
-                            const cval = _dooboostore_core_object_ObjectUtils__WEBPACK_IMPORTED_MODULE_32__.ObjectUtils.Script.evaluateReturn(optionalChainPath, Object.assign(obj));
-                            // const cval = ScriptUtils.evalReturn(variablePath, Object.assign(obj));
-                            if (cval === null) {
-                                element.removeAttribute(it);
-                            }
-                            else {
-                                element.setAttribute(it, cval);
-                            }
-                            normalAttrs.set(it, originVariable);
-                            // console.log('normalAttribute', it, variablePath);
-                        }
-                        // console.log(element.getAttribute(it), attrExpresion);
-                        const isTargetAttr = targetAttrNames.includes(it.toLowerCase());
-                        return isTargetAttr;
-                    }).length > 0;
-                    if (linkVariables.size) {
-                        element.setAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.linkTargetMapAttrName, JSON.stringify(Array.from(linkVariables.entries())));
-                    }
-                    // 기본 attribute를 처리하기위해
-                    if (normalAttrs.size) {
-                        element.setAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.normalAttrMapAttrName, JSON.stringify(Array.from(normalAttrs.entries())));
-                    }
-                    // if (isElement)  {
-                    //   element.setAttribute('www', '@this@');
-                    // }
-                    const r = isAttr || isElement ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        // let html = element instanceof DocumentFragment ? ElementUtils.toInnerHTML(element, {document: config.window.document}) : (element as HTMLElement).outerHTML;
+        // console.log('==============html-->', element, html);
+        const NodeFilter = config.window.NodeFilter;
+        const Node = config.window.Node;
+        const processedNodes = new Set();
+        const findNodes = _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__.NodeUtils.findNodes(element, (node) => {
+            // console.log('nodeType', node.nodeType, node, (node as any).tagName, (node as any).data);
+            // for (const processedNode of processedNodes) {
+            //   console.log('pre check!!', Array.from(processedNodes),processedNode !== node , processedNode.contains(node));
+            //   // if(processedNode.contains(node)){
+            //   console.log('---prechecker--html', (processedNode as HTMLElement).outerHTML,'------', (node as HTMLElement).outerHTML);
+            //   // }
+            //   if (processedNode !== node && processedNode.contains(node)) {
+            //     console.log('acceptNodeReturn contain', NodeFilter.FILTER_REJECT);
+            //     return NodeFilter.FILTER_REJECT;
+            //   }
+            // }
+            if (node.nodeType === Node.TEXT_NODE) {
+                // console.log('nodeText--->', node.textContent)
+                // console.log('????????', node.parentElement, node.parentElement?.getAttribute('dr-pre'));
+                // console.log('???????/',node.textContent, node.parentElement?.getAttribute('dr-pre'))
+                // TODO: 나중에
+                // const between = StringUtils.betweenRegexpStr('[$#]\\{', '\\}', StringUtils.deleteEnter((node as Text).data ?? ''))
+                const between = RawSet.expressionGroups(_dooboostore_core_string_StringUtils__WEBPACK_IMPORTED_MODULE_1__.StringUtils.deleteEnter(node.data ?? ''));
+                // console.log('bbbb', between)
+                const r = between?.length > 0 ? _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__.NodeUtils.FindNodesFilterResult.MATCH_AND_SKIP_CHILDREN : _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__.NodeUtils.FindNodesFilterResult.NO_MATCH_AND_SKIP_CHILDREN;
+                // console.log('acceptNodeReturn node', r);
+                return r;
+                // return /\$\{.*?\}/g.test(StringUtils.deleteEnter((node as Text).data ?? '')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+                // return /[$#]\{.*?\}/g.test(StringUtils.deleteEnter((node as Text).data ?? '')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+            }
+            else if (node.nodeType === Node.ELEMENT_NODE) {
+                const element = node;
+                // if (typeof Window === 'undefined' && element.getAttribute('ttt') === 'visual') {
+                //   return NodeFilter.FILTER_REJECT;
+                // }
+                // console.log('nodeHTML-->', element.outerHTML);
+                if (element.hasAttribute(RawSet.DR_PRE_NAME)) {
+                    let r = _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__.NodeUtils.FindNodesFilterResult.NO_MATCH_AND_SKIP_CHILDREN;
+                    // console.log('acceptNodeReturn', r);
                     return r;
                 }
-                return NodeFilter.FILTER_REJECT;
+                if (element.hasAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.attrAttrName)) {
+                    const script = element.getAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.attrAttrName) ?? '';
+                    // console.log('scriptscriptscriptscriptscriptscript,', script)
+                    const keyValuePairs = Array.from(script.matchAll(/(\w+):\s*([^,}]+)/g)).map(match => ({
+                        key: match[1],
+                        value: match[2]
+                    }));
+                    (keyValuePairs ?? []).forEach(it => {
+                        element.setAttribute(it.key, '${' + it.value + '}$');
+                    });
+                }
+                // element.setAttribute('dr-event-click', 'console.log(11)');
+                const targetElementIs = element.getAttribute(RawSet.DR_REPLACE_TARGET_ELEMENT_IS_NAME);
+                const targetElementNames = config.targetElements?.map(it => it.name.toLowerCase()) ?? [];
+                const isElement = targetElementNames.includes(element.tagName.toLowerCase()) ||
+                    targetElementNames.includes(targetElementIs?.toLowerCase());
+                // if (isElement) {
+                //   (element as HTMLElement).style.display = 'none';
+                //   (element as HTMLElement).style.width = '100px';
+                //   (element as HTMLElement).style.height = '100px';
+                //   console.log((element as HTMLElement).outerHTML)
+                // }
+                // console.log('------targetElementIstargetElementIs>', targetElementNames, '---', isElement, targetElementIs);
+                // const targetAttrNames = (config.targetAttrs?.map(it => it.name) ?? []).concat([...RawSet.DR_ATTRIBUTES,...EventManager.RAWSET_CHECK_ATTRIBUTE]);
+                const targetAttrNames = (config.targetAttrs?.map(it => it.name) ?? []).concat([...RawSet.DR_ATTRIBUTES]);
+                const normalAttrs = new Map();
+                const linkVariables = new Map();
+                const linkNames = _events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.linkAttrs.map(it => it.name);
+                const isAttr = element.getAttributeNames().filter(it => {
+                    const value = element.getAttribute(it);
+                    // link일때
+                    if (value && linkNames.includes(it)) {
+                        linkVariables.set(it, value);
+                    }
+                    else if (value && RawSet.isExpression(value)) {
+                        // 표현식있을떄
+                        let variablePath = RawSet.expressionGroups(value)[0][1];
+                        // console.log('0-----',variablePath, node);
+                        // normal Attribute 초반에 셋팅해주기.
+                        // TODO: 이거 하긴했는데 사이드 이팩트?
+                        const originVariable = variablePath;
+                        variablePath = variablePath.replace(/#[^#]*#/g, '({})');
+                        // console.log('1-----',variablePath, node);
+                        const optionalChainPath = _dooboostore_core_object_ObjectUtils__WEBPACK_IMPORTED_MODULE_32__.ObjectUtils.Path.toOptionalChainPath(variablePath);
+                        // console.log('2-----',optionalChainPath);
+                        const cval = _dooboostore_core_object_ObjectUtils__WEBPACK_IMPORTED_MODULE_32__.ObjectUtils.Script.evaluateReturn(optionalChainPath, Object.assign(obj));
+                        // const cval = ScriptUtils.evalReturn(variablePath, Object.assign(obj));
+                        if (cval === null) {
+                            element.removeAttribute(it);
+                        }
+                        else {
+                            element.setAttribute(it, cval);
+                        }
+                        normalAttrs.set(it, originVariable);
+                        // console.log('normalAttribute', it, variablePath);
+                    }
+                    // console.log(element.getAttribute(it), attrExpresion);
+                    const isTargetAttr = targetAttrNames.includes(it.toLowerCase());
+                    return isTargetAttr;
+                }).length > 0;
+                if (linkVariables.size) {
+                    element.setAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.linkTargetMapAttrName, JSON.stringify(Array.from(linkVariables.entries())));
+                }
+                // 기본 attribute를 처리하기위해
+                if (normalAttrs.size) {
+                    element.setAttribute(_events_EventManager__WEBPACK_IMPORTED_MODULE_2__.EventManager.normalAttrMapAttrName, JSON.stringify(Array.from(normalAttrs.entries())));
+                }
+                // if (isElement)  {
+                //   element.setAttribute('www', '@this@');
+                // }
+                const r = isAttr || isElement ? _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__.NodeUtils.FindNodesFilterResult.MATCH_AND_SKIP_CHILDREN : _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__.NodeUtils.FindNodesFilterResult.NO_MATCH_AND_CONTINUE;
+                // console.log('acceptNodeReturn element', r);
+                return r;
             }
+            const r = _dooboostore_core_web_node_NodeUtils__WEBPACK_IMPORTED_MODULE_33__.NodeUtils.FindNodesFilterResult.NO_MATCH_AND_CONTINUE;
+            // console.log('acceptNodeReturn  nothing', r);
+            return r;
         });
+        /**
+         nodeIterator.nextNode()  할때 그때 호출시점에 아래 로직에서 다음 노드를 찾는다.
+          브라우저는 nodeIterator.nextNode() 해서 동기로 dom을 조작하거나 옮기면  다음 nextNode할때  그 옮겨진 대상은 제외된다
+         하지만 jsdom은 그대로 남아있어 아주 예기치못한 사건이 발생된다   5시간은 삽질..했다..  따라서 중복방지 처리하였다
+         */
+        // const nodeIterator = config.window.document?.createNodeIterator(element, NodeFilter.SHOW_ALL, {
+        //   acceptNode(node) {
+        //     console.log('nodeType', node.nodeType, node, (node as any).tagName, (node as any).data);
+        //     for (const processedNode of processedNodes) {
+        //       console.log('pre check!!', Array.from(processedNodes),processedNode !== node , processedNode.contains(node));
+        //       // if(processedNode.contains(node)){
+        //         console.log('---prechecker--html', (processedNode as HTMLElement).outerHTML,'------', (node as HTMLElement).outerHTML);
+        //       // }
+        //         if (processedNode !== node && processedNode.contains(node)) {
+        //           console.log('acceptNodeReturn contain', NodeFilter.FILTER_REJECT);
+        //             return NodeFilter.FILTER_REJECT;
+        //         }
+        //     }
+        //
+        //     if (node.nodeType === Node.TEXT_NODE) {
+        //       console.log('nodeText--->', node.textContent)
+        //       // console.log('????????', node.parentElement, node.parentElement?.getAttribute('dr-pre'));
+        //       // console.log('???????/',node.textContent, node.parentElement?.getAttribute('dr-pre'))
+        //       // TODO: 나중에
+        //       // const between = StringUtils.betweenRegexpStr('[$#]\\{', '\\}', StringUtils.deleteEnter((node as Text).data ?? ''))
+        //       const between = RawSet.expressionGroups(StringUtils.deleteEnter((node as Text).data ?? ''));
+        //       // console.log('bbbb', between)
+        //       const r = between?.length > 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        //       console.log('acceptNodeReturn node', r);
+        //       return r;
+        //       // return /\$\{.*?\}/g.test(StringUtils.deleteEnter((node as Text).data ?? '')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        //       // return /[$#]\{.*?\}/g.test(StringUtils.deleteEnter((node as Text).data ?? '')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        //     } else if (node.nodeType === Node.ELEMENT_NODE) {
+        //       const element = node as Element;
+        //       // if (typeof Window === 'undefined' && element.getAttribute('ttt') === 'visual') {
+        //       //   return NodeFilter.FILTER_REJECT;
+        //       // }
+        //       console.log('nodeHTML-->', element.outerHTML);
+        //       if (element.hasAttribute(RawSet.DR_PRE_NAME)) {
+        //         console.log('acceptNodeReturn', NodeFilter.FILTER_REJECT);
+        //         return NodeFilter.FILTER_REJECT;
+        //       }
+        //       if (element.hasAttribute(EventManager.attrAttrName)) {
+        //         const script = element.getAttribute(EventManager.attrAttrName) ?? '';
+        //         // console.log('scriptscriptscriptscriptscriptscript,', script)
+        //         const keyValuePairs = Array.from(script.matchAll(/(\w+):\s*([^,}]+)/g)).map(match => ({
+        //           key: match[1],
+        //           value: match[2]
+        //         }));
+        //         (keyValuePairs ?? []).forEach(it => {
+        //           element.setAttribute(it.key, '${' + it.value + '}$');
+        //         });
+        //         // console.log('-------k', keyValuePairs)
+        //
+        //         // const drAttr = ScriptUtils.evalReturn(script, obj)
+        //         // Object.entries(drAttr).forEach(([key, value]) => {
+        //         //   const keyValuePairs = Array.from(a.matchAll(/(\w+):\s*([^,}]+)/g)).map(match => ({ key: match[1], value: match[2] }));
+        //         //   console.log(keyValuePairs);
+        //         //   // 출력: [{ key: 'value', value: 'this.child.obj.name' }, { key: 'wow', value: 'this.ww' }, { key: 'zz', value: '22' }, { key: 'v', value: '"ee"' }]
+        //         //
+        //         //   console.log('-----------------', key,value)
+        //         //   element.setAttribute(key, '${'+(value)+'}$');
+        //         // })
+        //         // EventManager.attrNames.filter(it => it in drAttr).forEach(it => {
+        //         //   if (drAttr[it] === null) {
+        //         //     element.removeAttribute(it);
+        //         //   } else {
+        //         //     element.setAttribute(it, drAttr[it]);
+        //         //   }
+        //         // })
+        //         // console.log('-------->', Array.from(element.attributes), element.getAttribute('dr-attr'), obj)
+        //       }
+        //       // element.setAttribute('dr-event-click', 'console.log(11)');
+        //       const targetElementIs = element.getAttribute(RawSet.DR_REPLACE_TARGET_ELEMENT_IS_NAME);
+        //       const targetElementNames = config.targetElements?.map(it => it.name.toLowerCase()) ?? [];
+        //       const isElement =
+        //         targetElementNames.includes(element.tagName.toLowerCase()) ||
+        //         targetElementNames.includes(targetElementIs?.toLowerCase() as any);
+        //       // if (isElement) {
+        //       //   (element as HTMLElement).style.display = 'none';
+        //       //   (element as HTMLElement).style.width = '100px';
+        //       //   (element as HTMLElement).style.height = '100px';
+        //       //   console.log((element as HTMLElement).outerHTML)
+        //       // }
+        //       // console.log('------targetElementIstargetElementIs>', targetElementNames, '---', isElement, targetElementIs);
+        //       // const targetAttrNames = (config.targetAttrs?.map(it => it.name) ?? []).concat([...RawSet.DR_ATTRIBUTES,...EventManager.RAWSET_CHECK_ATTRIBUTE]);
+        //       const targetAttrNames = (config.targetAttrs?.map(it => it.name) ?? []).concat([...RawSet.DR_ATTRIBUTES]);
+        //       const normalAttrs = new Map<string, string>();
+        //       const linkVariables = new Map<string, string>();
+        //       const linkNames = EventManager.linkAttrs.map(it => it.name);
+        //       const isAttr =
+        //         element.getAttributeNames().filter(it => {
+        //           const value = element.getAttribute(it);
+        //
+        //           // link일때
+        //           if (value && linkNames.includes(it)) {
+        //             linkVariables.set(it, value);
+        //           } else if (value && RawSet.isExpression(value)) {
+        //             // 표현식있을떄
+        //             let variablePath: string = RawSet.expressionGroups(value)[0][1];
+        //             // console.log('0-----',variablePath, node);
+        //             // normal Attribute 초반에 셋팅해주기.
+        //             // TODO: 이거 하긴했는데 사이드 이팩트?
+        //             const originVariable = variablePath;
+        //             variablePath = variablePath.replace(/#[^#]*#/g, '({})');
+        //             // console.log('1-----',variablePath, node);
+        //             const optionalChainPath = ObjectUtils.Path.toOptionalChainPath(variablePath);
+        //             // console.log('2-----',optionalChainPath);
+        //             const cval = ObjectUtils.Script.evaluateReturn(optionalChainPath, Object.assign(obj));
+        //             // const cval = ScriptUtils.evalReturn(variablePath, Object.assign(obj));
+        //             if (cval === null) {
+        //               element.removeAttribute(it);
+        //             } else {
+        //               element.setAttribute(it, cval);
+        //             }
+        //             normalAttrs.set(it, originVariable);
+        //             // console.log('normalAttribute', it, variablePath);
+        //           }
+        //           // console.log(element.getAttribute(it), attrExpresion);
+        //           const isTargetAttr = targetAttrNames.includes(it.toLowerCase());
+        //           return isTargetAttr;
+        //         }).length > 0;
+        //
+        //       if (linkVariables.size) {
+        //         element.setAttribute(
+        //           EventManager.linkTargetMapAttrName,
+        //           JSON.stringify(Array.from(linkVariables.entries()))
+        //         );
+        //       }
+        //       // 기본 attribute를 처리하기위해
+        //       if (normalAttrs.size) {
+        //         element.setAttribute(EventManager.normalAttrMapAttrName, JSON.stringify(Array.from(normalAttrs.entries())));
+        //       }
+        //       // if (isElement)  {
+        //       //   element.setAttribute('www', '@this@');
+        //       // }
+        //       const r = isAttr || isElement ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        //       console.log('acceptNodeReturn element', r);
+        //       return r;
+        //     }
+        //     console.log('acceptNodeReturn  nothing', NodeFilter.FILTER_REJECT);
+        //     return NodeFilter.FILTER_REJECT;
+        //   }
+        // });
         const pars = [];
         let currentNode;
+        const name = _dooboostore_core_random_RandomUtils__WEBPACK_IMPORTED_MODULE_0__.RandomUtils.uuid();
+        // console.log('name==', name);
         // eslint-disable-next-line no-cond-assign
-        while ((currentNode = nodeIterator?.nextNode())) {
+        // while ((currentNode = nodeIterator?.nextNode())) {
+        // console.log('findNodes~~', findNodes);
+        for (const currentNode of findNodes) {
+            // 여기에서 부모인거 인지시켜준다  위쪽 에서 다시찾을떄 걸러진다.. JSDOM ..이놈이 즉각적인 처리를 못해줘서 수동 검증 로직 넣었다.
+            processedNodes.add(currentNode);
+            // console.log('currentNode!!!!', currentNode);
             if (currentNode.nodeType === Node.TEXT_NODE) {
                 const text = currentNode.textContent ?? '';
                 const template = config.window.document?.createElement('template');
@@ -16086,6 +16341,7 @@ class RawSet {
                     content: it[0],
                     regexArr: it
                 }));
+                // console.log('create!!',map);
                 let lasterIndex = 0;
                 for (let i = 0; i < map.length; i++) {
                     const it = map[i];
@@ -16105,7 +16361,7 @@ class RawSet {
                     else {
                         type = _RawSetType__WEBPACK_IMPORTED_MODULE_21__.RawSetType.TEXT;
                     }
-                    const node = document.createTextNode(preparedText);
+                    const node = config.window.document.createTextNode(preparedText);
                     const startEndPoint = RawSet.createStartEndPoint({ id: it.uuid, type }, config);
                     // layout setting
                     // console.log('createTextNode', node);
@@ -16132,6 +16388,7 @@ class RawSet {
                 // const uuid = `${RandomUtils.alphabet(40)}___${obj?.constructor?.name}`;
                 const uuid = `${_dooboostore_core_random_RandomUtils__WEBPACK_IMPORTED_MODULE_0__.RandomUtils.alphabet(40)}`;
                 const element = currentNode;
+                // console.log('create ElementTarget', uuid, element.outerHTML);
                 const fragment = config.window.document.createDocumentFragment();
                 const elementType = _RawSetType__WEBPACK_IMPORTED_MODULE_21__.RawSetType.TARGET_ELEMENT;
                 const startEndPoint = RawSet.createStartEndPoint({ node: element, id: uuid, type: elementType }, config);
@@ -16163,8 +16420,31 @@ class RawSet {
                 pars.push(rawSet);
             }
         }
-        // console.log('parsparsparsparsparsparsparsparsparspars', pars);
+        // config
+        const util = _dooboostore_core_web_element_ElementUtils__WEBPACK_IMPORTED_MODULE_4__.ElementUtils;
+        // console.log('parsparsparsparsparsparsparsparsparspars', pars, name);
         return pars;
+        // const lastpars: RawSet[] = []
+        //
+        // pars.forEach(it => {
+        //   // it.uuid
+        //   const parents = pars.filter(it => it.dataSet.fragment.getElementById(it.uuid+'-start'))
+        //
+        //   console.log('vvvvvvvvv', parents);
+        //   if (parents.length>0) {
+        //     parents.forEach(sit => {
+        //       sit.dataSet.fragment.getElementById(sit.uuid + '-start')?.replaceWith(it.dataSet.fragment);
+        //       it.dataSet.fragment.getElementById(sit.uuid + '-end').remove();
+        //       console.log('rrr');
+        //       // ElementUtils.toInnerHTML(it.dataSet.fragment, {document: config.window.document});
+        //       // ElementUtils.toInnerHTML(it.dataSet.fragment
+        //     });
+        //   } else {
+        //     lastpars.push(it)
+        //   }
+        // })
+        // console.log('zzzzzz', lastpars);
+        // return lastpars;
     }
     static createStartEndPoint(data, config) {
         if (data.type === _RawSetType__WEBPACK_IMPORTED_MODULE_21__.RawSetType.TARGET_ELEMENT && data.node) {
@@ -16871,7 +17151,7 @@ class RawSet {
         const findPath = (rawSet) => {
             if (rawSet && rawSet.point) {
                 // jsDom에서 instranceof HTMLMetaElement가 안먹히는것같아? 간혈적으로?
-                if ('getAttribute' in rawSet.point.start && rawSet.point.start.getAttribute('this-path')) {
+                if (rawSet.point?.start && ('getAttribute' in rawSet.point.start) && rawSet.point.start.getAttribute('this-path')) {
                     paths.push(rawSet.point.start.getAttribute('this-path'));
                 }
                 if (rawSet.point.parentRawSet)
@@ -21880,14 +22160,101 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_component_hello_hello_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @src/component/hello/hello.component */ "./src/component/hello/hello.component.ts");
 /* harmony import */ var _src_component_breadcrumb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @src/component/breadcrumb */ "./src/component/breadcrumb/index.ts");
 /* harmony import */ var _src_component_code__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @src/component/code */ "./src/component/code/index.ts");
+/* harmony import */ var _src_component_test_test_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @src/component/test/test.component */ "./src/component/test/test.component.ts");
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
     HelloComponent: _src_component_hello_hello_component__WEBPACK_IMPORTED_MODULE_0__.HelloComponent,
     BreadcrumbComponent: _src_component_breadcrumb__WEBPACK_IMPORTED_MODULE_1__.BreadcrumbComponent,
-    CodeExampleComponent: _src_component_code__WEBPACK_IMPORTED_MODULE_2__.CodeExampleComponent
+    CodeExampleComponent: _src_component_code__WEBPACK_IMPORTED_MODULE_2__.CodeExampleComponent,
+    TestComponent: _src_component_test_test_component__WEBPACK_IMPORTED_MODULE_3__.TestComponent
 });
+
+
+
+/***/ }),
+
+/***/ "./src/component/test/test.component.css":
+/*!***********************************************!*\
+  !*** ./src/component/test/test.component.css ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("");
+
+/***/ }),
+
+/***/ "./src/component/test/test.component.html":
+/*!************************************************!*\
+  !*** ./src/component/test/test.component.html ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<div dr-if=\"true\">\n    test #innerHTML# test\n</div>");
+
+/***/ }),
+
+/***/ "./src/component/test/test.component.ts":
+/*!**********************************************!*\
+  !*** ./src/component/test/test.component.ts ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   TestComponent: () => (/* binding */ TestComponent)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/.pnpm/tslib@2.8.1/node_modules/tslib/tslib.es6.mjs");
+/* harmony import */ var _dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @dooboostore/dom-render/components/ComponentBase */ "../../packages/@dooboostore/dom-render/src/components/ComponentBase.ts");
+/* harmony import */ var _dooboostore_simple_boot_front_decorators_Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @dooboostore/simple-boot-front/decorators/Component */ "../../packages/@dooboostore/simple-boot-front/src/decorators/Component.ts");
+/* harmony import */ var _test_component_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./test.component.html */ "./src/component/test/test.component.html");
+/* harmony import */ var _test_component_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./test.component.css */ "./src/component/test/test.component.css");
+var _a;
+
+
+
+
+
+let TestComponent = class TestComponent extends _dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_1__.ComponentBase {
+    title = "";
+    codeElement;
+    codeClass = "";
+    onInitRender(param, rawSet) {
+        super.onInitRender(param, rawSet);
+    }
+};
+(0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_1__.attribute)("title"),
+    (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", String)
+], TestComponent.prototype, "title", void 0);
+(0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_1__.query)("pre"),
+    (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", typeof (_a = typeof HTMLElement !== "undefined" && HTMLElement) === "function" ? _a : Object)
+], TestComponent.prototype, "codeElement", void 0);
+(0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_1__.attribute)("codeClass"),
+    (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", String)
+], TestComponent.prototype, "codeClass", void 0);
+TestComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
+    (0,_dooboostore_simple_boot_front_decorators_Component__WEBPACK_IMPORTED_MODULE_2__.Component)({
+        selector: "test",
+        template: _test_component_html__WEBPACK_IMPORTED_MODULE_3__["default"],
+        styles: _test_component_css__WEBPACK_IMPORTED_MODULE_4__["default"],
+    })
+], TestComponent);
 
 
 
@@ -22340,7 +22707,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<!-- Header -->\n<header class=\"header\">\n    <div class=\"header-container\">\n        <div class=\"header-left\">\n            <dr-a href=\"/\" class=\"logo\">\n                <img src=\"assets/images/dooboostore.png\" alt=\"dooboostore\" class=\"logo-img\">\n                <span class=\"logo-text content en\">dooboostore</span>\n                <span class=\"logo-text content ko\">두부가게</span>\n            </dr-a>\n            \n            <nav class=\"header-nav\">\n                <dr-a href=\"/packages\" class=\"nav-link content en\">📦 Packages</dr-a>\n                <dr-a href=\"/packages\" class=\"nav-link content ko\">📦 패키지</dr-a>\n            </nav>\n        </div>\n        \n        <div class=\"header-right\">\n            <!-- Language Toggle -->\n            <div class=\"language-toggle\">\n                <input type=\"checkbox\" id=\"language-toggle\" class=\"language-checkbox\">\n                <label for=\"language-toggle\" class=\"language-label\">\n                    <span class=\"language-text korean\">KO</span>\n                    <span class=\"language-text english\">EN</span>\n                </label>\n            </div>\n        </div>\n    </div>\n</header>\n\n<main>\n    <dr-router-outlet></dr-router-outlet>\n<!--    <dr-this value=\"${@this@.child}$\"></dr-this>-->\n</main>\n\n\n<!--<iframe-->\n<!--        src=\"https://stackblitz.com/edit/stackblitz-starters-1idcahki?embed=1&file=src/index.ts&hideNavigation=1&hidePreview=1&view=editor&env=MODE=vvvvvtest\"-->\n<!--        style=\"width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;\"-->\n<!--&gt;-->\n<!--</iframe>-->\n\n<!-- Footer -->\n<footer class=\"footer\">\n    <div class=\"footer-container\">\n        <div class=\"footer-simple\">\n            <div class=\"footer-links\">\n                <a href=\"https://github.com/dooboostore-develop\" target=\"_blank\" class=\"footer-link\">\n                    <i class=\"fab fa-github\"></i>\n                    GitHub\n                </a>\n                <a href=\"https://www.npmjs.com/~dooboostore\" target=\"_blank\" class=\"footer-link\">\n                    <i class=\"fab fa-npm\"></i>\n                    NPM\n                </a>\n                <a href=\"mailto:dooboostore-develop@gmail.com\" class=\"footer-link\">\n                    <i class=\"fas fa-envelope\"></i>\n                    Email\n                </a>\n            </div>\n\n            <div class=\"footer-copyright\">\n<!--                <img src=\"assets/images/dooboostore.png\" alt=\"dooboostore\" class=\"footer-logo-small\">-->\n                <p>© 2025 dooboostore. All rights reserved.</p>\n            </div>\n        </div>\n    </div>\n</footer>\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<!-- Header -->\n<header class=\"header\">\n    <div class=\"header-container\">\n        <div class=\"header-left\">\n            <dr-a href=\"/\" class=\"logo\">\n                <img src=\"assets/images/dooboostore.png\" alt=\"dooboostore\" class=\"logo-img\">\n                <span class=\"logo-text content en\">dooboostore</span>\n                <span class=\"logo-text content ko\">두부가게</span>\n            </dr-a>\n\n            <nav class=\"header-nav\">\n                <dr-a href=\"/packages\" class=\"nav-link content en\">📦 Packages</dr-a>\n                <dr-a href=\"/packages\" class=\"nav-link content ko\">📦 패키지</dr-a>\n            </nav>\n        </div>\n\n        <div class=\"header-right\">\n            <!-- Language Toggle -->\n            <div class=\"language-toggle\">\n                <input type=\"checkbox\" id=\"language-toggle\" class=\"language-checkbox\">\n                <label for=\"language-toggle\" class=\"language-label\">\n                    <span class=\"language-text korean\">KO</span>\n                    <span class=\"language-text english\">EN</span>\n                </label>\n            </div>\n        </div>\n    </div>\n</header>\n\n<main>\n    <dr-router-outlet></dr-router-outlet>\n<!--    <dr-this value=\"${@this@.child}$\"></dr-this>-->\n</main>\n\n\n<!--<iframe-->\n<!--        src=\"https://stackblitz.com/edit/stackblitz-starters-1idcahki?embed=1&file=src/index.ts&hideNavigation=1&hidePreview=1&view=editor&env=MODE=vvvvvtest\"-->\n<!--        style=\"width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;\"-->\n<!--&gt;-->\n<!--</iframe>-->\n\n<!-- Footer -->\n<footer class=\"footer\">\n    <div class=\"footer-container\">\n        <div class=\"footer-simple\">\n            <div class=\"footer-links\">\n                <a href=\"https://github.com/dooboostore-develop\" target=\"_blank\" class=\"footer-link\">\n                    <i class=\"fab fa-github\"></i>\n                    GitHub\n                </a>\n                <a href=\"https://www.npmjs.com/~dooboostore\" target=\"_blank\" class=\"footer-link\">\n                    <i class=\"fab fa-npm\"></i>\n                    NPM\n                </a>\n                <a href=\"mailto:dooboostore-develop@gmail.com\" class=\"footer-link\">\n                    <i class=\"fas fa-envelope\"></i>\n                    Email\n                </a>\n            </div>\n\n            <div class=\"footer-copyright\">\n<!--                <img src=\"assets/images/dooboostore.png\" alt=\"dooboostore\" class=\"footer-logo-small\">-->\n                <p>© 2025 dooboostore. All rights reserved.</p>\n            </div>\n        </div>\n    </div>\n</footer>\n");
 
 /***/ }),
 
@@ -22392,6 +22759,8 @@ var _a;
 // RandomUtils.it();
 let IndexRouterComponent = class IndexRouterComponent extends _dooboostore_simple_boot_front_component_ComponentRouterBase__WEBPACK_IMPORTED_MODULE_5__.ComponentRouterBase {
     router;
+    arry = [1, 2, 3];
+    sw = true;
     constructor(router) {
         super({ sameRouteNoApply: true });
         this.router = router;
@@ -22418,6 +22787,9 @@ let IndexRouterComponent = class IndexRouterComponent extends _dooboostore_simpl
     }
     async onRouting(r) {
         await super.onRouting(r);
+        console.log('onRouting');
+        this.sw = Math.random() > 0.5;
+        this.arry = [66, 34345, 5445, 45, 45, 45, 45, 45, 45];
         // if (RouterAction.isOnRouting(this.child?.obj)){
         //   await this.child.obj.onRouting(r);
         // }
@@ -22590,21 +22962,24 @@ let CoreNodeRouterComponent = class CoreNodeRouterComponent extends _dooboostore
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -22625,26 +23000,26 @@ let CoreNodeRouterComponent = class CoreNodeRouterComponent extends _dooboostore
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], CoreNodeRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], CoreNodeRouterComponent.prototype, "h2s", void 0);
 CoreNodeRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
     _dooboostore_simple_boot_decorators_SimDecorator__WEBPACK_IMPORTED_MODULE_7__.Sim,
     (0,_dooboostore_simple_boot_decorators_route_Router__WEBPACK_IMPORTED_MODULE_1__.Router)({
-        path: '/core-node',
+        path: "/core-node",
         route: {
-            '': '/',
-            '/': _core_node_route_component__WEBPACK_IMPORTED_MODULE_2__.CoreNodeRouteComponent,
+            "": "/",
+            "/": _core_node_route_component__WEBPACK_IMPORTED_MODULE_2__.CoreNodeRouteComponent,
         },
     }),
     (0,_dooboostore_simple_boot_front_decorators_Component__WEBPACK_IMPORTED_MODULE_3__.Component)({
         template: _core_node_router_component_html__WEBPACK_IMPORTED_MODULE_5__["default"],
         styles: _core_node_router_component_css__WEBPACK_IMPORTED_MODULE_6__["default"],
-        using: [_core_node_route_component__WEBPACK_IMPORTED_MODULE_2__.CoreNodeRouteComponent]
+        using: [_core_node_route_component__WEBPACK_IMPORTED_MODULE_2__.CoreNodeRouteComponent],
     }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:paramtypes", [typeof (_a = typeof _dooboostore_dom_render_routers_Router__WEBPACK_IMPORTED_MODULE_8__.Router !== "undefined" && _dooboostore_dom_render_routers_Router__WEBPACK_IMPORTED_MODULE_8__.Router) === "function" ? _a : Object])
 ], CoreNodeRouterComponent);
@@ -22789,21 +23164,24 @@ let CoreWebRouterComponent = class CoreWebRouterComponent extends _dooboostore_s
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -22824,11 +23202,11 @@ let CoreWebRouterComponent = class CoreWebRouterComponent extends _dooboostore_s
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], CoreWebRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], CoreWebRouterComponent.prototype, "h2s", void 0);
 CoreWebRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
@@ -22993,21 +23371,24 @@ let CoreRouterComponent = class CoreRouterComponent extends _dooboostore_simple_
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -23028,11 +23409,11 @@ let CoreRouterComponent = class CoreRouterComponent extends _dooboostore_simple_
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], CoreRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], CoreRouterComponent.prototype, "h2s", void 0);
 CoreRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
@@ -23196,21 +23577,24 @@ let DomRenderRouterComponent = class DomRenderRouterComponent extends _dooboosto
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -23231,11 +23615,11 @@ let DomRenderRouterComponent = class DomRenderRouterComponent extends _dooboosto
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], DomRenderRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], DomRenderRouterComponent.prototype, "h2s", void 0);
 DomRenderRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
@@ -23828,21 +24212,24 @@ let SimpleBootFrontRouterComponent = class SimpleBootFrontRouterComponent extend
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -23863,11 +24250,11 @@ let SimpleBootFrontRouterComponent = class SimpleBootFrontRouterComponent extend
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SimpleBootFrontRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SimpleBootFrontRouterComponent.prototype, "h2s", void 0);
 SimpleBootFrontRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
@@ -24031,21 +24418,24 @@ let SimpleBootHttpServerSsrRouterComponent = class SimpleBootHttpServerSsrRouter
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -24066,11 +24456,11 @@ let SimpleBootHttpServerSsrRouterComponent = class SimpleBootHttpServerSsrRouter
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SimpleBootHttpServerSsrRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SimpleBootHttpServerSsrRouterComponent.prototype, "h2s", void 0);
 SimpleBootHttpServerSsrRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
@@ -24234,21 +24624,24 @@ let SimpleBootHttpServerRouterComponent = class SimpleBootHttpServerRouterCompon
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -24269,11 +24662,11 @@ let SimpleBootHttpServerRouterComponent = class SimpleBootHttpServerRouterCompon
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SimpleBootHttpServerRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_10__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SimpleBootHttpServerRouterComponent.prototype, "h2s", void 0);
 SimpleBootHttpServerRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
@@ -24472,6 +24865,14 @@ let SimpleBootRouterComponent = class SimpleBootRouterComponent extends _dooboos
     h1s;
     h2s;
     breadcrumbs;
+    // = [
+    //   { text: "dooboostore", link: "/" },
+    //   { text: "📦", link: "/packages", items: [
+    //       { text: "simple-boot", link: "/packages/simple-boot" },
+    //       { text: "simple-boot-front", link: "/packages/simple-boot-front" },
+    //       { text: "simple-boot-back", link: "/packages/simple-boot-back" },
+    //     ] },
+    // ];
     constructor(router, apiService) {
         super({ sameRouteNoApply: true });
         this.router = router;
@@ -24505,30 +24906,31 @@ let SimpleBootRouterComponent = class SimpleBootRouterComponent extends _dooboos
     // await new Promise<void>((resolve) => setTimeout(resolve, 5000));
     //   console.log('--s----,', otherData, Date.now());
     // }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
         // if (childrenSet.some(it=>it.instance instanceof BreadcrumbComponent)){
         //   return;
         // }
         //   if (otherData.path) return;
+        // return;
         const list = [
         // { text: "dooboostore", link: "/" },
         // { text: "📦", link: "/packages" },
         ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent ?? '',
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent ?? '', data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
-        console.log('-------last', last, this.h2s);
-        // if (last.items.length){
         list.push(last);
-        // }
         this.breadcrumbs = list;
     }
     handleNavigate(item) {
@@ -24713,18 +25115,24 @@ let SwtRouterComponent = class SwtRouterComponent extends _dooboostore_simple_bo
         super({ sameRouteNoApply: true });
         this.router = router;
     }
-    onCreatedThisChildDebounce(childrenSet) {
-        super.onCreatedThisChildDebounce(childrenSet);
-        this.refreshDecorators();
-        const list = [];
+    async onRawSetRendered(rawSet, otherData) {
+        await super.onRawSetRendered(rawSet, otherData);
+        // }
+        // onCreatedThisChildDebounce(childrenSet: ChildrenSet[]) {
+        //   super.onCreatedThisChildDebounce(childrenSet);
+        //   this.refreshDecorators();
+        const list = [
+        // { text: "dooboostore", link: "/" },
+        // { text: "📦", link: "/packages" },
+        ];
         this.h1s?.forEach((it) => {
             list.push({
-                text: it.textContent,
+                text: it.textContent ?? "",
                 link: `/packages/${it.textContent?.replace("@dooboostore/", "") ?? it.textContent}`,
             });
         });
         const last = {
-            items: this.h2s?.map((it) => ({ text: it.textContent, data: it })) ?? [],
+            items: this.h2s?.map((it) => ({ text: it.textContent ?? "", data: it })) ?? [],
         };
         list.push(last);
         this.breadcrumbs = list;
@@ -24739,26 +25147,26 @@ let SwtRouterComponent = class SwtRouterComponent extends _dooboostore_simple_bo
     }
 };
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)("h1"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)({ selector: "h1", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SwtRouterComponent.prototype, "h1s", void 0);
 (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
-    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)("h2"),
+    (0,_dooboostore_dom_render_components_ComponentBase__WEBPACK_IMPORTED_MODULE_9__.query)({ selector: "h2", refreshRawSetRendered: true }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:type", Array)
 ], SwtRouterComponent.prototype, "h2s", void 0);
 SwtRouterComponent = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
     _dooboostore_simple_boot_decorators_SimDecorator__WEBPACK_IMPORTED_MODULE_7__.Sim,
     (0,_dooboostore_simple_boot_decorators_route_Router__WEBPACK_IMPORTED_MODULE_1__.Router)({
-        path: '/swt',
+        path: "/swt",
         route: {
-            '': '/',
-            '/': _swt_route_component__WEBPACK_IMPORTED_MODULE_2__.SwtRouteComponent,
+            "": "/",
+            "/": _swt_route_component__WEBPACK_IMPORTED_MODULE_2__.SwtRouteComponent,
         },
     }),
     (0,_dooboostore_simple_boot_front_decorators_Component__WEBPACK_IMPORTED_MODULE_3__.Component)({
         template: _swt_router_component_html__WEBPACK_IMPORTED_MODULE_5__["default"],
         styles: _swt_router_component_css__WEBPACK_IMPORTED_MODULE_6__["default"],
-        using: [_swt_route_component__WEBPACK_IMPORTED_MODULE_2__.SwtRouteComponent]
+        using: [_swt_route_component__WEBPACK_IMPORTED_MODULE_2__.SwtRouteComponent],
     }),
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:paramtypes", [typeof (_a = typeof _dooboostore_dom_render_routers_Router__WEBPACK_IMPORTED_MODULE_8__.Router !== "undefined" && _dooboostore_dom_render_routers_Router__WEBPACK_IMPORTED_MODULE_8__.Router) === "function" ? _a : Object])
 ], SwtRouterComponent);
