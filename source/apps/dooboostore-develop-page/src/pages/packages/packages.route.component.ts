@@ -2,20 +2,25 @@ import { Component } from "@dooboostore/simple-boot-front/decorators/Component";
 import template from "./packages.route.component.html";
 import style from "./packages.route.component.css";
 import { Sim } from "@dooboostore/simple-boot/decorators/SimDecorator";
-import { query } from "@dooboostore/dom-render/components/ComponentBase";
+import {
+  ComponentBase,
+  query,
+} from "@dooboostore/dom-render/components/ComponentBase";
+import { OtherData } from "@dooboostore/dom-render/lifecycle/OnChangeAttrRender";
 
 @Sim
 @Component({
   template,
   styles: [style],
 })
-export class PackagesRouteComponent {
+export class PackagesRouteComponent extends ComponentBase {
   @query(".packages-container")
   container?: HTMLDivElement;
 
   private observer?: IntersectionObserver;
 
   constructor() {
+    super();
   }
   private updateActiveMenuItem(activeId: string) {
     if (!this.container) return;
@@ -42,6 +47,11 @@ export class PackagesRouteComponent {
         }
       }
     }
+  }
+
+  onChangeAttrRender(name: string, value: any, other: OtherData) {
+    super.onChangeAttrRender(name, value, other);
+    console.log('PackagesRouteComponent onChangeAttrRender', name, value, other);
   }
 
   private setupIntersectionObserver() {
@@ -77,7 +87,6 @@ export class PackagesRouteComponent {
       this.setupIntersectionObserver();
     }, 100);
   }
-
 
   onDestroy() {
     if (this.observer) {
