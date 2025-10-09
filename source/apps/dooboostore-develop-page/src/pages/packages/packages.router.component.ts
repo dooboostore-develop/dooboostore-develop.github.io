@@ -2,6 +2,7 @@ import { Router } from "@dooboostore/simple-boot/decorators/route/Router";
 import { CoreRouterComponent } from "./core/core.router.component";
 import { CoreNodeRouterComponent } from "./core-node/core-node.router.component";
 import { CoreWebRouterComponent } from "./core-web/core-web.router.component";
+import { DomParserRouterComponent } from "./dom-parser/dom-parser.router.component";
 import { DomRenderRouterComponent } from "./dom-render/dom-render.router.component";
 import { SimpleBootRouterComponent } from "./simple-boot/simple-boot.router.component";
 import { SimpleBootFrontRouterComponent } from "./simple-boot-front/simple-boot-front.router.component";
@@ -37,6 +38,7 @@ import { DomRenderNoProxy } from "@dooboostore/dom-render/decorators/DomRenderNo
     CoreRouterComponent,
     CoreNodeRouterComponent,
     CoreWebRouterComponent,
+    DomParserRouterComponent,
     DomRenderRouterComponent,
     SimpleBootRouterComponent,
     SimpleBootFrontRouterComponent,

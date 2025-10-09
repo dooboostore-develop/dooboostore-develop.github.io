@@ -27,6 +27,7 @@ module.exports = {
       '@dooboostore/core': path.resolve(__dirname, '../../../packages/@dooboostore/core/src'),
       '@dooboostore/core-node': path.resolve(__dirname, '../../../packages/@dooboostore/core-node/src'),
       '@dooboostore/core-web': path.resolve(__dirname, '../../../packages/@dooboostore/core-web/src'),
+      '@dooboostore/dom-parser': path.resolve(__dirname, '../../../packages/@dooboostore/dom-parser/src'),
       '@dooboostore/dom-render': path.resolve(__dirname, '../../../packages/@dooboostore/dom-render/src')
     }
   },

@@ -37,6 +37,7 @@ export namespace MenuConfig {
       core: {_data: {category:'core'}} satisfies MenuInfo<PackageMenu>,
       "core-node": {_data: {category:'core'}} satisfies MenuInfo<PackageMenu>,
       "core-web": {_data: {category:'core'}} satisfies MenuInfo<PackageMenu>,
+      "dom-parser": {_data: {category:'library'}} satisfies MenuInfo<PackageMenu>,
       "dom-render": {_data: {category:'library'}} satisfies MenuInfo<PackageMenu>,
       "simple-boot": {_data: {category:'framework'}} satisfies MenuInfo<PackageMenu>,
       "simple-boot-front": {_data: {category:'framework'}} satisfies MenuInfo<PackageMenu>,

@@ -202,9 +202,9 @@ graph LR
 // Create a container element
 const container = document.createElement('div');
 container.innerHTML = `
-  <h3>Title: <span>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.title&#125;&#36;</span></h3>
-  <p>Count: <span>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</span></p>
-  <button id="increment">Increment</button>
+  〈h3〉Title: 〈span〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.title&#125;&#36;〈/span〉〈/h3〉
+  〈p〉Count: 〈span〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;〈/span〉〈/p〉
+  〈button id="increment"〉Increment〈/button〉
 `;
 document.body.appendChild(container);
 
@@ -222,7 +222,7 @@ const result = new DomRender(&#123;
 state = result.rootObject; // Get proxied state
 
 // Reactive updates - DOM updates automatically!
-document.getElementById('increment').addEventListener('click', () => &#123;
+document.getElementById('increment').addEventListener('click', () =〉 &#123;
   state.count++; // UI updates instantly
 &#125;);</code-snippet-code>
                             </code-snippet>
@@ -241,11 +241,11 @@ document.getElementById('increment').addEventListener('click', () => &#123;
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.username" placeholder="Enter name" />
-  <p>Hello, <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.username&#125;&#36;</strong>!</p>
+  〈input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.username" placeholder="Enter name" /〉
+  〈p〉Hello, 〈strong〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.username&#125;&#36;〈/strong〉!〈/p〉
 
-  <input type="number" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.age" />
-  <p>Age: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.age&#125;&#36; years old</p>
+  〈input type="number" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.age" /〉
+  〈p〉Age: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.age&#125;&#36; years old〈/p〉
 `;
 document.body.appendChild(container);
 
@@ -278,14 +278,14 @@ state = result.rootObject;
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <button id="add-item">Add Item</button>
-  <ul>
-    <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items" dr-option-item-variable-name="item">
+  〈button id="add-item"〉Add Item〈/button〉
+  〈ul〉
+    〈li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items" dr-option-item-variable-name="item"〉
       \&#36;&#123;&num;item&num;.name&#125;&#36; - &#36;\&#36;&#123;&num;item&num;.price&#125;&#36;
-      <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.removeItem(&num;item&num;)">Remove</button>
-    </li>
-  </ul>
-  <p>Total: <strong>&#36;\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.total&#125;&#36;</strong></p>
+      〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.removeItem(&num;item&num;)"〉Remove〈/button〉
+    〈/li〉
+  〈/ul〉
+  〈p〉Total: 〈strong〉&#36;\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.total&#125;&#36;〈/strong〉〈/p〉
 `;
 document.body.appendChild(container);
 
@@ -295,11 +295,11 @@ let state = &#123;
     &#123; name: 'Banana', price: 0.8 &#125;
   ],
   get total() &#123;
-    return this.items.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+    return this.items.reduce((sum, item) =〉 sum + item.price, 0).toFixed(2);
   &#125;,
   removeItem(item) &#123;
     const index = this.items.indexOf(item);
-    if (index > -1) this.items.splice(index, 1);
+    if (index 〉 -1) this.items.splice(index, 1);
   &#125;
 &#125;;
 
@@ -310,7 +310,7 @@ const result = new DomRender(&#123;
 &#125;);
 state = result.rootObject;
 
-document.getElementById('add-item').addEventListener('click', () => &#123;
+document.getElementById('add-item').addEventListener('click', () =〉 &#123;
   state.items.push(&#123;
     name: `Item &#36;&#123;state.items.length + 1&#125;`,
     price: Math.random() * 10
@@ -471,13 +471,13 @@ export class CounterComponent extends ComponentBase &#123;
   &#125;
 
   // Component template
-  override template = () => `
-    <div class="counter-widget">
-      <h3>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.label&#125;&#36;</h3>
-      <div class="count-display">\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</div>
-      <button class="increment">+</button>
-      <button class="decrement">-</button>
-    </div>
+  override template = () =〉 `
+    〈div class="counter-widget"〉
+      〈h3〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.label&#125;&#36;〈/h3〉
+      〈div class="count-display"〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;〈/div〉
+      〈button class="increment"〉+〈/button〉
+      〈button class="decrement"〉-〈/button〉
+    〈/div〉
   `;
 &#125;
 
@@ -487,7 +487,7 @@ import &#123; drComponent &#125; from '@dooboostore/dom-render/components';
 drComponent(CounterComponent, 'counter-component');
 
 // Use in HTML
-// <counter-component initial-value="10" data-label="My Counter"></counter-component></code-snippet-code>
+// 〈counter-component initial-value="10" data-label="My Counter"〉〈/counter-component〉</code-snippet-code>
                             </code-snippet>
                         </code-snippet-container>
                     </div>
@@ -595,20 +595,20 @@ class Counter &#123;
 const counters = [
   new ComponentSet(new Counter(), &#123;
     template: `
-      <div>
-        <p>Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</p>
-        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()">+</button>
-        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()">-</button>
-      </div>
+      〈div〉
+        〈p〉Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;〈/p〉
+        〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()"〉+〈/button〉
+        〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()"〉-〈/button〉
+      〈/div〉
     `
   &#125;),
   new ComponentSet(new Counter(), &#123;
     template: `
-      <div>
-        <p>Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</p>
-        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()">+</button>
-        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()">-</button>
-      </div>
+      〈div〉
+        〈p〉Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;〈/p〉
+        〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()"〉+〈/button〉
+        〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()"〉-〈/button〉
+      〈/div〉
     `
   &#125;)
 ];
@@ -616,9 +616,9 @@ const counters = [
 // Render in loop
 const container = document.createElement('div');
 container.innerHTML = `
-  <div dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.counters">
-    <div dr-this="&num;it&num;"></div>
-  </div>
+  〈div dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.counters"〉
+    〈div dr-this="&num;it&num;"〉〈/div〉
+  〈/div〉
 `;
 
 const state = new DomRender(&#123;
@@ -645,38 +645,38 @@ const state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Basic Usage">
-                                <code-snippet-code type="html"><!-- Simple condition -->
-<div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.isLoggedIn">
+                                <code-snippet-code type="html">〈!-- Simple condition --〉
+〈div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.isLoggedIn"〉
   Welcome back!
-</div>
+〈/div〉
 
-<!-- Expression -->
-<div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.count > 10">
+〈!-- Expression --〉
+〈div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.count 〉 10"〉
   Count is greater than 10
-</div>
+〈/div〉
 
-<!-- Multiple conditions -->
-<div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.user &amp;&amp; &commat;𝒕𝒉𝒊𝒔&commat;.user.isAdmin">
+〈!-- Multiple conditions --〉
+〈div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.user &amp;&amp; &commat;𝒕𝒉𝒊𝒔&commat;.user.isAdmin"〉
   Admin panel
-</div></code-snippet-code>
+〈/div〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.toggle()">
+  〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.toggle()"〉
     Toggle (\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isVisible ? 'Hide' : 'Show'&#125;&#36;)
-  </button>
+  〈/button〉
 
-  <div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.isVisible" style="padding: 20px; background: #e0f2fe;">
-    <h3>Conditionally Rendered Content</h3>
-    <p>This appears when isVisible is true</p>
-  </div>
+  〈div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.isVisible" style="padding: 20px; background: #e0f2fe;"〉
+    〈h3〉Conditionally Rendered Content〈/h3〉
+    〈p〉This appears when isVisible is true〈/p〉
+  〈/div〉
 
-  <div dr-if="!&commat;𝒕𝒉𝒊𝒔&commat;.isVisible" style="padding: 20px; background: #fef3c7;">
-    <p>Content is hidden</p>
-  </div>
+  〈div dr-if="!&commat;𝒕𝒉𝒊𝒔&commat;.isVisible" style="padding: 20px; background: #fef3c7;"〉
+    〈p〉Content is hidden〈/p〉
+  〈/div〉
 `;
 
 let state = &#123;
@@ -703,49 +703,49 @@ state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Basic Usage">
-                                <code-snippet-code type="html"><!-- Simple list -->
-<ul>
-  <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items" dr-option-item-variable-name="item">
+                                <code-snippet-code type="html">〈!-- Simple list --〉
+〈ul〉
+  〈li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items" dr-option-item-variable-name="item"〉
     \&#36;&#123;&num;item&num;&#125;&#36;
-  </li>
-</ul>
+  〈/li〉
+〈/ul〉
 
-<!-- Object properties -->
-<ul>
-  <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.users" dr-option-item-variable-name="user">
+〈!-- Object properties --〉
+〈ul〉
+  〈li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.users" dr-option-item-variable-name="user"〉
     \&#36;&#123;&num;user&num;.name&#125;&#36; - \&#36;&#123;&num;user&num;.email&#125;&#36;
-  </li>
-</ul>
+  〈/li〉
+〈/ul〉
 
-<!-- With index -->
-<div dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items"
+〈!-- With index --〉
+〈div dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.items"
      dr-option-item-variable-name="item"
-     dr-option-index-variable-name="index">
+     dr-option-index-variable-name="index"〉
   Item #\&#36;&#123;&num;index&num;&#125;&#36;: \&#36;&#123;&num;item&num;&#125;&#36;
-</div></code-snippet-code>
+〈/div〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.newTask" placeholder="New task" />
-  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.addTask()">Add Task</button>
+  〈input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.newTask" placeholder="New task" /〉
+  〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.addTask()"〉Add Task〈/button〉
 
-  <ul>
-    <li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.tasks"
+  〈ul〉
+    〈li dr-for-of="&commat;𝒕𝒉𝒊𝒔&commat;.tasks"
         dr-option-item-variable-name="task"
         dr-option-index-variable-name="index"
-        style="margin: 10px 0; padding: 10px; background: #f0f9ff;">
-      <span>\&#36;&#123;&num;index&num; + 1&#125;&#36;. \&#36;&#123;&num;task&num;.title&#125;&#36;</span>
-      <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.removeTask(&num;index&num;)"
-              style="margin-left: 10px;">
+        style="margin: 10px 0; padding: 10px; background: #f0f9ff;"〉
+      〈span〉\&#36;&#123;&num;index&num; + 1&#125;&#36;. \&#36;&#123;&num;task&num;.title&#125;&#36;〈/span〉
+      〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.removeTask(&num;index&num;)"
+              style="margin-left: 10px;"〉
         Remove
-      </button>
-    </li>
-  </ul>
+      〈/button〉
+    〈/li〉
+  〈/ul〉
 
-  <p>Total tasks: <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.tasks.length&#125;&#36;</strong></p>
+  〈p〉Total tasks: 〈strong〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.tasks.length&#125;&#36;〈/strong〉〈/p〉
 `;
 
 let state = &#123;
@@ -782,60 +782,60 @@ state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Basic Usage">
-                                <code-snippet-code type="html"><dr-choose>
-  <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'loading'">
+                                <code-snippet-code type="html">〈dr-choose〉
+  〈dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'loading'"〉
     Loading...
-  </dr-when>
-  <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'success'">
+  〈/dr-when〉
+  〈dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'success'"〉
     Data loaded successfully!
-  </dr-when>
-  <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'error'">
+  〈/dr-when〉
+  〈dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'error'"〉
     Error occurred
-  </dr-when>
-  <dr-otherwise>
+  〈/dr-when〉
+  〈dr-otherwise〉
     Unknown status
-  </dr-otherwise>
-</dr-choose></code-snippet-code>
+  〈/dr-otherwise〉
+〈/dr-choose〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <div>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'idle'">Idle</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'loading'">Loading</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'success'">Success</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'error'">Error</button>
-  </div>
+  〈div〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'idle'"〉Idle〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'loading'"〉Loading〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'success'"〉Success〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.status = 'error'"〉Error〈/button〉
+  〈/div〉
 
-  <dr-choose>
-    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'idle'">
-      <div style="padding: 20px; background: #f1f5f9;">
+  〈dr-choose〉
+    〈dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'idle'"〉
+      〈div style="padding: 20px; background: #f1f5f9;"〉
         ⏸️ System is idle
-      </div>
-    </dr-when>
-    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'loading'">
-      <div style="padding: 20px; background: #dbeafe;">
+      〈/div〉
+    〈/dr-when〉
+    〈dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'loading'"〉
+      〈div style="padding: 20px; background: #dbeafe;"〉
         ⏳ Loading data...
-      </div>
-    </dr-when>
-    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'success'">
-      <div style="padding: 20px; background: #dcfce7;">
+      〈/div〉
+    〈/dr-when〉
+    〈dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'success'"〉
+      〈div style="padding: 20px; background: #dcfce7;"〉
         ✅ Operation completed successfully!
-      </div>
-    </dr-when>
-    <dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'error'">
-      <div style="padding: 20px; background: #fee2e2;">
+      〈/div〉
+    〈/dr-when〉
+    〈dr-when test="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36; === 'error'"〉
+      〈div style="padding: 20px; background: #fee2e2;"〉
         ❌ An error occurred
-      </div>
-    </dr-when>
-    <dr-otherwise>
-      <div style="padding: 20px; background: #fef3c7;">
+      〈/div〉
+    〈/dr-when〉
+    〈dr-otherwise〉
+      〈div style="padding: 20px; background: #fef3c7;"〉
         ⚠️ Unknown status: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.status&#125;&#36;
-      </div>
-    </dr-otherwise>
-  </dr-choose>
+      〈/div〉
+    〈/dr-otherwise〉
+  〈/dr-choose〉
 `;
 
 let state = &#123;
@@ -866,38 +866,38 @@ state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Syntax">
-                                <code-snippet-code type="html"><!-- Multiple attributes -->
-<input dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled&#125;&#36;,
+                                <code-snippet-code type="html">〈!-- Multiple attributes --〉
+〈input dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled&#125;&#36;,
                 placeholder:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.placeholder&#125;&#36;,
-                type:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.inputType&#125;&#36;" />
+                type:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.inputType&#125;&#36;" /〉
 
-<!-- Boolean attributes -->
-<button dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loading&#125;&#36;">Submit</button>
+〈!-- Boolean attributes --〉
+〈button dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loading&#125;&#36;"〉Submit〈/button〉
 
-<!-- Data attributes -->
-<div dr-attr="data-id:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.userId&#125;&#36;,
-              data-role:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.role&#125;&#36;"></div></code-snippet-code>
+〈!-- Data attributes --〉
+〈div dr-attr="data-id:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.userId&#125;&#36;,
+              data-role:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.role&#125;&#36;"〉〈/div〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <div>
-    <label>
-      <input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled" />
+  〈div〉
+    〈label〉
+      〈input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled" /〉
       Disable input
-    </label>
-  </div>
+    〈/label〉
+  〈/div〉
 
-  <input
+  〈input
     dr-attr="disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled&#125;&#36;,
              placeholder:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.placeholder&#125;&#36;,
              maxlength:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.maxLength&#125;&#36;"
     dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.text"
-    style="margin: 10px 0; padding: 8px;" />
+    style="margin: 10px 0; padding: 8px;" /〉
 
-  <p>Value: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.text&#125;&#36;</p>
+  〈p〉Value: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.text&#125;&#36;〈/p〉
 `;
 
 let state = &#123;
@@ -924,46 +924,46 @@ state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Syntax">
-                                <code-snippet-code type="html"><!-- Boolean class binding -->
-<div dr-class="active:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isActive&#125;&#36;,
+                                <code-snippet-code type="html">〈!-- Boolean class binding --〉
+〈div dr-class="active:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isActive&#125;&#36;,
                disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isDisabled&#125;&#36;,
-               loading:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isLoading&#125;&#36;">
+               loading:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.isLoading&#125;&#36;"〉
   Content
-</div>
+〈/div〉
 
-<!-- Dynamic class names -->
-<div dr-class="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.statusClass&#125;&#36;:true">Status</div></code-snippet-code>
+〈!-- Dynamic class names --〉
+〈div dr-class="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.statusClass&#125;&#36;:true"〉Status〈/div〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <style>
+  〈style〉
     .btn &#123; padding: 10px 20px; border: none; cursor: pointer; &#125;
     .btn-primary &#123; background: #3b82f6; color: white; &#125;
     .btn-danger &#123; background: #ef4444; color: white; &#125;
     .btn-disabled &#123; opacity: 0.5; cursor: not-allowed; &#125;
     .btn-loading &#123; position: relative; &#125;
-  </style>
+  〈/style〉
 
-  <button
+  〈button
     class="btn"
     dr-class="btn-primary:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.variant === 'primary'&#125;&#36;,
              btn-danger:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.variant === 'danger'&#125;&#36;,
              btn-disabled:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.disabled&#125;&#36;,
              btn-loading:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loading&#125;&#36;"
-    dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.handleClick()">
+    dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.handleClick()"〉
     \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loading ? 'Loading...' : 'Click Me'&#125;&#36;
-  </button>
+  〈/button〉
 
-  <div>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.variant = 'primary'">Primary</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.variant = 'danger'">Danger</button>
-    <label>
-      <input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.disabled" /> Disabled
-    </label>
-  </div>
+  〈div〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.variant = 'primary'"〉Primary〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.variant = 'danger'"〉Danger〈/button〉
+    〈label〉
+      〈input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.disabled" /〉 Disabled
+    〈/label〉
+  〈/div〉
 `;
 
 let state = &#123;
@@ -973,7 +973,7 @@ let state = &#123;
   handleClick() &#123;
     if (this.disabled) return;
     this.loading = true;
-    setTimeout(() => &#123;
+    setTimeout(() =〉 &#123;
       this.loading = false;
     &#125;, 1000);
   &#125;
@@ -996,50 +996,50 @@ state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Syntax">
-                                <code-snippet-code type="html"><!-- Multiple style properties -->
-<div dr-style="color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.textColor&#125;&#36;,
+                                <code-snippet-code type="html">〈!-- Multiple style properties --〉
+〈div dr-style="color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.textColor&#125;&#36;,
                font-size:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.fontSize&#125;&#36;px,
-               background-color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.bgColor&#125;&#36;">
+               background-color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.bgColor&#125;&#36;"〉
   Styled content
-</div>
+〈/div〉
 
-<!-- Conditional styles -->
-<div dr-style="opacity:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.visible ? 1 : 0&#125;&#36;">
+〈!-- Conditional styles --〉
+〈div dr-style="opacity:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.visible ? 1 : 0&#125;&#36;"〉
   Fade in/out
-</div></code-snippet-code>
+〈/div〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <div>
-    <label>Text Color:
-      <input type="color" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.textColor" />
-    </label>
-    <label>Background:
-      <input type="color" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.bgColor" />
-    </label>
-    <label>Font Size:
-      <input type="range" min="12" max="48" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.fontSize" />
+  〈div〉
+    〈label〉Text Color:
+      〈input type="color" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.textColor" /〉
+    〈/label〉
+    〈label〉Background:
+      〈input type="color" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.bgColor" /〉
+    〈/label〉
+    〈label〉Font Size:
+      〈input type="range" min="12" max="48" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.fontSize" /〉
       \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.fontSize&#125;&#36;px
-    </label>
-    <label>Rotation:
-      <input type="range" min="0" max="360" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.rotation" />
+    〈/label〉
+    〈label〉Rotation:
+      〈input type="range" min="0" max="360" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.rotation" /〉
       \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.rotation&#125;&#36;°
-    </label>
-  </div>
+    〈/label〉
+  〈/div〉
 
-  <div
+  〈div
     dr-style="color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.textColor&#125;&#36;,
              background-color:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.bgColor&#125;&#36;,
              font-size:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.fontSize&#125;&#36;px,
              transform:rotate(\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.rotation&#125;&#36;deg),
              padding:20px,
              margin:20px 0,
-             text-align:center">
+             text-align:center"〉
     Dynamic Styled Text
-  </div>
+  〈/div〉
 `;
 
 let state = &#123;
@@ -1066,39 +1066,39 @@ state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Syntax">
-                                <code-snippet-code type="html"><!-- Click events -->
-<button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.handleClick()">Click Me</button>
+                                <code-snippet-code type="html">〈!-- Click events --〉
+〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.handleClick()"〉Click Me〈/button〉
 
-<!-- With parameters -->
-<button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.deleteItem(123)">Delete</button>
+〈!-- With parameters --〉
+〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.deleteItem(123)"〉Delete〈/button〉
 
-<!-- Other events -->
-<input dr-event-input="&commat;𝒕𝒉𝒊𝒔&commat;.onInput(&#36;event)" />
-<div dr-event-mouseenter="&commat;𝒕𝒉𝒊𝒔&commat;.onHover()"
-     dr-event-mouseleave="&commat;𝒕𝒉𝒊𝒔&commat;.onLeave()"></div>
+〈!-- Other events --〉
+〈input dr-event-input="&commat;𝒕𝒉𝒊𝒔&commat;.onInput(&#36;event)" /〉
+〈div dr-event-mouseenter="&commat;𝒕𝒉𝒊𝒔&commat;.onHover()"
+     dr-event-mouseleave="&commat;𝒕𝒉𝒊𝒔&commat;.onLeave()"〉〈/div〉
 
-<!-- Keyboard events -->
-<input dr-event-keydown="&commat;𝒕𝒉𝒊𝒔&commat;.onKeyDown(&#36;event)" /></code-snippet-code>
+〈!-- Keyboard events --〉
+〈input dr-event-keydown="&commat;𝒕𝒉𝒊𝒔&commat;.onKeyDown(&#36;event)" /〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <div>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()">Increment</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()">Decrement</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.reset()">Reset</button>
-    <p>Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;</p>
-  </div>
+  〈div〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.increment()"〉Increment〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.decrement()"〉Decrement〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.reset()"〉Reset〈/button〉
+    〈p〉Count: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.count&#125;&#36;〈/p〉
+  〈/div〉
 
-  <div dr-event-mouseenter="&commat;𝒕𝒉𝒊𝒔&commat;.hovered = true"
+  〈div dr-event-mouseenter="&commat;𝒕𝒉𝒊𝒔&commat;.hovered = true"
        dr-event-mouseleave="&commat;𝒕𝒉𝒊𝒔&commat;.hovered = false"
        dr-style="background:\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.hovered ? '#dbeafe' : '#f1f5f9'&#125;&#36;,
                  padding:20px,
-                 transition:all 0.3s">
+                 transition:all 0.3s"〉
     Hover me! \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.hovered ? '👋' : ''&#125;&#36;
-  </div>
+  〈/div〉
 `;
 
 let state = &#123;
@@ -1133,27 +1133,27 @@ state = new DomRender(&#123;
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="All Input Types">
-                                <code-snippet-code type="html"><!-- Text input -->
-<input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.username" />
+                                <code-snippet-code type="html">〈!-- Text input --〉
+〈input type="text" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.username" /〉
 
-<!-- Number input -->
-<input type="number" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.age" />
+〈!-- Number input --〉
+〈input type="number" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.age" /〉
 
-<!-- Checkbox -->
-<input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.accepted" />
+〈!-- Checkbox --〉
+〈input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.accepted" /〉
 
-<!-- Radio buttons -->
-<input type="radio" name="gender" value="male" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.gender" />
-<input type="radio" name="gender" value="female" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.gender" />
+〈!-- Radio buttons --〉
+〈input type="radio" name="gender" value="male" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.gender" /〉
+〈input type="radio" name="gender" value="female" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.gender" /〉
 
-<!-- Select dropdown -->
-<select dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.country">
-  <option value="us">United States</option>
-  <option value="kr">Korea</option>
-</select>
+〈!-- Select dropdown --〉
+〈select dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.country"〉
+  〈option value="us"〉United States〈/option〉
+  〈option value="kr"〉Korea〈/option〉
+〈/select〉
 
-<!-- Textarea -->
-<textarea dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.comment"></textarea></code-snippet-code>
+〈!-- Textarea --〉
+〈textarea dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.comment"〉〈/textarea〉</code-snippet-code>
                             </code-snippet>
                         </code-snippet-container>
                     </div>
@@ -1170,60 +1170,60 @@ state = new DomRender(&#123;
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <form dr-event-submit="&commat;𝒕𝒉𝒊𝒔&commat;.handleSubmit(&#36;event)">
-    <div style="margin-bottom: 15px;">
-      <label>Username:
-        <input
+  〈form dr-event-submit="&commat;𝒕𝒉𝒊𝒔&commat;.handleSubmit(&#36;event)"〉
+    〈div style="margin-bottom: 15px;"〉
+      〈label〉Username:
+        〈input
           type="text"
           dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.username"
           placeholder="Enter username"
           style="display: block; width: 100%; padding: 8px;"
-        />
-      </label>
-    </div>
+        /〉
+      〈/label〉
+    〈/div〉
 
-    <div style="margin-bottom: 15px;">
-      <label>Email:
-        <input
+    〈div style="margin-bottom: 15px;"〉
+      〈label〉Email:
+        〈input
           type="email"
           dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.email"
           placeholder="Enter email"
           style="display: block; width: 100%; padding: 8px;"
-        />
-      </label>
-    </div>
+        /〉
+      〈/label〉
+    〈/div〉
 
-    <div style="margin-bottom: 15px;">
-      <label>Age:
-        <input
+    〈div style="margin-bottom: 15px;"〉
+      〈label〉Age:
+        〈input
           type="number"
           dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.age"
           min="18"
           max="100"
           style="display: block; width: 100%; padding: 8px;"
-        />
-      </label>
-    </div>
+        /〉
+      〈/label〉
+    〈/div〉
 
-    <div style="margin-bottom: 15px;">
-      <label>
-        <input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.terms" />
+    〈div style="margin-bottom: 15px;"〉
+      〈label〉
+        〈input type="checkbox" dr-value="&commat;𝒕𝒉𝒊𝒔&commat;.form.terms" /〉
         I agree to terms and conditions
-      </label>
-    </div>
+      〈/label〉
+    〈/div〉
 
-    <button
+    〈button
       type="submit"
       dr-attr="disabled:\&#36;&#123;!&commat;𝒕𝒉𝒊𝒔&commat;.isValid&#125;&#36;"
-      style="padding: 10px 20px; background: #3b82f6; color: white; border: none; cursor: pointer;">
+      style="padding: 10px 20px; background: #3b82f6; color: white; border: none; cursor: pointer;"〉
       Submit
-    </button>
-  </form>
+    〈/button〉
+  〈/form〉
 
-  <div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.submitted" style="margin-top: 20px; padding: 15px; background: #dcfce7;">
-    <h3>Form Submitted!</h3>
-    <pre>\&#36;&#123;JSON.stringify(&commat;𝒕𝒉𝒊𝒔&commat;.form, null, 2)&#125;&#36;</pre>
-  </div>
+  〈div dr-if="&commat;𝒕𝒉𝒊𝒔&commat;.submitted" style="margin-top: 20px; padding: 15px; background: #dcfce7;"〉
+    〈h3〉Form Submitted!〈/h3〉
+    〈pre〉\&#36;&#123;JSON.stringify(&commat;𝒕𝒉𝒊𝒔&commat;.form, null, 2)&#125;&#36;〈/pre〉
+  〈/div〉
 `;
 
 let state = &#123;
@@ -1235,9 +1235,9 @@ let state = &#123;
   &#125;,
   submitted: false,
   get isValid() &#123;
-    return this.form.username.length > 0
+    return this.form.username.length 〉 0
         && this.form.email.includes('@')
-        && this.form.age >= 18
+        && this.form.age 〉= 18
         && this.form.terms;
   &#125;,
   handleSubmit(e) &#123;
@@ -1367,63 +1367,63 @@ app.router.go('/users/123');</code-snippet-code>
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Basic Routes">
-                                <code-snippet-code type="html"><!-- Static routes -->
-<dr-route-match path="/home">
-  <div>Home Page</div>
-</dr-route-match>
+                                <code-snippet-code type="html">〈!-- Static routes --〉
+〈dr-route-match path="/home"〉
+  〈div〉Home Page〈/div〉
+〈/dr-route-match〉
 
-<dr-route-match path="/about">
-  <div>About Page</div>
-</dr-route-match>
+〈dr-route-match path="/about"〉
+  〈div〉About Page〈/div〉
+〈/dr-route-match〉
 
-<!-- Dynamic route parameters -->
-<dr-route-match path="/users/:id">
-  <div>User ID: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.id&#125;&#36;</div>
-</dr-route-match>
+〈!-- Dynamic route parameters --〉
+〈dr-route-match path="/users/:id"〉
+  〈div〉User ID: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.id&#125;&#36;〈/div〉
+〈/dr-route-match〉
 
-<!-- Multiple parameters -->
-<dr-route-match path="/posts/:category/:postId">
-  <div>
+〈!-- Multiple parameters --〉
+〈dr-route-match path="/posts/:category/:postId"〉
+  〈div〉
     Category: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.category&#125;&#36;
     Post: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.postId&#125;&#36;
-  </div>
-</dr-route-match></code-snippet-code>
+  〈/div〉
+〈/dr-route-match〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <nav style="padding: 20px; background: #f1f5f9; margin-bottom: 20px;">
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/home')">Home</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/about')">About</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/users/123')">User 123</button>
-    <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/users/456')">User 456</button>
-  </nav>
+  〈nav style="padding: 20px; background: #f1f5f9; margin-bottom: 20px;"〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/home')"〉Home〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/about')"〉About〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/users/123')"〉User 123〈/button〉
+    〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.navigate('/users/456')"〉User 456〈/button〉
+  〈/nav〉
 
-  <main style="padding: 20px;">
-    <dr-route-match path="/home">
-      <div style="padding: 20px; background: #dbeafe;">
-        <h2>Home Page</h2>
-        <p>Welcome to the home page!</p>
-      </div>
-    </dr-route-match>
+  〈main style="padding: 20px;"〉
+    〈dr-route-match path="/home"〉
+      〈div style="padding: 20px; background: #dbeafe;"〉
+        〈h2〉Home Page〈/h2〉
+        〈p〉Welcome to the home page!〈/p〉
+      〈/div〉
+    〈/dr-route-match〉
 
-    <dr-route-match path="/about">
-      <div style="padding: 20px; background: #dcfce7;">
-        <h2>About Page</h2>
-        <p>Learn more about us.</p>
-      </div>
-    </dr-route-match>
+    〈dr-route-match path="/about"〉
+      〈div style="padding: 20px; background: #dcfce7;"〉
+        〈h2〉About Page〈/h2〉
+        〈p〉Learn more about us.〈/p〉
+      〈/div〉
+    〈/dr-route-match〉
 
-    <dr-route-match path="/users/:id">
-      <div style="padding: 20px; background: #fef3c7;">
-        <h2>User Profile</h2>
-        <p>User ID: <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.id&#125;&#36;</strong></p>
-        <p>Full path: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.currentPath&#125;&#36;</p>
-      </div>
-    </dr-route-match>
-  </main>
+    〈dr-route-match path="/users/:id"〉
+      〈div style="padding: 20px; background: #fef3c7;"〉
+        〈h2〉User Profile〈/h2〉
+        〈p〉User ID: 〈strong〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.params.id&#125;&#36;〈/strong〉〈/p〉
+        〈p〉Full path: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.router.currentPath&#125;&#36;〈/p〉
+      〈/div〉
+    〈/dr-route-match〉
+  〈/main〉
 `;
 
 let state = &#123;
@@ -1463,52 +1463,52 @@ app.router.go('/home');</code-snippet-code>
                     <div class="example-code">
                         <code-snippet-container>
                             <code-snippet name="Basic Syntax">
-                                <code-snippet-code type="html"><dr-promise-switch promise="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.dataPromise&#125;&#36;">
-  <dr-pending>
-    <div>Loading...</div>
-  </dr-pending>
+                                <code-snippet-code type="html">〈dr-promise-switch promise="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.dataPromise&#125;&#36;"〉
+  〈dr-pending〉
+    〈div〉Loading...〈/div〉
+  〈/dr-pending〉
 
-  <dr-fulfilled>
-    <div>Data: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.data&#125;&#36;</div>
-  </dr-fulfilled>
+  〈dr-fulfilled〉
+    〈div〉Data: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.data&#125;&#36;〈/div〉
+  〈/dr-fulfilled〉
 
-  <dr-rejected>
-    <div>Error: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.error&#125;&#36;</div>
-  </dr-rejected>
-</dr-promise-switch></code-snippet-code>
+  〈dr-rejected〉
+    〈div〉Error: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.error&#125;&#36;〈/div〉
+  〈/dr-rejected〉
+〈/dr-promise-switch〉</code-snippet-code>
                             </code-snippet>
                             <code-snippet name="Complete Example">
                                 <code-snippet-code type="typescript">import &#123; DomRender &#125; from '@dooboostore/dom-render/DomRender';
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchData()">Fetch Data</button>
-  <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchWithError()">Fetch with Error</button>
+  〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchData()"〉Fetch Data〈/button〉
+  〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchWithError()"〉Fetch with Error〈/button〉
 
-  <dr-promise-switch promise="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.dataPromise&#125;&#36;">
-    <dr-pending>
-      <div style="padding: 20px; background: #dbeafe; margin: 20px 0;">
-        <h3>⏳ Loading...</h3>
-        <p>Please wait while we fetch the data.</p>
-      </div>
-    </dr-pending>
+  〈dr-promise-switch promise="\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.dataPromise&#125;&#36;"〉
+    〈dr-pending〉
+      〈div style="padding: 20px; background: #dbeafe; margin: 20px 0;"〉
+        〈h3〉⏳ Loading...〈/h3〉
+        〈p〉Please wait while we fetch the data.〈/p〉
+      〈/div〉
+    〈/dr-pending〉
 
-    <dr-fulfilled>
-      <div style="padding: 20px; background: #dcfce7; margin: 20px 0;">
-        <h3>✅ Success!</h3>
-        <p>Data: <strong>\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.result&#125;&#36;</strong></p>
-        <p>Loaded at: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loadedAt&#125;&#36;</p>
-      </div>
-    </dr-fulfilled>
+    〈dr-fulfilled〉
+      〈div style="padding: 20px; background: #dcfce7; margin: 20px 0;"〉
+        〈h3〉✅ Success!〈/h3〉
+        〈p〉Data: 〈strong〉\&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.result&#125;&#36;〈/strong〉〈/p〉
+        〈p〉Loaded at: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.loadedAt&#125;&#36;〈/p〉
+      〈/div〉
+    〈/dr-fulfilled〉
 
-    <dr-rejected>
-      <div style="padding: 20px; background: #fee2e2; margin: 20px 0;">
-        <h3>❌ Error</h3>
-        <p>Failed to load data: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.errorMessage&#125;&#36;</p>
-        <button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchData()">Retry</button>
-      </div>
-    </dr-rejected>
-  </dr-promise-switch>
+    〈dr-rejected〉
+      〈div style="padding: 20px; background: #fee2e2; margin: 20px 0;"〉
+        〈h3〉❌ Error〈/h3〉
+        〈p〉Failed to load data: \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.errorMessage&#125;&#36;〈/p〉
+        〈button dr-event-click="&commat;𝒕𝒉𝒊𝒔&commat;.fetchData()"〉Retry〈/button〉
+      〈/div〉
+    〈/dr-rejected〉
+  〈/dr-promise-switch〉
 `;
 
 let state = &#123;
@@ -1518,8 +1518,8 @@ let state = &#123;
   loadedAt: null,
 
   fetchData() &#123;
-    this.dataPromise = new Promise((resolve) => &#123;
-      setTimeout(() => &#123;
+    this.dataPromise = new Promise((resolve) =〉 &#123;
+      setTimeout(() =〉 &#123;
         this.result = `Data loaded at &#36;&#123;new Date().toLocaleTimeString()&#125;`;
         this.loadedAt = new Date().toLocaleTimeString();
         resolve(this.result);
@@ -1528,8 +1528,8 @@ let state = &#123;
   &#125;,
 
   fetchWithError() &#123;
-    this.dataPromise = new Promise((_, reject) => &#123;
-      setTimeout(() => &#123;
+    this.dataPromise = new Promise((_, reject) =〉 &#123;
+      setTimeout(() =〉 &#123;
         this.errorMessage = 'Network connection failed';
         reject(new Error(this.errorMessage));
       &#125;, 1000);
@@ -1558,15 +1558,15 @@ state = new DomRender(&#123;
 
 const container = document.createElement('div');
 container.innerHTML = `
-  <div style="padding: 20px; background: #f1f5f9; text-align: center;">
-    <h2>Current Time</h2>
-    <p style="font-size: 48px; font-weight: bold;">
+  〈div style="padding: 20px; background: #f1f5f9; text-align: center;"〉
+    〈h2〉Current Time〈/h2〉
+    〈p style="font-size: 48px; font-weight: bold;"〉
       \&#36;&#123;&commat;𝒕𝒉𝒊𝒔&commat;.currentTime&#125;&#36;
-    </p>
-    <p>Updates every second</p>
-  </div>
+    〈/p〉
+    〈p〉Updates every second〈/p〉
+  〈/div〉
 
-  <dr-timer interval="1000" dr-event-tick="&commat;𝒕𝒉𝒊𝒔&commat;.updateTime()"></dr-timer>
+  〈dr-timer interval="1000" dr-event-tick="&commat;𝒕𝒉𝒊𝒔&commat;.updateTime()"〉〈/dr-timer〉
 `;
 
 let state = &#123;

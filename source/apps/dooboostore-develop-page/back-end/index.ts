@@ -26,6 +26,7 @@ import {
   SSRFilter,
 } from "@dooboostore/simple-boot-http-server-ssr/filters/SSRFilter";
 import {SSRLinkDomDomFilter} from "@dooboostore/simple-boot-http-server-ssr/filters/SSRLinkDomDomFilter";
+import {SSRDomParserFilter} from "@dooboostore/simple-boot-http-server-ssr/filters/SSRDomParserFilter";
 import { RootRouter } from "@back-end/root.router";
 import { IntentSchemeFilter } from "@dooboostore/simple-boot-http-server-ssr/filters/IntentSchemeFilter";
 import { SimpleBootHttpSSRFactory } from "@dooboostore/simple-boot-http-server-ssr/SimpleBootHttpSSRFactory";
@@ -99,7 +100,8 @@ class Server implements Runnable<void, void> {
 
 
     // const ssrFilter = new SSRFilter(ssrOption);
-    const ssrFilter = new SSRLinkDomDomFilter(ssrOption);
+    const ssrFilter = new SSRDomParserFilter(ssrOption);
+    // const ssrFilter = new SSRLinkDomDomFilter(ssrOption);
 
     const option = new HttpSSRServerOption(
       {

@@ -1,0 +1,837 @@
+<div class="package-container">
+    <div class="package-header">
+        <div class="container">
+            <h1>@dooboostore/dom-parser</h1>
+            <p class="content en">A lightweight and efficient HTML DOM parser for server-side rendering and DOM
+                manipulation</p>
+            <p class="content ko">서버 사이드 렌더링과 DOM 조작을 위한 경량이고 효율적인 HTML DOM 파서</p>
+            <div class="package-actions">
+                <a href="https://github.com/dooboostore-develop/packages/tree/main/packages/@dooboostore/dom-parser"
+                    target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Github-555555?style=flat&logo=github&logoColor=white"
+                        alt="GitHub" />
+                </a>
+                <a href="https://www.npmjs.com/package/@dooboostore/dom-parser" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Npm-cc0000?style=flat&logo=npm&logoColor=white" alt="NPM" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="package-content">
+        <div class="container">
+            <!-- Installation -->
+            <section class="section">
+                <h2 id="installation">Installation</h2>
+                <p class="content en">Install the package with your preferred package manager</p>
+                <p class="content ko">선호하는 패키지 매니저로 패키지를 설치하세요</p>
+                <code-snippet-container>
+                    <code-snippet name="npm">
+                        <code-snippet-code type="bash">npm install @dooboostore/dom-parser</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="pnpm">
+                        <code-snippet-code type="bash">pnpm add @dooboostore/dom-parser</code-snippet-code>
+                    </code-snippet>
+                    <code-snippet name="yarn">
+                        <code-snippet-code type="bash">yarn add @dooboostore/dom-parser</code-snippet-code>
+                    </code-snippet>
+                </code-snippet-container>
+            </section>
+
+            <!-- Overview -->
+            <section class="section">
+                <h2 id="overview">Overview</h2>
+                <p class="content en">@dooboostore/dom-parser provides a complete DOM implementation for Node.js
+                    environments, enabling server-side HTML parsing and manipulation with browser-compatible APIs.</p>
+                <p class="content ko">@dooboostore/dom-parser는 Node.js 환경을 위한 완전한 DOM 구현을 제공하여, 브라우저 호환 API로 서버 사이드 HTML
+                    파싱과 조작을 가능하게 합니다.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>🚀 Server-Side DOM</h3>
+                        <p class="content en">Complete DOM implementation for Node.js without browser dependencies</p>
+                        <p class="content ko">브라우저 의존성 없이 Node.js를 위한 완전한 DOM 구현</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🔧 HTML Parsing</h3>
+                        <p class="content en">Parse HTML strings into fully navigable DOM tree structures</p>
+                        <p class="content ko">HTML 문자열을 완전히 탐색 가능한 DOM 트리 구조로 파싱</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🌐 Browser API Compatible</h3>
+                        <p class="content en">Implements standard DOM APIs like document, window, Element</p>
+                        <p class="content ko">document, window, Element 같은 표준 DOM API 구현</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>⚡ Lightweight & Fast</h3>
+                        <p class="content en">Minimal dependencies with fast parsing performance</p>
+                        <p class="content ko">빠른 파싱 성능과 최소한의 의존성</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture -->
+            <section class="section">
+                <h2 id="architecture">Architecture Overview</h2>
+                <p class="content en">Understanding dom-parser's HTML parsing and DOM construction process</p>
+                <p class="content ko">dom-parser의 HTML 파싱 및 DOM 구성 과정 이해하기</p>
+
+                <div class="example-item">
+                    <h3 id="parsing-flow">HTML Parsing Flow</h3>
+                    <p class="example-description content en">How HTML strings are transformed into navigable DOM structures</p>
+                    <p class="example-description content ko">HTML 문자열이 탐색 가능한 DOM 구조로 변환되는 과정</p>
+                    
+                    <mermaid-diagram>
+graph TB
+    A[HTML String Input] -->|Parse| B[HTML Tokenizer]
+    B -->|Tokens| C[DOM Tree Builder]
+    C -->|Create| D[Document Node]
+    D -->|Contains| E[HTML Element]
+    E -->|Contains| F[Head Element]
+    E -->|Contains| G[Body Element]
+    F -->|Contains| H[Title, Meta, etc.]
+    G -->|Contains| I[Div, P, H1, etc.]
+    
+    J[DomParser Constructor] -->|Initialize| K[Document Object]
+    K -->|Setup| L[Window Object]
+    K -->|Provide| M[DOM APIs]
+    
+    M -->|querySelector| N[Element Selection]
+    M -->|createElement| O[Element Creation]
+    M -->|appendChild| P[DOM Manipulation]
+    
+    style A fill:#e1f5ff
+    style D fill:#fff4e6
+    style K fill:#f3e8ff
+    style M fill:#dcfce7
+    linkStyle default stroke:#aaaaaa,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dom-structure">DOM Tree Structure</h3>
+                    <p class="example-description content en">Visual representation of the parsed DOM hierarchy</p>
+                    <p class="example-description content ko">파싱된 DOM 계층 구조의 시각적 표현</p>
+                    
+                    <mermaid-diagram>
+graph TD
+    A[Document] -->|documentElement| B[HTML]
+    B -->|head| C[Head]
+    B -->|body| D[Body]
+    
+    C -->|children| E[Title]
+    C -->|children| F[Meta Tags]
+    C -->|children| G[Link Tags]
+    
+    D -->|children| H[Div#app]
+    D -->|children| I[Script Tags]
+    
+    H -->|children| J[H1]
+    H -->|children| K[P.content]
+    H -->|children| L[Ul]
+    
+    L -->|children| M[Li Item 1]
+    L -->|children| N[Li Item 2]
+    
+    J -->|textContent| O["Hello World"]
+    K -->|textContent| P["Paragraph text"]
+    M -->|textContent| Q["List item 1"]
+    N -->|textContent| R["List item 2"]
+    
+    style A fill:#ff6b6b,color:#fff
+    style B fill:#4ecdc4,color:#fff
+    style C fill:#45b7d1,color:#fff
+    style D fill:#45b7d1,color:#fff
+    style H fill:#96ceb4,color:#fff
+    style J fill:#feca57,color:#000
+    style K fill:#feca57,color:#000
+    style L fill:#feca57,color:#000
+    linkStyle default stroke:#333,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="api-interaction">API Interaction Flow</h3>
+                    <p class="example-description content en">How different DOM APIs interact with the parsed structure</p>
+                    <p class="example-description content ko">다양한 DOM API가 파싱된 구조와 상호작용하는 방식</p>
+                    
+                    <mermaid-diagram>
+sequenceDiagram
+    participant User
+    participant DomParser
+    participant Document
+    participant Element
+    participant Node
+
+    User->>DomParser: new DomParser(htmlString)
+    DomParser->>DomParser: Parse HTML
+    DomParser->>Document: Create document
+    DomParser->>User: Return parser instance
+
+    User->>DomParser: parser.document
+    DomParser->>User: Return document object
+
+    User->>Document: querySelector('.app')
+    Document->>Element: Find matching element
+    Element->>User: Return element or null
+
+    User->>Document: createElement('div')
+    Document->>Element: Create new element
+    Element->>User: Return new element
+
+    User->>Element: appendChild(childNode)
+    Element->>Node: Add to children
+    Node->>Element: Update parent reference
+    Element->>User: Return appended node
+
+    User->>Element: getAttribute('id')
+    Element->>User: Return attribute value
+
+    User->>Element: textContent = 'New text'
+    Element->>Node: Update text nodes
+    Node->>Element: Confirm update
+                    </mermaid-diagram>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="use-case-flow">Common Use Case Flow</h3>
+                    <p class="example-description content en">Typical workflow for server-side HTML processing</p>
+                    <p class="example-description content ko">서버 사이드 HTML 처리를 위한 일반적인 워크플로우</p>
+                    
+                    <mermaid-diagram>
+flowchart LR
+    A[HTML Template] -->|Read| B[DomParser]
+    B -->|Parse| C[DOM Tree]
+    
+    C -->|Query| D[Find Elements]
+    C -->|Create| E[New Elements]
+    C -->|Modify| F[Update Content]
+    
+    D -->|getElementById| G[Specific Element]
+    D -->|querySelector| H[CSS Selector Match]
+    D -->|getElementsByTagName| I[Tag Collection]
+    
+    E -->|createElement| J[New Element]
+    J -->|setAttribute| K[Add Attributes]
+    J -->|textContent| L[Set Text]
+    
+    F -->|innerHTML| M[Update HTML]
+    F -->|appendChild| N[Add Children]
+    F -->|removeChild| O[Remove Children]
+    
+    G --> P[Final DOM]
+    H --> P
+    I --> P
+    K --> P
+    L --> P
+    M --> P
+    N --> P
+    O --> P
+    
+    P -->|Serialize| Q[Output HTML]
+    
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style P fill:#e8f5e8
+    style Q fill:#fff8e1
+    linkStyle default stroke:#666,stroke-width:2px
+                    </mermaid-diagram>
+                </div>
+            </section>
+
+            <!-- Quick Start -->
+            <section class="section">
+                <h2 id="quick-start">Quick Start</h2>
+                <p class="content en">Get started with basic HTML parsing in just a few lines</p>
+                <p class="content ko">몇 줄의 코드로 기본 HTML 파싱 시작하기</p>
+
+                <div class="example-item">
+                    <h3 id="basic-usage">Basic Usage</h3>
+                    <p class="example-description content en">Parse HTML and access DOM elements using familiar browser
+                        APIs</p>
+                    <p class="example-description content ko">친숙한 브라우저 API를 사용하여 HTML 파싱 및 DOM 요소 접근</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="JavaScript">
+                                <code-snippet-code type="typescript">import { DomParser } from
+'@dooboostore/dom-parser';
+
+// Parse HTML string
+const html = `
+〈!DOCTYPE html〉
+〈html〉
+
+〈head〉
+    〈title〉Test Page〈/title〉
+〈/head〉
+
+〈body〉
+    〈div id="app"〉
+        〈h1〉Hello World〈/h1〉
+        〈p class="content"〉This is a test paragraph.〈/p〉
+    〈/div〉
+〈/body〉
+
+〈/html〉
+`;
+
+// Create DOM parser instance
+const parser = new DomParser(html);
+
+// Access document and window objects
+const document = parser.document;
+const window = parser.window;
+
+// Use standard DOM APIs
+const title = document.querySelector('title');
+console.log(title?.textContent); // "Test Page"
+
+const app = document.getElementById('app');
+console.log(app?.innerHTML); // Contains the div content
+
+const paragraphs = document.querySelectorAll('p.content');
+console.log(paragraphs.length); // 1
+                                </code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Features -->
+            <section class="section">
+                <h2 id="core-features">Core Features</h2>
+                <p class="content en">Essential DOM parsing and manipulation capabilities</p>
+                <p class="content ko">필수 DOM 파싱 및 조작 기능</p>
+
+                <div class="example-item">
+                    <h3 id="dom-parser-class">DomParser Class</h3>
+                    <p class="example-description content en">Main parser class with document and window access</p>
+                    <p class="example-description content ko">document와 window 접근을 제공하는 메인 파서 클래스</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Constructor">
+                                <code-snippet-code type="typescript">import { DomParser } from
+'@dooboostore/dom-parser';
+
+// Basic initialization
+const parser = new DomParser(htmlString);
+
+// With options
+const parser = new DomParser(htmlString, {
+href: 'https://example.com' // Set base URL for relative links
+});
+
+// Access parsed DOM
+const document = parser.document;
+const window = parser.window;</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="dom-manipulation">DOM Manipulation</h3>
+                    <p class="example-description content en">Create, modify, and manipulate DOM elements
+                        programmatically</p>
+                    <p class="example-description content ko">프로그래밍 방식으로 DOM 요소 생성, 수정 및 조작</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Element Creation & Modification">
+                                <code-snippet-code type="typescript">import { DomParser } from
+'@dooboostore/dom-parser';
+
+const parser = new DomParser('〈html〉〈body〉〈/body〉〈/html〉');
+const document = parser.document;
+
+// Create new elements
+const div = document.createElement('div');
+div.id = 'new-element';
+div.className = 'container';
+div.textContent = 'Hello from DOM Parser!';
+
+// Set attributes
+div.setAttribute('data-test', 'value');
+div.setAttribute('style', 'color: blue; font-size: 16px;');
+
+// Append to document
+document.body.appendChild(div);
+
+// Query and modify existing elements
+const existingDiv = document.getElementById('new-element');
+if (existingDiv) {
+    existingDiv.innerHTML = '〈p〉Modified content〈/p〉';
+    existingDiv.classList.add('modified');
+}
+
+// Get the final HTML
+console.log(document.documentElement.outerHTML);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="element-queries">Element Queries</h3>
+                    <p class="example-description content en">Find elements using CSS selectors and DOM traversal
+                        methods</p>
+                    <p class="example-description content ko">CSS 선택자와 DOM 탐색 메서드를 사용하여 요소 찾기</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Query Methods">
+                                <code-snippet-code type="typescript">import { DomParser } from
+'@dooboostore/dom-parser';
+
+const html = `
+〈html〉
+    〈body〉
+        〈div class="container"〉
+        〈h1 id="title"〉Main Title〈/h1〉
+        〈p class="text"〉First paragraph〈/p〉
+        〈p class="text highlight"〉Second paragraph〈/p〉
+        〈ul〉
+            〈li data-id="1"〉Item 1〈/li〉
+            〈li data-id="2"〉Item 2〈/li〉
+        〈/ul〉
+    〈/div〉
+    〈/body〉
+〈/html〉
+`;
+
+const parser = new DomParser(html);
+const document = parser.document;
+
+// CSS Selector queries
+const title = document.querySelector('#title');
+const allParagraphs = document.querySelectorAll('p.text');
+const highlighted = document.querySelector('.highlight');
+
+// Element-specific queries
+const container = document.getElementsByClassName('container')[0];
+const titleById = document.getElementById('title');
+const listItems = document.getElementsByTagName('li');
+
+// Attribute-based queries
+const itemsWithDataId = document.querySelectorAll('[data-id]');
+
+// Traversal
+const firstParagraph = title?.nextElementSibling;
+const parentDiv = title?.parentElement;
+
+console.log('Title:', title?.textContent);
+console.log('Paragraphs count:', allParagraphs.length);
+console.log('List items:', Array.from(listItems).map(li =>
+li.textContent));</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Use Cases -->
+            <section class="section">
+                <h2 id="use-cases">Use Cases</h2>
+                <p class="content en">Common scenarios where dom-parser excels</p>
+                <p class="content ko">dom-parser가 뛰어난 성능을 발휘하는 일반적인 시나리오</p>
+
+                <div class="example-item">
+                    <h3 id="ssr-setup">Server-Side Rendering (SSR)</h3>
+                    <p class="example-description content en">Set up global DOM environment for SSR applications</p>
+                    <p class="example-description content ko">SSR 애플리케이션을 위한 글로벌 DOM 환경 설정</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="SSR Setup">
+                                <code-snippet-code type="typescript">import { DomParser } from
+'@dooboostore/dom-parser';
+import fs from 'fs';
+
+// Load HTML template
+const templateHtml = fs.readFileSync('template.html', 'utf8');
+const parser = new DomParser(templateHtml);
+
+// Set up global DOM for SSR
+global.document = parser.document;
+global.window = parser.window;
+
+// Now your components can use DOM APIs on the server
+function renderComponent() {
+    const element = document.createElement('div');
+    element.textContent = 'Server-rendered content';
+    document.body.appendChild(element);
+
+    return document.documentElement.outerHTML;
+}
+
+const renderedHtml = renderComponent();
+console.log(renderedHtml);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="html-processing">HTML Processing & Transformation</h3>
+                    <p class="example-description content en">Process and transform HTML content programmatically</p>
+                    <p class="example-description content ko">프로그래밍 방식으로 HTML 콘텐츠 처리 및 변환</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="HTML Transformation">
+                                <code-snippet-code type="typescript">import { DomParser } from
+'@dooboostore/dom-parser';
+
+function processHtml(html: string) {
+    const parser = new DomParser(html);
+    const document = parser.document;
+
+    // Modify the title
+    const title = document.querySelector('title');
+    if (title) {
+        title.textContent = 'Processed - ' + title.textContent;
+    }
+
+    // Add meta tags
+    const head = document.querySelector('head');
+    const metaDescription = document.createElement('meta');
+    metaDescription.setAttribute('name', 'description');
+    metaDescription.setAttribute('content', 'Processed by dom-parser');
+    head?.appendChild(metaDescription);
+
+    // Add CSS class to all paragraphs
+    const paragraphs = document.querySelectorAll('p');
+    paragraphs.forEach(p => {
+        p.classList.add('processed');
+    });
+
+    // Wrap content in a container
+    const body = document.body;
+    const wrapper = document.createElement('div');
+    wrapper.className = 'content-wrapper';
+
+    // Move all body children to wrapper
+    while (body.firstChild) {
+        wrapper.appendChild(body.firstChild);
+    }
+    body.appendChild(wrapper);
+
+    return document.documentElement.outerHTML;
+}
+
+const originalHtml = `
+〈!DOCTYPE html〉
+〈html〉
+    〈head〉〈title〉Original〈/title〉〈/head〉
+    〈body〉
+        〈p〉First paragraph〈/p〉
+        〈p〉Second paragraph〈/p〉
+    〈/body〉
+〈/html〉
+`;
+
+const processedHtml = processHtml(originalHtml);
+console.log(processedHtml);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="web-scraping">Web Scraping & Data Extraction</h3>
+                    <p class="example-description content en">Extract structured data from HTML content</p>
+                    <p class="example-description content ko">HTML 콘텐츠에서 구조화된 데이터 추출</p>
+                    <div class="example-code">
+                        <code-snippet-container>
+                            <code-snippet name="Data Extraction">
+                                <code-snippet-code type="typescript">import { DomParser } from
+'@dooboostore/dom-parser';
+
+function extractProductData(html: string) {
+const parser = new DomParser(html);
+const document = parser.document;
+
+// Extract product information
+const products = [];
+const productElements = document.querySelectorAll('.product-item');
+
+productElements.forEach(element => {
+const name = element.querySelector('.product-name')?.textContent?.trim();
+const price = element.querySelector('.price')?.textContent?.trim();
+const image = element.querySelector('img')?.getAttribute('src');
+const rating = element.querySelectorAll('.star.filled').length;
+
+if (name && price) {
+    products.push({
+        name,
+        price,
+        image,
+        rating
+    });
+}
+});
+
+return products;
+}
+
+// Example HTML from an e-commerce site
+const ecommerceHtml = `
+〈div class="products"〉
+    〈div class="product-item"〉
+        〈img src="/product1.jpg" alt="Product 1"〉
+        〈h3 class="product-name"〉Awesome Widget〈/h3〉
+        〈div class="price"〉$29.99〈/div〉
+            〈div class="rating"〉
+                〈span class="star filled"〉★〈/span〉
+                〈span class="star filled"〉★〈/span〉
+                〈span class="star filled"〉★〈/span〉
+                〈span class="star filled"〉★〈/span〉
+                〈span class="star"〉★〈/span〉
+            〈/div〉
+        〈/div〉
+        〈div class="product-item"〉
+        〈img src="/product2.jpg" alt="Product 2"〉
+        〈h3 class="product-name"〉Super Gadget〈/h3〉
+        〈div class="price"〉$49.99〈/div〉
+        〈div class="rating"〉
+            〈span class="star filled"〉★〈/span〉
+            〈span class="star filled"〉★〈/span〉
+            〈span class="star filled"〉★〈/span〉
+            〈span class="star filled"〉★〈/span〉
+            〈span class="star filled"〉★〈/span〉
+        〈/div〉
+    〈/div〉
+〈/div〉
+`;
+
+const products = extractProductData(ecommerceHtml);
+console.log('Extracted products:', products);</code-snippet-code>
+                            </code-snippet>
+                        </code-snippet-container>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Reference -->
+            <section class="section">
+                <h2 id="api-reference">API Reference</h2>
+                <p class="content en">Complete API documentation for all classes and methods</p>
+                <p class="content ko">모든 클래스와 메서드에 대한 완전한 API 문서</p>
+
+                <div class="example-item">
+                    <h3 id="domparser-api">DomParser</h3>
+                    <p class="example-description content en">Main parser class constructor and properties</p>
+                    <p class="example-description content ko">메인 파서 클래스 생성자 및 속성</p>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">CONSTRUCTOR & PROPERTIES</span>
+                            <span class="content ko">생성자 및 속성</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">constructor</code><span class="params">(html: string,
+                                        options?: DomParserOptions)</span>
+                                </span>
+                                <span class="desc content en">Create new DomParser instance with HTML string and
+                                    optional configuration</span>
+                                <span class="desc content ko">HTML 문자열과 선택적 설정으로 새 DomParser 인스턴스 생성</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">document</code><span class="params">: Document</span>
+                                </span>
+                                <span class="desc content en">Get the parsed document object with full DOM API
+                                    support</span>
+                                <span class="desc content ko">완전한 DOM API 지원을 가진 파싱된 document 객체 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">window</code><span class="params">: Window</span>
+                                </span>
+                                <span class="desc content en">Get the window object for server-side rendering
+                                    compatibility</span>
+                                <span class="desc content ko">서버 사이드 렌더링 호환성을 위한 window 객체 가져오기</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="example-item">
+                    <h3 id="supported-apis">Supported DOM APIs</h3>
+                    <p class="example-description content en">Standard DOM methods and properties available</p>
+                    <p class="example-description content ko">사용 가능한 표준 DOM 메서드 및 속성</p>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">DOCUMENT METHODS</span>
+                            <span class="content ko">Document 메서드</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">querySelector</code><span class="params">(selector: string):
+                                        Element | null</span>
+                                </span>
+                                <span class="desc content en">Find first element matching CSS selector</span>
+                                <span class="desc content ko">CSS 선택자와 일치하는 첫 번째 요소 찾기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">querySelectorAll</code><span class="params">(selector:
+                                        string): NodeList</span>
+                                </span>
+                                <span class="desc content en">Find all elements matching CSS selector</span>
+                                <span class="desc content ko">CSS 선택자와 일치하는 모든 요소 찾기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getElementById</code><span class="params">(id: string):
+                                        Element | null</span>
+                                </span>
+                                <span class="desc content en">Find element by ID attribute</span>
+                                <span class="desc content ko">ID 속성으로 요소 찾기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getElementsByClassName</code><span
+                                        class="params">(className: string): HTMLCollection</span>
+                                </span>
+                                <span class="desc content en">Find elements by class name</span>
+                                <span class="desc content ko">클래스 이름으로 요소 찾기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getElementsByTagName</code><span class="params">(tagName:
+                                        string): HTMLCollection</span>
+                                </span>
+                                <span class="desc content en">Find elements by tag name</span>
+                                <span class="desc content ko">태그 이름으로 요소 찾기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">createElement</code><span class="params">(tagName: string):
+                                        Element</span>
+                                </span>
+                                <span class="desc content en">Create new element with specified tag name</span>
+                                <span class="desc content ko">지정된 태그 이름으로 새 요소 생성</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">createTextNode</code><span class="params">(text: string):
+                                        Text</span>
+                                </span>
+                                <span class="desc content en">Create new text node with specified content</span>
+                                <span class="desc content ko">지정된 내용으로 새 텍스트 노드 생성</span>
+                            </li>
+                        </ul>
+                    </details>
+
+                    <details class="other-functions-details">
+                        <summary class="other-functions-summary">
+                            <span class="content en">ELEMENT METHODS</span>
+                            <span class="content ko">Element 메서드</span>
+                        </summary>
+                        <ul class="other-functions-list">
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">appendChild</code><span class="params">(child: Node):
+                                        Node</span>
+                                </span>
+                                <span class="desc content en">Add child node to element</span>
+                                <span class="desc content ko">요소에 자식 노드 추가</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">removeChild</code><span class="params">(child: Node):
+                                        Node</span>
+                                </span>
+                                <span class="desc content en">Remove child node from element</span>
+                                <span class="desc content ko">요소에서 자식 노드 제거</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">setAttribute</code><span class="params">(name: string,
+                                        value: string): void</span>
+                                </span>
+                                <span class="desc content en">Set attribute value</span>
+                                <span class="desc content ko">속성 값 설정</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">getAttribute</code><span class="params">(name: string):
+                                        string | null</span>
+                                </span>
+                                <span class="desc content en">Get attribute value</span>
+                                <span class="desc content ko">속성 값 가져오기</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">innerHTML</code><span class="params">: string</span>
+                                </span>
+                                <span class="desc content en">Get or set inner HTML content</span>
+                                <span class="desc content ko">내부 HTML 콘텐츠 가져오기 또는 설정</span>
+                            </li>
+                            <li>
+                                <span class="func-signature">
+                                    <code class="func-name">textContent</code><span class="params">: string</span>
+                                </span>
+                                <span class="desc content en">Get or set text content</span>
+                                <span class="desc content ko">텍스트 콘텐츠 가져오기 또는 설정</span>
+                            </li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Demo -->
+            <section class="section">
+                <h2 id="demo">Interactive Demo</h2>
+                <p class="content en">Try dom-parser in an interactive environment</p>
+                <p class="content ko">인터랙티브 환경에서 dom-parser 체험하기</p>
+                <details class="other-functions-details">
+                    <summary class="other-functions-summary">
+                        <p class="content en">INTERACTIVE DEMO</p>
+                        <p class="content ko">인터랙티브 데모</p>
+                    </summary>
+                    <div id="example-project" class="stack-blitz-embed"></div>
+                </details>
+            </section>
+
+            <!-- Learn More -->
+            <section class="section">
+                <h2 id="learn-more">Learn More</h2>
+                <p class="content en">Additional resources and documentation</p>
+                <p class="content ko">추가 리소스 및 문서</p>
+
+                <div class="resource-grid">
+                    <div class="resource-item">
+                        <h3>📚 GitHub Repository</h3>
+                        <p class="content en">View source code, report issues, and contribute</p>
+                        <p class="content ko">소스 코드 보기, 이슈 리포트, 기여하기</p>
+                        <a href="https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/dom-parser"
+                            target="_blank" rel="noopener noreferrer">
+                            Visit Repository →
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>📦 NPM Package</h3>
+                        <p class="content en">Install and view package information</p>
+                        <p class="content ko">패키지 설치 및 정보 보기</p>
+                        <a href="https://www.npmjs.com/package/@dooboostore/dom-parser" target="_blank"
+                            rel="noopener noreferrer">
+                            View on NPM →
+                        </a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>🏗️ Related Packages</h3>
+                        <p class="content en">Explore other dooboostore packages</p>
+                        <p class="content ko">다른 dooboostore 패키지 탐색</p>
+                        <a href="/@dooboostore">
+                            Browse Packages →
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

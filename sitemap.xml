@@ -2,67 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dooboostore-develop.github.io</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/core</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/core-node</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/core-web</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dooboostore-develop.github.io/@dooboostore/dom-parser</loc>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/dom-render</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/simple-boot</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/simple-boot-front</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/simple-boot-http-server</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/simple-boot-http-server-ssr</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://dooboostore-develop.github.io/@dooboostore/swt</loc>
-    <lastmod>2025-10-06</lastmod>
+    <lastmod>2025-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
