@@ -4,17 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/">
+    
     <title>@dooboostore Ecosystem Showcase</title>
+    <meta name="description" content="Discover high-performance, standard-compliant libraries for modern web development.">
+
+    <!-- Safari Polyfill (is="" support) -->
+    <script src="https://unpkg.com/@ungap/custom-elements"></script>
+    
     <!-- Favicon 설정 -->
     <link rel="icon" type="image/png" href="assets/dooboostore.png">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;850&display=swap">
-    <!-- FontAwesome 추가 -->
+    
+    <!-- FontAwesome Global -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Global Markdown & Highlight Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    
+    <!-- Leaflet Global (for Accommodation example) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
     <style>
-        body { margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, sans-serif; background-color: #0F0F0F; color: #E0E0E0; min-height: 100vh; }
-        * { box-sizing: border-box; }
-        i { margin-right: 8px; }
+        /* Custom Scrollbar for Dark Theme */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #080808; }
+        ::-webkit-scrollbar-thumb { background: #252525; border-radius: 10px; border: 2px solid #080808; }
+        ::-webkit-scrollbar-thumb:hover { background: #333; }
+        
+        * { scrollbar-width: thin; scrollbar-color: #252525 #080808; box-sizing: border-box; }
+
+        body { margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, sans-serif; background-color: #080808; color: #E0E0E0; min-height: 100vh; overflow-x: hidden; }
+        
+        /* Shadow DOM 내부의 i 태그가 전역 폰트를 상속받을 수 있도록 설정 */
+        i { 
+            font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif !important;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Global Readme Styles */
+        .readme-content { line-height: 1.7; color: #BBB; font-size: 16px; }
+        .readme-content h1, .readme-content h2, .readme-content h3 { color: #FFF; margin-top: 48px; margin-bottom: 24px; font-weight: 850; letter-spacing: -1px; }
+        .readme-content h1 { font-size: 48px; border-bottom: 1px solid #2A2A2A; padding-bottom: 16px; }
+        .readme-content h2 { font-size: 32px; border-left: 4px solid #FF385C; padding-left: 20px; }
+        .readme-content code:not(.hljs) { background: rgba(255, 56, 92, 0.1); color: #FF385C; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
+        .readme-content pre { background: #0D1117; border: 1px solid #30363d; padding: 24px; border-radius: 16px; overflow-x: auto; margin: 32px 0; }
+        .readme-content pre code.hljs { background: transparent; padding: 0; border-radius: 0; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+        .readme-content a { color: #FF385C; text-decoration: none; font-weight: 600; }
+        .readme-content a:hover { text-decoration: underline; }
+        
+        .loading-container { font-size: 20px; color: #888; text-align: center; padding: 100px 0; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        .error-container { color: #FF385C; padding: 40px; background: rgba(255, 56, 92, 0.05); border: 1px solid rgba(255, 56, 92, 0.2); border-radius: 12px; text-align: center; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 12px; }
+
+        @media (max-width: 768px) {
+          .readme-content h1 { font-size: 32px; margin-top: 32px; }
+          .readme-content h2 { font-size: 24px; margin-top: 24px; padding-left: 12px; }
+          .readme-content pre { padding: 16px; border-radius: 12px; }
+          .readme-content { font-size: 15px; }
+        }
     </style>
 </head>
 <body id="app" is="swc-app-body">

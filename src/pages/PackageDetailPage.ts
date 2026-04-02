@@ -1,14 +1,15 @@
-import { elementDefine, onConnectedInnerHtml, addEventListener, applyNodeHost } from '@dooboostore/simple-web-component';
-import { Sim, RouterAction, RoutingDataSet } from '@dooboostore/simple-boot';
-import { Router as WebRouter } from '@dooboostore/core-web';
+import {elementDefine, onConnectedInnerHtml, addEventListener, applyInnerHtmlNodeHost, applyInnerHtmlNode, onDisconnected, onInitialize, attributeHost, onAfterConnected} from '@dooboostore/simple-web-component';
+import { Inject } from '@dooboostore/simple-boot';
+import { Router } from '@dooboostore/core-web';
 import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import hljs from 'highlight.js';
+import { RepositoryService } from '../services/RepositoryService';
 
 export default (w: Window) => {
   const tagName = 'app-package-detail-page';
   const existing = w.customElements.get(tagName);
-  if (existing) return existing;
+  if (existing) return tagName;
 
   const marked = new Marked(
     markedHighlight({
@@ -20,114 +21,124 @@ export default (w: Window) => {
     })
   );
 
-  @Sim
   @elementDefine(tagName, { window: w })
-  class PackageDetailPage extends w.HTMLElement implements RouterAction.OnRouting {
+  class PackageDetailPage extends w.HTMLElement {
+    private hasExamples = ['simple-web-component'];
+    @attributeHost('package-id')
     private packageId: string = '';
-    private markdownContent: string = '';
-    private isLoading: boolean = false;
+    private githubBaseUrl = 'https://github.com/dooboostore-develop/packages/tree/main/@dooboostore';
+    private router: Router;
 
-    constructor(private webRouter: WebRouter) {
-      super();
+    private repoService: RepositoryService;
+
+    @onInitialize
+    onconstructor(router: Router, @Inject({symbol: RepositoryService.SYMBOL}) repoService: RepositoryService) {
+      this.router = router;
+      this.repoService = repoService;
+      this.loadPackage(this.packageId);
     }
 
-    async onRouting(url: RoutingDataSet) {
-      this.packageId = url.routerModule.getPathData<{ id: string }>().id;
-      await this.fetchReadme();
-      this.render();
+    private loadPackage(id: string) {
+        this.renderHeader(id);
+        this.fetchReadme(id);
     }
 
-    private async fetchReadme() {
-      this.isLoading = true;
-      this.render();
-      
-      const fileNames = ['README.md', 'README.MD'];
-      let success = false;
 
-      for (const fileName of fileNames) {
-        try {
-          const url = `https://dooboostore-develop.github.io/packages/@dooboostore/${this.packageId}/${fileName}`;
-          const response = await fetch(url);
-          if (response.ok) {
-            const text = await response.text();
-            
-            // Full Documentation: [URL] 패턴 제거
-            const cleanedText = text.replace(/Full Documentation:\s*https?:\/\/\S+/gi, '');
-            
-            this.markdownContent = marked.parse(cleanedText) as string;
-            success = true;
-            break;
-          }
-        } catch (e) {
-          console.warn(`[SWC] Failed to fetch ${fileName}, trying next...`);
-        }
-      }
-
-      if (!success) {
-        this.markdownContent = `<div class="error"><i class="fa-solid fa-circle-exclamation"></i> Failed to load documentation for ${this.packageId}</div>`;
-      }
-      
-      this.isLoading = false;
+    @onAfterConnected
+    t() {
+      this.loadPackage(this.packageId);
     }
 
-    @applyNodeHost({ position: 'innerHtml' })
     @onConnectedInnerHtml({ useShadow: true })
     render() {
       return `
       <style>
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css');
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
-
-        :host { display: block; background: #0F0F0F; min-height: 100vh; color: #E0E0E0; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 140px 40px; }
-        
-        .readme-content { line-height: 1.7; color: #BBB; font-size: 16px; }
-        .readme-content h1, .readme-content h2, .readme-content h3 { color: #FFF; margin-top: 48px; margin-bottom: 24px; font-weight: 850; letter-spacing: -1px; }
-        .readme-content h1 { font-size: 48px; border-bottom: 1px solid #2A2A2A; padding-bottom: 16px; }
-        .readme-content h2 { font-size: 32px; border-left: 4px solid #FF385C; padding-left: 20px; }
-        
-        .readme-content code:not(.hljs) { background: rgba(255, 56, 92, 0.1); color: #FF385C; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
-        .readme-content pre { background: #0D1117; border: 1px solid #30363d; padding: 24px; border-radius: 16px; overflow-x: auto; margin: 32px 0; }
-        .readme-content pre code.hljs { background: transparent; padding: 0; border-radius: 0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 14px; }
-        
-        .readme-content a { color: #FF385C; text-decoration: none; font-weight: 600; }
-        .readme-content a:hover { text-decoration: underline; }
-
-        .back-btn { display: inline-flex; align-items: center; color: #888; font-weight: 600; cursor: pointer; margin-bottom: 60px; transition: 0.2s; gap: 8px; }
+        :host { 
+          display: block;
+          background: #0F0F0F; 
+          min-height: 100vh; 
+          color: #E0E0E0; 
+          box-sizing: border-box;
+        }
+        * { box-sizing: border-box; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 40px; }
+        .header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; min-height: 50px; }
+        .back-btn { display: inline-flex; align-items: center; color: #888; font-weight: 600; cursor: pointer; transition: 0.2s; gap: 8px; }
         .back-btn:hover { color: #FFF; transform: translateX(-6px); }
         
-        .loading { font-size: 20px; color: #888; text-align: center; padding: 100px 0; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-        .error { color: #FF385C; padding: 40px; background: rgba(255, 56, 92, 0.05); border: 1px solid rgba(255, 56, 92, 0.2); border-radius: 12px; text-align: center; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .external-links { display: flex; gap: 12px; align-items: center; margin-bottom: 40px; padding: 20px; background: #161616; border-radius: 12px; border: 1px solid #222; flex-wrap: wrap; }
+        .link-btn { 
+            padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; border: 1px solid #333; 
+            font-size: 13px; display: flex; align-items: center; gap: 8px; transition: 0.2s; text-decoration: none; color: #BBB;
+            background: #1A1A1A;
+        }
+        .link-btn:hover { background: #252525; color: #FFF; border-color: #444; transform: translateY(-2px); }
+        .link-btn.primary { background: #FF385C; color: white; border: none; }
+        .link-btn.primary:hover { background: #E31C5F; box-shadow: 0 8px 16px rgba(255, 56, 92, 0.2); }
+        .link-btn i { font-size: 16px; }
 
-        /* Responsive */
         @media (max-width: 768px) {
-          .container { padding: 100px 20px 60px; }
-          .back-btn { margin-bottom: 32px; font-size: 14px; }
-          .readme-content h1 { font-size: 32px; margin-top: 32px; }
-          .readme-content h2 { font-size: 24px; margin-top: 24px; padding-left: 12px; }
-          .readme-content pre { padding: 16px; border-radius: 12px; }
-          .readme-content { font-size: 15px; }
+          .container { padding: 40px 20px 60px; }
+          .header-actions { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 32px; }
+          .external-links { flex-direction: column; align-items: stretch; }
+          .link-btn { justify-content: center; }
         }
       </style>
-
       <div class="container">
-        <div class="back-btn" id="go-back">
-            <i class="fa-solid fa-arrow-left"></i> Back to Ecosystem
-        </div>
-        
-        ${
-          this.isLoading
-            ? '<div class="loading"><i class="fa-solid fa-circle-notch fa-spin"></i> Fetching latest documentation...</div>'
-            : `<div class="readme-content">${this.markdownContent}</div>`
-        }
+        <div class="header-actions"></div>
+        <div class="external-links"></div>
+        <slot></slot>
       </div>
       `;
     }
 
-    @addEventListener('#go-back', 'click', { delegate: true })
-    onBack() {
-      this.webRouter.go('/');
+    @applyInnerHtmlNode('.header-actions', { root: 'shadow' })
+    renderHeader(packageId: string) {
+      console.log('hhhhhhh')
+      return `
+        <div class="back-btn" id="go-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to Ecosystem
+        </div>
+        ${this.hasExamples.includes(packageId) ? `
+            <button class="link-btn primary" id="go-examples">
+                <i class="fa-solid fa-play"></i> Run Interactive Examples
+            </button>
+        ` : ''}
+      `;
     }
+
+    @applyInnerHtmlNode('.external-links', { root: 'shadow' })
+    renderExternalLinks(packageId: string) {
+      const repoUrl = `${this.githubBaseUrl}/${packageId}`;
+      const exampleUrl = `${repoUrl}/example/src`;
+      
+      return `
+        <a href="${repoUrl}" target="_blank" class="link-btn">
+          <i class="fa-brands fa-github"></i> View Repository
+        </a>
+      `;
+    }
+
+    @applyInnerHtmlNodeHost({ 
+      root: 'light',
+      loading: () => `<div class="loading-container"><i class="fa-solid fa-circle-notch fa-spin"></i> Fetching latest documentation...</div>`
+    })
+    async fetchReadme(packageId: string) {
+      try {
+        const text = await this.repoService.getReadme(packageId);
+        const cleanedText = text.replace(/Full Documentation:\s*https?:\/\/\S+/gi, '');
+        this.renderExternalLinks(packageId); // Update links too
+        return `<div class="readme-content">${marked.parse(cleanedText)}</div>`;
+      } catch (e) {
+        return `<div class="error-container"><i class="fa-solid fa-circle-exclamation"></i> Failed to load documentation for ${packageId}</div>`;
+      }
+    }
+
+    @addEventListener('#go-back', 'click', { delegate: true })
+    onBack() { this.router.go('/'); }
+
+    @addEventListener('#go-examples', 'click', { delegate: true })
+    onGoExamples() { this.router.go(`/package/${this.packageId}/examples`); }
   }
-  return PackageDetailPage;
+  return tagName;
 };

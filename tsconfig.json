@@ -5,7 +5,6 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "declaration": false,
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": false,
     "noImplicitAny": false,
     "esModuleInterop": true,
@@ -21,8 +20,16 @@
     "emitDecoratorMetadata": true,
     "allowJs": true,
     "importHelpers": true,
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@simple-web-component/examples/*": ["packages/@dooboostore/simple-web-component/examples/*"]
+    }
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "packages/@dooboostore/simple-web-component/examples"
+  ],
   "exclude": ["node_modules", "dist"]
 }

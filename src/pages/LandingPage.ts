@@ -1,19 +1,19 @@
-import { elementDefine, onConnectedInnerHtml, addEventListener } from '@dooboostore/simple-web-component';
-import { Sim } from '@dooboostore/simple-boot';
-import { Router as WebRouter } from '@dooboostore/core-web';
+import { elementDefine, onConnectedInnerHtml, addEventListener, onInitialize } from '@dooboostore/simple-web-component';
+import { Inject } from '@dooboostore/simple-boot';
+import { Router } from '@dooboostore/core-web';
+import { GlobalStyle } from '../styles/GlobalStyle';
 
 export default (w: Window) => {
   const tagName = 'app-landing-page';
   const existing = w.customElements.get(tagName);
-  if (existing) return existing;
+  if (existing) return tagName;
 
-  @Sim
   @elementDefine(tagName, { window: w })
   class LandingPage extends w.HTMLElement {
     private categories = [
       {
         name: 'Foundation',
-        description: 'Fundamental types and cross-platform abstractions.',
+        description: 'Core abstractions and reflection utilities.',
         packages: [
           { id: 'core', name: '@dooboostore/core', icon: 'fa-gem', description: 'The bedrock of the ecosystem with reflection utilities.' },
           { id: 'core-web', name: '@dooboostore/core-web', icon: 'fa-globe', description: 'Web native API wrappers and safe event management.' },
@@ -21,17 +21,16 @@ export default (w: Window) => {
         ]
       },
       {
-        name: 'DOM & Components',
-        description: 'Philosophy-driven UI and rendering engines.',
+        name: 'UI & Components',
+        description: 'Reactive rendering and standard component models.',
         packages: [
           { id: 'simple-web-component', name: '@dooboostore/simple-web-component', icon: 'fa-box', description: 'Reactive, standard-compliant Web Component library.' },
           { id: 'dom-render', name: '@dooboostore/dom-render', icon: 'fa-paint-roller', description: 'Lightweight, declarative DOM rendering engine.' },
-          { id: 'dom-parser', name: '@dooboostore/dom-parser', icon: 'fa-code', description: 'Sophisticated template and DOM structure parser.' },
-          { id: 'dom-editor', name: '@dooboostore/dom-editor', icon: 'fa-pen-to-square', description: 'Extensible components for DOM-based editing.' }
+          { id: 'dom-parser', name: '@dooboostore/dom-parser', icon: 'fa-code', description: 'Sophisticated template and DOM structure parser.' }
         ]
       },
       {
-        name: 'Boot & Framework',
+        name: 'Framework',
         description: 'Application lifecycle and dependency injection.',
         packages: [
           { id: 'simple-boot', name: '@dooboostore/simple-boot', icon: 'fa-bolt', description: 'Modular DI engine for any platform (Web, Node, Workers).' },
@@ -41,7 +40,7 @@ export default (w: Window) => {
         ]
       },
       {
-        name: 'Standard Libraries',
+        name: 'Libraries',
         description: 'Essential utility collections for developers.',
         packages: [
           { id: 'lib-web', name: '@dooboostore/lib-web', icon: 'fa-window-restore', description: 'Standard UI components and web-specific utilities.' },
@@ -49,96 +48,114 @@ export default (w: Window) => {
         ]
       }
     ];
+    private router: Router;
 
-    constructor(private webRouter: WebRouter) {
-      super();
+    @onInitialize
+    onconstructor(router: Router) {
+      this.router = router;
     }
 
     @onConnectedInnerHtml({ useShadow: true })
     render() {
       return `
       <style>
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+        ${GlobalStyle}
 
-        :host { display: block; background: #0F0F0F; min-height: 100vh; color: #E0E0E0; }
-        .hero { 
-          padding: 160px 40px 100px; 
-          text-align: center; 
-          background: radial-gradient(circle at 50% 50%, #1A1A1A 0%, #0F0F0F 100%);
-          border-bottom: 1px solid #2A2A2A;
+        :host { 
+          display: block;
+          background: #080808; 
+          min-height: 100vh; 
+          color: #A0A0A0; 
+          font-family: 'Pretendard', sans-serif; 
+          box-sizing: border-box; 
+          overflow-x: hidden;
         }
-        .hero h1 { font-size: 64px; font-weight: 850; letter-spacing: -3px; margin: 0 0 24px; color: #FFF; }
-        .hero p { font-size: 22px; color: #888; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+        * { box-sizing: border-box; }
         
-        .section { max-width: 1300px; margin: 0 auto; padding: 100px 40px; }
-        .section-header { margin-bottom: 48px; border-left: 5px solid #FF385C; padding-left: 24px; }
-        .section-header h2 { font-size: 32px; font-weight: 800; margin: 0 0 8px; letter-spacing: -1px; color: #FFF; }
-        .section-header p { color: #888; font-size: 18px; margin: 0; }
+        .hero { 
+          padding: 180px 40px 100px; 
+          text-align: center; 
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+        .hero h1 { 
+          font-size: 72px; font-weight: 850; letter-spacing: -4px; margin: 0 0 32px; color: #FFF; line-height: 1.0;
+        }
+        .hero p { font-size: 20px; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        
+        .highlight {
+            background: linear-gradient(120deg, #FF385C 0%, #ff6b86 25%, #ff1a43 50%, #ff6b86 75%, #FF385C 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: aurora 8s linear infinite;
+            font-weight: 800;
+            filter: drop-shadow(0 0 10px rgba(255, 56, 92, 0.4));
+            display: inline-block;
+        }
+        @keyframes aurora { from { background-position: 0% center; } to { background-position: 200% center; } }
+
+        .section { max-width: 1400px; margin: 0 auto; padding: 40px 40px 100px; }
+        .section-header { margin-bottom: 48px; border-top: 1px solid #1A1A1A; padding-top: 48px; }
+        .section-header h2 { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: #FF385C; margin-bottom: 8px; }
+        .section-header p { color: #FFF; font-size: 24px; font-weight: 700; margin: 0; letter-spacing: -0.5px; }
         
         .grid { 
           display: grid; 
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-          gap: 32px; 
-          margin-bottom: 80px;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+          gap: 20px; 
+          margin-bottom: 60px;
         }
         .card { 
           padding: 32px; 
-          border-radius: 24px; 
-          background: #1A1A1A; 
-          border: 1px solid #2A2A2A; 
+          border-radius: 20px; 
+          background: #111; 
+          border: 1px solid #1A1A1A; 
           cursor: pointer; 
-          transition: 0.4s cubic-bezier(0.2, 0, 0, 1);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           display: flex;
           flex-direction: column;
           gap: 20px;
-          position: relative;
-          overflow: hidden;
-        }
-        .card::before {
-          content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #FF385C; transform: scaleX(0); transition: 0.4s;
         }
         .card:hover { 
-          transform: translateY(-8px); 
-          border-color: #3A3A3A;
-          box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+          background: #161616;
+          border-color: #333;
+          transform: translateY(-4px);
         }
-        .card:hover::before { transform: scaleX(1); }
         .icon { 
-          font-size: 32px; 
-          width: 64px; 
-          height: 64px; 
-          background: #2A2A2A; 
-          border-radius: 16px; 
+          font-size: 24px; 
+          width: 48px; 
+          height: 48px; 
+          background: #1A1A1A; 
+          border-radius: 12px; 
           display: flex; 
           align-items: center; 
           justify-content: center; 
           color: #FF385C;
+          transition: 0.2s;
         }
-        .card h3 { font-size: 18px; font-weight: 700; margin: 0; color: #FFF; line-height: 1.4; }
-        .card p { font-size: 14px; color: #888; line-height: 1.6; margin: 0; }
-        .card-footer { margin-top: auto; color: #FF385C; font-weight: 800; font-size: 12px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .card-footer i { transition: 0.3s; }
-        .card:hover .card-footer i { transform: translateX(4px); }
+        .card:hover .icon { background: #FF385C; color: #FFF; }
+        
+        .card h3 { font-size: 18px; font-weight: 700; margin: 0; color: #FFF; }
+        .card p { font-size: 14px; color: #666; line-height: 1.6; margin: 0; }
+        .card-footer { margin-top: auto; color: #FF385C; font-weight: 800; font-size: 11px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5; transition: 0.2s; }
+        .card:hover .card-footer { opacity: 1; color: #FFF; }
 
-        /* Responsive */
         @media (max-width: 768px) {
-          .hero { padding: 100px 20px 60px; }
-          .hero h1 { font-size: 40px; letter-spacing: -1.5px; }
-          .hero p { font-size: 18px; }
-          .section { padding: 40px 20px; }
-          .section-header { padding-left: 16px; margin-bottom: 32px; }
-          .section-header h2 { font-size: 24px; }
-          .section-header p { font-size: 15px; }
-          .grid { grid-template-columns: 1fr; gap: 20px; }
-          .card { padding: 24px; }
+          .hero { padding: 120px 24px 60px; }
+          .hero h1 { font-size: 44px; letter-spacing: -2px; }
+          .hero p { font-size: 17px; }
+          .section { padding: 24px; }
+          .grid { grid-template-columns: 1fr; }
+          .section-header p { font-size: 20px; }
         }
       </style>
 
       <div class="hero">
-        <h1>Packages Ecosystem.</h1>
+        <h1>Essential Building Blocks<br>for Modern Engineers.</h1>
         <p>
-          Discover a comprehensive library collection crafted with extreme focus 
-          on standard-compliance and modular architecture.
+          High-performance <span class="highlight">ecosystem</span> crafted with standard-first philosophy 
+          and minimal overhead for enterprise-grade applications.
         </p>
       </div>
 
@@ -158,7 +175,7 @@ export default (w: Window) => {
                   <h3>${pkg.name}</h3>
                   <p>${pkg.description}</p>
                 </div>
-                <div class="card-footer">Explore <i class="fa-solid fa-arrow-right"></i></div>
+                <div class="card-footer">View Documentation <i class="fa-solid fa-arrow-right"></i></div>
               </div>
             `).join('')}
           </div>
@@ -170,8 +187,8 @@ export default (w: Window) => {
     @addEventListener('.card', 'click', { delegate: true })
     onPackageClick(e: any) {
       const id = e.target.closest('.card').dataset.id;
-      this.webRouter.go(`/package/${id}`);
+      this.router.go(`/package/${id}`);
     }
   }
-  return LandingPage;
+  return tagName;
 };
