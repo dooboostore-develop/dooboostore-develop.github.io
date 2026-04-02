@@ -1,0 +1,11 @@
+packages:
+  - 'packages/@dooboostore/**'
+
+# pnpm 10+는 postinstall 스크립트 승인이 필요함. 미승인 시 ERR_PNPM_IGNORED_BUILDS로 설치 실패.
+# - esbuild: packages/*/build.mjs가 사용하므로 필수
+# - protobufjs: transitive 의존성, 무해
+# - canvas: prebuilt 바이너리 다운로드 방식이라 ubuntu 러너에서도 통과
+allowBuilds:
+  canvas: true
+  esbuild: true
+  protobufjs: true

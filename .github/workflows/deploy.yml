@@ -1,0 +1,91 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          lfs: true
+
+      - name: Install pnpm
+        # 버전은 package.json의 packageManager(pnpm@12.6.0)가 단일 기준.
+        # action에 version을 같이 적으면 충돌 에러(ERR_PNPM_BAD_PM_VERSION) 발생.
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        # frozen-lockfile: 버전이 어긋나면 조용히 넘어가지 말고 여기서 실패
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Workspace Packages
+        # packages/pnpm-lock.yaml이 서브모듈에 커밋되어 있으므로 frozen 가능
+        run: |
+          cd packages
+          pnpm install --frozen-lockfile
+          pnpm run build
+
+      - name: Build Showcase Site
+        run: pnpm run build
+
+      - name: Pre-render pages (SSG)
+        run: pnpm run load-html
+
+      - name: Verify SSG output (bundle.js must survive)
+        # SSG가 <script src="/bundle.js">를 날려먹으면 버튼이 전부 죽는다.
+        # 여기서 실패시켜서 깨진 산출물이 배포되지 않게 한다.
+        run: |
+          missing=$(grep -rL 'bundle\.js' dist/index.html dist/404.html dist/package/*.html || true)
+          if [ -n "$missing" ]; then
+            echo "bundle.js script missing in:"
+            echo "$missing"
+            exit 1
+          fi
+          echo "OK: bundle.js present in all HTML"
+
+      - name: Install Chromium for smoke test
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Smoke test (click through the built site)
+        # 모든 페이지·예제 이동·랜딩 데모를 실제 Chromium으로 돌려 page error / console.error 가 있으면 배포 중단.
+        # (예제 재방문 때 DI 가 깨지던 버그 같은 걸 배포 전에 잡는다)
+        run: pnpm run smoke
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Webpack이 생성한 dist 폴더만 배포
+          path: "dist"
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
