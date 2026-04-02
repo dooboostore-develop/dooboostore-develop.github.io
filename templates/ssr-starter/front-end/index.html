@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSR Starter</title>
+    <link rel="icon" href="data:," />
+    <!-- Safari 는 is="…" 를 지원하지 않아 폴리필이 필요하다 -->
+    <script src="https://unpkg.com/@ungap/custom-elements"></script>
+    <script type="module" src="/index.ts"></script>
+  </head>
+  <body id="app" is="swc-app-body">
+    <site-header></site-header>
+    <main><site-router></site-router></main>
+  </body>
+</html>
