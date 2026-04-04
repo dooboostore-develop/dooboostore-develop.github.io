@@ -1,4 +1,4 @@
-import { elementDefine, onConnectedInnerHtml, addEventListener, onInitialize } from '@dooboostore/simple-web-component';
+import { onConnectedSwcApp, elementDefine, onConnectedInnerHtml, addEventListener, onInitialize } from '@dooboostore/simple-web-component';
 import { Inject } from '@dooboostore/simple-boot';
 import { Router } from '@dooboostore/core-web';
 import { GlobalStyle } from '../styles/GlobalStyle';
@@ -50,7 +50,7 @@ export default (w: Window) => {
     ];
     private router: Router;
 
-    @onInitialize
+    @onConnectedSwcApp
     onconstructor(router: Router) {
       this.router = router;
     }

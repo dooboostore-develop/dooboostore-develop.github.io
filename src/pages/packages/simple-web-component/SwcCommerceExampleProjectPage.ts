@@ -1,4 +1,4 @@
-import { elementDefine, onConnectedInnerHtml, applyInnerHtmlNode, SwcAppInterface } from '@dooboostore/simple-web-component';
+import { elementDefine, onConnectedInnerHtml, applyInnerHtmlNode, addEventListener, SwcAppInterface } from '@dooboostore/simple-web-component';
 import {Inject, Sim} from '@dooboostore/simple-boot';
 import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
@@ -34,6 +34,24 @@ export default (w: Window,container: symbol) => {
       return path;
     }
 
+    @addEventListener('#back-btn', 'click')
+    onBackClick() {
+      const app = this.querySelector('#sub-app') as any;
+      app?.back?.();
+    }
+
+    @addEventListener('#forward-btn', 'click')
+    onForwardClick() {
+      const app = this.querySelector('#sub-app') as any;
+      app?.forward?.();
+    }
+
+    @addEventListener('#reload-btn', 'click')
+    onReloadClick() {
+      const app = this.querySelector('#sub-app') as any;
+      app?.reload?.();
+    }
+
     disconnectedCallback() {
       if (this.routerSubscription) {
         this.routerSubscription.unsubscribe();
@@ -62,6 +80,27 @@ export default (w: Window,container: symbol) => {
         }
         @container (max-width: 600px) {
           .page-container { padding: 12px; }
+        }
+        #sub-app {
+          width: 100%;
+          min-height: 700px;
+          border: 1px solid #333;
+          border-top: none;
+          border-radius: 0 0 16px 16px;
+          background-color: #fff;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+          overflow: hidden;
+        }
+        @container (max-width: 768px) {
+          #sub-app { min-height: 500px; }
+          .browser-header { padding: 10px 12px; gap: 10px; }
+          .browser-dots { display: none; }
+          .header-info h1 { font-size: 20px; }
+        }
+        .page-container {
+          padding: 40px;
+          max-width: 100%;
+          overflow-x: hidden;
         }
         .header-info {
           display: flex;
@@ -145,7 +184,7 @@ export default (w: Window,container: symbol) => {
           text-overflow: ellipsis; 
           white-space: nowrap; 
         }
-
+        
         #sub-app {
           width: 100%;
           min-height: 700px;
@@ -155,22 +194,25 @@ export default (w: Window,container: symbol) => {
           background-color: #fff;
           box-shadow: 0 20px 50px rgba(0,0,0,0.5);
           overflow: hidden;
+          max-width: 100%;
+          container-type: inline-size; /* 컨테이너 쿼리 활성화 */
         }
-        @container (max-width: 768px) {
+        @media (max-width: 768px) {
+          .page-container { padding: 8px; }
           #sub-app { min-height: 500px; }
           .browser-header { padding: 10px 12px; gap: 10px; }
           .browser-dots { display: none; }
           .header-info h1 { font-size: 20px; }
         }
-        @container (max-width: 480px) {
+        @media (max-width: 480px) {
           .header-info { flex-direction: column; align-items: flex-start; }
           .view-source { width: 100%; justify-content: center; }
         }
       </style>
       <div class="page-container">
         <div class="header-info">
-          <h1>Commerce Example</h1>
-          <a href="https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/simple-web-component/examples/commerce" target="_blank" class="view-source">
+          <h1>Accommodation Example</h1>
+          <a href="https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/simple-web-component/examples/accommodation" target="_blank" class="view-source">
             <i class="fa-brands fa-github"></i> View Source
           </a>
         </div>
@@ -187,10 +229,14 @@ export default (w: Window,container: symbol) => {
                 <i class="fa-solid fa-lock" style="font-size: 11px; color: #27C93F;"></i>
                 <span id="address-path">/</span>
               </div>
-              <i class="fa-solid fa-rotate-right" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
+              <i id="back-btn" class="fa-solid fa-arrow-left" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
+              <i id="forward-btn" class="fa-solid fa-arrow-right" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
+              <i id="reload-btn" class="fa-solid fa-rotate-right" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
             </div>
           </div>
-          <div id="sub-app" is="swc-app-div" swc-get-application-config="$host.config(this)" swc-on-disconnected="console.log('Sub-app for Commerce disconnected')"></div>
+          <div id="sub-app" is="swc-app-div" swc-get-application-config="$host.config(this)" swc-on-disconnected="console.log('Sub-app for Accommodation disconnected')">
+            <commerce-root-router/>
+          </div>
         </div>
       </div>
       `;
@@ -206,7 +252,6 @@ export default (w: Window,container: symbol) => {
         container: container,
         window: w,
         onEngineStarted: (app,e) => {
-          e.innerHTML='<commerce-root-router/>';
           if (e.router) {
             this.routerSubscription = e.router.observable.subscribe((route: any) => {
               if (route.triggerPoint === 'end') {

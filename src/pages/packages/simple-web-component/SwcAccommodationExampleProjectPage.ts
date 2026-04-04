@@ -1,4 +1,4 @@
-import {elementDefine, onConnectedInnerHtml, applyInnerHtmlNode, SwcAppInterface} from '@dooboostore/simple-web-component';
+import { elementDefine, onConnectedInnerHtml, applyInnerHtmlNode, addEventListener, SwcAppInterface } from '@dooboostore/simple-web-component';
 import { Sim } from '@dooboostore/simple-boot';
 import bootFactory from "@simple-web-component/examples/accommodation/src/bootFactory";
 import {SwcAttributeConfigType} from "@dooboostore/simple-web-component/elements/SwcAppEngine";
@@ -16,6 +16,24 @@ export default (w: Window,container: symbol) => {
     @applyInnerHtmlNode('#address-path')
     updateAddressDisplay(path: string) {
       return path;
+    }
+
+    @addEventListener('#back-btn', 'click')
+    onBackClick() {
+      const app = this.querySelector('#sub-app') as any;
+      app?.back?.();
+    }
+
+    @addEventListener('#forward-btn', 'click')
+    onForwardClick() {
+      const app = this.querySelector('#sub-app') as any;
+      app?.forward?.();
+    }
+
+    @addEventListener('#reload-btn', 'click')
+    onReloadClick() {
+      const app = this.querySelector('#sub-app') as any;
+      app?.reload?.();
     }
 
     disconnectedCallback() {
@@ -47,7 +65,6 @@ export default (w: Window,container: symbol) => {
         @container (max-width: 600px) {
           .page-container { padding: 12px; }
         }
-====
         #sub-app {
           width: 100%;
           min-height: 700px;
@@ -196,10 +213,14 @@ export default (w: Window,container: symbol) => {
                 <i class="fa-solid fa-lock" style="font-size: 11px; color: #27C93F;"></i>
                 <span id="address-path">/</span>
               </div>
-              <i class="fa-solid fa-rotate-right" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
+              <i id="back-btn" class="fa-solid fa-arrow-left" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
+              <i id="forward-btn" class="fa-solid fa-arrow-right" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
+              <i id="reload-btn" class="fa-solid fa-rotate-right" style="color: #555; font-size: 14px; cursor: pointer; flex-shrink: 0;"></i>
             </div>
           </div>
-          <div id="sub-app" is="swc-app-div" swc-get-application-config="$host.config(this)" swc-on-disconnected="console.log('Sub-app for Accommodation disconnected')"></div>
+          <div id="sub-app" is="swc-app-div" swc-get-application-config="$host.config(this)" swc-on-disconnected="console.log('Sub-app for Accommodation disconnected')">
+          <accommodation-root-router/>
+          </div>
         </div>
       </div>
       `;
@@ -214,7 +235,6 @@ export default (w: Window,container: symbol) => {
         container: container,
         window: w,
         onEngineStarted: (app, e) => {
-          e.innerHTML = '<accommodation-root-router/>';
           if (e.router) {
             this.routerSubscription = e.router.observable.subscribe((route: any) => {
               if (route.triggerPoint === 'end') {

@@ -1,4 +1,4 @@
-import {elementDefine, onConnectedInnerHtml, addEventListener, applyInnerHtmlNodeHost, applyInnerHtmlNode, onDisconnected, onInitialize, attributeHost, onAfterConnected} from '@dooboostore/simple-web-component';
+import {elementDefine, onConnectedInnerHtml, addEventListener, applyInnerHtmlNodeHost, applyInnerHtmlNode, onDisconnected, onInitialize, attributeHost, onAfterConnected, onConnectedSwcApp} from '@dooboostore/simple-web-component';
 import { Inject } from '@dooboostore/simple-boot';
 import { Router } from '@dooboostore/core-web';
 import { Marked } from 'marked';
@@ -31,7 +31,7 @@ export default (w: Window) => {
 
     private repoService: RepositoryService;
 
-    @onInitialize
+    @onConnectedSwcApp
     onconstructor(router: Router, @Inject({symbol: RepositoryService.SYMBOL}) repoService: RepositoryService) {
       this.router = router;
       this.repoService = repoService;
@@ -43,11 +43,6 @@ export default (w: Window) => {
         this.fetchReadme(id);
     }
 
-
-    @onAfterConnected
-    t() {
-      this.loadPackage(this.packageId);
-    }
 
     @onConnectedInnerHtml({ useShadow: true })
     render() {

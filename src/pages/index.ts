@@ -1,4 +1,4 @@
-import {elementDefine, subscribeSwcAppRouteChange, applyInnerHtmlNodeHost, onInitialize, applyReplaceChildrenNodeHost, onConnectedInnerHtml} from '@dooboostore/simple-web-component';
+import {onConnectedSwcApp,elementDefine, subscribeSwcAppRouteChange, applyInnerHtmlNodeHost, onInitialize, applyReplaceChildrenNodeHost, onConnectedInnerHtml, onAfterConnected} from '@dooboostore/simple-web-component';
 import {type RouterEventType, Router} from '@dooboostore/core-web';
 
 import LandingPageFactory from './LandingPage';
@@ -14,8 +14,13 @@ export const rootRouterFactory = (w: Window) => {
   class RootRouter extends w.HTMLElement {
     private router: Router;
 
-    @onInitialize
+    // constructor() {
+    //   super();
+    //   console.log('--------')
+    // }
+    @onConnectedSwcApp
     onconstructor(router: Router) {
+      console.log('----RootRouter----', router)
       this.router = router;
     }
 
