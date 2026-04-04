@@ -1,6 +1,6 @@
-import { onConnectedSwcApp, elementDefine, onConnectedInnerHtml, addEventListener, onInitialize } from '@dooboostore/simple-web-component';
+import {onAfterConnected,onConnectedSwcApp, elementDefine, onConnectedInnerHtml, addEventListener, onInitialize, setProperty, subscribeSwcAppRouteChange} from '@dooboostore/simple-web-component';
 import { Inject } from '@dooboostore/simple-boot';
-import { Router } from '@dooboostore/core-web';
+import {Router, type RouterEventType} from '@dooboostore/core-web';
 import { GlobalStyle } from '../styles/GlobalStyle';
 
 export default (w: Window) => {
@@ -53,10 +53,22 @@ export default (w: Window) => {
     @onConnectedSwcApp
     onconstructor(router: Router) {
       this.router = router;
+      console.log('-----24--->', this.router)
+    }
+
+    @onInitialize
+    onconstruactor(router: Router) {
+      this.router = router;
+      console.log('-----0--->', this.router)
+    }
+    @onAfterConnected
+    a(router: Router){
+      console.log('--22-', router)
     }
 
     @onConnectedInnerHtml({ useShadow: true })
-    render() {
+    render(router: Router){
+      console.log('--22222222html-', router)
       return `
       <style>
         ${GlobalStyle}

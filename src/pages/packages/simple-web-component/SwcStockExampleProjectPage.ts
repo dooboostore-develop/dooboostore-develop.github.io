@@ -1,4 +1,4 @@
-import { elementDefine, onConnectedInnerHtml, applyInnerHtmlNode, addEventListener, SwcAppInterface } from '@dooboostore/simple-web-component';
+import {elementDefine, onConnectedInnerHtml, onInitialize, applyInnerHtmlNode, addEventListener, SwcAppInterface, onAfterConnected} from '@dooboostore/simple-web-component';
 import { Sim } from '@dooboostore/simple-boot';
 import bootFactory from "@simple-web-component/examples/stock/src/bootFactory";
 import {SwcAttributeConfigType} from "@dooboostore/simple-web-component/elements/SwcAppEngine";
@@ -235,6 +235,7 @@ export default (w: Window,container: symbol) => {
         container: container,
         window: w,
         onEngineStarted: (app,e) => {
+          // console.log('start??', e)
           if (e.router) {
             this.routerSubscription = e.router.observable.subscribe((route: any) => {
               if (route.triggerPoint === 'end') {

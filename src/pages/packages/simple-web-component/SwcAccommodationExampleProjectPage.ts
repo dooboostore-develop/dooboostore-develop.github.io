@@ -235,6 +235,8 @@ export default (w: Window,container: symbol) => {
         container: container,
         window: w,
         onEngineStarted: (app, e) => {
+          // alert(1)
+          // e.innerHTML=`<accommodation-root-router/>`;
           if (e.router) {
             this.routerSubscription = e.router.observable.subscribe((route: any) => {
               if (route.triggerPoint === 'end') {

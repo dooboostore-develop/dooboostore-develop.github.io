@@ -1,52 +1,54 @@
-import {onConnectedSwcApp,elementDefine, subscribeSwcAppRouteChange, applyInnerHtmlNodeHost, onInitialize, applyReplaceChildrenNodeHost, onConnectedInnerHtml, onAfterConnected} from '@dooboostore/simple-web-component';
+import {onConnectedSwcApp, elementDefine, subscribeSwcAppRouteChange, setProperty, onInitialize, applyReplaceChildrenNodeHost, onConnectedInnerHtml, onAfterConnected, InjectSituationType, HostSet, SwcUtils, query, type SwcChooseInterface} from '@dooboostore/simple-web-component';
 import {type RouterEventType, Router} from '@dooboostore/core-web';
 
 import LandingPageFactory from './LandingPage';
 import PackageDetailPageFactory from './PackageDetailPage';
 import {simpleWebComponentFactories} from "@/pages/packages/simple-web-component";
+import {Inject, route} from "@dooboostore/simple-boot";
 
 export const rootRouterFactory = (w: Window) => {
   const tagName = 'showcase-root-router';
   const existing = w.customElements.get(tagName);
   if (existing) return tagName;
 
+  const routePaths = ['/', '/package/{id}', '/package/simple-web-component/examples{tail:.*}'];
+
   @elementDefine(tagName, {window: w})
   class RootRouter extends w.HTMLElement {
     private router: Router;
 
-    // constructor() {
-    //   super();
-    //   console.log('--------')
-    // }
+    @query('#router')
+    routerChooseTemplate!: SwcChooseInterface;
+
+    private routerPathSet: { path: string; pathData?: { [p: string]: string } };
+
     @onConnectedSwcApp
     onconstructor(router: Router) {
-      console.log('----RootRouter----', router)
+      // console.log('222----RootRouter----', router)
       this.router = router;
     }
+    // @onInitialize
+    // onconstructssor(router: Router) {
+    //   this.router = router;
+    //   console.log('222-----0--->', this.router)
+    // }
+    // @onConnectedSwcApp
+    // onconstructossr(router: Router) {
+    //   this.router = router;
+    //   console.log('222--------1>', this.router)
+    // }
+    // @onAfterConnected
+    // ssssa(router: Router){
+    //   console.log('222---', router)
+    // }
 
-    @subscribeSwcAppRouteChange('/')
-    @applyInnerHtmlNodeHost({root: 'light'})
-    landingRoute(router: RouterEventType) {
-      console.log('indexrouter-landingRoute');
-      return `<app-landing-page />`;
-    }
-
-    @subscribeSwcAppRouteChange('/package/{id}')
-    @applyInnerHtmlNodeHost({root: 'light'})
-    packageRoute(router: RouterEventType, pathData: any) {
-      console.log('indexrouter-packageRoute');
-      return `<app-package-detail-page package-id="${pathData.id}" />`;
-    }
-
-    @subscribeSwcAppRouteChange('/package/simple-web-component/examples{tail:.*}')
-    @applyInnerHtmlNodeHost({
-      root: 'light', filter: (target: HTMLElement) => {
-        return !target.querySelector('app-swc-package-example-router-page')
-      }
-    })
-    packageExampleRoute(router: RouterEventType, pathData: any) {
-      console.log('indexrouter-packageExampleRoute');
-      return `<app-swc-package-example-router-page />`;
+    // @setProperty('#router', 'value')
+    @subscribeSwcAppRouteChange(routePaths)
+    routeChanged(router: RouterEventType) {
+      this.routerPathSet = router;
+      this.routerChooseTemplate.refresh();
+      // console.log('rrrrrrrrrrrrrrrrrrrrrrrrr', router)
+      // return router;
     }
 
     @applyReplaceChildrenNodeHost({
@@ -67,8 +69,12 @@ export const rootRouterFactory = (w: Window) => {
       if (data?.path) this.router.go(data.path);
     }
 
-    @onConnectedInnerHtml({useShadow: true})
-    render() {
+    // @onConnectedInnerHtml({useShadow: true})
+    @onConnectedInnerHtml
+    render(router?: Router){
+      this.routerPathSet = SwcUtils.parsePathPatternsSet(routePaths, router?.value?.path)
+      // const routeStr = SwcUtils.parsePathPatternsSetAttributeString(routePaths, router?.value?.path);
+      // console.log('vvvvvvvvvvv', this.routerPathSet)
       return `
         <style>
           * { box-sizing: border-box; }
@@ -109,7 +115,30 @@ export const rootRouterFactory = (w: Window) => {
         </style>
         <app-header on-emit-navigate="$host.onHeaderNavigate(event, $data)"></app-header>
         <main>
-          <slot></slot>
+          <template id="router" value="{{$host.routerPathSet}}" is="swc-choose">
+            <!-- Landing -->
+            <template is="swc-when" value="{{ ['','/'].includes($value?.path)}}">
+              <app-landing-page />
+            </template>
+            
+            <!-- Package Detail -->
+            <template is="swc-when" value="{{ $value?.path?.startsWith('/package/') && !$value?.path.includes('examples') }}">
+              <app-package-detail-page package-id="{{$value?.pathData?.id}}" />
+            </template>
+            
+            <!-- Package Examples -->
+            <template is="swc-when" value="{{ $value?.path?.includes('/package/simple-web-component/examples') }}" skip-if-same>
+              <app-swc-package-example-router-page />
+            </template>
+            
+            <!-- Not Found -->
+            <template is="swc-otherwise">
+              <div style="text-align: center; padding: 60px 20px; color: #999;">
+                <h2 style="font-size: 24px; margin: 0 0 10px 0; color: #fff;">404 - Page Not Found</h2>
+                <p style="margin: 0;">The page you're looking for doesn't exist.</p>
+              </div>
+            </template>
+          </template>
         </main>
         <footer>
           <div class="footer-text">
