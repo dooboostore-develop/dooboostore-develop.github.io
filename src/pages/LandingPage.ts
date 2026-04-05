@@ -1,4 +1,4 @@
-import {onAfterConnected,onConnectedSwcApp, elementDefine, onConnectedInnerHtml, addEventListener, onInitialize, setProperty, subscribeSwcAppRouteChange} from '@dooboostore/simple-web-component';
+import {onAfterConnected,onConnectedSwcApp, elementDefine, onConnectedInnerHtml, addEventListener, onInitialize, setProperty, subscribeSwcAppRouteChangeWhileConnected} from '@dooboostore/simple-web-component';
 import { Inject } from '@dooboostore/simple-boot';
 import {Router, type RouterEventType} from '@dooboostore/core-web';
 import { GlobalStyle } from '../styles/GlobalStyle';

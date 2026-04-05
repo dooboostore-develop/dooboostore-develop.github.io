@@ -3170,7 +3170,10 @@ importers:
         version: 5.105.4(webpack-cli@5.1.4)
       webpack-cli:
         specifier: ^5.1.4
-        version: 5.1.4(webpack-dev-server@5.2.3(tslib@2.8.1)(webpack-cli@5.1.4)(webpack@5.105.4))(webpack@5.105.4)
+        version: 5.1.4(webpack-dev-server@5.2.3)(webpack@5.105.4)
+      webpack-dev-server:
+        specifier: ^5.0.0
+        version: 5.2.3(tslib@2.8.1)(webpack-cli@5.1.4)(webpack@5.105.4)
 
   packages/@dooboostore/simple-boot-http-server/create:
     dependencies:

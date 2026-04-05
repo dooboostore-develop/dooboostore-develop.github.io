@@ -1,4 +1,4 @@
-import {onConnectedSwcApp, applyReplaceChildrenNodeHost, elementDefine, onConnectedInnerHtml, addEventListener, updateClass, applyAttribute, setAttribute, onInitialize, subscribeSwcAppRouteChange, setProperty, onAfterConnected, SwcUtils, query, type SwcChooseInterface} from '@dooboostore/simple-web-component';
+import {onConnectedSwcApp, applyReplaceChildrenNodeHost, elementDefine, onConnectedInnerHtml, addEventListener, updateClass, applyAttribute, setAttribute, onInitialize, subscribeSwcAppRouteChangeWhileConnected, setProperty, onAfterConnected, SwcUtils, query, type SwcChooseInterface} from '@dooboostore/simple-web-component';
 import {Router, type RouterEventType} from '@dooboostore/core-web';
 import commerceExampleProjectPageFactory from './SwcCommerceExampleProjectPage';
 import accommodationExampleProjectPageFactory from './SwcAccommodationExampleProjectPage';
@@ -26,7 +26,7 @@ export default (w: Window,container: symbol) => {
     }
 
     // @setProperty('#router', 'value')
-    @subscribeSwcAppRouteChange(routePaths)
+    @subscribeSwcAppRouteChangeWhileConnected(routePaths)
     routeChanged(router: RouterEventType) {
       this.routerPathSet = router;
       // safari is 발생생성 시점때문에 아직안만들어져있을수도있어... 아씨발 다 attribute로 해야될듯.
@@ -82,7 +82,7 @@ export default (w: Window,container: symbol) => {
             border-bottom: 1px solid #1A1A1A; 
             padding: 20px; 
             background: #0A0A0A;
-            z-index: 999999;
+            /*z-index: 999999;*/
           }
           .nav-list { flex-direction: row; overflow-x: auto; padding-bottom: 4px; }
           .nav-item { white-space: nowrap; }

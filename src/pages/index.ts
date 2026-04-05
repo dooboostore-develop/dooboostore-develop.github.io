@@ -1,4 +1,4 @@
-import {onConnectedSwcApp, elementDefine, subscribeSwcAppRouteChange, setProperty, onInitialize, applyReplaceChildrenNodeHost, onConnectedInnerHtml, onAfterConnected, InjectSituationType, HostSet, SwcUtils, query, type SwcChooseInterface} from '@dooboostore/simple-web-component';
+import {onConnectedSwcApp, elementDefine, subscribeSwcAppRouteChangeWhileConnected, setProperty, onInitialize, applyReplaceChildrenNodeHost, onConnectedInnerHtml, onAfterConnected, InjectSituationType, HostSet, SwcUtils, query, type SwcChooseInterface} from '@dooboostore/simple-web-component';
 import {type RouterEventType, Router} from '@dooboostore/core-web';
 
 import LandingPageFactory from './LandingPage';
@@ -43,7 +43,7 @@ export const rootRouterFactory = (w: Window) => {
     // }
 
     // @setProperty('#router', 'value')
-    @subscribeSwcAppRouteChange(routePaths)
+    @subscribeSwcAppRouteChangeWhileConnected(routePaths)
     routeChanged(router: RouterEventType) {
       this.routerPathSet = router;
       this.routerChooseTemplate.refresh();
@@ -88,7 +88,7 @@ export const rootRouterFactory = (w: Window) => {
           app-header {
             display: block;
             position: sticky;
-            top: 0;
+            top: -1px;
             z-index: 2000;
           }
           main {
