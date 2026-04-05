@@ -115,7 +115,7 @@ export const rootRouterFactory = (w: Window) => {
         </style>
         <app-header on-emit-navigate="$host.onHeaderNavigate(event, $data)"></app-header>
         <main>
-          <template id="router" value="{{$host.routerPathSet}}" is="swc-choose">
+          <template id="router" value="{{= $host.routerPathSet }}" is="swc-choose">
             <!-- Landing -->
             <template is="swc-when" value="{{ ['','/'].includes($value?.path)}}">
               <app-landing-page />

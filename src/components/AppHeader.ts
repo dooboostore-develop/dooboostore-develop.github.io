@@ -20,7 +20,7 @@ export default (w: Window) => {
                     background: rgba(15, 15, 15, 0.85) !important; 
                     backdrop-filter: blur(12px) !important; 
                     border-bottom: 1px solid #2A2A2A !important; 
-                    z-index: 1000 !important;
+                    z-index: 10000 !important;
                     box-sizing: border-box !important;
                 }
                 app-header * {

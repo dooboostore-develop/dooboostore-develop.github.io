@@ -29,7 +29,11 @@ export default (w: Window,container: symbol) => {
     @subscribeSwcAppRouteChange(routePaths)
     routeChanged(router: RouterEventType) {
       this.routerPathSet = router;
-      this.routerChooseTemplate.refresh();
+      // safari is 발생생성 시점때문에 아직안만들어져있을수도있어... 아씨발 다 attribute로 해야될듯.
+      // this.routerChooseTemplate?.refresh?.();
+      this.routerChooseTemplate.setAttribute('value', '{{= $host.routerPathSet }}');
+
+
       // 경로에서 example id 추출
       const path = router.path;
       let exampleId = 'accommodation-example'; // 기본값
@@ -98,7 +102,7 @@ export default (w: Window,container: symbol) => {
           </div>
         </aside>
         <section class="content-area">
-          <template id="router" is="swc-choose" value="{{$host.routerPathSet}}" skip-if-same>
+          <template id="router" is="swc-choose" value="{{= $host.routerPathSet }}">
             <!-- Accommodation Example -->
             <template is="swc-when" value="{{ ['', '/package/simple-web-component/examples', '/package/simple-web-component/examples/accommodation-example'].includes($value?.path) }}" skip-if-same>
               <app-accommodation-example-project-page/>
