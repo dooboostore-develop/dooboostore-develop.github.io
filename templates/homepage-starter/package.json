@@ -10,12 +10,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@dooboostore/simple-web-component": "^1.0.50",
-    "@dooboostore/simple-boot": "^1.0.57",
+    "@dooboostore/simple-web-component": "^1.0.52",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
-    "@dooboostore/dom-parser": "^1.0.7",
+    "@dooboostore/dom-parser": "^1.0.8",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0",
     "vite": "^7.1.0",

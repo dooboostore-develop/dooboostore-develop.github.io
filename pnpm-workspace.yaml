@@ -9,3 +9,6 @@ allowBuilds:
   canvas: true
   esbuild: true
   protobufjs: true
+
+minimumReleaseAgeExclude:
+  - '@dooboostore/core@1.0.33'
