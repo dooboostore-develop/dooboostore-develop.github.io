@@ -1,4 +1,5 @@
-import { onConnectedBefore, onConnectedSwcApp, elementDefine, addEventListener, updateClass, applyAttribute, attribute, onInitialize, subscribeSwcAppRouteChange, property, SwcUtils, query, replaceChildren, onConnectedBody, event, onConnectedBodyShadow, innerHtml, innerHtmlLight } from '@dooboostore/simple-web-component';
+import { GlobalStyle } from '@/styles/GlobalStyle';
+import { onConnectedBefore, onConnectedSwcApp, elementDefine, addEventListener, updateClass, applyAttribute, attribute, onInitialize, subscribeSwcAppRouteChange, property, SwcUtils, query, replaceChildren, onConnectedBody, onConnectedBodyShadow, innerHtml, innerHtmlLight, eventClickDelegate } from '@dooboostore/simple-web-component';
 import {Router, type RouterEventType} from '@dooboostore/core-web';
 import commerceExampleProjectPageFactory from './SwcCommerceExampleProjectPage';
 import accommodationExampleProjectPageFactory from './SwcAccommodationExampleProjectPage';
@@ -77,6 +78,7 @@ export default (w: Window) => {
       return `
       <style>
         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+        ${GlobalStyle}
         * { box-sizing: border-box; }
         :host { display: flex; flex-direction: column; flex: 1; width: 100%; color: #FFF; box-sizing: border-box; }
         .layout { display: flex; flex: 1; width: 100%; margin: 0 auto; box-sizing: border-box; align-items: stretch; }
@@ -122,7 +124,7 @@ export default (w: Window) => {
       </div>`;
     }
 
-    @event('.nav-item, .back-to-docs', 'click', { delegate: true })
+    @eventClickDelegate('.nav-item, .back-to-docs')
     onNavClick(e: any) {
       const item = e.target.closest('[data-id]');
       if (item && item.dataset.id) {

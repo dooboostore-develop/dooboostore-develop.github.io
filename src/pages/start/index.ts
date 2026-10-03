@@ -1,5 +1,5 @@
 import { Router } from '@dooboostore/core-web';
-import { attribute, elementDefine, event, innerHtml, matchedElement, onConnectedBefore, onConnectedBodyShadow, onInitialize } from '@dooboostore/simple-web-component';
+import { attribute, elementDefine, innerHtml, matchedElement, onConnectedBefore, onConnectedBodyShadow, onInitialize, eventClick, eventClickDelegate } from '@dooboostore/simple-web-component';
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
@@ -21,14 +21,15 @@ type Step = { title: [string, string]; note: [string, string]; file: string; lan
 const STEPS: Step[] = [
   {
     title: ['Install', '설치'],
-    note: ['<code>@dooboostore/core</code> and <code>core-web</code> come along as dependencies.', '<code>@dooboostore/core</code>와 <code>core-web</code>은 의존성으로 같이 따라옵니다.'],
+    note: ['<code>simple-boot</code>, <code>core</code> and <code>core-web</code> come along as dependencies. Add <code>@dooboostore/simple-boot</code> yourself only when your code imports it (e.g. <code>@Sim</code>, <code>@inject</code>).',
+      '<code>simple-boot</code>·<code>core</code>·<code>core-web</code>은 의존성으로 같이 따라옵니다. 내 코드에서 직접 import 할 때(<code>@Sim</code>, <code>@inject</code> 등)만 <code>@dooboostore/simple-boot</code>를 따로 설치하세요.'],
     file: 'terminal', lang: 'bash',
-    code: `npm i @dooboostore/simple-web-component @dooboostore/simple-boot reflect-metadata`,
+    code: `npm i @dooboostore/simple-web-component reflect-metadata`,
   },
   {
     title: ['Turn on decorators', '데코레이터 켜기'],
-    note: ['<code>emitDecoratorMetadata</code> lets the container inject by type. Plain esbuild/Vite don\'t emit it — inject by Symbol there, or run tsc in the pipeline (ts-loader, esbuild-plugin-tsc).',
-      '<code>emitDecoratorMetadata</code>가 있어야 타입으로 주입됩니다. esbuild/Vite 단독은 이걸 안 만들어요 — 거기선 Symbol로 주입하거나, 파이프라인에 tsc를 끼우세요(ts-loader, esbuild-plugin-tsc).'],
+    note: ['<code>emitDecoratorMetadata</code> lets the container inject by type alone. Plain esbuild/Vite don\'t emit it — there, name what you want with <code>@inject(SYMBOL)</code> (the starters do), or run tsc in the pipeline (ts-loader, esbuild-plugin-tsc).',
+      '<code>emitDecoratorMetadata</code>가 있으면 타입만 보고 주입됩니다. esbuild/Vite 단독은 이걸 안 만들어요 — 거기선 <code>@inject(SYMBOL)</code>로 이름을 찍어 주입하거나(스타터들이 이 방식), 파이프라인에 tsc를 끼우세요(ts-loader, esbuild-plugin-tsc).'],
     file: 'tsconfig.json', lang: 'json',
     code: `{
   "compilerOptions": {
@@ -58,7 +59,7 @@ export default (w: Window) => {
               <button>clicked <b>0</b> times</button>\`;
     }
 
-    @event('button', 'click')
+    @eventClick('button')
     @innerHtml('b')
     onClick() {
       return String(++this.count);
@@ -97,19 +98,39 @@ document.querySelector<any>('#app').connect({
   },
 ];
 
-// 가장 빠른 길: 이 저장소의 templates/homepage-starter (회사 홈페이지 3페이지 + SEO + 미리 렌더 + 배포)
-const STARTER_CMD = `npx degit dooboostore-develop/dooboostore-develop.github.io/templates/homepage-starter my-site
-cd my-site
-npm install
-npm run dev`;
-const STARTER_URL = 'https://github.com/dooboostore-develop/dooboostore-develop.github.io/tree/main/templates/homepage-starter';
-const STARTER_HAS: Array<[string, string]> = [
-  ['Home / About / Contact pages, a header menu and a 404', '홈 / 소개 / 문의 페이지, 헤더 메뉴, 404'],
-  ['A title and description per page (SEO)', '페이지마다 제목·설명 (SEO)'],
-  ['<code>npm run build</code> → HTML per page + sitemap.xml + robots.txt', '<code>npm run build</code> → 페이지별 HTML + sitemap.xml + robots.txt'],
-  ['Push to main → deployed to GitHub Pages', 'main 에 푸시 → GitHub Pages 배포'],
-  ['Vite dev server — the one you already know', '익숙한 Vite 개발 서버'],
+// 가장 빠른 길: 이 저장소의 templates/* — 정적 홈페이지(homepage-starter) / 서버 렌더 풀스택(ssr-starter)
+const TEMPLATES_URL = 'https://github.com/dooboostore-develop/dooboostore-develop.github.io/tree/main/templates/';
+const STARTERS: Array<{ dir: string; folder: string; port: number; badge: [string, string]; title: [string, string]; lead: [string, string]; has: Array<[string, string]> }> = [
+  {
+    dir: 'homepage-starter', folder: 'my-site', port: 5173,
+    badge: ['Fastest way', '가장 빠른 길'],
+    title: ['A homepage search engines can read — in one <code>npm run build</code>.', '검색엔진이 읽는 회사 홈페이지, <code>npm run build</code> 한 줄.'],
+    lead: ['A small company homepage, ready to edit. Copy it, run it, change the words. Static files only — no server to run.', '바로 고쳐 쓸 수 있는 작은 회사 홈페이지예요. 받아서, 돌리고, 문구만 바꾸세요. 정적 파일이라 서버가 필요 없어요.'],
+    has: [
+      ['Home / About / Contact pages, a header menu and a 404', '홈 / 소개 / 문의 페이지, 헤더 메뉴, 404'],
+      ['A title and description per page (SEO)', '페이지마다 제목·설명 (SEO)'],
+      ['<code>npm run build</code> → HTML per page + sitemap.xml + robots.txt', '<code>npm run build</code> → 페이지별 HTML + sitemap.xml + robots.txt'],
+      ['Push to main → deployed to GitHub Pages', 'main 에 푸시 → GitHub Pages 배포'],
+      ['Vite dev server — the one you already know', '익숙한 Vite 개발 서버'],
+    ],
+  },
+  {
+    dir: 'ssr-starter', folder: 'my-app', port: 3000,
+    badge: ['Full-stack · SSR', '풀스택 · SSR'],
+    title: ['Server-rendered pages that call the server like a method.', '서버가 그려 주는 페이지, 서버 호출은 메서드 한 줄.'],
+    lead: ['A Node server renders the same components, ships the data with the page, and answers the browser through one shared interface. Open <code>/users</code> and watch what happens.', 'Node 서버가 같은 컴포넌트를 그리고, 데이터를 페이지에 실어 보내고, 공유 인터페이스 하나로 브라우저 호출에 답해요. <code>/users</code>를 열어 보세요.'],
+    has: [
+      ['First load: drawn on the server, 0 requests from the browser (hydration)', '첫 화면: 서버가 그려 보냄, 브라우저 요청 0개 (하이드레이션)'],
+      ['One interface in <code>src/services</code> — HTTP proxy in front, real code on the server', '<code>src/services</code>의 인터페이스 하나 — 프론트는 HTTP 프록시, 서버는 진짜 구현'],
+      ['No API routes, no <code>fetch</code> code — components just call <code>getUsers()</code>', 'API 라우트도 <code>fetch</code> 코드도 없음 — 컴포넌트는 <code>getUsers()</code>를 부를 뿐'],
+      ['<code>npm run dev</code> rebuilds the front and restarts the server on save', '<code>npm run dev</code> 하나로 저장하면 프론트 다시 빌드 + 서버 재시작'],
+    ],
+  },
 ];
+const starterCmd = (s: typeof STARTERS[number]) => `npx degit dooboostore-develop/dooboostore-develop.github.io/templates/${s.dir} ${s.folder}
+cd ${s.folder}
+npm install
+npm run dev        # http://localhost:${s.port}`;
 
 // 언제 잘 맞고, 언제는 아직인지 — 솔직하게
 const FIT_GOOD: Array<[string, string]> = [
@@ -210,7 +231,7 @@ export default (w: Window) => {
         .file-head { padding: 9px 14px; background: #121212; border-bottom: 1px solid #222; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FFF; font-weight: 700; }
         pre { margin: 0; padding: 16px 18px; overflow-x: auto; }
         pre code { background: transparent; color: #C9D1D9; padding: 0; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; line-height: 1.65; }
-        .starter { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 30px; margin-bottom: 10px; border-radius: 20px;
+        .starter { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; padding: 30px; margin-bottom: 18px; border-radius: 20px;
           background: linear-gradient(135deg, rgba(255, 56, 92, 0.10), rgba(255, 56, 92, 0.02)); border: 1px solid rgba(255, 56, 92, 0.3); }
         .starter > * { min-width: 0; }
         .starter pre { white-space: pre-wrap; overflow-wrap: anywhere; }  /* 복사해 갈 명령이라 잘리지 않게 */
@@ -272,16 +293,17 @@ export default (w: Window) => {
       </div>
 
       <div class="wrap">
+        ${STARTERS.map(st => `
         <div class="starter">
           <div class="starter-copy">
-            <div class="badge">${t('Fastest way', '가장 빠른 길')}</div>
-            <h2>${t('A homepage search engines can read — in one <code>npm run build</code>.', '검색엔진이 읽는 회사 홈페이지, <code>npm run build</code> 한 줄.')}</h2>
-            <p>${t('A small company homepage, ready to edit. Copy it, run it, change the words.', '바로 고쳐 쓸 수 있는 작은 회사 홈페이지예요. 받아서, 돌리고, 문구만 바꾸세요.')}</p>
-            <ul>${STARTER_HAS.map(([en, ko]) => `<li><i class="fa-solid fa-check"></i>${t(en, ko)}</li>`).join('')}</ul>
-            <a class="btn" href="${STARTER_URL}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> ${t('See the starter on GitHub', 'GitHub에서 스타터 보기')}</a>
+            <div class="badge">${t(st.badge[0], st.badge[1])}</div>
+            <h2>${t(st.title[0], st.title[1])}</h2>
+            <p>${t(st.lead[0], st.lead[1])}</p>
+            <ul>${st.has.map(([en, ko]) => `<li><i class="fa-solid fa-check"></i>${t(en, ko)}</li>`).join('')}</ul>
+            <a class="btn" href="${TEMPLATES_URL + st.dir}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> ${t('See the starter on GitHub', 'GitHub에서 스타터 보기')}</a>
           </div>
-          <div class="file"><div class="file-head">terminal</div><pre><code class="hljs language-bash">${hl('bash', STARTER_CMD)}</code></pre></div>
-        </div>
+          <div class="file"><div class="file-head">terminal</div><pre><code class="hljs language-bash">${hl('bash', starterCmd(st))}</code></pre></div>
+        </div>`).join('')}
 
         <div class="section-title">
           <h2>${t('Or set it up yourself', '직접 하나씩 설정하고 싶다면')}</h2>
@@ -340,7 +362,7 @@ export default (w: Window) => {
       `;
     }
 
-    @event('[data-path]', 'click', { delegate: true })
+    @eventClickDelegate('[data-path]')
     onNavigate(@matchedElement el: HTMLElement) {
       const path = el.dataset.path;
       if (path) this.router?.go(path);

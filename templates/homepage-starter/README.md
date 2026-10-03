@@ -1,13 +1,15 @@
 # Homepage starter — @dooboostore/simple-web-component
 
-회사·제품 소개 홈페이지를 바로 시작하는 템플릿입니다. A ready-to-edit company homepage.
+**English** | [한국어](README.ko.md)
 
-- 페이지 3개 (홈 / 소개 / 문의) + 헤더 메뉴 + 404
-- 페이지마다 제목·설명 (SEO)
-- `npm run build` 한 번이면 **페이지별 HTML 미리 생성** + `sitemap.xml` + `robots.txt` → 검색엔진이 자바스크립트 없이 읽음
-- `main` 에 푸시하면 **GitHub Pages 자동 배포**
+A small company homepage, ready to edit.
 
-## 시작하기
+- Three pages (Home / About / Contact), a header menu and a 404
+- A title and description per page (SEO)
+- One `npm run build` **pre-renders HTML for every page**, plus `sitemap.xml` and `robots.txt`, so search engines can read it without JavaScript
+- Push to `main` and it **deploys to GitHub Pages automatically**
+
+## Getting started
 
 ```bash
 npx degit dooboostore-develop/dooboostore-develop.github.io/templates/homepage-starter my-site
@@ -16,27 +18,27 @@ npm install
 npm run dev        # http://localhost:5173
 ```
 
-## 고칠 곳
+## Where to edit
 
-| 하고 싶은 것 | 파일 |
+| To change | File |
 |---|---|
-| 문구·내용 바꾸기 | `src/pages/*.ts` 의 `render()` |
-| 페이지 제목·설명 (SEO) | `src/pages/*.ts` 의 `meta()` |
-| 페이지 추가 | `src/pages/` 에 파일 → `src/components/site-router.ts` 에 주소 한 줄 → `src/app.ts` 의 `factories`·`ROUTES` 에 추가 |
-| 메뉴 | `src/components/site-header.ts` |
-| 디자인 | `src/style.css` |
+| Text and content | `render()` in `src/pages/*.ts` |
+| Page title and description (SEO) | `meta()` in `src/pages/*.ts` |
+| Add a page | a file in `src/pages/` → one route line in `src/components/site-router.ts` → add it to `factories` and `ROUTES` in `src/app.ts` |
+| Menu | `src/components/site-header.ts` |
+| Design | `src/style.css` |
 
-## 배포 (GitHub Pages)
+## Deploy (GitHub Pages)
 
-1. GitHub 에 저장소를 만들고 푸시
-2. 저장소 Settings → Pages → Source 를 **GitHub Actions** 로
-3. 이후로는 `main` 에 푸시할 때마다 자동 배포
+1. Create a GitHub repository and push
+2. Repository Settings → Pages → set Source to **GitHub Actions**
+3. From then on, every push to `main` deploys
 
-> 이 템플릿은 **도메인 루트**(`<이름>.github.io` 저장소 또는 커스텀 도메인) 기준입니다.
-> `<이름>.github.io/<저장소>/` 같은 하위 경로에 올리려면 경로 설정을 따로 바꿔야 합니다.
+> This template assumes the site is served from the **domain root** (a `<name>.github.io` repository or a custom domain).
+> To serve it from a sub-path such as `<name>.github.io/<repo>/`, you need to change the path settings.
 
-## 참고
+## Notes
 
-- 데코레이터는 TypeScript `experimentalDecorators` 를 씁니다 (`tsconfig.json` 에 켜져 있음).
-- 사파리는 `is="…"` 를 지원하지 않아 `index.html` 에 폴리필 한 줄이 들어 있습니다.
-- 문서: https://dooboostore-develop.github.io/package/simple-web-component
+- Decorators use TypeScript `experimentalDecorators` (enabled in `tsconfig.json`).
+- Safari doesn't support `is="…"`, so `index.html` includes a one-line polyfill.
+- Docs: https://dooboostore-develop.github.io/package/simple-web-component

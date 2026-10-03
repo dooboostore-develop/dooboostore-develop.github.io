@@ -1,4 +1,4 @@
-import { elementDefine, eventWindow, emitCustomEvent, event, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, subscribeSwcAppMessage, appMessage, subscribeSwcAppRouteChange, updateClass } from "@dooboostore/simple-web-component";
+import { elementDefine, eventWindow, emitCustomEvent, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, subscribeSwcAppMessageBehavior, appMessage, subscribeSwcAppRouteChange, updateClass, eventClick, eventClickDelegate } from "@dooboostore/simple-web-component";
 import type { SwcAppMessage } from "@dooboostore/simple-web-component";
 import type { RouterEventType } from "@dooboostore/core-web";
 import { LANG_CHANGED, type Lang } from "@/utils/lang";
@@ -140,13 +140,13 @@ export default (w: Window) => {
         }
 
         // GitHub·npm 펼침 — 열 때 언어 메뉴는 닫는다
-        @event('#github-btn', 'click')
+        @eventClick('#github-btn')
         onDevMenuToggle() {
             this.querySelector('.lang')?.classList.remove('open');
             this.querySelector('.dev')?.classList.toggle('open');
         }
 
-        @event('.dev-opt', 'click', { delegate: true })
+        @eventClickDelegate('.dev-opt')
         onDevOptClick() { this.querySelector('.dev')?.classList.remove('open'); }
 
         // 헤더 밖을 누르면 펼친 메뉴를 닫는다 (리스너는 엘리먼트가 떠나면 자동 해제)
@@ -157,28 +157,28 @@ export default (w: Window) => {
         }
 
         // 현재 언어 표시 — behavior라 첫 로드 때 현재값 바로 반영
-        @subscribeSwcAppMessage(LANG_CHANGED, { subject: 'behavior' })
+        @subscribeSwcAppMessageBehavior(LANG_CHANGED)
         @innerHtml('.lang-current')
         renderLang(@appMessage msg: SwcAppMessage<Lang>) {
             return (msg?.data ?? 'en').toUpperCase();
         }
 
         // 펼침 메뉴 안 현재 언어 강조
-        @subscribeSwcAppMessage(LANG_CHANGED, { subject: 'behavior' })
+        @subscribeSwcAppMessageBehavior(LANG_CHANGED)
         @updateClass('.lang-opt')
         highlightLang(@appMessage msg: SwcAppMessage<Lang>) {
             return { active: (el: HTMLElement) => el.dataset.lang === (msg?.data ?? 'en') };
         }
 
         // 펼침 열기/닫기
-        @event('#lang-btn', 'click')
+        @eventClick('#lang-btn')
         onLangMenuToggle() {
             this.querySelector('.dev')?.classList.remove('open');
             this.querySelector('.lang')?.classList.toggle('open');
         }
 
         // 언어 전환 — 단일 기록 경로: body.changeLang(상태+저장+발행), 고르면 메뉴 닫음
-        @event('.lang-opt', 'click', { delegate: true })
+        @eventClickDelegate('.lang-opt')
         onLangClick(e: any) {
             const lang = e.target.closest('[data-lang]')?.dataset?.lang;
             if (lang === 'ko' || lang === 'en') {
@@ -188,7 +188,7 @@ export default (w: Window) => {
         }
 
         @emitCustomEvent('navigate', { attributeName: 'on-emit-navigate' })
-        @event('.links span, .logo-container', 'click', { delegate: true })
+        @eventClickDelegate('.links span, .logo-container')
         onNavClick(e: any) {
             const target = e.target.closest('[data-path]');
             const path = target?.dataset?.path || '/';

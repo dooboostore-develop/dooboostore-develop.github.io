@@ -1,5 +1,5 @@
 import { Router } from '@dooboostore/core-web';
-import { attribute, elementDefine, event, innerHtml, onConnectedAfter, onConnectedBefore, onConnectedBodyShadow, onInitialize } from '@dooboostore/simple-web-component';
+import { attribute, elementDefine, innerHtml, onConnectedAfter, onConnectedBefore, onConnectedBodyShadow, onInitialize, eventClick, eventClickDelegate } from '@dooboostore/simple-web-component';
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
@@ -569,7 +569,7 @@ export default (w: Window) => {
       if (this.shadowRoot) await runMermaid(this.shadowRoot);
     }
 
-    @event('#src-btn', 'click')
+    @eventClick('#src-btn')
     @innerHtml('.proof-out', { fallback: () => sourceStats('…', '…', '…', []) })
     async checkSource() {
       // 이 사이트는 빌드 때 미리 렌더(SSG)해서 /ssr → ssr.html 로 서빙된다. 그 원본을 그대로 받는다.
@@ -586,7 +586,7 @@ export default (w: Window) => {
       }
     }
 
-    @event('[data-path]', 'click', { delegate: true })
+    @eventClickDelegate('[data-path]')
     onNavigate(e: any) {
       const path = e.target.closest('[data-path]')?.dataset?.path;
       if (path) this.router?.go(path);

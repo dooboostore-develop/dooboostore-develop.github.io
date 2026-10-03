@@ -1,5 +1,5 @@
 import { Router } from '@dooboostore/core-web';
-import { attribute, elementDefine, event, innerHtml, matchedElement, onConnectedAfter, onConnectedBefore, onConnectedBodyShadow, onInitialize } from '@dooboostore/simple-web-component';
+import { attribute, elementDefine, innerHtml, matchedElement, onConnectedAfter, onConnectedBefore, onConnectedBodyShadow, onInitialize, eventClick, eventClickDelegate } from '@dooboostore/simple-web-component';
 import { GlobalStyle } from '@/styles/GlobalStyle';
 import { ECOSYSTEM_META, PACKAGE_CATEGORIES, SITE_URL } from '@/data/packages';
 import { runMermaid } from '@/utils/markdown';
@@ -308,7 +308,7 @@ export default (w: Window) => {
       `;
     }
 
-    @event('#npm-btn', 'click')
+    @eventClick('#npm-btn')
     @innerHtml('.npm-out', { fallback: () => `<div class="npm-empty">${t('Asking npm…', 'npm에 묻는 중…')}</div>` })
     async askNpm() {
       const rows = await Promise.all(ALL_IDS.map(async (id): Promise<NpmRow> => {
@@ -331,13 +331,13 @@ export default (w: Window) => {
     }
 
     // 계층도 노드 클릭 → 패키지 문서. mermaid 노드 id: "<prefix>-flowchart-<nodeId>-<n>"
-    @event('pre.mermaid g.node', 'click', { delegate: true })
+    @eventClickDelegate('pre.mermaid g.node')
     onStackNode(@matchedElement node: SVGGElement) {
       const id = /-flowchart-(.+)-\d+$/.exec(node.id)?.[1]?.replace(/_/g, '-');
       if (id) this.router?.go(`/package/${id}`);
     }
 
-    @event('[data-path]', 'click', { delegate: true })
+    @eventClickDelegate('[data-path]')
     onNavigate(e: any) {
       const path = e.target.closest('[data-path]')?.dataset?.path;
       if (path) this.router?.go(path);

@@ -1,5 +1,5 @@
 import { Router } from '@dooboostore/core-web';
-import { attribute, elementDefine, event, innerHtml, matchedElement, onConnectedBefore, onConnectedBodyShadow, onInitialize } from '@dooboostore/simple-web-component';
+import { attribute, elementDefine, event, innerHtml, matchedElement, onConnectedBefore, onConnectedBodyShadow, onInitialize, eventClick, eventClickDelegate, eventInput } from '@dooboostore/simple-web-component';
 import * as SWC from '@dooboostore/simple-web-component';
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
@@ -27,7 +27,7 @@ const howItWorks = () => `
     <div class="flow3">
       <div class="col">
         <div class="col-title">${t('① When — triggers', '① 언제 — 트리거')}</div>
-        <div class="trig">${['@event(\'click\')', '@subscribeSwcAppRouteChange', '@subscribeSwcAppMessage', '@setInterval', '@resizeObserver'].map(x => `<code>${x}</code>`).join('')}</div>
+        <div class="trig">${['@eventClick', '@subscribeSwcAppRouteChange', '@subscribeSwcAppMessage', '@setInterval', '@resizeObserver'].map(x => `<code>${x}</code>`).join('')}</div>
         <div class="col-note">${t('Pick one or more and stack them.', '하나 이상 골라 쌓아요.')}</div>
       </div>
       <div class="arrow"><i class="fa-solid fa-arrow-right"></i></div>
@@ -81,7 +81,21 @@ const busDiagram = () => `
     </div>
   </div>`;
 
-const FEATURE_DIAGRAMS: Record<string, () => string> = { 'Shadow ⇄ Light': shadowLightDiagram, 'App Message Bus': busDiagram };
+// ④ 라우팅: 주소가 바뀌면 그 경로를 구독한 엘리먼트들이 각자 반응. 이동은 반환값으로
+const routeDiagram = () => `
+  <div class="dg bus">
+    <div class="bus-node pub"><b>/posts/42?tab=comments</b><small>${t('the URL changes', '주소가 바뀜')}</small><code>return '/posts/42'</code><small>@swcAppRouteGo</small></div>
+    <div class="bus-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+    <div class="bus-node pipe"><b>router</b><small>${t('no route table — elements subscribe', '라우트 표 없음 — 엘리먼트가 구독')}</small></div>
+    <div class="bus-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+    <div class="bus-subs">
+      <div class="bus-node"><b>post-page</b><small>'/posts/{id}' → ${t('draws post 42', '42번 글을 그림')}</small></div>
+      <div class="bus-node"><b>side-nav</b><small>on: 'enter' → ${t('highlights "Posts"', '"글" 메뉴 강조')}</small></div>
+      <div class="bus-node late"><b>post-editor</b><small>on: 'beforeLeave' → ${t('return false blocks leaving', 'false 반환이면 못 떠남')}</small></div>
+    </div>
+  </div>`;
+
+const FEATURE_DIAGRAMS: Record<string, () => string> = { 'Shadow ⇄ Light': shadowLightDiagram, 'App Message Bus': busDiagram, 'Routing': routeDiagram };
 
 // 이벤트 데코레이터 이름 — 패키지의 실제 export 에서 센다 (손으로 적은 숫자 아님)
 const EVENT_DECORATORS = Object.keys(SWC).filter(k => /^event[A-Z]/.test(k) && typeof (SWC as any)[k] === 'function').sort();
@@ -260,12 +274,51 @@ async load(@fetchSettled settled?: Settled<Item[]>) {
 @publishSwcAppMessage(AUTH_CHANGED)
 publishMe(me: User) { return me; }  // return = message
 
-@subscribeSwcAppMessage(AUTH_CHANGED, {
-  subject: 'behavior',   // late joiners replay the last
-})
+// Behavior: late joiners get the last one
+@subscribeSwcAppMessageBehavior(AUTH_CHANGED)
 @innerHtml('.user')
 renderUser(@appMessage msg: SwcAppMessage<User>) {
   return msg.data?.name ?? 'Sign in';
+}`,
+  },
+  {
+    kicker: { en: 'Routing', ko: '라우팅' },
+    title: { en: 'No route table.<br>Elements subscribe to paths.', ko: '라우트 표가 없습니다.<br>엘리먼트가 경로를 구독해요.' },
+    text: {
+      en: `Any element can react to a path — the page draws itself, the menu highlights, the editor guards — each with one decorator,
+      and nothing to register centrally. <code>{id}</code> and query values arrive as <b>arguments by name</b>.
+      Pick when to run: <code>enter</code>, <code>update</code>, <code>leave</code>, or <code>beforeLeave</code> to
+      stop unsaved changes from being lost — browser Back included. To move, <b>return a path</b>.
+      History or hash URLs, one option.`,
+      ko: `어느 엘리먼트든 경로에 반응할 수 있어요 — 페이지는 스스로 그리고, 메뉴는 강조하고, 에디터는 지킵니다 — 각자 데코레이터 하나로,
+      한 곳에 등록할 것도 없이. <code>{id}</code>와 쿼리 값은 <b>이름으로 인자에</b> 들어옵니다.
+      언제 돌지 고르세요: <code>enter</code>, <code>update</code>, <code>leave</code>, 그리고 저장 안 한 변경을 지키는
+      <code>beforeLeave</code> — 브라우저 뒤로가기까지 막아요. 이동하려면 <b>경로를 반환</b>하면 끝.
+      history 주소든 hash 주소든 옵션 하나.`,
+    },
+    code: `
+@subscribeSwcAppRouteChange('/posts/{id}')
+@innerHtml('.post')
+async show(
+  @swcAppRoutePathVariable('id') id: string,
+  @swcAppRouteFirstQueryParam('tab') tab: string,
+) {
+  return this.render(await this.api.post(id), tab);
+}
+
+@subscribeSwcAppRouteChange('/posts/{id}', {
+  on: 'beforeLeave',     // also blocks Back
+})
+guard() {
+  return !this.dirty || confirm('Discard?');
+}
+
+@eventClickDelegate('a', {
+  preventDefault: true,
+})
+@swcAppRouteGo           // return a path → go
+go(@matchedElement a: HTMLAnchorElement) {
+  return a.getAttribute('href');
 }`,
   },
   {
@@ -492,7 +545,7 @@ export default (w: Window) => {
       <div class="section">
         <div class="section-title">
           <h2 lang="en">Why Components</h2><h2 lang="ko">왜 컴포넌트인가</h2>
-          <p lang="en">Standard Web Components.<br>Plus eight ideas on top.</p><p lang="ko">표준 Web Components.<br>그 위에 여덟 가지.</p>
+          <p lang="en">Standard Web Components.<br>Plus nine ideas on top.</p><p lang="ko">표준 Web Components.<br>그 위에 아홉 가지.</p>
         </div>
         <div class="features">
           ${FEATURES.map(f => `
@@ -528,13 +581,13 @@ export default (w: Window) => {
       `;
     }
 
-    @event('.deco-search', 'input')
+    @eventInput('.deco-search')
     @innerHtml('.deco-results')
     onDecoSearch(@matchedElement input: HTMLInputElement) {
       return decoratorResults(input.value);
     }
 
-    @event('[data-path]', 'click', { delegate: true })
+    @eventClickDelegate('[data-path]')
     onNavigate(e: any) {
       const path = e.target.closest('[data-path]')?.dataset?.path;
       if (path) this.router?.go(path);

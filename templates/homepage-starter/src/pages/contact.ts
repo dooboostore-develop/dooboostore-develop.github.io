@@ -1,4 +1,4 @@
-import { attribute, elementDefine, event, innerHtml, matchedElement, onConnectedBefore, onConnectedBodyLight } from '@dooboostore/simple-web-component';
+import { attribute, elementDefine, innerHtml, matchedElement, onConnectedBefore, onConnectedBodyLight, eventSubmit } from '@dooboostore/simple-web-component';
 
 export default (w: Window) => {
   const tag = 'contact-page';
@@ -29,7 +29,7 @@ export default (w: Window) => {
     }
 
     // 제출 → 결과 문구. 실제로 보내려면 여기서 폼 서비스(Formspree 등)나 내 API 로 fetch 하면 된다.
-    @event('form', 'submit', { preventDefault: true })
+    @eventSubmit('form', { preventDefault: true })
     @innerHtml('.result')
     onSubmit(@matchedElement form: HTMLFormElement) {
       const name = String(new FormData(form).get('name') ?? '');

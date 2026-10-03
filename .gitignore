@@ -1,3 +1,7 @@
 dist-ssr
 /.playwright-mcp/
 /.idea/
+/templates/homepage-starter/package-lock.json
+/templates/homepage-starter/node_modules/
+/templates/ssr-starter/node_modules/
+/templates/ssr-starter/package-lock.json

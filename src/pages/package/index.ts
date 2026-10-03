@@ -1,4 +1,4 @@
-import { attribute, elementDefine, event, innerHtmlLight, innerHtml, mutationObserver, onConnectedAfter, onConnectedBefore, onConnectedBodyShadow } from "@dooboostore/simple-web-component";
+import { attribute, elementDefine, innerHtmlLight, innerHtml, mutationObserver, onConnectedAfter, onConnectedBefore, onConnectedBodyShadow, eventClickDelegate } from "@dooboostore/simple-web-component";
 import { Inject } from '@dooboostore/simple-boot';
 import { Router } from '@dooboostore/core-web';
 import { createMarked, runMermaid } from '@/utils/markdown';
@@ -173,10 +173,10 @@ export default (w: Window) => {
       await runMermaid(this);
     }
 
-    @event('#go-back', 'click', { delegate: true })
+    @eventClickDelegate('#go-back')
     onBack() { this.router.go('/'); }
 
-    @event('#go-examples', 'click', { delegate: true })
+    @eventClickDelegate('#go-examples')
     onGoExamples() { this.router.go(`/package/${this.packageId}/examples`); }
   }
   return tagName;

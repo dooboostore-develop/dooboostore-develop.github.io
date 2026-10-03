@@ -1,5 +1,5 @@
 // 다국어 메시지 버스 타입 — AUTH_CHANGED(labelcatch) 같은 패턴.
-// 발행: AppBody 최초 1회 + 언어 전환 시 / 구독: @subscribeSwcAppMessage(LANG_CHANGED, { subject: 'behavior' })
+// 발행: AppBody 최초 1회 + 언어 전환 시 / 구독: @subscribeSwcAppMessageBehavior(LANG_CHANGED)
 export const LANG_CHANGED = 'showcase:lang-changed';
 
 export type Lang = 'en' | 'ko';

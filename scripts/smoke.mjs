@@ -54,11 +54,11 @@ await step('landing demos', async () => {
   await page.click('#click-btn');
   // 누수 테스트: 1,000개 붙였다 뗀 뒤 듣는 리스너·도는 타이머가 0 이어야 한다
   await page.click('#leak-btn');
-  await page.waitForFunction(() => !document.querySelector('app-home-page').shadowRoot.querySelector('#leak-btn').disabled, null, { timeout: 20000 });
-  const [mounted, answered, listening, ticking] = await page.locator('app-home-page .leak-stats .lv').allInnerTexts();
+  await page.waitForFunction(() => !document.querySelector('app-home-page').shadowRoot.querySelector('demo-leak').shadowRoot.querySelector('#leak-btn').disabled, null, { timeout: 20000 });
+  const [mounted, answered, listening, ticking] = await page.locator('demo-leak .leak-stats .lv').allInnerTexts();
   if (mounted !== '1,000' || answered !== '1,000' || listening !== '0' || ticking !== '0') throw new Error(`leak test: ${mounted}/${answered}/${listening}/${ticking}`);
   await page.click('.pick[data-name="lemon"]');
-  await page.fill('.echo-in', 'smoke');
+  await page.fill('demo-bus .text-in', 'smoke');
   await page.click('#chip-add');
   await page.click('#buy-btn');                       // filter 가 막는 길
   await page.check('.agree-box'); await page.click('#buy-btn'); await page.waitForTimeout(1200); // 끝까지 가는 길

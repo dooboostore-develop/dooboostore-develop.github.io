@@ -1,4 +1,4 @@
-import { elementDefine, event, innerHtmlLight, matchedElement, subscribeSwcAppRouteChange, swcAppRouteGo } from '@dooboostore/simple-web-component';
+import { elementDefine, innerHtmlLight, matchedElement, subscribeSwcAppRouteChange, swcAppRouteGo, eventClickDelegate } from '@dooboostore/simple-web-component';
 
 // 주소 → 페이지. 페이지를 추가하면 여기와 src/app.ts 의 ROUTES 에 한 줄씩.
 export default (w: Window) => {
@@ -20,7 +20,7 @@ export default (w: Window) => {
     contact() { return '<contact-page></contact-page>'; }
 
     // 페이지 본문 안의 내부 링크도 앱 안에서 이동
-    @event('a[href^="/"]', 'click', { delegate: true, preventDefault: true })
+    @eventClickDelegate('a[href^="/"]', { preventDefault: true })
     @swcAppRouteGo
     go(@matchedElement a: HTMLAnchorElement) {
       return a.getAttribute('href');

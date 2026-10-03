@@ -1,5 +1,5 @@
 // TEMP-TEST: 옵저버 4종(this/selector × mutation/resize) + mermaid 검증용. 검증 후 삭제/유지 결정.
-import { elementDefine, event, innerHtml, innerHtmlLight, mutationObserver, onConnectedBody, resizeObserver, subscribeSwcAppRouteChangeConnectedDone } from '@dooboostore/simple-web-component';
+import { elementDefine, innerHtml, innerHtmlLight, mutationObserver, onConnectedBody, resizeObserver, subscribeSwcAppRouteChangeConnectedDone, eventClick } from '@dooboostore/simple-web-component';
 import { createMarked, runMermaid } from '@/utils/markdown';
 
 // 콜백 로그용: 노드 → tag.class
@@ -112,7 +112,7 @@ export default (w: Window) => {
       this.log('#ro-sel-log', `selector #${this.roSelCount}: ${Math.round(r.width)}x${Math.round(r.height)} [${cls}]`);
     }
 
-    @event('#mo-add', 'click')
+    @eventClick('#mo-add')
     addMoItem() {
       const li = this.ownerDocument.createElement('li');
       li.className = 'mo-item';
@@ -120,14 +120,14 @@ export default (w: Window) => {
       this.querySelector('#mo-list')?.appendChild(li);
     }
 
-    @event('#mo-sel-add', 'click')
+    @eventClick('#mo-sel-add')
     addWatchedItem() {
       const d = this.ownerDocument.createElement('div');
       d.textContent = `w${Date.now() % 1000}`;
       this.querySelector('.watched')?.appendChild(d);
     }
 
-    @event('#ro-toggle', 'click')
+    @eventClick('#ro-toggle')
     toggleRoBox() {
       const box = this.querySelector('.ro-box') as HTMLElement | null;
       if (!box) return;

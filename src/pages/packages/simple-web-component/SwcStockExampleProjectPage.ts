@@ -1,4 +1,4 @@
-import { elementDefine, event, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, SwcAttributeConfigType } from "@dooboostore/simple-web-component";
+import { elementDefine, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, SwcAttributeConfigType, eventClick } from "@dooboostore/simple-web-component";
 import { Sim } from '@dooboostore/simple-boot';
 import {serviceFactories} from "@simple-web-component/examples/stock/src/services";
 import {componentFactories} from "@simple-web-component/examples/stock/src/components";
@@ -20,19 +20,19 @@ export default (w: Window) => {
       return path;
     }
 
-    @event('#back-btn', 'click')
+    @eventClick('#back-btn')
     onBackClick() {
       const app = this.querySelector('#sub-app') as any;
       app?.back?.();
     }
 
-    @event('#forward-btn', 'click')
+    @eventClick('#forward-btn')
     onForwardClick() {
       const app = this.querySelector('#sub-app') as any;
       app?.forward?.();
     }
 
-    @event('#reload-btn', 'click')
+    @eventClick('#reload-btn')
     onReloadClick() {
       const app = this.querySelector('#sub-app') as any;
       app?.reload?.();

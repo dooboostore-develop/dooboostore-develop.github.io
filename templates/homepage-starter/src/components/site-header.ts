@@ -1,4 +1,4 @@
-import { elementDefine, event, matchedElement, onConnectedBodyLight, subscribeSwcAppRouteChange, swcAppRouteGo, updateClass } from '@dooboostore/simple-web-component';
+import { elementDefine, matchedElement, onConnectedBodyLight, subscribeSwcAppRouteChange, swcAppRouteGo, updateClass, eventClickDelegate } from '@dooboostore/simple-web-component';
 
 export default (w: Window) => {
   const tag = 'site-header';
@@ -19,7 +19,7 @@ export default (w: Window) => {
     }
 
     // 클릭은 페이지를 새로 받지 않고 앱 안에서 이동 — 메서드는 갈 곳만 반환
-    @event('a[href^="/"]', 'click', { delegate: true, preventDefault: true })
+    @eventClickDelegate('a[href^="/"]', { preventDefault: true })
     @swcAppRouteGo
     go(@matchedElement a: HTMLAnchorElement) {
       return a.getAttribute('href');
