@@ -1,4 +1,4 @@
-import { elementDefine, eventWindow, emitCustomEvent, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, subscribeSwcAppMessageBehavior, appMessage, subscribeSwcAppRouteChange, updateClass, eventClick, eventClickDelegate } from "@dooboostore/simple-web-component";
+import { elementDefine, eventWindow, emitCustomEvent, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, subscribeSwcAppMessageBehavior, swcAppMessage, subscribeSwcAppRouteChange, updateClass, eventClick, eventClickDelegate } from "@dooboostore/simple-web-component";
 import type { SwcAppMessage } from "@dooboostore/simple-web-component";
 import type { RouterEventType } from "@dooboostore/core-web";
 import { LANG_CHANGED, type Lang } from "@/utils/lang";
@@ -159,14 +159,14 @@ export default (w: Window) => {
         // 현재 언어 표시 — behavior라 첫 로드 때 현재값 바로 반영
         @subscribeSwcAppMessageBehavior(LANG_CHANGED)
         @innerHtml('.lang-current')
-        renderLang(@appMessage msg: SwcAppMessage<Lang>) {
+        renderLang(@swcAppMessage msg: SwcAppMessage<Lang>) {
             return (msg?.data ?? 'en').toUpperCase();
         }
 
         // 펼침 메뉴 안 현재 언어 강조
         @subscribeSwcAppMessageBehavior(LANG_CHANGED)
         @updateClass('.lang-opt')
-        highlightLang(@appMessage msg: SwcAppMessage<Lang>) {
+        highlightLang(@swcAppMessage msg: SwcAppMessage<Lang>) {
             return { active: (el: HTMLElement) => el.dataset.lang === (msg?.data ?? 'en') };
         }
 

@@ -1,4 +1,4 @@
-import { appMessage, elementDefine, innerHtml, matchedElement, onConnectedBodyShadow, publishSwcAppMessage, subscribeSwcAppMessageBehavior, eventInput } from '@dooboostore/simple-web-component';
+import { swcAppMessage, elementDefine, innerHtml, matchedElement, onConnectedBodyShadow, publishSwcAppMessage, subscribeSwcAppMessageBehavior, eventInput } from '@dooboostore/simple-web-component';
 import type { SwcAppMessage } from '@dooboostore/simple-web-component';
 import { demoCard, esc, t, type DemoCopy } from './shared';
 
@@ -18,7 +18,7 @@ publish(@matchedElement input: HTMLInputElement) {
 // Behavior: late joiners get the last one
 @subscribeSwcAppMessageBehavior('home:echo')
 @innerHtml('.echo-out')
-show(@appMessage msg: SwcAppMessage<string>) {
+show(@swcAppMessage msg: SwcAppMessage<string>) {
   return msg.data || 'Waiting for a message…';
 }`,
 };
@@ -44,7 +44,7 @@ export default (w: Window) => {
 
     @subscribeSwcAppMessageBehavior(ECHO)
     @innerHtml('.echo-out')
-    show(@appMessage msg: SwcAppMessage<string>) {
+    show(@swcAppMessage msg: SwcAppMessage<string>) {
       return msg?.data ? esc(msg.data) : t('Waiting for a message…', '메시지 기다리는 중…');
     }
   }

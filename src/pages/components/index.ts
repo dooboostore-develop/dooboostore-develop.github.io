@@ -275,9 +275,11 @@ reload() { this.me = undefined; }   // forget → next read refetches`,
     title: { en: 'Signals are cheap.<br>Ship the data.', ko: '시그널은 싸다.<br>데이터를 실어 보내라.' },
     text: {
       en: `Publish by <b>returning a value</b>. Subscribe with a decorator or with RxJS-style <code>observeMessage()</code>.
-      Late subscribers replay the last message. Your header doesn't fetch the user after login — <b>it receives it.</b>`,
+      Late subscribers replay the last message. Your header doesn't fetch the user after login — <b>it receives it.</b>
+      Or just keep the latest one <b>in a field</b>.`,
       ko: `값을 <b>반환하면 발행</b>입니다. 데코레이터나 RxJS식 <code>observeMessage()</code>로 구독하세요.
-      늦게 온 구독자는 마지막 메시지를 재생합니다. 헤더는 로그인 뒤 유저를 fetch하지 않습니다 — <b>받아요.</b>`,
+      늦게 온 구독자는 마지막 메시지를 재생합니다. 헤더는 로그인 뒤 유저를 fetch하지 않습니다 — <b>받아요.</b>
+      아니면 최신 메시지를 <b>필드에</b> 그냥 두세요.`,
     },
     code: `
 @publishSwcAppMessage(AUTH_CHANGED)
@@ -286,21 +288,25 @@ publishMe(me: User) { return me; }  // return = message
 // Behavior: late joiners get the last one
 @subscribeSwcAppMessageBehavior(AUTH_CHANGED)
 @innerHtml('.user')
-renderUser(@appMessage msg: SwcAppMessage<User>) {
+renderUser(@swcAppMessage msg: SwcAppMessage<User>) {
   return msg.data?.name ?? 'Sign in';
-}`,
+}
+
+// or as a field — always the latest message
+@swcAppMessage(AUTH_CHANGED, { subject: 'behavior' })
+me?: SwcAppMessage<User>;`,
   },
   {
     kicker: { en: 'Routing', ko: '라우팅' },
     title: { en: 'No route table.<br>Elements subscribe to paths.', ko: '라우트 표가 없습니다.<br>엘리먼트가 경로를 구독해요.' },
     text: {
       en: `Any element can react to a path — the page draws itself, the menu highlights, the editor guards — each with one decorator,
-      and nothing to register centrally. <code>{id}</code> and query values arrive as <b>arguments by name</b>.
+      and nothing to register centrally. <code>{id}</code> and query values arrive as <b>arguments by name</b> — or straight into <b>fields</b>.
       Pick when to run: <code>enter</code>, <code>update</code>, <code>leave</code>, or <code>beforeLeave</code> to
       stop unsaved changes from being lost — browser Back included. To move, <b>return a path</b>.
       History or hash URLs, one option.`,
       ko: `어느 엘리먼트든 경로에 반응할 수 있어요 — 페이지는 스스로 그리고, 메뉴는 강조하고, 에디터는 지킵니다 — 각자 데코레이터 하나로,
-      한 곳에 등록할 것도 없이. <code>{id}</code>와 쿼리 값은 <b>이름으로 인자에</b> 들어옵니다.
+      한 곳에 등록할 것도 없이. <code>{id}</code>와 쿼리 값은 <b>이름으로 인자에</b> 들어옵니다 — <b>필드에</b> 바로 받아도 되고요.
       언제 돌지 고르세요: <code>enter</code>, <code>update</code>, <code>leave</code>, 그리고 저장 안 한 변경을 지키는
       <code>beforeLeave</code> — 브라우저 뒤로가기까지 막아요. 이동하려면 <b>경로를 반환</b>하면 끝.
       history 주소든 hash 주소든 옵션 하나.`,
@@ -328,7 +334,13 @@ guard() {
 @swcAppRouteGo           // return a path → go
 go(@matchedElement a: HTMLAnchorElement) {
   return a.getAttribute('href');
-}`,
+}
+
+// or as fields — filled on every route change
+@swcAppRoutePathVariable('id', { path: '/posts/{id}' })
+postId?: string;
+@swcAppRouteQueryParam('tab')
+tab?: string | null;`,
   },
   {
     kicker: { en: 'Pooled Observers', ko: '공유 옵저버' },
