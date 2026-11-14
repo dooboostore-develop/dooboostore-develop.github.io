@@ -61,6 +61,15 @@ const FOOTPRINT: BenchRow[] = [
   { label: ['Memory per parsed ~100 KB document', '~100 KB 문서 하나당 메모리'], values: [5026, 21947, 48979, 6963, 5719], lower: true, unit: 'KB' },
   { label: ['Install size (package only)', '설치 크기 (패키지만)'], values: [6.3, 3.2, 8.7, 0.9, 1.0], lower: true, unit: 'MB' },
 ];
+// 앞에 내세우는 차트 — dom-parser 가 1위인 지표만. 값은 위 표와 같은 RESULTS.md 수치
+type Lead = { title: [string, string]; headline: [string, string]; unit: [string, string]; lower?: boolean; values: number[] };
+const LEADS: Lead[] = [
+  { title: ['DOM mutation', 'DOM 변경'], headline: ['14x jsdom · 21x happy-dom', 'jsdom의 14배 · happy-dom의 21배'], unit: ['create + append 2,000 nodes, ops/sec', '노드 2,000개 생성 + 추가, 초당 횟수'], values: [639, 45.3, 29.8, 181, 208] },
+  { title: ['Memory', '메모리'], headline: ['¼ of jsdom · ⅒ of happy-dom', 'jsdom의 ¼ · happy-dom의 ⅒'], unit: ['MB per parsed ~100 KB document, lower is better', '~100 KB 문서 하나당 MB, 낮을수록 좋음'], lower: true, values: [4.9, 21.4, 47.8, 6.8, 5.6] },
+  { title: ['Large pages', '큰 페이지'], headline: ['4.2x jsdom · fastest of five', 'jsdom의 4.2배 · 다섯 중 1등'], unit: ['parse a 3 MB page, ops/sec', '3 MB 페이지 파싱, 초당 횟수'], values: [2.62, 0.63, 0.67, 1.53, 2.03] },
+  { title: ['Class queries', '클래스 쿼리'], headline: ['1.9x jsdom · 7.6x happy-dom', 'jsdom의 1.9배 · happy-dom의 7.6배'], unit: ["querySelectorAll('.item') on 147 KB, ops/sec", "147 KB에서 querySelectorAll('.item'), 초당 횟수"], values: [2007, 1067, 264, 993, 937] },
+];
+
 const STATS: Array<[string, string, string]> = [
   ['14x', 'faster DOM mutation than jsdom', 'jsdom보다 빠른 DOM 변경'],
   ['¼', 'the memory of jsdom per document', '문서 하나당 jsdom 대비 메모리'],
@@ -103,6 +112,21 @@ const benchRows = (rows: BenchRow[]) =>
         .join('')}</tr>`;
     })
     .join('');
+
+// 가로 막대 — 1위부터. dom-parser 만 강조색, 나머지는 회색 (회색은 배경 대비가 낮아 값 라벨을 늘 붙인다 — dataviz 검증)
+const leadChart = (l: Lead) => {
+  const rows = l.values.map((v, i) => ({ lib: LIBS[i], v })).sort((a, b) => (l.lower ? a.v - b.v : b.v - a.v));
+  const max = Math.max(...l.values);
+  return `<figure class="lead-chart">
+    <figcaption><span class="lead-title">${t(l.title[0], l.title[1])}</span><span class="lead-headline">${t(l.headline[0], l.headline[1])}</span></figcaption>
+    ${rows.map(r => `<div class="bar-row${r.lib === 'dom-parser' ? ' me' : ''}" title="${r.lib}: ${fmt(r.v)}">
+      <span class="bar-lib">${r.lib}</span>
+      <span class="bar-track"><span class="bar" style="width:${Math.max(1.5, (r.v / max) * 100).toFixed(1)}%"></span></span>
+      <span class="bar-val">${fmt(r.v)}</span>
+    </div>`).join('')}
+    <div class="lead-unit">${t(l.unit[0], l.unit[1])}</div>
+  </figure>`;
+};
 
 export default (w: Window) => {
   const tagName = 'app-dom-parser-page';
@@ -176,6 +200,19 @@ export default (w: Window) => {
         td small { color: #555; }
         td.best { color: #FFF; font-weight: 800; }
         th.dp, td.dp { background: rgba(255, 56, 92, 0.06); }
+        .leads { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .lead-chart { margin: 0; padding: 22px 22px 18px; border-radius: 16px; background: #0E0E0E; border: 1px solid #1F1F1F; min-width: 0; }
+        .lead-chart figcaption { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+        .lead-title { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #FF385C; }
+        .lead-headline { font-size: 22px; font-weight: 850; color: #FFF; letter-spacing: -0.6px; line-height: 1.25; }
+        .bar-row { display: grid; grid-template-columns: 84px 1fr 64px; align-items: center; gap: 10px; padding: 3px 0; }
+        .bar-lib { font-size: 12.5px; color: #999; white-space: nowrap; }
+        .bar-track { height: 12px; }
+        .bar { display: block; height: 100%; background: #4A4A4A; border-radius: 0 4px 4px 0; }
+        .bar-val { font-size: 12.5px; color: #999; text-align: right; font-variant-numeric: tabular-nums; }
+        .bar-row.me .bar { background: #FF385C; }
+        .bar-row.me .bar-lib, .bar-row.me .bar-val { color: #FFF; font-weight: 800; }
+        .lead-unit { margin-top: 12px; font-size: 12px; color: #666; }
         .note { margin: 8px 0 0; font-size: 13px; color: #666; line-height: 1.7; }
         .note a, .lead a { color: #FF6B86; }
         .lead { color: #999; font-size: 15px; line-height: 1.7; margin: -8px 0 18px; }
@@ -198,7 +235,7 @@ export default (w: Window) => {
           .hero { padding: 40px 22px 0; }
           .hero h1 { font-size: 32px; letter-spacing: -1px; }
           .wrap { padding: 10px 22px 40px; }
-          .files, .parity, .uses { grid-template-columns: 1fr; }
+          .files, .parity, .uses, .leads { grid-template-columns: 1fr; }
           .section-title p { font-size: 24px; }
           pre code { font-size: 12px; }
           .install { width: 100%; overflow-x: auto; white-space: nowrap; }
@@ -223,6 +260,13 @@ export default (w: Window) => {
         </div>
 
         <div class="section-title">
+          <h2>${t('Where it leads', '앞서는 곳')}</h2>
+          <p>${t('Fastest DOM mutation, least memory, fastest big pages.', '가장 빠른 DOM 변경, 가장 적은 메모리, 가장 빠른 큰 페이지.')}</p>
+        </div>
+        <div class="leads">${LEADS.map(leadChart).join('')}</div>
+        <p class="note">${t('Same run as the full table below — every row is there, including the ones where cheerio or linkedom win.', '아래 전체 표와 같은 측정입니다 — cheerio나 linkedom이 이기는 줄까지 전부 실려 있어요.')}</p>
+
+        <div class="section-title">
           <h2>${t('30 seconds', '30초')}</h2>
           <p>${t('The DOM API you already know.', '이미 아는 그 DOM API.')}</p>
         </div>
@@ -232,7 +276,7 @@ export default (w: Window) => {
         </div>
 
         <div class="section-title">
-          <h2>${t('Benchmarks', '벤치마크')}</h2>
+          <h2>${t('Every benchmark', '벤치마크 전체')}</h2>
           <p>${t('Including where we lose.', '지는 칸까지 그대로.')}</p>
         </div>
         <p class="lead">${t('Operations per second, higher is better — <b>bold</b> is the best of the row. Strong at mutation, large pages, memory and cold start; cheerio parses small pages faster and linkedom wins several queries.',
