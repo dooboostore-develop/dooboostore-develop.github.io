@@ -143,7 +143,8 @@ export default (w: Window) => {
           animation: nope-strike 0.5s 0.45s cubic-bezier(0.6, 0, 0.2, 1) forwards; }
         @keyframes nope-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
         @keyframes nope-strike { to { right: -4px; } }
-        .doors { max-width: 1200px; margin: 0 auto; padding: 60px 40px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .doors { max-width: 1200px; margin: 0 auto; padding: 60px 40px 100px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        @media (max-width: 1100px) { .doors { grid-template-columns: repeat(2, 1fr); } }
         .door { padding: 44px 34px; border-radius: 24px; background: #111; border: 1px solid #1A1A1A; cursor: pointer;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; gap: 16px; text-align: left; }
         .door:hover { background: #161616; border-color: #FF385C; transform: translateY(-4px); }
@@ -257,6 +258,13 @@ export default (w: Window) => {
           <h2>SSR</h2>
           <p lang="en">Server-side rendering that doesn't render twice, and RPC (calling server functions like local ones) by Symbol.</p>
           <p lang="ko">두 번 그리지 않는 SSR(서버 사이드 렌더링), 그리고 Symbol로 오가는 RPC(서버 함수를 내 함수처럼 부르기).</p>
+          <div class="go">${t('Enter', '들어가기')} <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+        <div class="door" data-path="/dom-parser">
+          <div class="icon"><i class="fa-solid fa-code"></i></div>
+          <h2>DOM Parser</h2>
+          <p lang="en">A DOM for Node — Web Components and Declarative Shadow DOM included. 14x faster mutation than jsdom.</p>
+          <p lang="ko">Node에서 쓰는 DOM — 웹 컴포넌트와 Declarative Shadow DOM까지. jsdom보다 14배 빠른 DOM 변경.</p>
           <div class="go">${t('Enter', '들어가기')} <i class="fa-solid fa-arrow-right"></i></div>
         </div>
         <div class="door" data-path="/ecosystem">

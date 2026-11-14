@@ -223,6 +223,12 @@ export const SERVER_META: PageMeta = {
   path: '/ssr',
 };
 
+export const DOM_PARSER_META: PageMeta = {
+  title: '@dooboostore/dom-parser — A DOM for Node, Web Components included',
+  description: 'Parse, query, mutate and serialize HTML on the server with the standard DOM API: custom elements, Declarative Shadow DOM, MutationObserver. Benchmarks vs jsdom, happy-dom, linkedom and cheerio.',
+  path: '/dom-parser',
+};
+
 export const packageMeta = (id: string): PageMeta => {
   const p = findPackage(id);
   return {

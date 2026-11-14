@@ -86,13 +86,26 @@ export default (w: Window) => {
                 app-header .lang-opt:hover { color: #FFF; background: rgba(255, 255, 255, 0.06); }
                 app-header .lang-opt.active { color: #FFF; }
 
-                @media (max-width: 768px) {
-                    app-header .nav { padding: 0 20px; }
-                    app-header .logo-text { display: none; }
-                    app-header .links { gap: 24px; }
+                /* 메뉴 5개: 글자 메뉴는 1025px 이상에서만 들어간다 — 그 아래는 아이콘만 */
+                @media (max-width: 1024px) {
+                    app-header .links { gap: 28px; }
                     app-header .links span { font-size: 0; }
                     app-header .links i { font-size: 22px; margin-right: 0; }
+                }
+                @media (max-width: 768px) {
+                    app-header .nav { padding: 0 16px; }
+                    app-header .logo-text { display: none; }
+                    app-header .links { gap: 18px; }
                     app-header .lang { margin-right: 0; }
+                }
+                @media (max-width: 380px) {
+                    app-header .links { gap: 12px; }
+                    app-header .links i { font-size: 19px; }
+                    app-header .logo-img { height: 34px; }
+                    app-header .dev { margin-right: 8px; }
+                    app-header .cta, app-header .lang-current { width: auto; min-width: 38px; height: 38px; }
+                    app-header .cta i { font-size: 20px; }
+                    app-header .lang-current { padding: 8px 9px; }
                 }
             </style>
             <div class="nav">
@@ -106,6 +119,7 @@ export default (w: Window) => {
                     <span data-path="/start"><i class="fa-solid fa-rocket"></i>Start</span>
                     <span data-path="/components"><i class="fa-solid fa-box"></i>Components</span>
                     <span data-path="/ssr"><i class="fa-solid fa-bolt"></i>SSR</span>
+                    <span data-path="/dom-parser"><i class="fa-solid fa-code"></i>DOM Parser</span>
                     <span data-path="/ecosystem"><i class="fa-solid fa-layer-group"></i>Ecosystem</span>
                 </div>
                 <div class="actions">

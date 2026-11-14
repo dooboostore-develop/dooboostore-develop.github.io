@@ -15,7 +15,7 @@ const DIST = path.resolve(process.cwd(), 'dist');
 
 // ponytail: examples 하위(/package/simple-web-component/examples...)는 굽지 않는다.
 // package/simple-web-component.html 과 같은 이름의 디렉터리가 생기면 GitHub Pages 가 디렉터리로 리다이렉트할 수 있어서. 404.html 폴백으로 동작.
-const ROUTES = ['/', '/start', '/components', '/ssr', '/ecosystem', ...ALL_PACKAGES.map(p => `/package/${p.id}`)];
+const ROUTES = ['/', '/start', '/components', '/ssr', '/dom-parser', '/ecosystem', ...ALL_PACKAGES.map(p => `/package/${p.id}`)];
 
 const GLOBALS = ['Event', 'CustomEvent', 'Node', 'NodeFilter', 'Element', 'HTMLElement', 'HTMLMetaElement', 'Document', 'DocumentFragment', 'FormData', 'HTMLCanvasElement'];
 

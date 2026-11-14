@@ -6,6 +6,7 @@ import HomePageFactory from './home';
 import StartPageFactory from './start';
 import PackageDetailPageFactory from './package';
 import EcosystemPageFactory from './ecosystem';
+import DomParserPageFactory from './dom-parser';
 import ServerPageFactory from './ssr';
 import TestMermaidPageFactory from './test-mermaid'; // 개발 전용 (아래 DEV 참고)
 import {simpleWebComponentFactories} from "@/pages/packages/simple-web-component";
@@ -20,7 +21,7 @@ export const rootRouterFactory = (w: Window) => {
   const existing = w.customElements.get(tagName);
   if (existing) return tagName;
 
-  const routePaths = ['/', '/start', '/components', '/ssr', '/ecosystem', '/package/{id}', '/package/simple-web-component/examples{tail:.*}'];
+  const routePaths = ['/', '/start', '/components', '/ssr', '/dom-parser', '/ecosystem', '/package/{id}', '/package/simple-web-component/examples{tail:.*}'];
 
   @elementDefine(tagName, {window: w})
   class RootRouter extends w.HTMLElement {
@@ -54,6 +55,12 @@ export const rootRouterFactory = (w: Window) => {
     @innerHtmlLight
     serverPage(router: RouterEventType) {
       return `<app-server-page/>`
+    }
+
+    @subscribeSwcAppRouteChange(['/dom-parser'])
+    @innerHtmlLight
+    domParserPage() {
+      return `<app-dom-parser-page/>`
     }
 
     @subscribeSwcAppRouteChange(['/ecosystem'])
@@ -186,6 +193,7 @@ export const pageFactories = [
   ComponentsPageFactory,
   PackageDetailPageFactory,
   EcosystemPageFactory,
+  DomParserPageFactory,
   ServerPageFactory,
   ...(DEV ? [TestMermaidPageFactory] : []),
   ...simpleWebComponentFactories
