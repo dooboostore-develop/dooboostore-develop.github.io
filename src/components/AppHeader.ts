@@ -1,4 +1,4 @@
-import { elementDefine, eventWindow, emitCustomEvent, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, subscribeSwcAppMessageBehavior, swcAppMessage, subscribeSwcAppRouteChange, updateClass, eventClick, eventClickDelegate } from "@dooboostore/simple-web-component";
+import { elementDefine, eventWindow, emitCustomEvent, innerHtml, onConnectedBody, onConnectedBodyShadow, onConnectedSwcApp, onInitialize, SwcAppInterface, subscribeSwcAppMessage, swcAppMessage, subscribeSwcAppRouteChange, updateClass, eventClick, eventClickDelegate } from "@dooboostore/simple-web-component";
 import type { SwcAppMessage } from "@dooboostore/simple-web-component";
 import type { RouterEventType } from "@dooboostore/core-web";
 import { LANG_CHANGED, type Lang } from "@/utils/lang";
@@ -170,15 +170,17 @@ export default (w: Window) => {
             this.querySelectorAll('.dev.open, .lang.open').forEach(el => el.classList.remove('open'));
         }
 
-        // 현재 언어 표시 — behavior라 첫 로드 때 현재값 바로 반영
-        @subscribeSwcAppMessageBehavior(LANG_CHANGED)
+        // 현재 언어 표시 — behavior: 늦게 붙어도 마지막 언어를 받음.
+        // trigger 'connectedDone': 재생을 메뉴 렌더(@onConnectedBody) 뒤로 — 기본('connected')은 렌더 전이라
+        // .lang-current 가 아직 없어 버려지고, 새로고침하면 저장된 언어와 달리 버튼이 템플릿 기본값 EN 으로 남았다
+        @subscribeSwcAppMessage(LANG_CHANGED, { subject: 'behavior', trigger: 'connectedDone' })
         @innerHtml('.lang-current')
         renderLang(@swcAppMessage msg: SwcAppMessage<Lang>) {
             return (msg?.data ?? 'en').toUpperCase();
         }
 
         // 펼침 메뉴 안 현재 언어 강조
-        @subscribeSwcAppMessageBehavior(LANG_CHANGED)
+        @subscribeSwcAppMessage(LANG_CHANGED, { subject: 'behavior', trigger: 'connectedDone' })
         @updateClass('.lang-opt')
         highlightLang(@swcAppMessage msg: SwcAppMessage<Lang>) {
             return { active: (el: HTMLElement) => el.dataset.lang === (msg?.data ?? 'en') };

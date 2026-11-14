@@ -285,8 +285,8 @@ reload() { this.me = undefined; }   // forget → next read refetches`,
 @publishSwcAppMessage(AUTH_CHANGED)
 publishMe(me: User) { return me; }  // return = message
 
-// Behavior: late joiners get the last one
-@subscribeSwcAppMessageBehavior(AUTH_CHANGED)
+// Behavior: late joiners get the last one — after render, so .user exists
+@subscribeSwcAppMessage(AUTH_CHANGED, { subject: 'behavior', trigger: 'connectedDone' })
 @innerHtml('.user')
 renderUser(@swcAppMessage msg: SwcAppMessage<User>) {
   return msg.data?.name ?? 'Sign in';

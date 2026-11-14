@@ -1,4 +1,4 @@
-import { swcAppMessage, elementDefine, innerHtml, matchedElement, onConnectedBodyShadow, publishSwcAppMessage, subscribeSwcAppMessageBehavior, eventInput } from '@dooboostore/simple-web-component';
+import { swcAppMessage, elementDefine, innerHtml, matchedElement, onConnectedBodyShadow, publishSwcAppMessage, subscribeSwcAppMessage, eventInput } from '@dooboostore/simple-web-component';
 import type { SwcAppMessage } from '@dooboostore/simple-web-component';
 import { demoCard, esc, t, type DemoCopy } from './shared';
 
@@ -15,8 +15,8 @@ publish(@matchedElement input: HTMLInputElement) {
   return input.value;
 }
 
-// Behavior: late joiners get the last one
-@subscribeSwcAppMessageBehavior('home:echo')
+// Behavior: late joiners get the last one — after render, so .echo-out exists
+@subscribeSwcAppMessage('home:echo', { subject: 'behavior', trigger: 'connectedDone' })
 @innerHtml('.echo-out')
 show(@swcAppMessage msg: SwcAppMessage<string>) {
   return msg.data || 'Waiting for a message…';
@@ -42,7 +42,7 @@ export default (w: Window) => {
       return input.value;
     }
 
-    @subscribeSwcAppMessageBehavior(ECHO)
+    @subscribeSwcAppMessage(ECHO, { subject: 'behavior', trigger: 'connectedDone' })
     @innerHtml('.echo-out')
     show(@swcAppMessage msg: SwcAppMessage<string>) {
       return msg?.data ? esc(msg.data) : t('Waiting for a message…', '메시지 기다리는 중…');
