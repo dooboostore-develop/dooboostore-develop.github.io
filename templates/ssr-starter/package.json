@@ -12,8 +12,8 @@
   "dependencies": {
     "@dooboostore/simple-web-component": "^1.0.56",
     "@dooboostore/simple-boot": "^1.0.60",
-    "@dooboostore/simple-boot-http-server": "^1.0.40",
-    "@dooboostore/simple-boot-http-server-ssr": "^1.0.22",
+    "@dooboostore/simple-boot-http-server": "^1.0.41",
+    "@dooboostore/simple-boot-http-server-ssr": "^1.0.23",
     "reflect-metadata": "^0.2.2",
     "tsx": "^4.20.0"
   },

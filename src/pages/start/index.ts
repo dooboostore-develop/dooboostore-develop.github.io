@@ -101,6 +101,7 @@ document.querySelector<any>('#app').connect({
 ];
 
 // 에디터 지원 — 패키지에 들어 있는 swc-lsp (packages/@dooboostore/simple-web-component/lsp). 자세한 건 lsp/README.md
+const VSCODE_VSIX_URL = 'https://github.com/dooboostore-develop/packages/releases/tag/swc-lsp-vscode-v0.1.0';
 const LSP_README_URL = 'https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/simple-web-component/lsp';
 const EDITOR_FEATURES: Array<[string, string]> = [
   ['Tag, attribute, <code>@state@</code> and <code>$host.</code> completion inside templates', '템플릿 안에서 태그·속성·<code>@state@</code>·<code>$host.</code> 자동완성'],
@@ -123,13 +124,12 @@ $(which node)
   },
   {
     icon: 'fa-solid fa-code', name: 'VS Code',
-    note: ['Everything works, plus SWC syntax coloring. VS Code needs a small extension for that; until it is published, run it from the repository:',
-      '전부 되고, SWC 문법 색칠까지 붙어요. VS Code는 작은 확장이 필요한데, 배포 전까지는 저장소에서 바로 띄우세요:'],
+    note: [`Everything works, plus SWC syntax coloring. Install the extension from <a href="${VSCODE_VSIX_URL}" target="_blank" rel="noopener" style="color:#FF6B86">GitHub Releases</a> — it starts the server inside your project's <code>@dooboostore/simple-web-component</code>, so the two always match.`,
+      `전부 되고, SWC 문법 색칠까지 붙어요. 확장은 <a href="${VSCODE_VSIX_URL}" target="_blank" rel="noopener" style="color:#FF6B86">GitHub Releases</a>에서 받으세요 — 프로젝트의 <code>@dooboostore/simple-web-component</code> 안에 든 서버를 띄우니 버전이 늘 맞아요.`],
     file: 'terminal', lang: 'bash',
-    code: `git clone https://github.com/dooboostore-develop/packages.git
-cd packages && pnpm install
-cd @dooboostore/simple-web-component/lsp && pnpm build
-code --extensionDevelopmentPath="$PWD" /path/to/your/project`,
+    code: `# download simple-web-component-lsp-0.1.0.vsix, then
+code --install-extension simple-web-component-lsp-0.1.0.vsix
+# or: Extensions panel → ··· → Install from VSIX…`,
   },
   {
     icon: 'fa-solid fa-terminal', name: 'Neovim 0.11+',
