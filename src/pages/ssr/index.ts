@@ -39,8 +39,8 @@ const BROWSER_STEPS: Array<[string, string]> = [
    'HTML 파서가 DOM을 만들고 <code>&lt;template shadowrootmode&gt;</code>로 섀도우 루트까지 붙입니다 — <b>자바스크립트 전에</b> 화면이 다 그려져요.'],
   ['Your bundle calls <code>customElements.define()</code>; the existing elements upgrade in place.',
    '번들이 <code>customElements.define()</code>을 부르면 이미 있는 엘리먼트가 그 자리에서 업그레이드됩니다.'],
-  ['<code>connectedCallback</code> sees <code>swc-use-ssr</code>: it <b>skips the <code>@onConnected*</code> render</b>, keeps the DOM and reuses the id.',
-   '<code>connectedCallback</code>이 <code>swc-use-ssr</code>를 보면 <b><code>@onConnected*</code> 렌더를 건너뛰고</b> DOM과 id를 그대로 씁니다.'],
+  ['<code>connectedCallback</code> sees <code>swc-use-ssr</code>: it <b>skips the <code>@onConnected</code> / <code>@onConnectedBody*</code> render</b>, keeps the DOM and reuses the id (<code>@onConnectedBefore</code> / <code>@onConnectedAfter</code> still run).',
+   '<code>connectedCallback</code>이 <code>swc-use-ssr</code>를 보면 <b><code>@onConnected</code> / <code>@onConnectedBody*</code> 렌더를 건너뛰고</b> DOM과 id를 그대로 씁니다 (<code>@onConnectedBefore</code> / <code>@onConnectedAfter</code>는 그대로 실행).'],
   ['Only behavior is wired — <code>@event</code>, observers, message and route subscriptions, timers. Then the mark is removed, so later reconnects render normally.',
    '행위만 붙습니다 — <code>@event</code>, 옵저버, 메시지·라우트 구독, 타이머. 그리고 표시를 지워서 이후 재연결은 평소대로 렌더해요.'],
 ];
@@ -60,9 +60,8 @@ const PROPERTY_CODE = `
 @property                 // a hydration target
 declare me: User | null;  // declare: no initializer
 
-override async onSwcAppConnected(
-  @inject(AuthService.SYMBOL) auth: AuthService,
-) {
+@onConnectedAfter
+async load(@inject(AuthService.SYMBOL) auth: AuthService) {
   this.me ??= await auth.me();  // already here → skipped
 }`;
 
@@ -103,7 +102,8 @@ export namespace AuthService {
   { cls: 'front', path: 'front/auth.front.ts', role: ['browser — a proxy, one line', '브라우저 — 프록시, 한 줄'], code: `
 @Sim({
   symbol: AuthService.SYMBOL,
-  proxy: intentProxy,   // the HTTP bridge
+  container,
+  proxy: SymbolIntentApiServiceProxy({ container }),   // the HTTP bridge
 })
 class AuthFront implements AuthService {
   me(send) { return send(); }

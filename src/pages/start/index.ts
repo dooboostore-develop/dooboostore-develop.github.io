@@ -5,6 +5,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
 import json from 'highlight.js/lib/languages/json';
 import bash from 'highlight.js/lib/languages/bash';
+import lua from 'highlight.js/lib/languages/lua';
 import { GlobalStyle } from '@/styles/GlobalStyle';
 import { START_META, SITE_URL, GITHUB_URL } from '@/data/packages';
 
@@ -12,6 +13,7 @@ hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('xml', xml);
 hljs.registerLanguage('json', json);
 hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('lua', lua);
 const hl = (lang: string, code: string) => hljs.highlight(code.trim(), { language: lang }).value;
 const t = (en: string, ko: string) => `<span lang="en">${en}</span><span lang="ko">${ko}</span>`;
 
@@ -42,7 +44,7 @@ const STEPS: Step[] = [
     title: ['Write a component', '컴포넌트 하나'],
     note: ['The method returns; the decorators decide where it goes. That\'s the whole idea.', '메서드는 반환만, 둘 곳은 데코레이터가. 이게 전부예요.'],
     file: 'hello-card.ts', lang: 'typescript',
-    code: `import { elementDefine, onConnectedBodyShadow, event, innerHtml }
+    code: `import { elementDefine, onConnectedBodyShadow, eventClick, innerHtml }
   from '@dooboostore/simple-web-component';
 
 export default (w: Window) => {
@@ -95,6 +97,51 @@ document.querySelector<any>('#app').connect({
   container: Symbol('app'),
   onStartedLazyDefineComponent: [helloCard],
 });`,
+  },
+];
+
+// 에디터 지원 — 패키지에 들어 있는 swc-lsp (packages/@dooboostore/simple-web-component/lsp). 자세한 건 lsp/README.md
+const LSP_README_URL = 'https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/simple-web-component/lsp';
+const EDITOR_FEATURES: Array<[string, string]> = [
+  ['Tag, attribute, <code>@state@</code> and <code>$host.</code> completion inside templates', '템플릿 안에서 태그·속성·<code>@state@</code>·<code>$host.</code> 자동완성'],
+  ['Hover, go to definition and parameter hints — <code>$host</code> is typed as your component', 'hover·정의 이동·파라미터 정보 — <code>$host</code>는 그 컴포넌트 타입'],
+  ['Type errors inside <code>swc-on-*</code>, <code>{{= }}</code> and <code>@x@</code> — <code>$host.tt(4)</code> when <code>tt</code> takes a string', '<code>swc-on-*</code>·<code>{{= }}</code>·<code>@x@</code> 안의 타입 에러 — <code>tt</code>가 string을 받는데 <code>$host.tt(4)</code>라면 빨간 줄'],
+  ['Comes with the package — no extra install, always the same version as the library', '패키지에 들어 있어요 — 따로 설치할 것 없고, 라이브러리와 버전이 늘 같아요'],
+];
+const EDITORS: Array<{ icon: string; name: string; note: [string, string]; file: string; lang: string; code: string }> = [
+  {
+    icon: 'fa-solid fa-lightbulb', name: 'IntelliJ IDEA / WebStorm',
+    note: ['<b>Settings → Languages & Frameworks → Language Servers → +</b>, channel <code>stdio</code>. Completion, hover and errors work. Cmd+Click and parameter hints inside templates don\'t yet — IntelliJ treats template HTML as injected HTML and its LSP client doesn\'t navigate there.',
+      '<b>Settings → Languages & Frameworks → Language Servers → +</b>, 채널 <code>stdio</code>. 자동완성·hover·에러는 됩니다. 템플릿 안 Cmd+클릭·파라미터 정보는 아직 안 돼요 — IntelliJ가 템플릿 HTML을 주입(injected) HTML로 다뤄서, 내장 LSP 클라이언트가 그 안에선 이동하지 않아요.'],
+    file: 'Language Servers', lang: 'bash',
+    code: `# Executable path  (absolute — the IDE often doesn't see your shell PATH)
+$(which node)
+# Arguments
+<project>/node_modules/@dooboostore/simple-web-component/lsp/bin/swc-lsp.js --stdio
+# File name patterns
+*.ts  *.html`,
+  },
+  {
+    icon: 'fa-solid fa-code', name: 'VS Code',
+    note: ['Everything works, plus SWC syntax coloring. VS Code needs a small extension for that; until it is published, run it from the repository:',
+      '전부 되고, SWC 문법 색칠까지 붙어요. VS Code는 작은 확장이 필요한데, 배포 전까지는 저장소에서 바로 띄우세요:'],
+    file: 'terminal', lang: 'bash',
+    code: `git clone https://github.com/dooboostore-develop/packages.git
+cd packages && pnpm install
+cd @dooboostore/simple-web-component/lsp && pnpm build
+code --extensionDevelopmentPath="$PWD" /path/to/your/project`,
+  },
+  {
+    icon: 'fa-solid fa-terminal', name: 'Neovim 0.11+',
+    note: ['Runs next to <code>ts_ls</code>. Any other LSP client works the same way: <code>npx swc-lsp --stdio</code> from the project root.',
+      '<code>ts_ls</code>와 같이 돌아요. 다른 LSP 클라이언트도 똑같아요: 프로젝트 루트에서 <code>npx swc-lsp --stdio</code>.'],
+    file: 'init.lua', lang: 'lua',
+    code: `vim.lsp.config('swc', {
+  cmd = { 'npx', 'swc-lsp', '--stdio' },
+  filetypes = { 'typescript', 'javascript', 'html' },
+  root_markers = { 'tsconfig.json', 'package.json', '.git' },
+})
+vim.lsp.enable('swc')`,
   },
 ];
 
@@ -274,12 +321,16 @@ export default (w: Window) => {
         td.win .ck { color: #FF385C; }
         td.lose { color: #888; }
         .table-note { margin: 12px 0 0; font-size: 13px; color: #666; }
+        .editor-features { list-style: none; margin: 0 0 8px; padding: 22px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; border-radius: 16px; background: #0E0E0E; border: 1px solid #1F1F1F; }
+        .editor-features li { display: flex; gap: 10px; align-items: baseline; color: #CCC; font-size: 14.5px; line-height: 1.55; }
+        .editor-features li i { color: #FF385C; }
+        .no i { font-size: 15px; }
         @media (max-width: 768px) {
           .hero { padding: 40px 22px 0; }
           .hero h1 { font-size: 32px; letter-spacing: -1px; }
           .wrap { padding: 20px 22px 40px; }
           .step { grid-template-columns: 1fr; gap: 10px; }
-          .starter, .fit { grid-template-columns: 1fr; }
+          .starter, .fit, .editor-features { grid-template-columns: 1fr; }
           .starter { padding: 22px 18px; }
           .section-title p { font-size: 24px; }
           pre code { font-size: 12px; }
@@ -328,6 +379,23 @@ export default (w: Window) => {
             <span class="btn" data-path="/ssr"><i class="fa-solid fa-bolt"></i> ${t('Add SSR', 'SSR 붙이기')}</span>
           </div>
         </div>
+
+        <div class="section-title" id="editor">
+          <h2>${t('Editor support', '에디터 지원')}</h2>
+          <p>${t('Your templates are strings — the editor still knows them.', '템플릿은 문자열이지만, 에디터는 알아봐요.')}</p>
+        </div>
+        <ul class="editor-features">${EDITOR_FEATURES.map(([en, ko]) => `<li><i class="fa-solid fa-check"></i>${t(en, ko)}</li>`).join('')}</ul>
+        ${EDITORS.map(e => `
+          <div class="step">
+            <div class="no"><i class="${e.icon}"></i></div>
+            <div>
+              <h2>${e.name}</h2>
+              <p>${t(e.note[0], e.note[1])}</p>
+              <div class="file"><div class="file-head">${e.file}</div><pre><code class="hljs language-${e.lang}">${hl(e.lang, e.code)}</code></pre></div>
+            </div>
+          </div>`).join('')}
+        <p class="table-note">${t(`Shortcuts, troubleshooting and what each feature covers: <a href="${LSP_README_URL}" target="_blank" rel="noopener" style="color:#FF6B86">lsp/README.md</a>.`,
+          `단축키·문제 해결·기능별 범위: <a href="${LSP_README_URL}" target="_blank" rel="noopener" style="color:#FF6B86">lsp/README.md</a>.`)}</p>
 
         <div class="section-title">
           <h2>FAQ</h2>

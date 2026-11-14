@@ -21,12 +21,12 @@ const npmTable = (rows: NpmRow[] | null) => {
     </div>`).join('')}</div>`;
 };
 
-// 수치는 2026-10-03 각 패키지 package.json / src 기준. 패키지가 바뀌면 같이 갱신할 것.
+// 수치는 2026-11-14 각 패키지 package.json / src 기준. 패키지가 바뀌면 같이 갱신할 것.
 const FACTS = [
   { value: '14', label: { en: 'packages, one philosophy', ko: '패키지, 하나의 철학' } },
   { value: '11/14', label: { en: 'with zero third-party runtime dependencies', ko: '서드파티 런타임 의존성 0인 패키지' } },
   { value: '1', label: { en: 'DI (dependency injection) container — browser and server', ko: 'DI(의존성 주입) 컨테이너 — 브라우저와 서버' } },
-  { value: '85k', label: { en: 'lines of TypeScript, no framework underneath', ko: '줄의 TypeScript, 밑에 프레임워크 없음' } },
+  { value: '90k', label: { en: 'lines of TypeScript, no framework underneath', ko: '줄의 TypeScript, 밑에 프레임워크 없음' } },
 ];
 
 // "뭘 만들고 싶나" → 어떤 패키지. 첫 번째가 시작점, 나머지는 같이 딸려오는 것.
@@ -51,7 +51,7 @@ const PATHS: Array<{ need: [string, string]; how: [string, string]; pkgs: string
     pkgs: ['simple-web-component-library', 'algorithm'] },
 ];
 
-// 패키지 계층도: 각 package.json 의 @dooboostore 의존성에서 transitive reduction 만 남긴 간선 (2026-10-03 기준).
+// 패키지 계층도: 각 package.json 의 @dooboostore 의존성에서 transitive reduction 만 남긴 간선 (2026-11-14 기준).
 // 화살표는 "아래 패키지가 위 패키지 위에 지어짐" 방향. 패키지 의존성이 바뀌면 여기도 갱신할 것.
 const STACK_EDGES: Array<[string, string]> = [
   ['core', 'core-web'], ['core', 'core-node'], ['core', 'simple-boot'], ['core', 'dom-parser'], ['core', 'algorithm'],
@@ -234,8 +234,8 @@ export default (w: Window) => {
 
       <div class="hero">
         <h1><span lang="en">Ecosystem</span><span lang="ko">생태계</span></h1>
-        <p lang="en">Fourteen packages, about 85,000 lines of TypeScript — written from scratch, no framework underneath.</p>
-        <p lang="ko">패키지 열네 개, TypeScript 약 85,000줄 — 밑바닥부터, 아래에 다른 프레임워크 없이.</p>
+        <p lang="en">Fourteen packages, about 90,000 lines of TypeScript — written from scratch, no framework underneath.</p>
+        <p lang="ko">패키지 열네 개, TypeScript 약 90,000줄 — 밑바닥부터, 아래에 다른 프레임워크 없이.</p>
       </div>
 
       <div class="facts">

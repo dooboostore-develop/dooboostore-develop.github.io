@@ -30,16 +30,16 @@ const NOPES = [
   'useState() / useEffect()',     // 메서드는 값을 반환할 뿐
 ];
 
-// 신뢰 표시줄 — 전부 확인 가능한 사실 (2026-10-03 기준 수치는 주석의 출처에서)
+// 신뢰 표시줄 — 전부 확인 가능한 사실 (2026-11-14 기준 수치는 주석의 출처에서)
 const NPM_URL = `https://www.npmjs.com/package/${swcPkg.name}`;
 const TRUST: Array<{ v: string; l: [string, string]; href?: string }> = [
   { v: `v${swcPkg.version}`, l: [`on npm · ${swcPkg.license}`, `npm 배포 · ${swcPkg.license}`], href: NPM_URL },
   // simple-web-component test/unit — Playwright 로 실제 Chromium 에서 실행
-  { v: '170+', l: ['real-browser tests — Chromium, no jsdom', '실브라우저 테스트 — Chromium, jsdom 없음'], href: `${GITHUB_URL}/tree/main/@dooboostore/simple-web-component/test/unit` },
+  { v: '200+', l: ['real-browser tests — Chromium, no jsdom', '실브라우저 테스트 — Chromium, jsdom 없음'], href: `${GITHUB_URL}/tree/main/@dooboostore/simple-web-component/test/unit` },
   // 각 package.json dependencies 기준
   { v: '11 / 14', l: ['packages with zero third-party runtime deps', '서드파티 런타임 의존성 0인 패키지'] },
   // packages/@dooboostore/*/src 의 .ts 줄 수
-  { v: '85k', l: ['lines of TypeScript, written from scratch', '줄의 TypeScript, 밑바닥부터'] },
+  { v: '90k', l: ['lines of TypeScript, written from scratch', '줄의 TypeScript, 밑바닥부터'] },
 ];
 
 // "일부러 초기" — 작다는 걸 숨기지 않고, 목표는 목표라고 밝힌다

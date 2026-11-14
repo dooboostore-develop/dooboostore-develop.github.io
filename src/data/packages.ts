@@ -36,12 +36,14 @@ export const PACKAGE_CATEGORIES: PackageCategory[] = [
           'Same `filter → before → handler → finally` hooks on events, observers, media queries, attributes, timers, routes and messages',
           'App message bus with payloads, replay (`behavior` / `replay`) and RxJS-style `observeMessage()`',
           'SSR-aware: server-rendered elements keep their DOM and skip re-rendering on the client',
+          'Editor support built in (`swc-lsp`): completion, go to definition and type errors inside templates — `$host` is typed as your component',
         ],
         highlightsKo: [
           '메서드 본문은 평범한 값을 반환 — `@innerHtml`, `@attribute`, `@publishSwcAppMessage`가 둘 곳을 정함',
           '이벤트, 옵저버, 미디어쿼리, 속성, 타이머, 라우트, 메시지에 동일한 `filter → before → handler → finally` 훅',
           '페이로드·재생(`behavior`/`replay`)·RxJS식 `observeMessage()`를 갖춘 앱 메시지 버스',
           'SSR 대응: 서버 렌더된 엘리먼트는 DOM을 유지하고 클라이언트에서 다시 그리지 않음',
+          '에디터 지원 내장(`swc-lsp`): 템플릿 안 자동완성·정의 이동·타입 에러 — `$host`는 그 컴포넌트 타입',
         ],
       },
       {
@@ -105,9 +107,9 @@ export const PACKAGE_CATEGORIES: PackageCategory[] = [
       {
         id: 'dom-parser',
         icon: 'fa-code',
-        tagline: 'A zero-dependency DOM for Node — enough to run real web components on the server.',
-        taglineKo: 'Node용 무의존성 DOM — 서버에서 진짜 웹 컴포넌트를 돌리기에 충분.',
-        description: 'Window, Document, 70+ HTML elements, CustomElementRegistry and Declarative Shadow DOM serialization, with no dependencies. Powers browserless SSR.',
+        tagline: 'A DOM for Node with zero third-party dependencies — enough to run real web components on the server.',
+        taglineKo: '서드파티 의존성 없는 Node용 DOM — 서버에서 진짜 웹 컴포넌트를 돌리기에 충분.',
+        description: 'Window, Document, 70+ HTML elements, CustomElementRegistry and Declarative Shadow DOM serialization, with no third-party dependencies. Powers browserless SSR.',
       },
       {
         id: 'dom-render',
