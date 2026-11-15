@@ -24,6 +24,15 @@ const { document } = window;
 document.querySelectorAll('li.item').length;   // 2
 document.querySelector('ul').innerHTML = '<li>c</li>';`;
 
+// 1.0.31 의 bin/dom-parser.js — 브라우저 콘솔처럼 document·location·$·$$
+const QUICK_CLI = `
+npx @dooboostore/dom-parser https://example.com "document.title"
+# Example Domain
+
+npx @dooboostore/dom-parser ./page.html "el = $('#x'); console.log(el.getAttribute('vv'))"
+npx @dooboostore/dom-parser https://example.com "$$('a').map(a => a.getAttribute('href'))" --json
+curl -s https://example.com | npx @dooboostore/dom-parser - "$('h1').textContent"`;
+
 const QUICK_COMPONENT = `
 // a real custom element, rendered on the server
 window.customElements.define('hello-card', class extends window.HTMLElement {
@@ -273,6 +282,7 @@ export default (w: Window) => {
         <div class="files">
           <div class="file"><div class="file-head">parse.ts</div><pre><code class="hljs language-typescript">${hl('typescript', QUICK_PARSE)}</code></pre></div>
           <div class="file"><div class="file-head">component.ts</div><pre><code class="hljs language-typescript">${hl('typescript', QUICK_COMPONENT)}</code></pre></div>
+          <div class="file"><div class="file-head">terminal — ${t('query any page, no install', '설치 없이 아무 페이지나 조회')}</div><pre><code class="hljs language-bash">${hl('bash', QUICK_CLI)}</code></pre></div>
         </div>
 
         <div class="section-title">
