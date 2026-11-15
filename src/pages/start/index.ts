@@ -102,7 +102,7 @@ document.querySelector<any>('#app').connect({
 
 // 에디터 지원 — 패키지에 들어 있는 swc-lsp (packages/@dooboostore/simple-web-component/lsp). 자세한 건 lsp/README.md
 const VSCODE_MARKETPLACE_URL = 'https://marketplace.visualstudio.com/items?itemName=dooboostore.simple-web-component-lsp';
-const JETBRAINS_MARKETPLACE_URL = 'https://plugins.jetbrains.com/search?search=Simple%20Web%20Component';
+const JETBRAINS_MARKETPLACE_URL = 'https://plugins.jetbrains.com/plugin/36155-simple-web-component';
 const LSP_README_URL = 'https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/simple-web-component/lsp';
 const EDITOR_FEATURES: Array<[string, string]> = [
   ['Tag, attribute, <code>@state@</code> and <code>$host.</code> completion inside templates', '템플릿 안에서 태그·속성·<code>@state@</code>·<code>$host.</code> 자동완성'],
