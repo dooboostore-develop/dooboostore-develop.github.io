@@ -102,6 +102,7 @@ document.querySelector<any>('#app').connect({
 
 // 에디터 지원 — 패키지에 들어 있는 swc-lsp (packages/@dooboostore/simple-web-component/lsp). 자세한 건 lsp/README.md
 const VSCODE_MARKETPLACE_URL = 'https://marketplace.visualstudio.com/items?itemName=dooboostore.simple-web-component-lsp';
+const JETBRAINS_MARKETPLACE_URL = 'https://plugins.jetbrains.com/search?search=Simple%20Web%20Component';
 const LSP_README_URL = 'https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/simple-web-component/lsp';
 const EDITOR_FEATURES: Array<[string, string]> = [
   ['Tag, attribute, <code>@state@</code> and <code>$host.</code> completion inside templates', '템플릿 안에서 태그·속성·<code>@state@</code>·<code>$host.</code> 자동완성'],
@@ -112,15 +113,12 @@ const EDITOR_FEATURES: Array<[string, string]> = [
 const EDITORS: Array<{ icon: string; name: string; note: [string, string]; file: string; lang: string; code: string }> = [
   {
     icon: 'fa-solid fa-lightbulb', name: 'IntelliJ IDEA / WebStorm',
-    note: ['<b>Settings → Languages & Frameworks → Language Servers → +</b>, channel <code>stdio</code>. Completion, hover and errors work. Cmd+Click and parameter hints inside templates don\'t yet — IntelliJ treats template HTML as injected HTML and its LSP client doesn\'t navigate there.',
-      '<b>Settings → Languages & Frameworks → Language Servers → +</b>, 채널 <code>stdio</code>. 자동완성·hover·에러는 됩니다. 템플릿 안 Cmd+클릭·파라미터 정보는 아직 안 돼요 — IntelliJ가 템플릿 HTML을 주입(injected) HTML로 다뤄서, 내장 LSP 클라이언트가 그 안에선 이동하지 않아요.'],
-    file: 'Language Servers', lang: 'bash',
-    code: `# Executable path  (absolute — the IDE often doesn't see your shell PATH)
-$(which node)
-# Arguments
-<project>/node_modules/@dooboostore/simple-web-component/lsp/bin/swc-lsp.js --stdio
-# File name patterns
-*.ts  *.html`,
+    note: [`Everything works — Cmd+Click and Cmd+P inside templates too — plus SWC syntax coloring. Install <b>Simple Web Component</b> from the <a href="${JETBRAINS_MARKETPLACE_URL}" target="_blank" rel="noopener" style="color:#FF6B86">JetBrains Marketplace</a> (2026.1+). It starts the server inside your project's <code>@dooboostore/simple-web-component</code> with the Node.js from Settings.`,
+      `템플릿 안 Cmd+클릭·Cmd+P까지 전부 되고, SWC 문법 색칠도 붙어요. <a href="${JETBRAINS_MARKETPLACE_URL}" target="_blank" rel="noopener" style="color:#FF6B86">JetBrains 마켓플레이스</a>에서 <b>Simple Web Component</b>를 설치하세요 (2026.1+). 프로젝트의 <code>@dooboostore/simple-web-component</code> 안에 든 서버를 Settings의 Node.js로 띄워요.`],
+    file: 'Settings', lang: 'bash',
+    code: `# Settings → Plugins → Marketplace
+"Simple Web Component"  → Install
+# then open your project — the {} widget in the status bar shows the server`,
   },
   {
     icon: 'fa-solid fa-code', name: 'VS Code',
