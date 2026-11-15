@@ -101,7 +101,7 @@ document.querySelector<any>('#app').connect({
 ];
 
 // 에디터 지원 — 패키지에 들어 있는 swc-lsp (packages/@dooboostore/simple-web-component/lsp). 자세한 건 lsp/README.md
-const VSCODE_VSIX_URL = 'https://github.com/dooboostore-develop/packages/releases/tag/swc-lsp-vscode-v0.1.0';
+const VSCODE_MARKETPLACE_URL = 'https://marketplace.visualstudio.com/items?itemName=dooboostore.simple-web-component-lsp';
 const LSP_README_URL = 'https://github.com/dooboostore-develop/packages/tree/main/@dooboostore/simple-web-component/lsp';
 const EDITOR_FEATURES: Array<[string, string]> = [
   ['Tag, attribute, <code>@state@</code> and <code>$host.</code> completion inside templates', '템플릿 안에서 태그·속성·<code>@state@</code>·<code>$host.</code> 자동완성'],
@@ -124,12 +124,11 @@ $(which node)
   },
   {
     icon: 'fa-solid fa-code', name: 'VS Code',
-    note: [`Everything works, plus SWC syntax coloring. Install the extension from <a href="${VSCODE_VSIX_URL}" target="_blank" rel="noopener" style="color:#FF6B86">GitHub Releases</a> — it starts the server inside your project's <code>@dooboostore/simple-web-component</code>, so the two always match.`,
-      `전부 되고, SWC 문법 색칠까지 붙어요. 확장은 <a href="${VSCODE_VSIX_URL}" target="_blank" rel="noopener" style="color:#FF6B86">GitHub Releases</a>에서 받으세요 — 프로젝트의 <code>@dooboostore/simple-web-component</code> 안에 든 서버를 띄우니 버전이 늘 맞아요.`],
+    note: [`Everything works, plus SWC syntax coloring. Install <b>Simple Web Component</b> from the <a href="${VSCODE_MARKETPLACE_URL}" target="_blank" rel="noopener" style="color:#FF6B86">Marketplace</a> — it starts the server inside your project's <code>@dooboostore/simple-web-component</code>, so the two always match.`,
+      `전부 되고, SWC 문법 색칠까지 붙어요. <a href="${VSCODE_MARKETPLACE_URL}" target="_blank" rel="noopener" style="color:#FF6B86">마켓플레이스</a>에서 <b>Simple Web Component</b>를 설치하세요 — 프로젝트의 <code>@dooboostore/simple-web-component</code> 안에 든 서버를 띄우니 버전이 늘 맞아요.`],
     file: 'terminal', lang: 'bash',
-    code: `# download simple-web-component-lsp-0.1.0.vsix, then
-code --install-extension simple-web-component-lsp-0.1.0.vsix
-# or: Extensions panel → ··· → Install from VSIX…`,
+    code: `code --install-extension dooboostore.simple-web-component-lsp
+# or: Extensions panel → search "Simple Web Component"`,
   },
   {
     icon: 'fa-solid fa-terminal', name: 'Neovim 0.11+',
